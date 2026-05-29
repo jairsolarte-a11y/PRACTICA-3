@@ -7,6 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "i2c_master.c" 2
+# 10 "i2c_master.c"
 # 1 "./i2c_master.h" 1
 
 
@@ -5917,61 +5918,144 @@ unsigned char __t3rd16on(void);
 # 5 "./system.h" 2
 # 5 "./i2c_master.h" 2
 
+
 void I2C_Master_Init(uint32_t clock_hz);
 void I2C_Master_Start(void);
+void I2C_Master_RepeatedStart(void);
 void I2C_Master_Stop(void);
 uint8_t I2C_Master_Write(uint8_t data);
-# 2 "i2c_master.c" 2
-# 13 "i2c_master.c"
+uint8_t I2C_Master_Read(uint8_t ack);
+# 11 "i2c_master.c" 2
+
 static void I2C_Master_Wait(void)
 {
-    while ((SSPCON2 & 0x1F) || SSPSTATbits.R_nW);
+    while ((SSPCON2 & 0x1F) || (SSPSTAT & 0x04))
+    {
+        ;
+    }
 }
 
 void I2C_Master_Init(uint32_t clock_hz)
 {
-    (void)clock_hz;
+
+
+
+
+
+
 
     TRISBbits.TRISB0 = 1;
     TRISBbits.TRISB1 = 1;
 
-    SSPSTAT = 0x80;
-    SSPCON1 = 0b00101000;
+    SSPCON1 = 0x00;
     SSPCON2 = 0x00;
+    SSPSTAT = 0x00;
 
-    SSPADD = 119u;
 
-    PIR1bits.SSPIF = 0;
+
+
+
+
+    SSPCON1 = 0x28;
+
+
+
+
+    SSPSTATbits.SMP = 1;
+
+
+
+
+
+    SSPADD = (uint8_t)((8000000UL / (4UL * clock_hz)) - 1UL);
 }
 
 void I2C_Master_Start(void)
 {
     I2C_Master_Wait();
-
     SSPCON2bits.SEN = 1;
 
-    while (SSPCON2bits.SEN);
+    while (SSPCON2bits.SEN)
+    {
+        ;
+    }
+}
+
+void I2C_Master_RepeatedStart(void)
+{
+    I2C_Master_Wait();
+    SSPCON2bits.RSEN = 1;
+
+    while (SSPCON2bits.RSEN)
+    {
+        ;
+    }
 }
 
 void I2C_Master_Stop(void)
 {
     I2C_Master_Wait();
-
     SSPCON2bits.PEN = 1;
 
-    while (SSPCON2bits.PEN);
+    while (SSPCON2bits.PEN)
+    {
+        ;
+    }
 }
 
 uint8_t I2C_Master_Write(uint8_t data)
 {
     I2C_Master_Wait();
 
-    PIR1bits.SSPIF = 0;
     SSPBUF = data;
 
-    while (!PIR1bits.SSPIF);
+    while (!PIR1bits.SSPIF)
+    {
+        ;
+    }
 
     PIR1bits.SSPIF = 0;
 
+
+
+
+
+
     return SSPCON2bits.ACKSTAT;
+}
+
+uint8_t I2C_Master_Read(uint8_t ack)
+{
+    uint8_t data;
+
+    I2C_Master_Wait();
+
+    SSPCON2bits.RCEN = 1;
+
+    while (!SSPSTATbits.BF)
+    {
+        ;
+    }
+
+    data = SSPBUF;
+
+    I2C_Master_Wait();
+
+    if (ack)
+    {
+        SSPCON2bits.ACKDT = 0;
+    }
+    else
+    {
+        SSPCON2bits.ACKDT = 1;
+    }
+
+    SSPCON2bits.ACKEN = 1;
+
+    while (SSPCON2bits.ACKEN)
+    {
+        ;
+    }
+
+    return data;
 }

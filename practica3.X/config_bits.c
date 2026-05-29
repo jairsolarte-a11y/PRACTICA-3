@@ -2,7 +2,7 @@
 
 /*
    PIC18F4550
-   MPLAB X IDE v6.30
+   MPLAB X IDE
    XC8
    Oscilador interno 8 MHz
 */

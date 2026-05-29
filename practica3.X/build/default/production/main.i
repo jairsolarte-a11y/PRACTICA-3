@@ -7,6 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
+# 17 "main.c"
 # 1 "./system.h" 1
 
 
@@ -5911,8 +5912,9 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 2 "main.c" 2
+# 18 "main.c" 2
 # 1 "./i2c_master.h" 1
+
 
 
 
@@ -5920,27 +5922,45 @@ unsigned char __t3rd16on(void);
 
 void I2C_Master_Init(uint32_t clock_hz);
 void I2C_Master_Start(void);
+void I2C_Master_RepeatedStart(void);
 void I2C_Master_Stop(void);
 uint8_t I2C_Master_Write(uint8_t data);
-# 3 "main.c" 2
+uint8_t I2C_Master_Read(uint8_t ack);
+# 19 "main.c" 2
 # 1 "./ssd1306.h" 1
-# 19 "./ssd1306.h"
+# 16 "./ssd1306.h"
 void SSD1306_Init(void);
 void SSD1306_ClearDisplay(void);
 void SSD1306_ClearLine(uint8_t page);
 void SSD1306_SetCursor(uint8_t column, uint8_t page);
 void SSD1306_WriteChar(char c);
 void SSD1306_WriteString(const char *str);
-# 4 "main.c" 2
-# 15 "main.c"
+# 20 "main.c" 2
+# 39 "main.c"
 static void System_Init(void);
-static void OLED_Show_Message(void);
+
+static void LEDs_Init(void);
+static void LED_Power_On(void);
+static void LED_Status_On(void);
+static void LED_Status_Off(void);
+static void LED_Wait_On(void);
+static void LED_Wait_Off(void);
 
 void main(void)
 {
     System_Init();
 
-    OLED_Show_Message();
+    SSD1306_SetCursor(10, 0);
+    SSD1306_WriteString("Signos Vitales");
+
+    SSD1306_SetCursor(10, 2);
+    SSD1306_WriteString("OLED OK");
+
+    SSD1306_SetCursor(10, 4);
+    SSD1306_WriteString("LEDs OK");
+
+    SSD1306_SetCursor(10, 6);
+    SSD1306_WriteString("En espera");
 
     while (1)
     {
@@ -5948,7 +5968,9 @@ void main(void)
 
 
 
-        _delay((unsigned long)((1000)*(8000000UL/4000.0)));
+
+
+        __nop();
     }
 }
 
@@ -5962,10 +5984,40 @@ static void System_Init(void)
 
 
 
+    ADCON1 = 0x0F;
+
+
+
+
     CMCON = 0x07;
     CVRCON = 0x00;
 
 
+
+
+    LATA = 0x00;
+    LATB = 0x00;
+    LATC = 0x00;
+    LATD = 0x00;
+    LATE = 0x00;
+
+
+
+
+    TRISA = 0xFF;
+    TRISB = 0xFF;
+    TRISC = 0xFF;
+    TRISD = 0xFF;
+    TRISE = 0xFF;
+
+
+
+
+    LEDs_Init();
+
+    LED_Power_On();
+    LED_Status_Off();
+    LED_Wait_On();
 
 
 
@@ -5973,12 +6025,41 @@ static void System_Init(void)
     I2C_Master_Init(100000UL);
 
     SSD1306_Init();
+    SSD1306_ClearDisplay();
 }
 
-static void OLED_Show_Message(void)
+static void LEDs_Init(void)
 {
-    SSD1306_ClearDisplay();
+    TRISDbits.TRISD0 = 0;
+    TRISDbits.TRISD1 = 0;
+    TRISDbits.TRISD2 = 0;
 
-    SSD1306_SetCursor(8u, 3);
-    SSD1306_WriteString("practica 3");
+    LATDbits.LATD0 = 0;
+    LATDbits.LATD1 = 0;
+    LATDbits.LATD2 = 0;
+}
+
+static void LED_Power_On(void)
+{
+    LATDbits.LATD0 = 1;
+}
+
+static void LED_Status_On(void)
+{
+    LATDbits.LATD1 = 1;
+}
+
+static void LED_Status_Off(void)
+{
+    LATDbits.LATD1 = 0;
+}
+
+static void LED_Wait_On(void)
+{
+    LATDbits.LATD2 = 1;
+}
+
+static void LED_Wait_Off(void)
+{
+    LATDbits.LATD2 = 0;
 }

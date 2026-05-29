@@ -6,9 +6,6 @@
 /*
    Direccion I2C de 8 bits para escritura.
 
-   Si tu pantalla usa 0x78, deja esta linea activa.
-   Si tu pantalla usa 0x7A, comenta 0x78 y activa 0x7A.
-
    0x78 equivale a direccion 7 bits 0x3C.
    0x7A equivale a direccion 7 bits 0x3D.
 */

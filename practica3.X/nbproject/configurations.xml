@@ -166,6 +166,9 @@
       <Simulator>
         <property key="periphADC1.minTacq" value="5"/>
       </Simulator>
+      <Tool>
+        <property key="periphADC1.minTacq" value="5"/>
+      </Tool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
         <property key="stack-guidance" value="false"/>

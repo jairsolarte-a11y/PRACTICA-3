@@ -5916,7 +5916,7 @@ unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
 # 5 "./ssd1306.h" 2
-# 19 "./ssd1306.h"
+# 16 "./ssd1306.h"
 void SSD1306_Init(void);
 void SSD1306_ClearDisplay(void);
 void SSD1306_ClearLine(uint8_t page);
@@ -5930,10 +5930,13 @@ void SSD1306_WriteString(const char *str);
 
 
 
+
 void I2C_Master_Init(uint32_t clock_hz);
 void I2C_Master_Start(void);
+void I2C_Master_RepeatedStart(void);
 void I2C_Master_Stop(void);
 uint8_t I2C_Master_Write(uint8_t data);
+uint8_t I2C_Master_Read(uint8_t ack);
 # 3 "ssd1306.c" 2
 
 static uint8_t oled_column = 0;
