@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "uart.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 295 "<built-in>" 3
@@ -6,8 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 22 "main.c"
+# 1 "uart.c" 2
 # 1 "./system.h" 1
 
 
@@ -5912,30 +5911,7 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 23 "main.c" 2
-# 1 "./i2c_master.h" 1
-
-
-
-
-
-
-void I2C_Master_Init(uint32_t clock_hz);
-void I2C_Master_Start(void);
-void I2C_Master_RepeatedStart(void);
-void I2C_Master_Stop(void);
-uint8_t I2C_Master_Write(uint8_t data);
-uint8_t I2C_Master_Read(uint8_t ack);
-# 24 "main.c" 2
-# 1 "./ssd1306.h" 1
-# 16 "./ssd1306.h"
-void SSD1306_Init(void);
-void SSD1306_ClearDisplay(void);
-void SSD1306_ClearLine(uint8_t page);
-void SSD1306_SetCursor(uint8_t column, uint8_t page);
-void SSD1306_WriteChar(char c);
-void SSD1306_WriteString(const char *str);
-# 25 "main.c" 2
+# 2 "uart.c" 2
 # 1 "./uart.h" 1
 
 
@@ -5948,45 +5924,30 @@ void UART_WriteChar(char data);
 void UART_WriteString(const char *text);
 void UART_WriteLine(const char *text);
 void UART_WriteUInt16(uint16_t value);
-# 26 "main.c" 2
-# 45 "main.c"
-static void System_Init(void);
-
-static void LEDs_Init(void);
-static void LED_Power_On(void);
-static void LED_Status_On(void);
-static void LED_Status_Off(void);
-static void LED_Wait_On(void);
-static void LED_Wait_Off(void);
-
-void main(void)
+# 3 "uart.c" 2
+# 14 "uart.c"
+void UART_Init(void)
 {
-    System_Init();
 
 
 
 
-
-    UART_WriteLine("Sistema iniciado");
-    UART_WriteLine("OLED funcionando");
-    UART_WriteLine("LEDs indicadores activos");
-    UART_WriteLine("UART funcionando a 9600 baudios");
-    UART_WriteLine("Sistema en espera");
+    TRISCbits.TRISC6 = 0;
+    TRISCbits.TRISC7 = 1;
 
 
 
 
-    SSD1306_SetCursor(10, 0);
-    SSD1306_WriteString("Signos Vitales");
+    TXSTA = 0x00;
+    RCSTA = 0x00;
+    BAUDCON = 0x00;
 
-    SSD1306_SetCursor(10, 2);
-    SSD1306_WriteString("OLED OK");
 
-    SSD1306_SetCursor(10, 4);
-    SSD1306_WriteString("UART OK");
 
-    SSD1306_SetCursor(10, 6);
-    SSD1306_WriteString("En espera");
+
+    TXSTAbits.SYNC = 0;
+    TXSTAbits.BRGH = 1;
+    BAUDCONbits.BRG16 = 1;
 
 
 
@@ -5994,120 +5955,63 @@ void main(void)
 
 
 
-    LED_Power_On();
-    LED_Status_Off();
-    LED_Wait_On();
+    SPBRGH = (unsigned char)((((8000000UL / (4UL * 9600UL)) - 1UL) >> 8) & 0xFF);
+    SPBRG = (unsigned char)(((8000000UL / (4UL * 9600UL)) - 1UL) & 0xFF);
 
-    while (1)
+
+
+
+    RCSTAbits.SPEN = 1;
+    TXSTAbits.TXEN = 1;
+    RCSTAbits.CREN = 1;
+}
+
+void UART_WriteChar(char data)
+{
+    while (!PIR1bits.TXIF)
     {
+        ;
+    }
 
+    TXREG = data;
+}
 
-
-
-
-        __nop();
+void UART_WriteString(const char *text)
+{
+    while (*text != '\0')
+    {
+        UART_WriteChar(*text);
+        text++;
     }
 }
 
-static void System_Init(void)
+void UART_WriteLine(const char *text)
 {
-
-
-
-    OSCCON = 0x72;
-
-
-
-
-    ADCON1 = 0x0F;
-
-
-
-
-    CMCON = 0x07;
-    CVRCON = 0x00;
-
-
-
-
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
-    LATD = 0x00;
-    LATE = 0x00;
-
-
-
-
-
-    TRISA = 0xFF;
-    TRISB = 0xFF;
-    TRISC = 0xFF;
-    TRISD = 0xFF;
-    TRISE = 0xFF;
-
-
-
-
-    LEDs_Init();
-
-
-
-
-
-
-    UART_Init();
-
-
-
-
-    I2C_Master_Init(100000UL);
-
-
-
-
-    SSD1306_Init();
-    SSD1306_ClearDisplay();
+    UART_WriteString(text);
+    UART_WriteString("\r\n");
 }
 
-static void LEDs_Init(void)
+void UART_WriteUInt16(uint16_t value)
 {
+    char temp[6];
+    uint8_t i = 0;
 
+    if (value == 0)
+    {
+        UART_WriteChar('0');
+        return;
+    }
 
+    while (value > 0)
+    {
+        temp[i] = (char)('0' + (value % 10));
+        value /= 10;
+        i++;
+    }
 
-    TRISDbits.TRISD0 = 0;
-    TRISDbits.TRISD1 = 0;
-    TRISDbits.TRISD2 = 0;
-
-
-
-
-    LATDbits.LATD0 = 0;
-    LATDbits.LATD1 = 0;
-    LATDbits.LATD2 = 0;
-}
-
-static void LED_Power_On(void)
-{
-    LATDbits.LATD0 = 1;
-}
-
-static void LED_Status_On(void)
-{
-    LATDbits.LATD1 = 1;
-}
-
-static void LED_Status_Off(void)
-{
-    LATDbits.LATD1 = 0;
-}
-
-static void LED_Wait_On(void)
-{
-    LATDbits.LATD2 = 1;
-}
-
-static void LED_Wait_Off(void)
-{
-    LATDbits.LATD2 = 0;
+    while (i > 0)
+    {
+        i--;
+        UART_WriteChar(temp[i]);
+    }
 }

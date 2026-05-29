@@ -4,19 +4,25 @@
  * Microcontrolador: PIC18F4550
  * Compilador: XC8
  *
- * Commit 2:
- * Se agregan indicadores LED del sistema directamente en main.c.
+ * Commit 3:
+ * Se agrega comunicacion UART para monitoreo serial.
  *
  * Funcionalidades actuales:
  * - OLED SSD1306 por I2C.
- * - LED de sistema encendido en RD0.
- * - LED de sistema funcional en RD1.
- * - LED de espera en RD2.
+ * - LEDs indicadores en RD0, RD1 y RD2.
+ * - UART hacia computador a 9600 baudios.
+ *
+ * Todavia no se agregan:
+ * - MAX30102.
+ * - DS18B20.
+ * - Calculo de BPM.
+ * - Lectura de temperatura.
  */
 
 #include "system.h"
 #include "i2c_master.h"
 #include "ssd1306.h"
+#include "uart.h"
 
 /*
  * LEDs indicadores:
@@ -49,6 +55,19 @@ void main(void)
 {
     System_Init();
 
+    /*
+     * Mensajes enviados al computador por UART.
+     * Sirven para verificar que la comunicacion serial funciona.
+     */
+    UART_WriteLine("Sistema iniciado");
+    UART_WriteLine("OLED funcionando");
+    UART_WriteLine("LEDs indicadores activos");
+    UART_WriteLine("UART funcionando a 9600 baudios");
+    UART_WriteLine("Sistema en espera");
+
+    /*
+     * Mensajes mostrados en la pantalla OLED.
+     */
     SSD1306_SetCursor(10, 0);
     SSD1306_WriteString("Signos Vitales");
 
@@ -56,18 +75,27 @@ void main(void)
     SSD1306_WriteString("OLED OK");
 
     SSD1306_SetCursor(10, 4);
-    SSD1306_WriteString("LEDs OK");
+    SSD1306_WriteString("UART OK");
 
     SSD1306_SetCursor(10, 6);
     SSD1306_WriteString("En espera");
+
+    /*
+     * Estados iniciales de LEDs:
+     * RD0 encendido: firmware iniciado.
+     * RD1 apagado: sensores aun no validados.
+     * RD2 encendido: sistema en espera.
+     */
+    LED_Power_On();
+    LED_Status_Off();
+    LED_Wait_On();
 
     while (1)
     {
         /*
          * En este commit el sistema queda en espera.
-         * RD0 queda encendido.
-         * RD1 queda apagado.
-         * RD2 queda encendido.
+         * La UART ya queda disponible para enviar mensajes
+         * en los siguientes commits.
          */
         NOP();
     }
@@ -102,6 +130,7 @@ static void System_Init(void)
 
     /*
      * Inicialmente todos los puertos como entrada.
+     * Luego cada modulo configura los pines que necesita.
      */
     TRISA = 0xFF;
     TRISB = 0xFF;
@@ -114,25 +143,37 @@ static void System_Init(void)
      */
     LEDs_Init();
 
-    LED_Power_On();
-    LED_Status_Off();
-    LED_Wait_On();
+    /*
+     * Inicializacion UART.
+     * RC6 = TX
+     * RC7 = RX
+     */
+    UART_Init();
 
     /*
-     * Inicializacion del bus I2C y OLED.
+     * Inicializacion del bus I2C a 100 kHz.
      */
     I2C_Master_Init(100000UL);
 
+    /*
+     * Inicializacion de la pantalla OLED.
+     */
     SSD1306_Init();
     SSD1306_ClearDisplay();
 }
 
 static void LEDs_Init(void)
 {
+    /*
+     * RD0, RD1 y RD2 como salidas digitales.
+     */
     LED_POWER_TRIS = 0;
     LED_STATUS_TRIS = 0;
     LED_WAIT_TRIS = 0;
 
+    /*
+     * Estado inicial: todos apagados.
+     */
     LED_POWER_LAT = LED_OFF;
     LED_STATUS_LAT = LED_OFF;
     LED_WAIT_LAT = LED_OFF;

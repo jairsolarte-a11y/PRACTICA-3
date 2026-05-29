@@ -38,10 +38,7 @@ void UART_Init(void)
      * Carga valor para 9600 baudios.
      *
      * Si _XTAL_FREQ = 8000000:
-     *   UART_SPBRG_VALUE = 207
-     *
-     * Si _XTAL_FREQ = 48000000:
-     *   UART_SPBRG_VALUE = 1249
+     * UART_SPBRG_VALUE = 207
      */
     SPBRGH = (unsigned char)((UART_SPBRG_VALUE >> 8) & 0xFF);
     SPBRG  = (unsigned char)(UART_SPBRG_VALUE & 0xFF);

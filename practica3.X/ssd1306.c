@@ -318,3 +318,4 @@ void SSD1306_Init(void)
 
     SSD1306_ClearDisplay();
 }
+
