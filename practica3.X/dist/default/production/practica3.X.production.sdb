@@ -77,32 +77,36 @@
 [v _I2C_Master_Write I2C_Master_Write `(uc  1 e 1 0 ]
 "109
 [v _I2C_Master_Read I2C_Master_Read `(uc  1 e 1 0 ]
-"72 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+"98 C:\2026\Microcontroladores\practica3\practica3.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"181
+"239
 [v _System_Init System_Init `(v  1 s 1 System_Init ]
-"247
+"305
 [v _LEDs_Init LEDs_Init `(v  1 s 1 LEDs_Init ]
-"264
+"322
 [v _LED_Power_On LED_Power_On `(v  1 s 1 LED_Power_On ]
-"269
+"327
 [v _LED_Status_On LED_Status_On `(v  1 s 1 LED_Status_On ]
-"274
+"332
 [v _LED_Status_Off LED_Status_Off `(v  1 s 1 LED_Status_Off ]
-"279
+"337
 [v _LED_Wait_On LED_Wait_On `(v  1 s 1 LED_Wait_On ]
-"284
+"342
 [v _LED_Wait_Off LED_Wait_Off `(v  1 s 1 LED_Wait_Off ]
-"289
+"347
+[v _LED_Wait_Update LED_Wait_Update `(v  1 s 1 LED_Wait_Update ]
+"359
+[v _Is_Finger_Detected Is_Finger_Detected `(uc  1 s 1 Is_Finger_Detected ]
+"388
 [v _UInt16_ToString UInt16_ToString `(v  1 s 1 UInt16_ToString ]
-"319
+"418
 [v _UInt32_ToString UInt32_ToString `(v  1 s 1 UInt32_ToString ]
-"349
-[v _Show_Red_Ir_On_OLED Show_Red_Ir_On_OLED `(v  1 s 1 Show_Red_Ir_On_OLED ]
-"372
+"448
+[v _Show_Finger_Status_On_OLED Show_Finger_Status_On_OLED `(v  1 s 1 Show_Finger_Status_On_OLED ]
+"481
 [v _Send_Header_By_UART Send_Header_By_UART `(v  1 s 1 Send_Header_By_UART ]
-"379
-[v _Send_Red_Ir_By_UART Send_Red_Ir_By_UART `(v  1 s 1 Send_Red_Ir_By_UART ]
+"488
+[v _Send_Finger_Status_By_UART Send_Finger_Status_By_UART `(v  1 s 1 Send_Finger_Status_By_UART ]
 "27 C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
 [v _MAX30102_WriteRegister MAX30102_WriteRegister `(v  1 s 1 MAX30102_WriteRegister ]
 "40
@@ -147,7 +151,7 @@
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "3261
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
-[s S176 . 1 `uc 1 LATD0 1 0 :1:0 
+[s S188 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -157,7 +161,7 @@
 `uc 1 LATD7 1 0 :1:7 
 ]
 "3288
-[s S185 . 1 `uc 1 LD0 1 0 :1:0 
+[s S197 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -166,15 +170,15 @@
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S194 . 1 `S176 1 . 1 0 `S185 1 . 1 0 ]
-[v _LATDbits LATDbits `VES194  1 e 1 @3980 ]
+[u S206 . 1 `S188 1 . 1 0 `S197 1 . 1 0 ]
+[v _LATDbits LATDbits `VES206  1 e 1 @3980 ]
 "3373
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
 "3425
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "3623
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-[s S305 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S333 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -184,7 +188,7 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "3655
-[s S314 . 1 `uc 1 RB0 1 0 :1:0 
+[s S342 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -193,11 +197,11 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S323 . 1 `S305 1 . 1 0 `S314 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES323  1 e 1 @3987 ]
+[u S351 . 1 `S333 1 . 1 0 `S342 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES351  1 e 1 @3987 ]
 "3845
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-[s S627 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S655 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -205,18 +209,18 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "3873
-[s S634 . 1 `uc 1 RC0 1 0 :1:0 
+[s S662 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S641 . 1 `S627 1 . 1 0 `S634 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES641  1 e 1 @3988 ]
+[u S669 . 1 `S655 1 . 1 0 `S662 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES669  1 e 1 @3988 ]
 "3999
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S136 . 1 `uc 1 TRISD0 1 0 :1:0 
+[s S148 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -226,7 +230,7 @@
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "4031
-[s S145 . 1 `uc 1 RD0 1 0 :1:0 
+[s S157 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -235,11 +239,11 @@
 `uc 1 RD6 1 0 :1:6 
 `uc 1 RD7 1 0 :1:7 
 ]
-[u S154 . 1 `S136 1 . 1 0 `S145 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES154  1 e 1 @3989 ]
+[u S166 . 1 `S148 1 . 1 0 `S157 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES166  1 e 1 @3989 ]
 "4221
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
-[s S510 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S538 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -249,17 +253,17 @@
 `uc 1 SPPIF 1 0 :1:7 
 ]
 "4490
-[s S519 . 1 `uc 1 . 1 0 :4:0 
+[s S547 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 PSPIF 1 0 :1:7 
 ]
-[u S525 . 1 `S510 1 . 1 0 `S519 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES525  1 e 1 @3998 ]
+[u S553 . 1 `S538 1 . 1 0 `S547 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES553  1 e 1 @3998 ]
 "4934
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
-[s S762 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S790 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -269,25 +273,25 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4975
-[s S771 . 1 `uc 1 . 1 0 :3:0 
+[s S799 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S774 . 1 `uc 1 . 1 0 :5:0 
+[s S802 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S777 . 1 `uc 1 . 1 0 :6:0 
+[s S805 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S780 . 1 `uc 1 . 1 0 :6:0 
+[s S808 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S783 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S811 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S785 . 1 `S762 1 . 1 0 `S771 1 . 1 0 `S774 1 . 1 0 `S777 1 . 1 0 `S780 1 . 1 0 `S783 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES785  1 e 1 @4011 ]
+[u S813 . 1 `S790 1 . 1 0 `S799 1 . 1 0 `S802 1 . 1 0 `S805 1 . 1 0 `S808 1 . 1 0 `S811 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES813  1 e 1 @4011 ]
 "5144
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
-[s S662 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S690 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -297,7 +301,7 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "5183
-[s S671 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S699 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -306,13 +310,13 @@
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S680 . 1 `uc 1 . 1 0 :6:0 
+[s S708 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S683 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S711 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S685 . 1 `S662 1 . 1 0 `S671 1 . 1 0 `S680 1 . 1 0 `S683 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES685  1 e 1 @4012 ]
+[u S713 . 1 `S690 1 . 1 0 `S699 1 . 1 0 `S708 1 . 1 0 `S711 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES713  1 e 1 @4012 ]
 "5400
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "5424
@@ -325,7 +329,7 @@
 [v _CVRCON CVRCON `VEuc  1 e 1 @4021 ]
 "6060
 [v _BAUDCON BAUDCON `VEuc  1 e 1 @4024 ]
-[s S714 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S742 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -335,24 +339,24 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "6096
-[s S723 . 1 `uc 1 . 1 0 :4:0 
+[s S751 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 . 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S728 . 1 `uc 1 . 1 0 :5:0 
+[s S756 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXCKP 1 0 :1:5 
 ]
-[s S731 . 1 `uc 1 . 1 0 :1:0 
+[s S759 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S734 . 1 `S714 1 . 1 0 `S723 1 . 1 0 `S728 1 . 1 0 `S731 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES734  1 e 1 @4024 ]
+[u S762 . 1 `S742 1 . 1 0 `S751 1 . 1 0 `S756 1 . 1 0 `S759 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES762  1 e 1 @4024 ]
 "6579
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "6804
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @4037 ]
-[s S488 . 1 `uc 1 SEN 1 0 :1:0 
+[s S516 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -362,20 +366,20 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "6821
-[u S497 . 1 `S488 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES497  1 e 1 @4037 ]
+[u S525 . 1 `S516 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES525  1 e 1 @4037 ]
 "6866
 [v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
 "6936
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
-[s S346 . 1 `uc 1 . 1 0 :2:0 
+[s S374 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "7019
-[s S349 . 1 `uc 1 . 1 0 :5:0 
+[s S377 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S352 . 1 `uc 1 BF 1 0 :1:0 
+[s S380 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -384,56 +388,56 @@
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S361 . 1 `uc 1 . 1 0 :2:0 
+[s S389 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S366 . 1 `uc 1 . 1 0 :2:0 
+[s S394 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S372 . 1 `uc 1 . 1 0 :2:0 
+[s S400 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S377 . 1 `uc 1 . 1 0 :2:0 
+[s S405 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S380 . 1 `uc 1 . 1 0 :5:0 
+[s S408 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S383 . 1 `uc 1 . 1 0 :2:0 
+[s S411 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S388 . 1 `uc 1 . 1 0 :2:0 
+[s S416 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S393 . 1 `uc 1 . 1 0 :2:0 
+[s S421 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S398 . 1 `uc 1 . 1 0 :2:0 
+[s S426 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
 `uc 1 STOP 1 0 :1:4 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S404 . 1 `uc 1 . 1 0 :2:0 
+[s S432 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 NOT_A 1 0 :1:5 
 ]
-[u S409 . 1 `S346 1 . 1 0 `S349 1 . 1 0 `S352 1 . 1 0 `S361 1 . 1 0 `S366 1 . 1 0 `S372 1 . 1 0 `S377 1 . 1 0 `S380 1 . 1 0 `S383 1 . 1 0 `S388 1 . 1 0 `S393 1 . 1 0 `S398 1 . 1 0 `S404 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES409  1 e 1 @4039 ]
+[u S437 . 1 `S374 1 . 1 0 `S377 1 . 1 0 `S380 1 . 1 0 `S389 1 . 1 0 `S394 1 . 1 0 `S400 1 . 1 0 `S405 1 . 1 0 `S408 1 . 1 0 `S411 1 . 1 0 `S416 1 . 1 0 `S421 1 . 1 0 `S426 1 . 1 0 `S432 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES437  1 e 1 @4039 ]
 "7184
 [v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
 "7191
@@ -446,27 +450,31 @@
 [v _oled_page oled_page `uc  1 s 1 oled_page ]
 "7
 [v _Font5x7 Font5x7 `C[480]uc  1 s 480 Font5x7 ]
-"72 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+"98 C:\2026\Microcontroladores\practica3\practica3.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"77
-[v main@ir_value ir_value `ul  1 a 4 65 ]
-"76
-[v main@red_value red_value `ul  1 a 4 61 ]
-"81
-[v main@uart_counter uart_counter `us  1 a 2 58 ]
-"80
-[v main@display_counter display_counter `us  1 a 2 56 ]
-"79
-[v main@sample sample `us  1 a 2 54 ]
-"74
-[v main@max_ok max_ok `uc  1 a 1 60 ]
-"179
+"103
+[v main@ir_value ir_value `ul  1 a 4 67 ]
+"102
+[v main@red_value red_value `ul  1 a 4 63 ]
+"110
+[v main@uart_counter uart_counter `us  1 a 2 59 ]
+"109
+[v main@display_counter display_counter `us  1 a 2 57 ]
+"108
+[v main@sample sample `us  1 a 2 55 ]
+"105
+[v main@finger_detected finger_detected `uc  1 a 1 71 ]
+"106
+[v main@previous_finger_detected previous_finger_detected `uc  1 a 1 62 ]
+"100
+[v main@max_ok max_ok `uc  1 a 1 61 ]
+"237
 } 0
-"181
+"239
 [v _System_Init System_Init `(v  1 s 1 System_Init ]
 {
-"245
+"303
 } 0
 "14 C:\2026\Microcontroladores\practica3\practica3.X\uart.c
 [v _UART_Init UART_Init `(v  1 e 1 0 ]
@@ -478,25 +486,20 @@
 {
 "320
 } 0
-"247 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+"305 C:\2026\Microcontroladores\practica3\practica3.X\main.c
 [v _LEDs_Init LEDs_Init `(v  1 s 1 LEDs_Init ]
 {
-"262
+"320
 } 0
-"279
-[v _LED_Wait_On LED_Wait_On `(v  1 s 1 LED_Wait_On ]
-{
-"282
-} 0
-"274
+"332
 [v _LED_Status_Off LED_Status_Off `(v  1 s 1 LED_Status_Off ]
 {
-"277
+"335
 } 0
-"264
+"322
 [v _LED_Power_On LED_Power_On `(v  1 s 1 LED_Power_On ]
 {
-"267
+"325
 } 0
 "20 C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
@@ -504,16 +507,22 @@
 [v I2C_Master_Init@clock_hz clock_hz `ul  1 p 4 13 ]
 "53
 } 0
-"349 C:\2026\Microcontroladores\practica3\practica3.X\main.c
-[v _Show_Red_Ir_On_OLED Show_Red_Ir_On_OLED `(v  1 s 1 Show_Red_Ir_On_OLED ]
+"448 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+[v _Show_Finger_Status_On_OLED Show_Finger_Status_On_OLED `(v  1 s 1 Show_Finger_Status_On_OLED ]
 {
-"351
-[v Show_Red_Ir_On_OLED@text text `[12]uc  1 a 12 39 ]
-"349
-[v Show_Red_Ir_On_OLED@red_value red_value `ul  1 p 4 31 ]
-[v Show_Red_Ir_On_OLED@ir_value ir_value `ul  1 p 4 35 ]
-"370
-} 0
+[v Show_Finger_Status_On_OLED@finger_detected finger_detected `uc  1 p 1 wreg ]
+"452
+[v Show_Finger_Status_On_OLED@text text `[12]uc  1 a 12 39 ]
+"448
+[v Show_Finger_Status_On_OLED@finger_detected finger_detected `uc  1 p 1 wreg ]
+"449
+[v Show_Finger_Status_On_OLED@red_value red_value `ul  1 p 4 31 ]
+"450
+[v Show_Finger_Status_On_OLED@ir_value ir_value `ul  1 p 4 35 ]
+"454
+[v Show_Finger_Status_On_OLED@finger_detected finger_detected `uc  1 p 1 51 ]
+"479
+} 1
 "264 C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
 [v _SSD1306_WriteString SSD1306_WriteString `(v  1 e 1 0 ]
 {
@@ -583,30 +592,39 @@
 [v SSD1306_Data@data data `uc  1 p 1 2 ]
 "135
 } 1
-"379 C:\2026\Microcontroladores\practica3\practica3.X\main.c
-[v _Send_Red_Ir_By_UART Send_Red_Ir_By_UART `(v  1 s 1 Send_Red_Ir_By_UART ]
+"481 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+[v _Send_Header_By_UART Send_Header_By_UART `(v  1 s 1 Send_Header_By_UART ]
 {
-"381
-[v Send_Red_Ir_By_UART@text text `[12]uc  1 a 12 41 ]
-"379
-[v Send_Red_Ir_By_UART@sample sample `us  1 p 2 31 ]
-[v Send_Red_Ir_By_UART@red_value red_value `ul  1 p 4 33 ]
-[v Send_Red_Ir_By_UART@ir_value ir_value `ul  1 p 4 37 ]
-"393
+"486
 } 0
-"319
+"488
+[v _Send_Finger_Status_By_UART Send_Finger_Status_By_UART `(v  1 s 1 Send_Finger_Status_By_UART ]
+{
+"493
+[v Send_Finger_Status_By_UART@text text `[12]uc  1 a 12 42 ]
+"488
+[v Send_Finger_Status_By_UART@sample sample `us  1 p 2 31 ]
+"489
+[v Send_Finger_Status_By_UART@finger_detected finger_detected `uc  1 p 1 33 ]
+"490
+[v Send_Finger_Status_By_UART@red_value red_value `ul  1 p 4 34 ]
+"491
+[v Send_Finger_Status_By_UART@ir_value ir_value `ul  1 p 4 38 ]
+"514
+} 0
+"418
 [v _UInt32_ToString UInt32_ToString `(v  1 s 1 UInt32_ToString ]
 {
-"321
+"420
 [v UInt32_ToString@temp temp `[11]uc  1 a 11 18 ]
-"322
+"421
 [v UInt32_ToString@i i `uc  1 a 1 30 ]
-"323
+"422
 [v UInt32_ToString@j j `uc  1 a 1 29 ]
-"319
+"418
 [v UInt32_ToString@value value `ul  1 p 4 13 ]
 [v UInt32_ToString@buffer buffer `*.30uc  1 p 1 17 ]
-"347
+"446
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
@@ -630,19 +648,19 @@
 [v ___lldiv@divisor divisor `ul  1 p 4 4 ]
 "30
 } 0
-"289 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+"388 C:\2026\Microcontroladores\practica3\practica3.X\main.c
 [v _UInt16_ToString UInt16_ToString `(v  1 s 1 UInt16_ToString ]
 {
-"291
+"390
 [v UInt16_ToString@temp temp `[6]uc  1 a 6 10 ]
-"292
+"391
 [v UInt16_ToString@i i `uc  1 a 1 17 ]
-"293
+"392
 [v UInt16_ToString@j j `uc  1 a 1 16 ]
-"289
+"388
 [v UInt16_ToString@value value `us  1 p 2 7 ]
 [v UInt16_ToString@buffer buffer `*.30uc  1 p 1 9 ]
-"317
+"416
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
@@ -665,11 +683,6 @@
 [v ___lwdiv@dividend dividend `ui  1 p 2 0 ]
 [v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
 "30
-} 0
-"372 C:\2026\Microcontroladores\practica3\practica3.X\main.c
-[v _Send_Header_By_UART Send_Header_By_UART `(v  1 s 1 Send_Header_By_UART ]
-{
-"377
 } 0
 "73 C:\2026\Microcontroladores\practica3\practica3.X\uart.c
 [v _UART_WriteLine UART_WriteLine `(v  1 e 1 0 ]
@@ -785,13 +798,35 @@
 {
 "18
 } 0
-"284 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+"347 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+[v _LED_Wait_Update LED_Wait_Update `(v  1 s 1 LED_Wait_Update ]
+{
+[v LED_Wait_Update@finger_detected finger_detected `uc  1 p 1 wreg ]
+[v LED_Wait_Update@finger_detected finger_detected `uc  1 p 1 wreg ]
+"349
+[v LED_Wait_Update@finger_detected finger_detected `uc  1 p 1 0 ]
+"357
+} 1
+"337
+[v _LED_Wait_On LED_Wait_On `(v  1 s 1 LED_Wait_On ]
+{
+"340
+} 0
+"342
 [v _LED_Wait_Off LED_Wait_Off `(v  1 s 1 LED_Wait_Off ]
 {
-"287
+"345
 } 0
-"269
+"327
 [v _LED_Status_On LED_Status_On `(v  1 s 1 LED_Status_On ]
 {
-"272
+"330
+} 0
+"359
+[v _Is_Finger_Detected Is_Finger_Detected `(uc  1 s 1 Is_Finger_Detected ]
+{
+[v Is_Finger_Detected@ir_value ir_value `ul  1 p 4 0 ]
+"361
+[v Is_Finger_Detected@finger_state finger_state `uc  1 s 1 finger_state ]
+"386
 } 0

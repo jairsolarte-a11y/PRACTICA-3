@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 23 "main.c"
+# 24 "main.c"
 # 1 "./system.h" 1
 
 
@@ -5912,7 +5912,7 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 24 "main.c" 2
+# 25 "main.c" 2
 # 1 "./i2c_master.h" 1
 
 
@@ -5926,7 +5926,7 @@ void I2C_Master_RepeatedStart(void);
 void I2C_Master_Stop(void);
 uint8_t I2C_Master_Write(uint8_t data);
 uint8_t I2C_Master_Read(uint8_t ack);
-# 25 "main.c" 2
+# 26 "main.c" 2
 # 1 "./ssd1306.h" 1
 # 16 "./ssd1306.h"
 void SSD1306_Init(void);
@@ -5935,7 +5935,7 @@ void SSD1306_ClearLine(uint8_t page);
 void SSD1306_SetCursor(uint8_t column, uint8_t page);
 void SSD1306_WriteChar(char c);
 void SSD1306_WriteString(const char *str);
-# 26 "main.c" 2
+# 27 "main.c" 2
 # 1 "./uart.h" 1
 
 
@@ -5948,7 +5948,7 @@ void UART_WriteChar(char data);
 void UART_WriteString(const char *text);
 void UART_WriteLine(const char *text);
 void UART_WriteUInt16(uint16_t value);
-# 27 "main.c" 2
+# 28 "main.c" 2
 # 1 "./max30102.h" 1
 
 
@@ -5960,8 +5960,8 @@ void UART_WriteUInt16(uint16_t value);
 
 uint8_t MAX30102_Init(void);
 uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value);
-# 28 "main.c" 2
-# 56 "main.c"
+# 29 "main.c" 2
+# 72 "main.c"
 static void System_Init(void);
 
 static void LEDs_Init(void);
@@ -5970,13 +5970,23 @@ static void LED_Status_On(void);
 static void LED_Status_Off(void);
 static void LED_Wait_On(void);
 static void LED_Wait_Off(void);
+static void LED_Wait_Update(uint8_t finger_detected);
+
+static uint8_t Is_Finger_Detected(uint32_t ir_value);
 
 static void UInt16_ToString(uint16_t value, char *buffer);
 static void UInt32_ToString(uint32_t value, char *buffer);
 
-static void Show_Red_Ir_On_OLED(uint32_t red_value, uint32_t ir_value);
+static void Show_Finger_Status_On_OLED(uint8_t finger_detected,
+                                       uint32_t red_value,
+                                       uint32_t ir_value);
+
 static void Send_Header_By_UART(void);
-static void Send_Red_Ir_By_UART(uint16_t sample, uint32_t red_value, uint32_t ir_value);
+
+static void Send_Finger_Status_By_UART(uint16_t sample,
+                                       uint8_t finger_detected,
+                                       uint32_t red_value,
+                                       uint32_t ir_value);
 
 void main(void)
 {
@@ -5985,23 +5995,20 @@ void main(void)
     uint32_t red_value = 0;
     uint32_t ir_value = 0;
 
+    uint8_t finger_detected = 0;
+    uint8_t previous_finger_detected = 0;
+
     uint16_t sample = 0;
     uint16_t display_counter = 0;
     uint16_t uart_counter = 0;
 
     System_Init();
 
-
-
-
     UART_WriteLine("Sistema iniciado");
     UART_WriteLine("OLED funcionando");
     UART_WriteLine("LEDs indicadores activos");
     UART_WriteLine("UART funcionando a 9600 baudios");
     UART_WriteLine("Verificando MAX30102...");
-
-
-
 
     max_ok = MAX30102_Init();
 
@@ -6037,7 +6044,7 @@ void main(void)
     LED_Wait_On();
 
     UART_WriteLine("MAX30102 detectado correctamente");
-    UART_WriteLine("Lectura RED e IR iniciada");
+    UART_WriteLine("Deteccion de dedo iniciada");
 
     Send_Header_By_UART();
 
@@ -6045,18 +6052,46 @@ void main(void)
     SSD1306_WriteString("Signos Vitales");
 
     SSD1306_SetCursor(10, 2);
-    SSD1306_WriteString("Leyendo MAX");
+    SSD1306_WriteString("Esperando dedo");
 
     SSD1306_SetCursor(10, 4);
-    SSD1306_WriteString("RED / IR");
+    SSD1306_WriteString("Use MAX30102");
 
     while (1)
     {
 
 
 
-
         MAX30102_ReadFIFO(&red_value, &ir_value);
+
+
+
+
+        finger_detected = Is_Finger_Detected(ir_value);
+
+
+
+
+
+
+        LED_Wait_Update(finger_detected);
+
+
+
+
+        if ((finger_detected == 1) && (previous_finger_detected == 0))
+        {
+            UART_WriteLine("");
+            UART_WriteLine("Dedo detectado");
+            Send_Header_By_UART();
+        }
+
+        if ((finger_detected == 0) && (previous_finger_detected == 1))
+        {
+            UART_WriteLine("");
+            UART_WriteLine("Dedo retirado");
+            Send_Header_By_UART();
+        }
 
 
 
@@ -6068,7 +6103,10 @@ void main(void)
             uart_counter = 0;
             sample++;
 
-            Send_Red_Ir_By_UART(sample, red_value, ir_value);
+            Send_Finger_Status_By_UART(sample,
+                                       finger_detected,
+                                       red_value,
+                                       ir_value);
         }
 
 
@@ -6080,8 +6118,12 @@ void main(void)
         {
             display_counter = 0;
 
-            Show_Red_Ir_On_OLED(red_value, ir_value);
+            Show_Finger_Status_On_OLED(finger_detected,
+                                       red_value,
+                                       ir_value);
         }
+
+        previous_finger_detected = finger_detected;
 
         _delay((unsigned long)((10u)*(8000000UL/4000.0)));
     }
@@ -6195,6 +6237,47 @@ static void LED_Wait_Off(void)
     LATDbits.LATD2 = 0;
 }
 
+static void LED_Wait_Update(uint8_t finger_detected)
+{
+    if (finger_detected == 0)
+    {
+        LED_Wait_On();
+    }
+    else
+    {
+        LED_Wait_Off();
+    }
+}
+
+static uint8_t Is_Finger_Detected(uint32_t ir_value)
+{
+    static uint8_t finger_state = 0;
+
+
+
+
+    if (finger_state == 0)
+    {
+        if (ir_value >= 30000UL)
+        {
+            finger_state = 1;
+        }
+    }
+
+
+
+
+    else
+    {
+        if (ir_value < 20000UL)
+        {
+            finger_state = 0;
+        }
+    }
+
+    return finger_state;
+}
+
 static void UInt16_ToString(uint16_t value, char *buffer)
 {
     char temp[6];
@@ -6255,19 +6338,27 @@ static void UInt32_ToString(uint32_t value, char *buffer)
     buffer[j] = '\0';
 }
 
-static void Show_Red_Ir_On_OLED(uint32_t red_value, uint32_t ir_value)
+static void Show_Finger_Status_On_OLED(uint8_t finger_detected,
+                                       uint32_t red_value,
+                                       uint32_t ir_value)
 {
     char text[12];
 
     SSD1306_ClearDisplay();
 
     SSD1306_SetCursor(10, 0);
-    SSD1306_WriteString("MAX30102 DATA");
+    SSD1306_WriteString("Signos Vitales");
 
     SSD1306_SetCursor(10, 2);
-    SSD1306_WriteString("RED:");
-    UInt32_ToString(red_value, text);
-    SSD1306_WriteString(text);
+
+    if (finger_detected)
+    {
+        SSD1306_WriteString("Dedo detectado");
+    }
+    else
+    {
+        SSD1306_WriteString("No detectado");
+    }
 
     SSD1306_SetCursor(10, 4);
     SSD1306_WriteString("IR:");
@@ -6275,23 +6366,37 @@ static void Show_Red_Ir_On_OLED(uint32_t red_value, uint32_t ir_value)
     SSD1306_WriteString(text);
 
     SSD1306_SetCursor(10, 6);
-    SSD1306_WriteString("Leyendo...");
+    SSD1306_WriteString("RED:");
+    UInt32_ToString(red_value, text);
+    SSD1306_WriteString(text);
 }
 
 static void Send_Header_By_UART(void)
 {
     UART_WriteLine("");
-    UART_WriteLine("Muestra\tRED\tIR");
-    UART_WriteLine("---------------------------");
+    UART_WriteLine("Muestra\tDedo\tRED\tIR");
+    UART_WriteLine("--------------------------------------");
 }
 
-static void Send_Red_Ir_By_UART(uint16_t sample, uint32_t red_value, uint32_t ir_value)
+static void Send_Finger_Status_By_UART(uint16_t sample,
+                                       uint8_t finger_detected,
+                                       uint32_t red_value,
+                                       uint32_t ir_value)
 {
     char text[12];
 
     UInt16_ToString(sample, text);
     UART_WriteString(text);
     UART_WriteString("\t");
+
+    if (finger_detected)
+    {
+        UART_WriteString("Detectado\t");
+    }
+    else
+    {
+        UART_WriteString("No detectado\t");
+    }
 
     UInt32_ToString(red_value, text);
     UART_WriteString(text);
