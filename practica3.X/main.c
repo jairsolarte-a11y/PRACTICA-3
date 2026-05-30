@@ -4,17 +4,17 @@
  * Microcontrolador: PIC18F4550
  * Compilador: XC8
  *
- * Commit 4:
- * Se agrega deteccion del sensor MAX30102 por I2C.
+ * Commit 5:
+ * Se agrega lectura de valores RED e IR del MAX30102.
  *
  * Funcionalidades actuales:
  * - OLED SSD1306 por I2C.
  * - LEDs indicadores en RD0, RD1 y RD2.
  * - UART hacia computador a 9600 baudios.
- * - Deteccion inicial del sensor MAX30102.
+ * - Deteccion inicial del MAX30102.
+ * - Lectura de valores RED e IR desde el FIFO del MAX30102.
  *
  * Todavia no se agrega:
- * - Lectura RED/IR del MAX30102.
  * - Deteccion de dedo.
  * - Calculo de BPM.
  * - Sensor DS18B20.
@@ -25,6 +25,15 @@
 #include "ssd1306.h"
 #include "uart.h"
 #include "max30102.h"
+
+#define LOOP_DELAY_MS               10u
+
+/*
+ * Actualizacion cada 1 segundo:
+ * 100 ciclos x 10 ms = 1000 ms.
+ */
+#define DISPLAY_UPDATE_COUNT        100u
+#define UART_UPDATE_COUNT           100u
 
 /*
  * LEDs indicadores:
@@ -53,9 +62,23 @@ static void LED_Status_Off(void);
 static void LED_Wait_On(void);
 static void LED_Wait_Off(void);
 
+static void UInt16_ToString(uint16_t value, char *buffer);
+static void UInt32_ToString(uint32_t value, char *buffer);
+
+static void Show_Red_Ir_On_OLED(uint32_t red_value, uint32_t ir_value);
+static void Send_Header_By_UART(void);
+static void Send_Red_Ir_By_UART(uint16_t sample, uint32_t red_value, uint32_t ir_value);
+
 void main(void)
 {
     uint8_t max_ok = 0;
+
+    uint32_t red_value = 0;
+    uint32_t ir_value = 0;
+
+    uint16_t sample = 0;
+    uint16_t display_counter = 0;
+    uint16_t uart_counter = 0;
 
     System_Init();
 
@@ -69,46 +92,14 @@ void main(void)
     UART_WriteLine("Verificando MAX30102...");
 
     /*
-     * Verificacion del sensor MAX30102.
-     * Si retorna 1, el sensor respondio correctamente por I2C.
-     * Si retorna 0, no se pudo leer el PART_ID esperado.
+     * Verificacion del MAX30102.
      */
     max_ok = MAX30102_Init();
 
     SSD1306_ClearDisplay();
 
-    if (max_ok == 1)
+    if (max_ok == 0)
     {
-        /*
-         * Estado fisico:
-         * RD1 se enciende porque el MAX30102 fue detectado.
-         * RD2 queda encendido porque el sistema aun esta en espera.
-         */
-        LED_Status_On();
-        LED_Wait_On();
-
-        UART_WriteLine("MAX30102 detectado correctamente");
-        UART_WriteLine("Sistema en espera");
-
-        SSD1306_SetCursor(10, 0);
-        SSD1306_WriteString("Signos Vitales");
-
-        SSD1306_SetCursor(10, 2);
-        SSD1306_WriteString("MAX30102 OK");
-
-        SSD1306_SetCursor(10, 4);
-        SSD1306_WriteString("UART OK");
-
-        SSD1306_SetCursor(10, 6);
-        SSD1306_WriteString("En espera");
-    }
-    else
-    {
-        /*
-         * Estado fisico:
-         * RD1 permanece apagado porque el sensor no fue detectado.
-         * RD2 se apaga para indicar estado de error, no de espera normal.
-         */
         LED_Status_Off();
         LED_Wait_Off();
 
@@ -123,16 +114,67 @@ void main(void)
 
         SSD1306_SetCursor(10, 4);
         SSD1306_WriteString("SDA SCL VCC");
+
+        while (1)
+        {
+            NOP();
+        }
     }
+
+    /*
+     * Si llega aqui, el sensor fue detectado correctamente.
+     */
+    LED_Status_On();
+    LED_Wait_On();
+
+    UART_WriteLine("MAX30102 detectado correctamente");
+    UART_WriteLine("Lectura RED e IR iniciada");
+
+    Send_Header_By_UART();
+
+    SSD1306_SetCursor(10, 0);
+    SSD1306_WriteString("Signos Vitales");
+
+    SSD1306_SetCursor(10, 2);
+    SSD1306_WriteString("Leyendo MAX");
+
+    SSD1306_SetCursor(10, 4);
+    SSD1306_WriteString("RED / IR");
 
     while (1)
     {
         /*
-         * En este commit el sistema queda detenido en una pantalla
-         * de diagnostico. En el siguiente commit se agregara la lectura
-         * de valores RED e IR desde el FIFO del MAX30102.
+         * Lectura real del FIFO del MAX30102.
+         * Se obtiene una muestra RED y una muestra IR.
          */
-        NOP();
+        MAX30102_ReadFIFO(&red_value, &ir_value);
+
+        /*
+         * Envio por UART cada 1 segundo.
+         */
+        uart_counter++;
+
+        if (uart_counter >= UART_UPDATE_COUNT)
+        {
+            uart_counter = 0;
+            sample++;
+
+            Send_Red_Ir_By_UART(sample, red_value, ir_value);
+        }
+
+        /*
+         * Actualizacion de OLED cada 1 segundo.
+         */
+        display_counter++;
+
+        if (display_counter >= DISPLAY_UPDATE_COUNT)
+        {
+            display_counter = 0;
+
+            Show_Red_Ir_On_OLED(red_value, ir_value);
+        }
+
+        __delay_ms(LOOP_DELAY_MS);
     }
 }
 
@@ -178,9 +220,6 @@ static void System_Init(void)
      */
     LEDs_Init();
 
-    /*
-     * Estados iniciales.
-     */
     LED_Power_On();
     LED_Status_Off();
     LED_Wait_On();
@@ -245,4 +284,110 @@ static void LED_Wait_On(void)
 static void LED_Wait_Off(void)
 {
     LED_WAIT_LAT = LED_OFF;
+}
+
+static void UInt16_ToString(uint16_t value, char *buffer)
+{
+    char temp[6];
+    uint8_t i = 0;
+    uint8_t j = 0;
+
+    if (value == 0)
+    {
+        buffer[0] = '0';
+        buffer[1] = '\0';
+        return;
+    }
+
+    while (value > 0)
+    {
+        temp[i] = (char)('0' + (value % 10));
+        value /= 10;
+        i++;
+    }
+
+    while (i > 0)
+    {
+        i--;
+        buffer[j] = temp[i];
+        j++;
+    }
+
+    buffer[j] = '\0';
+}
+
+static void UInt32_ToString(uint32_t value, char *buffer)
+{
+    char temp[11];
+    uint8_t i = 0;
+    uint8_t j = 0;
+
+    if (value == 0)
+    {
+        buffer[0] = '0';
+        buffer[1] = '\0';
+        return;
+    }
+
+    while (value > 0)
+    {
+        temp[i] = (char)('0' + (value % 10UL));
+        value /= 10UL;
+        i++;
+    }
+
+    while (i > 0)
+    {
+        i--;
+        buffer[j] = temp[i];
+        j++;
+    }
+
+    buffer[j] = '\0';
+}
+
+static void Show_Red_Ir_On_OLED(uint32_t red_value, uint32_t ir_value)
+{
+    char text[12];
+
+    SSD1306_ClearDisplay();
+
+    SSD1306_SetCursor(10, 0);
+    SSD1306_WriteString("MAX30102 DATA");
+
+    SSD1306_SetCursor(10, 2);
+    SSD1306_WriteString("RED:");
+    UInt32_ToString(red_value, text);
+    SSD1306_WriteString(text);
+
+    SSD1306_SetCursor(10, 4);
+    SSD1306_WriteString("IR:");
+    UInt32_ToString(ir_value, text);
+    SSD1306_WriteString(text);
+
+    SSD1306_SetCursor(10, 6);
+    SSD1306_WriteString("Leyendo...");
+}
+
+static void Send_Header_By_UART(void)
+{
+    UART_WriteLine("");
+    UART_WriteLine("Muestra\tRED\tIR");
+    UART_WriteLine("---------------------------");
+}
+
+static void Send_Red_Ir_By_UART(uint16_t sample, uint32_t red_value, uint32_t ir_value)
+{
+    char text[12];
+
+    UInt16_ToString(sample, text);
+    UART_WriteString(text);
+    UART_WriteString("\t");
+
+    UInt32_ToString(red_value, text);
+    UART_WriteString(text);
+    UART_WriteString("\t");
+
+    UInt32_ToString(ir_value, text);
+    UART_WriteLine(text);
 }

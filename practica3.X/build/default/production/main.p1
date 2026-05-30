@@ -1,38 +1,54 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"47 main.c
-[; ;main.c: 47: static void System_Init(void);
+"56 main.c
+[; ;main.c: 56: static void System_Init(void);
 [v _System_Init `(v ~T0 @X0 0 sf ]
 "10 ./uart.h
 [; ;./uart.h: 10: void UART_WriteLine(const char *text);
 [v _UART_WriteLine `(v ~T0 @X0 0 ef1`*Cuc ]
-"13 ./max30102.h
-[; ;./max30102.h: 13: uint8_t MAX30102_Init(void);
+"9 ./max30102.h
+[; ;./max30102.h: 9: uint8_t MAX30102_Init(void);
 [v _MAX30102_Init `(uc ~T0 @X0 0 ef ]
 "17 ./ssd1306.h
 [; ;./ssd1306.h: 17: void SSD1306_ClearDisplay(void);
 [v _SSD1306_ClearDisplay `(v ~T0 @X0 0 ef ]
-"51 main.c
-[; ;main.c: 51: static void LED_Status_On(void);
-[v _LED_Status_On `(v ~T0 @X0 0 sf ]
-"53
-[; ;main.c: 53: static void LED_Wait_On(void);
-[v _LED_Wait_On `(v ~T0 @X0 0 sf ]
+"61 main.c
+[; ;main.c: 61: static void LED_Status_Off(void);
+[v _LED_Status_Off `(v ~T0 @X0 0 sf ]
+"63
+[; ;main.c: 63: static void LED_Wait_Off(void);
+[v _LED_Wait_Off `(v ~T0 @X0 0 sf ]
 "19 ./ssd1306.h
 [; ;./ssd1306.h: 19: void SSD1306_SetCursor(uint8_t column, uint8_t page);
 [v _SSD1306_SetCursor `(v ~T0 @X0 0 ef2`uc`uc ]
 "21
 [; ;./ssd1306.h: 21: void SSD1306_WriteString(const char *str);
 [v _SSD1306_WriteString `(v ~T0 @X0 0 ef1`*Cuc ]
-"52 main.c
-[; ;main.c: 52: static void LED_Status_Off(void);
-[v _LED_Status_Off `(v ~T0 @X0 0 sf ]
-"54
-[; ;main.c: 54: static void LED_Wait_Off(void);
-[v _LED_Wait_Off `(v ~T0 @X0 0 sf ]
 "8 C:\Program Files\Microchip\xc8\v3.10\pic\include/builtins.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
+"60 main.c
+[; ;main.c: 60: static void LED_Status_On(void);
+[v _LED_Status_On `(v ~T0 @X0 0 sf ]
+"62
+[; ;main.c: 62: static void LED_Wait_On(void);
+[v _LED_Wait_On `(v ~T0 @X0 0 sf ]
+"69
+[; ;main.c: 69: static void Send_Header_By_UART(void);
+[v _Send_Header_By_UART `(v ~T0 @X0 0 sf ]
+"10 ./max30102.h
+[; ;./max30102.h: 10: uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value);
+[v _MAX30102_ReadFIFO `(uc ~T0 @X0 0 ef2`*ul`*ul ]
+"70 main.c
+[; ;main.c: 70: static void Send_Red_Ir_By_UART(uint16_t sample, uint32_t red_value, uint32_t ir_value);
+[v _Send_Red_Ir_By_UART `(v ~T0 @X0 0 sf3`us`ul`ul ]
+"68
+[; ;main.c: 68: static void Show_Red_Ir_On_OLED(uint32_t red_value, uint32_t ir_value);
+[v _Show_Red_Ir_On_OLED `(v ~T0 @X0 0 sf2`ul`ul ]
+[v F205 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v3.10\pic\include/builtins.h
+[v __delay `JF205 ~T0 @X0 0 e ]
+[p i __delay ]
 "7984 C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 7984: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
@@ -75,11 +91,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4221
 [; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4221: extern volatile unsigned char TRISE __attribute__((address(0xF96)));
 [v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
-"49 main.c
-[; ;main.c: 49: static void LEDs_Init(void);
+"58 main.c
+[; ;main.c: 58: static void LEDs_Init(void);
 [v _LEDs_Init `(v ~T0 @X0 0 sf ]
-"50
-[; ;main.c: 50: static void LED_Power_On(void);
+"59
+[; ;main.c: 59: static void LED_Power_On(void);
 [v _LED_Power_On `(v ~T0 @X0 0 sf ]
 "7 ./uart.h
 [; ;./uart.h: 7: void UART_Init(void);
@@ -120,6 +136,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3288
 [; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3288: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
 [v _LATDbits `VS135 ~T0 @X0 0 e@3980 ]
+"9 ./uart.h
+[; ;./uart.h: 9: void UART_WriteString(const char *text);
+[v _UART_WriteString `(v ~T0 @X0 0 ef1`*Cuc ]
 "52 C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -631,343 +650,742 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"56 main.c
-[; ;main.c: 56: void main(void)
+"72 main.c
+[; ;main.c: 72: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"57
-[; ;main.c: 57: {
+"73
+[; ;main.c: 73: {
 {
 [e :U _main ]
 [f ]
-"58
-[; ;main.c: 58:     uint8_t max_ok = 0;
+"74
+[; ;main.c: 74:     uint8_t max_ok = 0;
 [v _max_ok `uc ~T0 @X0 1 a ]
 [e = _max_ok -> -> 0 `i `uc ]
-"60
-[; ;main.c: 60:     System_Init();
-[e ( _System_Init ..  ]
-"65
-[; ;main.c: 65:     UART_WriteLine("Sistema iniciado");
-[e ( _UART_WriteLine (1 :s 1C ]
-"66
-[; ;main.c: 66:     UART_WriteLine("OLED funcionando");
-[e ( _UART_WriteLine (1 :s 2C ]
-"67
-[; ;main.c: 67:     UART_WriteLine("LEDs indicadores activos");
-[e ( _UART_WriteLine (1 :s 3C ]
-"68
-[; ;main.c: 68:     UART_WriteLine("UART funcionando a 9600 baudios");
-[e ( _UART_WriteLine (1 :s 4C ]
-"69
-[; ;main.c: 69:     UART_WriteLine("Verificando MAX30102...");
-[e ( _UART_WriteLine (1 :s 5C ]
 "76
-[; ;main.c: 76:     max_ok = MAX30102_Init();
-[e = _max_ok ( _MAX30102_Init ..  ]
-"78
-[; ;main.c: 78:     SSD1306_ClearDisplay();
-[e ( _SSD1306_ClearDisplay ..  ]
+[; ;main.c: 76:     uint32_t red_value = 0;
+[v _red_value `ul ~T0 @X0 1 a ]
+[e = _red_value -> -> -> 0 `i `l `ul ]
+"77
+[; ;main.c: 77:     uint32_t ir_value = 0;
+[v _ir_value `ul ~T0 @X0 1 a ]
+[e = _ir_value -> -> -> 0 `i `l `ul ]
+"79
+[; ;main.c: 79:     uint16_t sample = 0;
+[v _sample `us ~T0 @X0 1 a ]
+[e = _sample -> -> 0 `i `us ]
 "80
-[; ;main.c: 80:     if (max_ok == 1)
-[e $ ! == -> _max_ok `i -> 1 `i 392  ]
+[; ;main.c: 80:     uint16_t display_counter = 0;
+[v _display_counter `us ~T0 @X0 1 a ]
+[e = _display_counter -> -> 0 `i `us ]
 "81
-[; ;main.c: 81:     {
-{
-"87
-[; ;main.c: 87:         LED_Status_On();
-[e ( _LED_Status_On ..  ]
+[; ;main.c: 81:     uint16_t uart_counter = 0;
+[v _uart_counter `us ~T0 @X0 1 a ]
+[e = _uart_counter -> -> 0 `i `us ]
+"83
+[; ;main.c: 83:     System_Init();
+[e ( _System_Init ..  ]
 "88
-[; ;main.c: 88:         LED_Wait_On();
-[e ( _LED_Wait_On ..  ]
+[; ;main.c: 88:     UART_WriteLine("Sistema iniciado");
+[e ( _UART_WriteLine (1 :s 1C ]
+"89
+[; ;main.c: 89:     UART_WriteLine("OLED funcionando");
+[e ( _UART_WriteLine (1 :s 2C ]
 "90
-[; ;main.c: 90:         UART_WriteLine("MAX30102 detectado correctamente");
-[e ( _UART_WriteLine (1 :s 6C ]
+[; ;main.c: 90:     UART_WriteLine("LEDs indicadores activos");
+[e ( _UART_WriteLine (1 :s 3C ]
 "91
-[; ;main.c: 91:         UART_WriteLine("Sistema en espera");
-[e ( _UART_WriteLine (1 :s 7C ]
-"93
-[; ;main.c: 93:         SSD1306_SetCursor(10, 0);
-[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
-"94
-[; ;main.c: 94:         SSD1306_WriteString("Signos Vitales");
-[e ( _SSD1306_WriteString (1 :s 8C ]
-"96
-[; ;main.c: 96:         SSD1306_SetCursor(10, 2);
-[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 2 `i `uc ]
+[; ;main.c: 91:     UART_WriteLine("UART funcionando a 9600 baudios");
+[e ( _UART_WriteLine (1 :s 4C ]
+"92
+[; ;main.c: 92:     UART_WriteLine("Verificando MAX30102...");
+[e ( _UART_WriteLine (1 :s 5C ]
 "97
-[; ;main.c: 97:         SSD1306_WriteString("MAX30102 OK");
-[e ( _SSD1306_WriteString (1 :s 9C ]
+[; ;main.c: 97:     max_ok = MAX30102_Init();
+[e = _max_ok ( _MAX30102_Init ..  ]
 "99
-[; ;main.c: 99:         SSD1306_SetCursor(10, 4);
-[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 4 `i `uc ]
-"100
-[; ;main.c: 100:         SSD1306_WriteString("UART OK");
-[e ( _SSD1306_WriteString (1 :s 10C ]
+[; ;main.c: 99:     SSD1306_ClearDisplay();
+[e ( _SSD1306_ClearDisplay ..  ]
+"101
+[; ;main.c: 101:     if (max_ok == 0)
+[e $ ! == -> _max_ok `i -> 0 `i 392  ]
 "102
-[; ;main.c: 102:         SSD1306_SetCursor(10, 6);
-[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 6 `i `uc ]
-"103
-[; ;main.c: 103:         SSD1306_WriteString("En espera");
-[e ( _SSD1306_WriteString (1 :s 11C ]
-"104
-[; ;main.c: 104:     }
-}
-[e $U 393  ]
-"105
-[; ;main.c: 105:     else
-[e :U 392 ]
-"106
-[; ;main.c: 106:     {
+[; ;main.c: 102:     {
 {
-"112
-[; ;main.c: 112:         LED_Status_Off();
+"103
+[; ;main.c: 103:         LED_Status_Off();
 [e ( _LED_Status_Off ..  ]
-"113
-[; ;main.c: 113:         LED_Wait_Off();
+"104
+[; ;main.c: 104:         LED_Wait_Off();
 [e ( _LED_Wait_Off ..  ]
-"115
-[; ;main.c: 115:         UART_WriteLine("ERROR: MAX30102 no detectado");
-[e ( _UART_WriteLine (1 :s 12C ]
-"116
-[; ;main.c: 116:         UART_WriteLine("Revise VCC, GND, SDA y SCL");
-[e ( _UART_WriteLine (1 :s 13C ]
-"118
-[; ;main.c: 118:         SSD1306_SetCursor(10, 0);
+"106
+[; ;main.c: 106:         UART_WriteLine("ERROR: MAX30102 no detectado");
+[e ( _UART_WriteLine (1 :s 6C ]
+"107
+[; ;main.c: 107:         UART_WriteLine("Revise VCC, GND, SDA y SCL");
+[e ( _UART_WriteLine (1 :s 7C ]
+"109
+[; ;main.c: 109:         SSD1306_SetCursor(10, 0);
 [e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
-"119
-[; ;main.c: 119:         SSD1306_WriteString("MAX30102 ERROR");
-[e ( _SSD1306_WriteString (1 :s 14C ]
-"121
-[; ;main.c: 121:         SSD1306_SetCursor(10, 2);
+"110
+[; ;main.c: 110:         SSD1306_WriteString("MAX30102 ERROR");
+[e ( _SSD1306_WriteString (1 :s 8C ]
+"112
+[; ;main.c: 112:         SSD1306_SetCursor(10, 2);
 [e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 2 `i `uc ]
-"122
-[; ;main.c: 122:         SSD1306_WriteString("Revise I2C");
-[e ( _SSD1306_WriteString (1 :s 15C ]
-"124
-[; ;main.c: 124:         SSD1306_SetCursor(10, 4);
+"113
+[; ;main.c: 113:         SSD1306_WriteString("Revise I2C");
+[e ( _SSD1306_WriteString (1 :s 9C ]
+"115
+[; ;main.c: 115:         SSD1306_SetCursor(10, 4);
 [e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 4 `i `uc ]
-"125
-[; ;main.c: 125:         SSD1306_WriteString("SDA SCL VCC");
-[e ( _SSD1306_WriteString (1 :s 16C ]
-"126
-[; ;main.c: 126:     }
+"116
+[; ;main.c: 116:         SSD1306_WriteString("SDA SCL VCC");
+[e ( _SSD1306_WriteString (1 :s 10C ]
+"118
+[; ;main.c: 118:         while (1)
+[e :U 394 ]
+"119
+[; ;main.c: 119:         {
+{
+"120
+[; ;main.c: 120:             __nop();
+[e ( ___nop ..  ]
+"121
+[; ;main.c: 121:         }
 }
 [e :U 393 ]
-"128
-[; ;main.c: 128:     while (1)
+[e $U 394  ]
 [e :U 395 ]
-"129
-[; ;main.c: 129:     {
-{
-"135
-[; ;main.c: 135:         __nop();
-[e ( ___nop ..  ]
-"136
-[; ;main.c: 136:     }
+"122
+[; ;main.c: 122:     }
 }
-[e :U 394 ]
-[e $U 395  ]
+[e :U 392 ]
+"127
+[; ;main.c: 127:     LED_Status_On();
+[e ( _LED_Status_On ..  ]
+"128
+[; ;main.c: 128:     LED_Wait_On();
+[e ( _LED_Wait_On ..  ]
+"130
+[; ;main.c: 130:     UART_WriteLine("MAX30102 detectado correctamente");
+[e ( _UART_WriteLine (1 :s 11C ]
+"131
+[; ;main.c: 131:     UART_WriteLine("Lectura RED e IR iniciada");
+[e ( _UART_WriteLine (1 :s 12C ]
+"133
+[; ;main.c: 133:     Send_Header_By_UART();
+[e ( _Send_Header_By_UART ..  ]
+"135
+[; ;main.c: 135:     SSD1306_SetCursor(10, 0);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
+"136
+[; ;main.c: 136:     SSD1306_WriteString("Signos Vitales");
+[e ( _SSD1306_WriteString (1 :s 13C ]
+"138
+[; ;main.c: 138:     SSD1306_SetCursor(10, 2);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 2 `i `uc ]
+"139
+[; ;main.c: 139:     SSD1306_WriteString("Leyendo MAX");
+[e ( _SSD1306_WriteString (1 :s 14C ]
+"141
+[; ;main.c: 141:     SSD1306_SetCursor(10, 4);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 4 `i `uc ]
+"142
+[; ;main.c: 142:     SSD1306_WriteString("RED / IR");
+[e ( _SSD1306_WriteString (1 :s 15C ]
+"144
+[; ;main.c: 144:     while (1)
+[e :U 397 ]
+"145
+[; ;main.c: 145:     {
+{
+"150
+[; ;main.c: 150:         MAX30102_ReadFIFO(&red_value, &ir_value);
+[e ( _MAX30102_ReadFIFO (2 , &U _red_value &U _ir_value ]
+"155
+[; ;main.c: 155:         uart_counter++;
+[e ++ _uart_counter -> -> 1 `i `us ]
+"157
+[; ;main.c: 157:         if (uart_counter >= 100u)
+[e $ ! >= -> _uart_counter `ui -> 100 `ui 399  ]
+"158
+[; ;main.c: 158:         {
+{
+"159
+[; ;main.c: 159:             uart_counter = 0;
+[e = _uart_counter -> -> 0 `i `us ]
+"160
+[; ;main.c: 160:             sample++;
+[e ++ _sample -> -> 1 `i `us ]
+"162
+[; ;main.c: 162:             Send_Red_Ir_By_UART(sample, red_value, ir_value);
+[e ( _Send_Red_Ir_By_UART (3 , , _sample _red_value _ir_value ]
+"163
+[; ;main.c: 163:         }
+}
+[e :U 399 ]
+"168
+[; ;main.c: 168:         display_counter++;
+[e ++ _display_counter -> -> 1 `i `us ]
+"170
+[; ;main.c: 170:         if (display_counter >= 100u)
+[e $ ! >= -> _display_counter `ui -> 100 `ui 400  ]
+"171
+[; ;main.c: 171:         {
+{
+"172
+[; ;main.c: 172:             display_counter = 0;
+[e = _display_counter -> -> 0 `i `us ]
+"174
+[; ;main.c: 174:             Show_Red_Ir_On_OLED(red_value, ir_value);
+[e ( _Show_Red_Ir_On_OLED (2 , _red_value _ir_value ]
+"175
+[; ;main.c: 175:         }
+}
+[e :U 400 ]
+"177
+[; ;main.c: 177:         _delay((unsigned long)((10u)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `ui `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"178
+[; ;main.c: 178:     }
+}
 [e :U 396 ]
-"137
-[; ;main.c: 137: }
+[e $U 397  ]
+[e :U 398 ]
+"179
+[; ;main.c: 179: }
 [e :UE 391 ]
 }
-"139
-[; ;main.c: 139: static void System_Init(void)
+"181
+[; ;main.c: 181: static void System_Init(void)
 [v _System_Init `(v ~T0 @X0 1 sf ]
-"140
-[; ;main.c: 140: {
+"182
+[; ;main.c: 182: {
 {
 [e :U _System_Init ]
 [f ]
-"144
-[; ;main.c: 144:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
-"149
-[; ;main.c: 149:     ADCON1 = 0x0F;
-[e = _ADCON1 -> -> 15 `i `uc ]
-"154
-[; ;main.c: 154:     CMCON = 0x07;
-[e = _CMCON -> -> 7 `i `uc ]
-"155
-[; ;main.c: 155:     CVRCON = 0x00;
-[e = _CVRCON -> -> 0 `i `uc ]
-"160
-[; ;main.c: 160:     LATA = 0x00;
-[e = _LATA -> -> 0 `i `uc ]
-"161
-[; ;main.c: 161:     LATB = 0x00;
-[e = _LATB -> -> 0 `i `uc ]
-"162
-[; ;main.c: 162:     LATC = 0x00;
-[e = _LATC -> -> 0 `i `uc ]
-"163
-[; ;main.c: 163:     LATD = 0x00;
-[e = _LATD -> -> 0 `i `uc ]
-"164
-[; ;main.c: 164:     LATE = 0x00;
-[e = _LATE -> -> 0 `i `uc ]
-"170
-[; ;main.c: 170:     TRISA = 0xFF;
-[e = _TRISA -> -> 255 `i `uc ]
-"171
-[; ;main.c: 171:     TRISB = 0xFF;
-[e = _TRISB -> -> 255 `i `uc ]
-"172
-[; ;main.c: 172:     TRISC = 0xFF;
-[e = _TRISC -> -> 255 `i `uc ]
-"173
-[; ;main.c: 173:     TRISD = 0xFF;
-[e = _TRISD -> -> 255 `i `uc ]
-"174
-[; ;main.c: 174:     TRISE = 0xFF;
-[e = _TRISE -> -> 255 `i `uc ]
-"179
-[; ;main.c: 179:     LEDs_Init();
-[e ( _LEDs_Init ..  ]
-"184
-[; ;main.c: 184:     LED_Power_On();
-[e ( _LED_Power_On ..  ]
-"185
-[; ;main.c: 185:     LED_Status_Off();
-[e ( _LED_Status_Off ..  ]
 "186
-[; ;main.c: 186:     LED_Wait_On();
-[e ( _LED_Wait_On ..  ]
-"193
-[; ;main.c: 193:     UART_Init();
-[e ( _UART_Init ..  ]
-"199
-[; ;main.c: 199:     I2C_Master_Init(100000UL);
-[e ( _I2C_Master_Init (1 -> 100000 `ul ]
+[; ;main.c: 186:     OSCCON = 0x72;
+[e = _OSCCON -> -> 114 `i `uc ]
+"191
+[; ;main.c: 191:     ADCON1 = 0x0F;
+[e = _ADCON1 -> -> 15 `i `uc ]
+"196
+[; ;main.c: 196:     CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
+"197
+[; ;main.c: 197:     CVRCON = 0x00;
+[e = _CVRCON -> -> 0 `i `uc ]
+"202
+[; ;main.c: 202:     LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
+"203
+[; ;main.c: 203:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
 "204
-[; ;main.c: 204:     SSD1306_Init();
-[e ( _SSD1306_Init ..  ]
+[; ;main.c: 204:     LATC = 0x00;
+[e = _LATC -> -> 0 `i `uc ]
 "205
-[; ;main.c: 205:     SSD1306_ClearDisplay();
-[e ( _SSD1306_ClearDisplay ..  ]
+[; ;main.c: 205:     LATD = 0x00;
+[e = _LATD -> -> 0 `i `uc ]
 "206
-[; ;main.c: 206: }
-[e :UE 397 ]
+[; ;main.c: 206:     LATE = 0x00;
+[e = _LATE -> -> 0 `i `uc ]
+"212
+[; ;main.c: 212:     TRISA = 0xFF;
+[e = _TRISA -> -> 255 `i `uc ]
+"213
+[; ;main.c: 213:     TRISB = 0xFF;
+[e = _TRISB -> -> 255 `i `uc ]
+"214
+[; ;main.c: 214:     TRISC = 0xFF;
+[e = _TRISC -> -> 255 `i `uc ]
+"215
+[; ;main.c: 215:     TRISD = 0xFF;
+[e = _TRISD -> -> 255 `i `uc ]
+"216
+[; ;main.c: 216:     TRISE = 0xFF;
+[e = _TRISE -> -> 255 `i `uc ]
+"221
+[; ;main.c: 221:     LEDs_Init();
+[e ( _LEDs_Init ..  ]
+"223
+[; ;main.c: 223:     LED_Power_On();
+[e ( _LED_Power_On ..  ]
+"224
+[; ;main.c: 224:     LED_Status_Off();
+[e ( _LED_Status_Off ..  ]
+"225
+[; ;main.c: 225:     LED_Wait_On();
+[e ( _LED_Wait_On ..  ]
+"232
+[; ;main.c: 232:     UART_Init();
+[e ( _UART_Init ..  ]
+"238
+[; ;main.c: 238:     I2C_Master_Init(100000UL);
+[e ( _I2C_Master_Init (1 -> 100000 `ul ]
+"243
+[; ;main.c: 243:     SSD1306_Init();
+[e ( _SSD1306_Init ..  ]
+"244
+[; ;main.c: 244:     SSD1306_ClearDisplay();
+[e ( _SSD1306_ClearDisplay ..  ]
+"245
+[; ;main.c: 245: }
+[e :UE 401 ]
 }
-"208
-[; ;main.c: 208: static void LEDs_Init(void)
+"247
+[; ;main.c: 247: static void LEDs_Init(void)
 [v _LEDs_Init `(v ~T0 @X0 1 sf ]
-"209
-[; ;main.c: 209: {
+"248
+[; ;main.c: 248: {
 {
 [e :U _LEDs_Init ]
 [f ]
-"213
-[; ;main.c: 213:     TRISDbits.TRISD0 = 0;
+"252
+[; ;main.c: 252:     TRISDbits.TRISD0 = 0;
 [e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
-"214
-[; ;main.c: 214:     TRISDbits.TRISD1 = 0;
+"253
+[; ;main.c: 253:     TRISDbits.TRISD1 = 0;
 [e = . . _TRISDbits 0 1 -> -> 0 `i `uc ]
-"215
-[; ;main.c: 215:     TRISDbits.TRISD2 = 0;
+"254
+[; ;main.c: 254:     TRISDbits.TRISD2 = 0;
 [e = . . _TRISDbits 0 2 -> -> 0 `i `uc ]
-"220
-[; ;main.c: 220:     LATDbits.LATD0 = 0;
+"259
+[; ;main.c: 259:     LATDbits.LATD0 = 0;
 [e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
-"221
-[; ;main.c: 221:     LATDbits.LATD1 = 0;
+"260
+[; ;main.c: 260:     LATDbits.LATD1 = 0;
 [e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-"222
-[; ;main.c: 222:     LATDbits.LATD2 = 0;
+"261
+[; ;main.c: 261:     LATDbits.LATD2 = 0;
 [e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-"223
-[; ;main.c: 223: }
-[e :UE 398 ]
+"262
+[; ;main.c: 262: }
+[e :UE 402 ]
 }
-"225
-[; ;main.c: 225: static void LED_Power_On(void)
+"264
+[; ;main.c: 264: static void LED_Power_On(void)
 [v _LED_Power_On `(v ~T0 @X0 1 sf ]
-"226
-[; ;main.c: 226: {
+"265
+[; ;main.c: 265: {
 {
 [e :U _LED_Power_On ]
 [f ]
-"227
-[; ;main.c: 227:     LATDbits.LATD0 = 1;
+"266
+[; ;main.c: 266:     LATDbits.LATD0 = 1;
 [e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-"228
-[; ;main.c: 228: }
-[e :UE 399 ]
+"267
+[; ;main.c: 267: }
+[e :UE 403 ]
 }
-"230
-[; ;main.c: 230: static void LED_Status_On(void)
+"269
+[; ;main.c: 269: static void LED_Status_On(void)
 [v _LED_Status_On `(v ~T0 @X0 1 sf ]
-"231
-[; ;main.c: 231: {
+"270
+[; ;main.c: 270: {
 {
 [e :U _LED_Status_On ]
 [f ]
-"232
-[; ;main.c: 232:     LATDbits.LATD1 = 1;
+"271
+[; ;main.c: 271:     LATDbits.LATD1 = 1;
 [e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-"233
-[; ;main.c: 233: }
-[e :UE 400 ]
+"272
+[; ;main.c: 272: }
+[e :UE 404 ]
 }
-"235
-[; ;main.c: 235: static void LED_Status_Off(void)
+"274
+[; ;main.c: 274: static void LED_Status_Off(void)
 [v _LED_Status_Off `(v ~T0 @X0 1 sf ]
-"236
-[; ;main.c: 236: {
+"275
+[; ;main.c: 275: {
 {
 [e :U _LED_Status_Off ]
 [f ]
-"237
-[; ;main.c: 237:     LATDbits.LATD1 = 0;
+"276
+[; ;main.c: 276:     LATDbits.LATD1 = 0;
 [e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-"238
-[; ;main.c: 238: }
-[e :UE 401 ]
+"277
+[; ;main.c: 277: }
+[e :UE 405 ]
 }
-"240
-[; ;main.c: 240: static void LED_Wait_On(void)
+"279
+[; ;main.c: 279: static void LED_Wait_On(void)
 [v _LED_Wait_On `(v ~T0 @X0 1 sf ]
-"241
-[; ;main.c: 241: {
+"280
+[; ;main.c: 280: {
 {
 [e :U _LED_Wait_On ]
 [f ]
-"242
-[; ;main.c: 242:     LATDbits.LATD2 = 1;
+"281
+[; ;main.c: 281:     LATDbits.LATD2 = 1;
 [e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-"243
-[; ;main.c: 243: }
-[e :UE 402 ]
+"282
+[; ;main.c: 282: }
+[e :UE 406 ]
 }
-"245
-[; ;main.c: 245: static void LED_Wait_Off(void)
+"284
+[; ;main.c: 284: static void LED_Wait_Off(void)
 [v _LED_Wait_Off `(v ~T0 @X0 1 sf ]
-"246
-[; ;main.c: 246: {
+"285
+[; ;main.c: 285: {
 {
 [e :U _LED_Wait_Off ]
 [f ]
-"247
-[; ;main.c: 247:     LATDbits.LATD2 = 0;
+"286
+[; ;main.c: 286:     LATDbits.LATD2 = 0;
 [e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-"248
-[; ;main.c: 248: }
-[e :UE 403 ]
+"287
+[; ;main.c: 287: }
+[e :UE 407 ]
+}
+"289
+[; ;main.c: 289: static void UInt16_ToString(uint16_t value, char *buffer)
+[v _UInt16_ToString `(v ~T0 @X0 1 sf2`us`*uc ]
+"290
+[; ;main.c: 290: {
+{
+[e :U _UInt16_ToString ]
+"289
+[; ;main.c: 289: static void UInt16_ToString(uint16_t value, char *buffer)
+[v _value `us ~T0 @X0 1 r1 ]
+[v _buffer `*uc ~T0 @X0 1 r2 ]
+"290
+[; ;main.c: 290: {
+[f ]
+"291
+[; ;main.c: 291:     char temp[6];
+[v _temp `uc ~T0 @X0 -> 6 `i a ]
+"292
+[; ;main.c: 292:     uint8_t i = 0;
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+"293
+[; ;main.c: 293:     uint8_t j = 0;
+[v _j `uc ~T0 @X0 1 a ]
+[e = _j -> -> 0 `i `uc ]
+"295
+[; ;main.c: 295:     if (value == 0)
+[e $ ! == -> _value `ui -> -> 0 `i `ui 409  ]
+"296
+[; ;main.c: 296:     {
+{
+"297
+[; ;main.c: 297:         buffer[0] = '0';
+[e = *U + _buffer * -> -> 0 `i `x -> -> # *U _buffer `i `x -> -> 48 `ui `uc ]
+"298
+[; ;main.c: 298:         buffer[1] = '\0';
+[e = *U + _buffer * -> -> 1 `i `x -> -> # *U _buffer `i `x -> -> 0 `ui `uc ]
+"299
+[; ;main.c: 299:         return;
+[e $UE 408  ]
+"300
+[; ;main.c: 300:     }
+}
+[e :U 409 ]
+"302
+[; ;main.c: 302:     while (value > 0)
+[e $U 410  ]
+[e :U 411 ]
+"303
+[; ;main.c: 303:     {
+{
+"304
+[; ;main.c: 304:         temp[i] = (char)('0' + (value % 10));
+[e = *U + &U _temp * -> _i `ux -> -> # *U &U _temp `ui `ux -> + -> 48 `ui % -> _value `ui -> -> 10 `i `ui `uc ]
+"305
+[; ;main.c: 305:         value /= 10;
+[e =/ _value -> -> 10 `i `ui ]
+"306
+[; ;main.c: 306:         i++;
+[e ++ _i -> -> 1 `i `uc ]
+"307
+[; ;main.c: 307:     }
+}
+[e :U 410 ]
+"302
+[; ;main.c: 302:     while (value > 0)
+[e $ > -> _value `ui -> -> 0 `i `ui 411  ]
+[e :U 412 ]
+"309
+[; ;main.c: 309:     while (i > 0)
+[e $U 413  ]
+[e :U 414 ]
+"310
+[; ;main.c: 310:     {
+{
+"311
+[; ;main.c: 311:         i--;
+[e -- _i -> -> 1 `i `uc ]
+"312
+[; ;main.c: 312:         buffer[j] = temp[i];
+[e = *U + _buffer * -> _j `ux -> -> # *U _buffer `ui `ux *U + &U _temp * -> _i `ux -> -> # *U &U _temp `ui `ux ]
+"313
+[; ;main.c: 313:         j++;
+[e ++ _j -> -> 1 `i `uc ]
+"314
+[; ;main.c: 314:     }
+}
+[e :U 413 ]
+"309
+[; ;main.c: 309:     while (i > 0)
+[e $ > -> _i `i -> 0 `i 414  ]
+[e :U 415 ]
+"316
+[; ;main.c: 316:     buffer[j] = '\0';
+[e = *U + _buffer * -> _j `ux -> -> # *U _buffer `ui `ux -> -> 0 `ui `uc ]
+"317
+[; ;main.c: 317: }
+[e :UE 408 ]
+}
+"319
+[; ;main.c: 319: static void UInt32_ToString(uint32_t value, char *buffer)
+[v _UInt32_ToString `(v ~T0 @X0 1 sf2`ul`*uc ]
+"320
+[; ;main.c: 320: {
+{
+[e :U _UInt32_ToString ]
+"319
+[; ;main.c: 319: static void UInt32_ToString(uint32_t value, char *buffer)
+[v _value `ul ~T0 @X0 1 r1 ]
+[v _buffer `*uc ~T0 @X0 1 r2 ]
+"320
+[; ;main.c: 320: {
+[f ]
+"321
+[; ;main.c: 321:     char temp[11];
+[v _temp `uc ~T0 @X0 -> 11 `i a ]
+"322
+[; ;main.c: 322:     uint8_t i = 0;
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+"323
+[; ;main.c: 323:     uint8_t j = 0;
+[v _j `uc ~T0 @X0 1 a ]
+[e = _j -> -> 0 `i `uc ]
+"325
+[; ;main.c: 325:     if (value == 0)
+[e $ ! == _value -> -> -> 0 `i `l `ul 417  ]
+"326
+[; ;main.c: 326:     {
+{
+"327
+[; ;main.c: 327:         buffer[0] = '0';
+[e = *U + _buffer * -> -> 0 `i `x -> -> # *U _buffer `i `x -> -> 48 `ui `uc ]
+"328
+[; ;main.c: 328:         buffer[1] = '\0';
+[e = *U + _buffer * -> -> 1 `i `x -> -> # *U _buffer `i `x -> -> 0 `ui `uc ]
+"329
+[; ;main.c: 329:         return;
+[e $UE 416  ]
+"330
+[; ;main.c: 330:     }
+}
+[e :U 417 ]
+"332
+[; ;main.c: 332:     while (value > 0)
+[e $U 418  ]
+[e :U 419 ]
+"333
+[; ;main.c: 333:     {
+{
+"334
+[; ;main.c: 334:         temp[i] = (char)('0' + (value % 10UL));
+[e = *U + &U _temp * -> _i `ux -> -> # *U &U _temp `ui `ux -> + -> -> 48 `ui `ul % _value -> 10 `ul `uc ]
+"335
+[; ;main.c: 335:         value /= 10UL;
+[e =/ _value -> 10 `ul ]
+"336
+[; ;main.c: 336:         i++;
+[e ++ _i -> -> 1 `i `uc ]
+"337
+[; ;main.c: 337:     }
+}
+[e :U 418 ]
+"332
+[; ;main.c: 332:     while (value > 0)
+[e $ > _value -> -> -> 0 `i `l `ul 419  ]
+[e :U 420 ]
+"339
+[; ;main.c: 339:     while (i > 0)
+[e $U 421  ]
+[e :U 422 ]
+"340
+[; ;main.c: 340:     {
+{
+"341
+[; ;main.c: 341:         i--;
+[e -- _i -> -> 1 `i `uc ]
+"342
+[; ;main.c: 342:         buffer[j] = temp[i];
+[e = *U + _buffer * -> _j `ux -> -> # *U _buffer `ui `ux *U + &U _temp * -> _i `ux -> -> # *U &U _temp `ui `ux ]
+"343
+[; ;main.c: 343:         j++;
+[e ++ _j -> -> 1 `i `uc ]
+"344
+[; ;main.c: 344:     }
+}
+[e :U 421 ]
+"339
+[; ;main.c: 339:     while (i > 0)
+[e $ > -> _i `i -> 0 `i 422  ]
+[e :U 423 ]
+"346
+[; ;main.c: 346:     buffer[j] = '\0';
+[e = *U + _buffer * -> _j `ux -> -> # *U _buffer `ui `ux -> -> 0 `ui `uc ]
+"347
+[; ;main.c: 347: }
+[e :UE 416 ]
+}
+"349
+[; ;main.c: 349: static void Show_Red_Ir_On_OLED(uint32_t red_value, uint32_t ir_value)
+[v _Show_Red_Ir_On_OLED `(v ~T0 @X0 1 sf2`ul`ul ]
+"350
+[; ;main.c: 350: {
+{
+[e :U _Show_Red_Ir_On_OLED ]
+"349
+[; ;main.c: 349: static void Show_Red_Ir_On_OLED(uint32_t red_value, uint32_t ir_value)
+[v _red_value `ul ~T0 @X0 1 r1 ]
+[v _ir_value `ul ~T0 @X0 1 r2 ]
+"350
+[; ;main.c: 350: {
+[f ]
+"351
+[; ;main.c: 351:     char text[12];
+[v _text `uc ~T0 @X0 -> 12 `i a ]
+"353
+[; ;main.c: 353:     SSD1306_ClearDisplay();
+[e ( _SSD1306_ClearDisplay ..  ]
+"355
+[; ;main.c: 355:     SSD1306_SetCursor(10, 0);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
+"356
+[; ;main.c: 356:     SSD1306_WriteString("MAX30102 DATA");
+[e ( _SSD1306_WriteString (1 :s 16C ]
+"358
+[; ;main.c: 358:     SSD1306_SetCursor(10, 2);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 2 `i `uc ]
+"359
+[; ;main.c: 359:     SSD1306_WriteString("RED:");
+[e ( _SSD1306_WriteString (1 :s 17C ]
+"360
+[; ;main.c: 360:     UInt32_ToString(red_value, text);
+[e ( _UInt32_ToString (2 , _red_value &U _text ]
+"361
+[; ;main.c: 361:     SSD1306_WriteString(text);
+[e ( _SSD1306_WriteString (1 -> &U _text `*Cuc ]
+"363
+[; ;main.c: 363:     SSD1306_SetCursor(10, 4);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 4 `i `uc ]
+"364
+[; ;main.c: 364:     SSD1306_WriteString("IR:");
+[e ( _SSD1306_WriteString (1 :s 18C ]
+"365
+[; ;main.c: 365:     UInt32_ToString(ir_value, text);
+[e ( _UInt32_ToString (2 , _ir_value &U _text ]
+"366
+[; ;main.c: 366:     SSD1306_WriteString(text);
+[e ( _SSD1306_WriteString (1 -> &U _text `*Cuc ]
+"368
+[; ;main.c: 368:     SSD1306_SetCursor(10, 6);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 6 `i `uc ]
+"369
+[; ;main.c: 369:     SSD1306_WriteString("Leyendo...");
+[e ( _SSD1306_WriteString (1 :s 19C ]
+"370
+[; ;main.c: 370: }
+[e :UE 424 ]
+}
+"372
+[; ;main.c: 372: static void Send_Header_By_UART(void)
+[v _Send_Header_By_UART `(v ~T0 @X0 1 sf ]
+"373
+[; ;main.c: 373: {
+{
+[e :U _Send_Header_By_UART ]
+[f ]
+"374
+[; ;main.c: 374:     UART_WriteLine("");
+[e ( _UART_WriteLine (1 :s 20C ]
+"375
+[; ;main.c: 375:     UART_WriteLine("Muestra\tRED\tIR");
+[e ( _UART_WriteLine (1 :s 21C ]
+"376
+[; ;main.c: 376:     UART_WriteLine("---------------------------");
+[e ( _UART_WriteLine (1 :s 22C ]
+"377
+[; ;main.c: 377: }
+[e :UE 425 ]
+}
+"379
+[; ;main.c: 379: static void Send_Red_Ir_By_UART(uint16_t sample, uint32_t red_value, uint32_t ir_value)
+[v _Send_Red_Ir_By_UART `(v ~T0 @X0 1 sf3`us`ul`ul ]
+"380
+[; ;main.c: 380: {
+{
+[e :U _Send_Red_Ir_By_UART ]
+"379
+[; ;main.c: 379: static void Send_Red_Ir_By_UART(uint16_t sample, uint32_t red_value, uint32_t ir_value)
+[v _sample `us ~T0 @X0 1 r1 ]
+[v _red_value `ul ~T0 @X0 1 r2 ]
+[v _ir_value `ul ~T0 @X0 1 r3 ]
+"380
+[; ;main.c: 380: {
+[f ]
+"381
+[; ;main.c: 381:     char text[12];
+[v _text `uc ~T0 @X0 -> 12 `i a ]
+"383
+[; ;main.c: 383:     UInt16_ToString(sample, text);
+[e ( _UInt16_ToString (2 , _sample &U _text ]
+"384
+[; ;main.c: 384:     UART_WriteString(text);
+[e ( _UART_WriteString (1 -> &U _text `*Cuc ]
+"385
+[; ;main.c: 385:     UART_WriteString("\t");
+[e ( _UART_WriteString (1 :s 23C ]
+"387
+[; ;main.c: 387:     UInt32_ToString(red_value, text);
+[e ( _UInt32_ToString (2 , _red_value &U _text ]
+"388
+[; ;main.c: 388:     UART_WriteString(text);
+[e ( _UART_WriteString (1 -> &U _text `*Cuc ]
+"389
+[; ;main.c: 389:     UART_WriteString("\t");
+[e ( _UART_WriteString (1 :s 24C ]
+"391
+[; ;main.c: 391:     UInt32_ToString(ir_value, text);
+[e ( _UInt32_ToString (2 , _ir_value &U _text ]
+"392
+[; ;main.c: 392:     UART_WriteLine(text);
+[e ( _UART_WriteLine (1 -> &U _text `*Cuc ]
+"393
+[; ;main.c: 393: }
+[e :UE 426 ]
 }
 [a 3C 76 69 68 115 32 105 110 100 105 99 97 100 111 114 101 115 32 97 99 116 105 118 111 115 0 ]
 [a 4C 85 65 82 84 32 102 117 110 99 105 111 110 97 110 100 111 32 97 32 57 54 48 48 32 98 97 117 100 105 111 115 0 ]
-[a 8C 83 105 103 110 111 115 32 86 105 116 97 108 101 115 0 ]
+[a 13C 83 105 103 110 111 115 32 86 105 116 97 108 101 115 0 ]
 [a 2C 79 76 69 68 32 102 117 110 99 105 111 110 97 110 100 111 0 ]
-[a 12C 69 82 82 79 82 58 32 77 65 88 51 48 49 48 50 32 110 111 32 100 101 116 101 99 116 97 100 111 0 ]
+[a 6C 69 82 82 79 82 58 32 77 65 88 51 48 49 48 50 32 110 111 32 100 101 116 101 99 116 97 100 111 0 ]
 [a 1C 83 105 115 116 101 109 97 32 105 110 105 99 105 97 100 111 0 ]
-[a 6C 77 65 88 51 48 49 48 50 32 100 101 116 101 99 116 97 100 111 32 99 111 114 114 101 99 116 97 109 101 110 116 101 0 ]
-[a 7C 83 105 115 116 101 109 97 32 101 110 32 101 115 112 101 114 97 0 ]
-[a 11C 69 110 32 101 115 112 101 114 97 0 ]
-[a 14C 77 65 88 51 48 49 48 50 32 69 82 82 79 82 0 ]
-[a 13C 82 101 118 105 115 101 32 86 67 67 44 32 71 78 68 44 32 83 68 65 32 121 32 83 67 76 0 ]
-[a 10C 85 65 82 84 32 79 75 0 ]
-[a 9C 77 65 88 51 48 49 48 50 32 79 75 0 ]
-[a 16C 83 68 65 32 83 67 76 32 86 67 67 0 ]
-[a 15C 82 101 118 105 115 101 32 73 50 67 0 ]
+[a 11C 77 65 88 51 48 49 48 50 32 100 101 116 101 99 116 97 100 111 32 99 111 114 114 101 99 116 97 109 101 110 116 101 0 ]
+[a 12C 76 101 99 116 117 114 97 32 82 69 68 32 101 32 73 82 32 105 110 105 99 105 97 100 97 0 ]
+[a 14C 76 101 121 101 110 100 111 32 77 65 88 0 ]
+[a 8C 77 65 88 51 48 49 48 50 32 69 82 82 79 82 0 ]
+[a 15C 82 69 68 32 47 32 73 82 0 ]
+[a 21C 77 117 101 115 116 114 97 9 82 69 68 9 73 82 0 ]
+[a 7C 82 101 118 105 115 101 32 86 67 67 44 32 71 78 68 44 32 83 68 65 32 121 32 83 67 76 0 ]
+[a 10C 83 68 65 32 83 67 76 32 86 67 67 0 ]
+[a 9C 82 101 118 105 115 101 32 73 50 67 0 ]
+[a 16C 77 65 88 51 48 49 48 50 32 68 65 84 65 0 ]
+[a 18C 73 82 58 0 ]
+[a 17C 82 69 68 58 0 ]
+[a 19C 76 101 121 101 110 100 111 46 46 46 0 ]
 [a 5C 86 101 114 105 102 105 99 97 110 100 111 32 77 65 88 51 48 49 48 50 46 46 46 0 ]
+[a 22C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 0 ]
+[a 23C 9 0 ]
+[a 24C 9 0 ]
+[a 20C 0 ]

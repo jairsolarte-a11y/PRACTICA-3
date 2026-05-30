@@ -5927,10 +5927,18 @@ uint8_t I2C_Master_Write(uint8_t data);
 uint8_t I2C_Master_Read(uint8_t ack);
 # 3 "max30102.c" 2
 # 1 "./max30102.h" 1
-# 13 "./max30102.h"
+
+
+
+
+
+
+
+
 uint8_t MAX30102_Init(void);
+uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value);
 # 4 "max30102.c" 2
-# 29 "max30102.c"
+# 27 "max30102.c"
 static void MAX30102_WriteRegister(uint8_t reg, uint8_t value)
 {
     I2C_Master_Start();
@@ -5961,7 +5969,33 @@ static uint8_t MAX30102_ReadRegister(uint8_t reg)
 
     return value;
 }
-# 71 "max30102.c"
+# 68 "max30102.c"
+static void MAX30102_ReadMulti(uint8_t reg, uint8_t *buffer, uint8_t length)
+{
+    uint8_t i;
+
+    I2C_Master_Start();
+    I2C_Master_Write((0x57 << 1) | 0);
+    I2C_Master_Write(reg);
+
+    I2C_Master_RepeatedStart();
+    I2C_Master_Write((0x57 << 1) | 1);
+
+    for (i = 0; i < length; i++)
+    {
+        if (i < (length - 1))
+        {
+            buffer[i] = I2C_Master_Read(1);
+        }
+        else
+        {
+            buffer[i] = I2C_Master_Read(0);
+        }
+    }
+
+    I2C_Master_Stop();
+}
+# 105 "max30102.c"
 uint8_t MAX30102_Init(void)
 {
     uint8_t part_id;
@@ -5989,7 +6023,13 @@ uint8_t MAX30102_Init(void)
     MAX30102_WriteRegister(0x04, 0x00);
     MAX30102_WriteRegister(0x05, 0x00);
     MAX30102_WriteRegister(0x06, 0x00);
-# 106 "max30102.c"
+
+
+
+
+
+
+
     MAX30102_WriteRegister(0x08, 0x1F);
 
 
@@ -5997,7 +6037,13 @@ uint8_t MAX30102_Init(void)
 
 
     MAX30102_WriteRegister(0x09, 0x03);
-# 121 "max30102.c"
+
+
+
+
+
+
+
     MAX30102_WriteRegister(0x0A, 0x27);
 
 
@@ -6013,6 +6059,30 @@ uint8_t MAX30102_Init(void)
 
     (void)MAX30102_ReadRegister(0x00);
     (void)MAX30102_ReadRegister(0x01);
+
+    return 1;
+}
+# 187 "max30102.c"
+uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value)
+{
+    uint8_t data[6];
+
+    MAX30102_ReadMulti(0x07, data, 6);
+
+    *red_value = (((uint32_t)data[0] << 16) |
+                  ((uint32_t)data[1] << 8) |
+                  ((uint32_t)data[2]));
+
+    *ir_value = (((uint32_t)data[3] << 16) |
+                 ((uint32_t)data[4] << 8) |
+                 ((uint32_t)data[5]));
+
+
+
+
+
+    *red_value &= 0x03FFFF;
+    *ir_value &= 0x03FFFF;
 
     return 1;
 }

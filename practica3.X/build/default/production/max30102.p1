@@ -528,153 +528,276 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8891
 [; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"29 max30102.c
-[; ;max30102.c: 29: static void MAX30102_WriteRegister(uint8_t reg, uint8_t value)
+"27 max30102.c
+[; ;max30102.c: 27: static void MAX30102_WriteRegister(uint8_t reg, uint8_t value)
 [v _MAX30102_WriteRegister `(v ~T0 @X0 1 sf2`uc`uc ]
-"30
-[; ;max30102.c: 30: {
+"28
+[; ;max30102.c: 28: {
 {
 [e :U _MAX30102_WriteRegister ]
-"29
-[; ;max30102.c: 29: static void MAX30102_WriteRegister(uint8_t reg, uint8_t value)
+"27
+[; ;max30102.c: 27: static void MAX30102_WriteRegister(uint8_t reg, uint8_t value)
 [v _reg `uc ~T0 @X0 1 r1 ]
 [v _value `uc ~T0 @X0 1 r2 ]
-"30
-[; ;max30102.c: 30: {
+"28
+[; ;max30102.c: 28: {
 [f ]
-"31
-[; ;max30102.c: 31:     I2C_Master_Start();
+"29
+[; ;max30102.c: 29:     I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"32
-[; ;max30102.c: 32:     I2C_Master_Write((0x57 << 1) | 0);
+"30
+[; ;max30102.c: 30:     I2C_Master_Write((0x57 << 1) | 0);
 [e ( _I2C_Master_Write (1 -> | << -> 87 `i -> 1 `i -> 0 `i `uc ]
-"33
-[; ;max30102.c: 33:     I2C_Master_Write(reg);
+"31
+[; ;max30102.c: 31:     I2C_Master_Write(reg);
 [e ( _I2C_Master_Write (1 _reg ]
-"34
-[; ;max30102.c: 34:     I2C_Master_Write(value);
+"32
+[; ;max30102.c: 32:     I2C_Master_Write(value);
 [e ( _I2C_Master_Write (1 _value ]
-"35
-[; ;max30102.c: 35:     I2C_Master_Stop();
+"33
+[; ;max30102.c: 33:     I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"36
-[; ;max30102.c: 36: }
+"34
+[; ;max30102.c: 34: }
 [e :UE 391 ]
 }
-"42
-[; ;max30102.c: 42: static uint8_t MAX30102_ReadRegister(uint8_t reg)
+"40
+[; ;max30102.c: 40: static uint8_t MAX30102_ReadRegister(uint8_t reg)
 [v _MAX30102_ReadRegister `(uc ~T0 @X0 1 sf1`uc ]
-"43
-[; ;max30102.c: 43: {
+"41
+[; ;max30102.c: 41: {
 {
 [e :U _MAX30102_ReadRegister ]
-"42
-[; ;max30102.c: 42: static uint8_t MAX30102_ReadRegister(uint8_t reg)
+"40
+[; ;max30102.c: 40: static uint8_t MAX30102_ReadRegister(uint8_t reg)
 [v _reg `uc ~T0 @X0 1 r1 ]
-"43
-[; ;max30102.c: 43: {
+"41
+[; ;max30102.c: 41: {
 [f ]
-"44
-[; ;max30102.c: 44:     uint8_t value;
+"42
+[; ;max30102.c: 42:     uint8_t value;
 [v _value `uc ~T0 @X0 1 a ]
-"46
-[; ;max30102.c: 46:     I2C_Master_Start();
+"44
+[; ;max30102.c: 44:     I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"47
-[; ;max30102.c: 47:     I2C_Master_Write((0x57 << 1) | 0);
+"45
+[; ;max30102.c: 45:     I2C_Master_Write((0x57 << 1) | 0);
 [e ( _I2C_Master_Write (1 -> | << -> 87 `i -> 1 `i -> 0 `i `uc ]
-"48
-[; ;max30102.c: 48:     I2C_Master_Write(reg);
+"46
+[; ;max30102.c: 46:     I2C_Master_Write(reg);
 [e ( _I2C_Master_Write (1 _reg ]
-"50
-[; ;max30102.c: 50:     I2C_Master_RepeatedStart();
+"48
+[; ;max30102.c: 48:     I2C_Master_RepeatedStart();
 [e ( _I2C_Master_RepeatedStart ..  ]
-"51
-[; ;max30102.c: 51:     I2C_Master_Write((0x57 << 1) | 1);
+"49
+[; ;max30102.c: 49:     I2C_Master_Write((0x57 << 1) | 1);
 [e ( _I2C_Master_Write (1 -> | << -> 87 `i -> 1 `i -> 1 `i `uc ]
-"53
-[; ;max30102.c: 53:     value = I2C_Master_Read(0);
+"51
+[; ;max30102.c: 51:     value = I2C_Master_Read(0);
 [e = _value ( _I2C_Master_Read (1 -> -> 0 `i `uc ]
-"55
-[; ;max30102.c: 55:     I2C_Master_Stop();
+"53
+[; ;max30102.c: 53:     I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"57
-[; ;max30102.c: 57:     return value;
+"55
+[; ;max30102.c: 55:     return value;
 [e ) _value ]
 [e $UE 392  ]
-"58
-[; ;max30102.c: 58: }
+"56
+[; ;max30102.c: 56: }
 [e :UE 392 ]
 }
-"71
-[; ;max30102.c: 71: uint8_t MAX30102_Init(void)
-[v _MAX30102_Init `(uc ~T0 @X0 1 ef ]
+"68
+[; ;max30102.c: 68: static void MAX30102_ReadMulti(uint8_t reg, uint8_t *buffer, uint8_t length)
+[v _MAX30102_ReadMulti `(v ~T0 @X0 1 sf3`uc`*uc`uc ]
+"69
+[; ;max30102.c: 69: {
+{
+[e :U _MAX30102_ReadMulti ]
+"68
+[; ;max30102.c: 68: static void MAX30102_ReadMulti(uint8_t reg, uint8_t *buffer, uint8_t length)
+[v _reg `uc ~T0 @X0 1 r1 ]
+[v _buffer `*uc ~T0 @X0 1 r2 ]
+[v _length `uc ~T0 @X0 1 r3 ]
+"69
+[; ;max30102.c: 69: {
+[f ]
+"70
+[; ;max30102.c: 70:     uint8_t i;
+[v _i `uc ~T0 @X0 1 a ]
 "72
-[; ;max30102.c: 72: {
+[; ;max30102.c: 72:     I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"73
+[; ;max30102.c: 73:     I2C_Master_Write((0x57 << 1) | 0);
+[e ( _I2C_Master_Write (1 -> | << -> 87 `i -> 1 `i -> 0 `i `uc ]
+"74
+[; ;max30102.c: 74:     I2C_Master_Write(reg);
+[e ( _I2C_Master_Write (1 _reg ]
+"76
+[; ;max30102.c: 76:     I2C_Master_RepeatedStart();
+[e ( _I2C_Master_RepeatedStart ..  ]
+"77
+[; ;max30102.c: 77:     I2C_Master_Write((0x57 << 1) | 1);
+[e ( _I2C_Master_Write (1 -> | << -> 87 `i -> 1 `i -> 1 `i `uc ]
+"79
+[; ;max30102.c: 79:     for (i = 0; i < length; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 397  ]
+[e :U 394 ]
+"80
+[; ;max30102.c: 80:     {
+{
+"81
+[; ;max30102.c: 81:         if (i < (length - 1))
+[e $ ! < -> _i `i - -> _length `i -> 1 `i 398  ]
+"82
+[; ;max30102.c: 82:         {
+{
+"83
+[; ;max30102.c: 83:             buffer[i] = I2C_Master_Read(1);
+[e = *U + _buffer * -> _i `ux -> -> # *U _buffer `ui `ux ( _I2C_Master_Read (1 -> -> 1 `i `uc ]
+"84
+[; ;max30102.c: 84:         }
+}
+[e $U 399  ]
+"85
+[; ;max30102.c: 85:         else
+[e :U 398 ]
+"86
+[; ;max30102.c: 86:         {
+{
+"87
+[; ;max30102.c: 87:             buffer[i] = I2C_Master_Read(0);
+[e = *U + _buffer * -> _i `ux -> -> # *U _buffer `ui `ux ( _I2C_Master_Read (1 -> -> 0 `i `uc ]
+"88
+[; ;max30102.c: 88:         }
+}
+[e :U 399 ]
+"89
+[; ;max30102.c: 89:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 397 ]
+[e $ < -> _i `i -> _length `i 394  ]
+[e :U 395 ]
+}
+"91
+[; ;max30102.c: 91:     I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"92
+[; ;max30102.c: 92: }
+[e :UE 393 ]
+}
+"105
+[; ;max30102.c: 105: uint8_t MAX30102_Init(void)
+[v _MAX30102_Init `(uc ~T0 @X0 1 ef ]
+"106
+[; ;max30102.c: 106: {
 {
 [e :U _MAX30102_Init ]
 [f ]
-"73
-[; ;max30102.c: 73:     uint8_t part_id;
+"107
+[; ;max30102.c: 107:     uint8_t part_id;
 [v _part_id `uc ~T0 @X0 1 a ]
-"79
-[; ;max30102.c: 79:     part_id = MAX30102_ReadRegister(0xFF);
+"113
+[; ;max30102.c: 113:     part_id = MAX30102_ReadRegister(0xFF);
 [e = _part_id ( _MAX30102_ReadRegister (1 -> -> 255 `i `uc ]
-"81
-[; ;max30102.c: 81:     if (part_id != 0x15)
-[e $ ! != -> _part_id `i -> 21 `i 394  ]
-"82
-[; ;max30102.c: 82:     {
+"115
+[; ;max30102.c: 115:     if (part_id != 0x15)
+[e $ ! != -> _part_id `i -> 21 `i 401  ]
+"116
+[; ;max30102.c: 116:     {
 {
-"83
-[; ;max30102.c: 83:         return 0;
+"117
+[; ;max30102.c: 117:         return 0;
 [e ) -> -> 0 `i `uc ]
-[e $UE 393  ]
-"84
-[; ;max30102.c: 84:     }
+[e $UE 400  ]
+"118
+[; ;max30102.c: 118:     }
 }
-[e :U 394 ]
-"89
-[; ;max30102.c: 89:     MAX30102_WriteRegister(0x09, 0x40);
+[e :U 401 ]
+"123
+[; ;max30102.c: 123:     MAX30102_WriteRegister(0x09, 0x40);
 [e ( _MAX30102_WriteRegister (2 , -> -> 9 `i `uc -> -> 64 `i `uc ]
-"90
-[; ;max30102.c: 90:     _delay((unsigned long)((100)*(8000000UL/4000.0)));
+"124
+[; ;max30102.c: 124:     _delay((unsigned long)((100)*(8000000UL/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"95
-[; ;max30102.c: 95:     MAX30102_WriteRegister(0x04, 0x00);
-[e ( _MAX30102_WriteRegister (2 , -> -> 4 `i `uc -> -> 0 `i `uc ]
-"96
-[; ;max30102.c: 96:     MAX30102_WriteRegister(0x05, 0x00);
-[e ( _MAX30102_WriteRegister (2 , -> -> 5 `i `uc -> -> 0 `i `uc ]
-"97
-[; ;max30102.c: 97:     MAX30102_WriteRegister(0x06, 0x00);
-[e ( _MAX30102_WriteRegister (2 , -> -> 6 `i `uc -> -> 0 `i `uc ]
-"106
-[; ;max30102.c: 106:     MAX30102_WriteRegister(0x08, 0x1F);
-[e ( _MAX30102_WriteRegister (2 , -> -> 8 `i `uc -> -> 31 `i `uc ]
-"112
-[; ;max30102.c: 112:     MAX30102_WriteRegister(0x09, 0x03);
-[e ( _MAX30102_WriteRegister (2 , -> -> 9 `i `uc -> -> 3 `i `uc ]
-"121
-[; ;max30102.c: 121:     MAX30102_WriteRegister(0x0A, 0x27);
-[e ( _MAX30102_WriteRegister (2 , -> -> 10 `i `uc -> -> 39 `i `uc ]
-"128
-[; ;max30102.c: 128:     MAX30102_WriteRegister(0x0C, 0x24);
-[e ( _MAX30102_WriteRegister (2 , -> -> 12 `i `uc -> -> 36 `i `uc ]
 "129
-[; ;max30102.c: 129:     MAX30102_WriteRegister(0x0D, 0x24);
+[; ;max30102.c: 129:     MAX30102_WriteRegister(0x04, 0x00);
+[e ( _MAX30102_WriteRegister (2 , -> -> 4 `i `uc -> -> 0 `i `uc ]
+"130
+[; ;max30102.c: 130:     MAX30102_WriteRegister(0x05, 0x00);
+[e ( _MAX30102_WriteRegister (2 , -> -> 5 `i `uc -> -> 0 `i `uc ]
+"131
+[; ;max30102.c: 131:     MAX30102_WriteRegister(0x06, 0x00);
+[e ( _MAX30102_WriteRegister (2 , -> -> 6 `i `uc -> -> 0 `i `uc ]
+"139
+[; ;max30102.c: 139:     MAX30102_WriteRegister(0x08, 0x1F);
+[e ( _MAX30102_WriteRegister (2 , -> -> 8 `i `uc -> -> 31 `i `uc ]
+"145
+[; ;max30102.c: 145:     MAX30102_WriteRegister(0x09, 0x03);
+[e ( _MAX30102_WriteRegister (2 , -> -> 9 `i `uc -> -> 3 `i `uc ]
+"153
+[; ;max30102.c: 153:     MAX30102_WriteRegister(0x0A, 0x27);
+[e ( _MAX30102_WriteRegister (2 , -> -> 10 `i `uc -> -> 39 `i `uc ]
+"160
+[; ;max30102.c: 160:     MAX30102_WriteRegister(0x0C, 0x24);
+[e ( _MAX30102_WriteRegister (2 , -> -> 12 `i `uc -> -> 36 `i `uc ]
+"161
+[; ;max30102.c: 161:     MAX30102_WriteRegister(0x0D, 0x24);
 [e ( _MAX30102_WriteRegister (2 , -> -> 13 `i `uc -> -> 36 `i `uc ]
-"134
-[; ;max30102.c: 134:     (void)MAX30102_ReadRegister(0x00);
+"166
+[; ;max30102.c: 166:     (void)MAX30102_ReadRegister(0x00);
 [e ( _MAX30102_ReadRegister (1 -> -> 0 `i `uc ]
-"135
-[; ;max30102.c: 135:     (void)MAX30102_ReadRegister(0x01);
+"167
+[; ;max30102.c: 167:     (void)MAX30102_ReadRegister(0x01);
 [e ( _MAX30102_ReadRegister (1 -> -> 1 `i `uc ]
-"137
-[; ;max30102.c: 137:     return 1;
+"169
+[; ;max30102.c: 169:     return 1;
 [e ) -> -> 1 `i `uc ]
-[e $UE 393  ]
-"138
-[; ;max30102.c: 138: }
-[e :UE 393 ]
+[e $UE 400  ]
+"170
+[; ;max30102.c: 170: }
+[e :UE 400 ]
+}
+"187
+[; ;max30102.c: 187: uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value)
+[v _MAX30102_ReadFIFO `(uc ~T0 @X0 1 ef2`*ul`*ul ]
+"188
+[; ;max30102.c: 188: {
+{
+[e :U _MAX30102_ReadFIFO ]
+"187
+[; ;max30102.c: 187: uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value)
+[v _red_value `*ul ~T0 @X0 1 r1 ]
+[v _ir_value `*ul ~T0 @X0 1 r2 ]
+"188
+[; ;max30102.c: 188: {
+[f ]
+"189
+[; ;max30102.c: 189:     uint8_t data[6];
+[v _data `uc ~T0 @X0 -> 6 `i a ]
+"191
+[; ;max30102.c: 191:     MAX30102_ReadMulti(0x07, data, 6);
+[e ( _MAX30102_ReadMulti (3 , , -> -> 7 `i `uc &U _data -> -> 6 `i `uc ]
+"193
+[; ;max30102.c: 193:     *red_value = (((uint32_t)data[0] << 16) |
+[e = *U _red_value | | << -> *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `ul -> 16 `i << -> *U + &U _data * -> -> -> 1 `i `ui `ux -> -> # *U &U _data `ui `ux `ul -> 8 `i -> *U + &U _data * -> -> -> 2 `i `ui `ux -> -> # *U &U _data `ui `ux `ul ]
+"197
+[; ;max30102.c: 197:     *ir_value = (((uint32_t)data[3] << 16) |
+[e = *U _ir_value | | << -> *U + &U _data * -> -> -> 3 `i `ui `ux -> -> # *U &U _data `ui `ux `ul -> 16 `i << -> *U + &U _data * -> -> -> 4 `i `ui `ux -> -> # *U &U _data `ui `ux `ul -> 8 `i -> *U + &U _data * -> -> -> 5 `i `ui `ux -> -> # *U &U _data `ui `ux `ul ]
+"205
+[; ;max30102.c: 205:     *red_value &= 0x03FFFF;
+[e =& *U _red_value -> -> 262143 `l `ul ]
+"206
+[; ;max30102.c: 206:     *ir_value &= 0x03FFFF;
+[e =& *U _ir_value -> -> 262143 `l `ul ]
+"208
+[; ;max30102.c: 208:     return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 402  ]
+"209
+[; ;max30102.c: 209: }
+[e :UE 402 ]
 }
