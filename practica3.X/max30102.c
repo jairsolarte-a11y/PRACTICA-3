@@ -21,9 +21,61 @@
 #define MAX30102_PART_ID_VALUE         0x15
 
 /*
- * Funcion interna:
- * Escribe un valor en un registro del MAX30102.
+ * Valor minimo de IR para intentar calcular BPM.
  */
+#define MAX30102_MIN_IR_FOR_HR         20000UL
+
+/*
+ * El MAX30102 se configura a 100 Hz.
+ * El main llama el algoritmo cada 10 ms aproximadamente.
+ */
+#define HR_SAMPLE_RATE_HZ              100UL
+
+/*
+ * Rango valido de frecuencia cardiaca.
+ */
+#define HR_MIN_VALID_BPM               45UL
+#define HR_MAX_VALID_BPM               130UL
+
+#define HR_MIN_INTERVAL_SAMPLES        ((60UL * HR_SAMPLE_RATE_HZ) / HR_MAX_VALID_BPM)
+#define HR_MAX_INTERVAL_SAMPLES        ((60UL * HR_SAMPLE_RATE_HZ) / HR_MIN_VALID_BPM)
+
+/*
+ * Tiempo refractario:
+ * evita contar dos picos dentro del mismo latido.
+ * 40 muestras x 10 ms = 400 ms.
+ */
+#define HR_REFRACTORY_SAMPLES          40UL
+
+/*
+ * Estabilizacion inicial corta:
+ * 50 muestras x 10 ms = 500 ms.
+ */
+#define HR_WARMUP_SAMPLES              50UL
+
+/*
+ * Umbral minimo de amplitud AC.
+ * Si se queda mucho en "Calculando", bajar a 60.
+ * Si da valores falsos altos, subir a 120 o 180.
+ */
+#define HR_MIN_AC_THRESHOLD            80UL
+
+/*
+ * Con 1 latido valido ya muestra valor.
+ */
+#define HR_REQUIRED_VALID_BEATS        1U
+
+static int32_t hr_dc_average = 0;
+static int32_t hr_ac_prev2 = 0;
+static int32_t hr_ac_prev1 = 0;
+static uint32_t hr_abs_average = 0;
+
+static uint32_t hr_sample_counter = 0;
+static uint32_t hr_last_beat_sample = 0;
+
+static uint16_t hr_current_bpm = 0;
+static uint8_t hr_valid_beats = 0;
+
 static void MAX30102_WriteRegister(uint8_t reg, uint8_t value)
 {
     I2C_Master_Start();
@@ -33,10 +85,6 @@ static void MAX30102_WriteRegister(uint8_t reg, uint8_t value)
     I2C_Master_Stop();
 }
 
-/*
- * Funcion interna:
- * Lee un registro del MAX30102.
- */
 static uint8_t MAX30102_ReadRegister(uint8_t reg)
 {
     uint8_t value;
@@ -55,16 +103,6 @@ static uint8_t MAX30102_ReadRegister(uint8_t reg)
     return value;
 }
 
-/*
- * Funcion interna:
- * Lee varios bytes consecutivos desde un registro del MAX30102.
- *
- * Esta funcion es necesaria para leer el FIFO, porque el sensor entrega
- * 6 bytes por muestra:
- *
- * RED: byte 0, byte 1, byte 2
- * IR:  byte 3, byte 4, byte 5
- */
 static void MAX30102_ReadMulti(uint8_t reg, uint8_t *buffer, uint8_t length)
 {
     uint8_t i;
@@ -91,25 +129,10 @@ static void MAX30102_ReadMulti(uint8_t reg, uint8_t *buffer, uint8_t length)
     I2C_Master_Stop();
 }
 
-/*
- * Funcion: MAX30102_Init
- *
- * Objetivo fisico:
- * Verificar que el sensor MAX30102 esta conectado al bus I2C
- * y configurarlo en modo SpO2 para activar los canales RED e IR.
- *
- * Retorno:
- * 1 = sensor detectado y configurado.
- * 0 = sensor no detectado.
- */
 uint8_t MAX30102_Init(void)
 {
     uint8_t part_id;
 
-    /*
-     * Lee el registro PART_ID.
-     * Si el valor leido es 0x15, el sensor MAX30102 fue detectado.
-     */
     part_id = MAX30102_ReadRegister(MAX30102_REG_PART_ID);
 
     if (part_id != MAX30102_PART_ID_VALUE)
@@ -118,13 +141,13 @@ uint8_t MAX30102_Init(void)
     }
 
     /*
-     * Reset interno del sensor.
+     * Reset del sensor.
      */
     MAX30102_WriteRegister(MAX30102_REG_MODE_CONFIG, 0x40);
     __delay_ms(100);
 
     /*
-     * Limpia los punteros del FIFO.
+     * Limpia FIFO.
      */
     MAX30102_WriteRegister(MAX30102_REG_FIFO_WR_PTR, 0x00);
     MAX30102_WriteRegister(MAX30102_REG_OVF_COUNTER, 0x00);
@@ -132,9 +155,9 @@ uint8_t MAX30102_Init(void)
 
     /*
      * FIFO_CONFIG = 0x1F:
-     * - Promedio de muestras = 1.
-     * - FIFO rollover habilitado.
-     * - FIFO almost full = 15.
+     * Promedio de muestras = 1.
+     * FIFO rollover habilitado.
+     * FIFO almost full = 15.
      */
     MAX30102_WriteRegister(MAX30102_REG_FIFO_CONFIG, 0x1F);
 
@@ -146,44 +169,30 @@ uint8_t MAX30102_Init(void)
 
     /*
      * SPO2_CONFIG = 0x27:
-     * - ADC range = 4096 nA.
-     * - Sample rate = 100 Hz.
-     * - Pulse width = 411 us.
+     * ADC range = 4096 nA.
+     * Sample rate = 100 Hz.
+     * Pulse width = 411 us.
      */
     MAX30102_WriteRegister(MAX30102_REG_SPO2_CONFIG, 0x27);
 
     /*
-     * Corriente de los LEDs internos del sensor.
-     * LED1 = RED.
-     * LED2 = IR.
+     * Corriente de LEDs.
+     * 0x24 da mejor deteccion rapida que 0x1F.
      */
     MAX30102_WriteRegister(MAX30102_REG_LED1_PA, 0x24);
     MAX30102_WriteRegister(MAX30102_REG_LED2_PA, 0x24);
 
     /*
-     * Limpia banderas de interrupcion leyendo sus registros.
+     * Limpia interrupciones.
      */
     (void)MAX30102_ReadRegister(MAX30102_REG_INT_STATUS_1);
     (void)MAX30102_ReadRegister(MAX30102_REG_INT_STATUS_2);
 
+    MAX30102_ResetHeartRateAlgorithm();
+
     return 1;
 }
 
-/*
- * Funcion: MAX30102_ReadFIFO
- *
- * Objetivo fisico:
- * Leer una muestra real del sensor MAX30102.
- *
- * El sensor entrega 6 bytes:
- * - 3 bytes para RED.
- * - 3 bytes para IR.
- *
- * Cada valor es de 18 bits, por eso se aplica la mascara 0x03FFFF.
- *
- * Retorno:
- * 1 = lectura realizada.
- */
 uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value)
 {
     uint8_t data[6];
@@ -199,11 +208,157 @@ uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value)
                  ((uint32_t)data[5]));
 
     /*
-     * El MAX30102 entrega datos de 18 bits.
-     * Se limpian los bits superiores que no pertenecen a la medicion.
+     * Datos de 18 bits.
      */
     *red_value &= 0x03FFFF;
     *ir_value  &= 0x03FFFF;
 
     return 1;
+}
+
+void MAX30102_ResetHeartRateAlgorithm(void)
+{
+    hr_dc_average = 0;
+    hr_ac_prev2 = 0;
+    hr_ac_prev1 = 0;
+    hr_abs_average = 0;
+
+    hr_sample_counter = 0;
+    hr_last_beat_sample = 0;
+
+    hr_current_bpm = 0;
+    hr_valid_beats = 0;
+}
+
+uint8_t MAX30102_ProcessHeartRate(uint32_t ir_value, uint16_t *bpm)
+{
+    int32_t ac_signal;
+    uint32_t abs_ac_signal;
+    uint32_t dynamic_threshold;
+
+    uint32_t peak_sample;
+    uint32_t interval_samples;
+    uint32_t calculated_bpm;
+
+    if (ir_value < MAX30102_MIN_IR_FOR_HR)
+    {
+        MAX30102_ResetHeartRateAlgorithm();
+        return 0;
+    }
+
+    hr_sample_counter++;
+
+    if (hr_dc_average == 0)
+    {
+        hr_dc_average = (int32_t)ir_value;
+        hr_ac_prev2 = 0;
+        hr_ac_prev1 = 0;
+        return 0;
+    }
+
+    /*
+     * Filtro DC:
+     * separa la parte lenta de la senal IR.
+     */
+    hr_dc_average = ((hr_dc_average * 31L) + (int32_t)ir_value) / 32L;
+
+    /*
+     * Componente AC:
+     * aqui estan las pulsaciones.
+     */
+    ac_signal = (int32_t)ir_value - hr_dc_average;
+
+    if (ac_signal < 0)
+    {
+        abs_ac_signal = (uint32_t)(-ac_signal);
+    }
+    else
+    {
+        abs_ac_signal = (uint32_t)ac_signal;
+    }
+
+    /*
+     * Umbral dinamico sensible.
+     */
+    hr_abs_average = ((hr_abs_average * 15UL) + abs_ac_signal) / 16UL;
+
+    dynamic_threshold = hr_abs_average / 2UL;
+
+    if (dynamic_threshold < HR_MIN_AC_THRESHOLD)
+    {
+        dynamic_threshold = HR_MIN_AC_THRESHOLD;
+    }
+
+    /*
+     * Espera corta de estabilizacion.
+     */
+    if (hr_sample_counter < HR_WARMUP_SAMPLES)
+    {
+        hr_ac_prev2 = hr_ac_prev1;
+        hr_ac_prev1 = ac_signal;
+        return 0;
+    }
+
+    /*
+     * Deteccion de pico:
+     * ac_prev1 debe ser mayor que la muestra anterior,
+     * mayor que la muestra actual y superar el umbral.
+     */
+    if ((hr_ac_prev1 > hr_ac_prev2) &&
+        (hr_ac_prev1 > ac_signal) &&
+        (hr_ac_prev1 > (int32_t)dynamic_threshold))
+    {
+        peak_sample = hr_sample_counter - 1UL;
+
+        if ((hr_last_beat_sample == 0UL) ||
+            ((peak_sample - hr_last_beat_sample) >= HR_REFRACTORY_SAMPLES))
+        {
+            if (hr_last_beat_sample != 0UL)
+            {
+                interval_samples = peak_sample - hr_last_beat_sample;
+
+                if ((interval_samples >= HR_MIN_INTERVAL_SAMPLES) &&
+                    (interval_samples <= HR_MAX_INTERVAL_SAMPLES))
+                {
+                    calculated_bpm = (60UL * HR_SAMPLE_RATE_HZ) / interval_samples;
+
+                    if ((calculated_bpm >= HR_MIN_VALID_BPM) &&
+                        (calculated_bpm <= HR_MAX_VALID_BPM))
+                    {
+                        if (hr_current_bpm == 0)
+                        {
+                            hr_current_bpm = (uint16_t)calculated_bpm;
+                        }
+                        else
+                        {
+                            /*
+                             * Suavizado moderado.
+                             */
+                            hr_current_bpm =
+                                (uint16_t)((((uint32_t)hr_current_bpm * 3UL) +
+                                            calculated_bpm) / 4UL);
+                        }
+
+                        if (hr_valid_beats < 10)
+                        {
+                            hr_valid_beats++;
+                        }
+                    }
+                }
+            }
+
+            hr_last_beat_sample = peak_sample;
+        }
+    }
+
+    hr_ac_prev2 = hr_ac_prev1;
+    hr_ac_prev1 = ac_signal;
+
+    if (hr_valid_beats >= HR_REQUIRED_VALID_BEATS)
+    {
+        *bpm = hr_current_bpm;
+        return 1;
+    }
+
+    return 0;
 }

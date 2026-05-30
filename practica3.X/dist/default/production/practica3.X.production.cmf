@@ -12,56 +12,61 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\practica3.X.production.o
-cinit CODE 0 6C36 6C36 10 1 2
-text0 CODE 0 79A6 79A6 2B2 1 2
-text1 CODE 0 6EBC 6EBC 54 1 2
-text2 CODE 0 6D24 6D24 1E 1 2
-text3 CODE 0 75D0 75D0 C6 1 2
-text4 CODE 0 6C28 6C28 E 1 2
-text5 CODE 0 6C14 6C14 4 1 2
-text6 CODE 0 6C10 6C10 4 1 2
-text7 CODE 0 6F66 6F66 5C 1 2
-text8 CODE 0 750C 750C C4 1 2
-text9 CODE 0 7020 7020 5E 1 2
-text10 CODE 0 7780 7780 10E 1 2
-text11 CODE 0 6E70 6E70 4C 1 2
-text12 CODE 0 6C18 6C18 6 1 2
-text13 CODE 0 6C46 6C46 12 1 2
-text14 CODE 0 6E24 6E24 4C 1 2
-text15 CODE 0 6D06 6D06 1E 1 2
-text16 CODE 0 6C1E 6C1E A 1 2
-text17 CODE 0 6D88 6D88 26 1 2
-text18 CODE 0 73B2 73B2 A4 1 2
-text19 CODE 0 7696 7696 EA 1 2
-text20 CODE 0 7154 7154 88 1 2
-text21 CODE 0 730E 730E A4 1 2
-text22 CODE 0 7456 7456 B6 1 2
-text23 CODE 0 707E 707E 64 1 2
-text24 CODE 0 70E2 70E2 72 1 2
-text25 CODE 0 6CB0 6CB0 1A 1 2
-text26 CODE 0 6FC2 6FC2 5E 1 2
-text27 CODE 0 6C9A 6C9A 16 1 2
-text28 CODE 0 788E 788E 118 1 2
-text29 CODE 0 71DC 71DC 90 1 2
-text30 CODE 0 726C 726C A2 1 2
-text31 CODE 0 6CE8 6CE8 1E 1 2
-text32 CODE 0 6DAE 6DAE 2C 1 2
-text33 CODE 0 6CCA 6CCA 1E 1 2
-text34 CODE 0 6C84 6C84 16 1 2
-text35 CODE 0 6C6E 6C6E 16 1 2
-text36 CODE 0 6C58 6C58 16 1 2
-text37 CODE 0 6DDA 6DDA 4A 1 2
-text38 CODE 0 6D62 6D62 26 1 2
-text39 CODE 0 6D42 6D42 20 1 2
-text40 CODE 0 6C0C 6C0C 4 1 2
-text41 CODE 0 6C08 6C08 4 1 2
-text42 CODE 0 6C04 6C04 4 1 2
-text43 CODE 0 6F10 6F10 56 1 2
-cstackCOMRAM COMRAM 1 1 1 48 1 1
-bssCOMRAM COMRAM 1 49 49 3 1 1
-mediumconst MEDIUMCONST 0 7C58 7C58 3A4 1 2
+cinit CODE 0 6556 6556 22 1 2
+text0 CODE 0 7456 7456 31E 1 2
+text1 CODE 0 66D2 66D2 54 1 2
+text2 CODE 0 6518 6518 1E 1 2
+text3 CODE 0 6D58 6D58 C6 1 2
+text4 CODE 0 642C 642C E 1 2
+text5 CODE 0 6418 6418 4 1 2
+text6 CODE 0 6414 6414 4 1 2
+text7 CODE 0 677C 677C 5C 1 2
+text8 CODE 0 722A 722A 114 1 2
+text9 CODE 0 6836 6836 5E 1 2
+text10 CODE 0 711C 711C 10E 1 2
+text11 CODE 0 6686 6686 4C 1 2
+text12 CODE 0 641C 641C 6 1 2
+text13 CODE 0 643A 643A 12 1 2
+text14 CODE 0 663A 663A 4C 1 2
+text15 CODE 0 64FA 64FA 1E 1 2
+text16 CODE 0 6422 6422 A 1 2
+text17 CODE 0 659E 659E 26 1 2
+text18 CODE 0 7012 7012 10A 1 2
+text19 CODE 0 6E1E 6E1E EA 1 2
+text20 CODE 0 6A40 6A40 88 1 2
+text21 CODE 0 6CA2 6CA2 B6 1 2
+text22 CODE 0 6894 6894 64 1 2
+text23 CODE 0 69CE 69CE 72 1 2
+text24 CODE 0 64A4 64A4 1A 1 2
+text25 CODE 0 67D8 67D8 5E 1 2
+text26 CODE 0 648E 648E 16 1 2
+text27 CODE 0 733E 733E 118 1 2
+text28 CODE 0 6AC8 6AC8 90 1 2
+text29 CODE 0 7774 7774 4B6 1 2
+text30 CODE 0 68F8 68F8 6A 1 2
+text31 CODE 0 6B58 6B58 A4 1 2
+text32 CODE 0 6F08 6F08 10A 1 2
+text33 CODE 0 6BFC 6BFC A6 1 2
+text34 CODE 0 64DC 64DC 1E 1 2
+text35 CODE 0 6962 6962 6C 1 2
+text36 CODE 0 65C4 65C4 2C 1 2
+text37 CODE 0 64BE 64BE 1E 1 2
+text38 CODE 0 6478 6478 16 1 2
+text39 CODE 0 6462 6462 16 1 2
+text40 CODE 0 644C 644C 16 1 2
+text41 CODE 0 65F0 65F0 4A 1 2
+text42 CODE 0 6578 6578 26 1 2
+text43 CODE 0 6536 6536 20 1 2
+text44 CODE 0 6410 6410 4 1 2
+text45 CODE 0 640C 640C 4 1 2
+text46 CODE 0 6408 6408 4 1 2
+text47 CODE 0 6726 6726 56 1 2
+cstackCOMRAM COMRAM 1 1 1 50 1 1
+bssBANK0 BANK0 1 60 60 10 1 1
+bssCOMRAM COMRAM 1 51 51 E 1 1
+mediumconst MEDIUMCONST 0 7C2A 7C2A 3D2 1 2
 config CONFIG 4 300000 300000 E 1 1
-$C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
+$C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
 init CODE 0 7FFC 7FFC 4 1 2
 reset_vec CODE 0 0 0 4 1 2
 config CONFIG 4 300000 300000 E 1 1
@@ -71,9 +76,9 @@ config CONFIG 4 300000 300000 E 1 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 60-7FF 1
+RAM 70-7FF 1
 SFR F60-FFF 1
-BANK0 60-FF 1
+BANK0 70-FF 1
 BANK1 100-1FF 1
 BANK2 200-2FF 1
 BANK3 300-3FF 1
@@ -81,15 +86,16 @@ BANK4 400-4FF 1
 BANK5 500-5FF 1
 BANK6 600-6FF 1
 BANK7 700-7FF 1
-CONST 4-6C03 1
+CONST 4-6407 1
 IDLOC 200000-200007 1
-SMALLCONST 800-6C03 1
-CODE 4-6C03 1
-BIGRAM 4C-7FF 1
+SMALLCONST 800-6407 1
+CODE 4-6407 1
+BIGRAM 5F-5F 1
+BIGRAM 70-7FF 1
 BIGSFR F60-FFF 1
-COMRAM 4C-5F 1
+COMRAM 5F-5F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 800-6C03 1
+MEDIUMCONST 800-6407 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -104,523 +110,651 @@ MEDIUMCONST 800-6C03 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\practica3.X.production.o
-6F10 text43 CODE >359:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6F10 text43 CODE >366:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6F20 text43 CODE >368:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6F3C text43 CODE >370:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6F44 text43 CODE >379:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6F60 text43 CODE >381:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6F62 text43 CODE >385:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6F64 text43 CODE >386:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C04 text42 CODE >327:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C04 text42 CODE >329:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C06 text42 CODE >330:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C08 text41 CODE >342:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C08 text41 CODE >344:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C0A text41 CODE >345:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C0C text40 CODE >337:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C0C text40 CODE >339:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C0E text40 CODE >340:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6D42 text39 CODE >347:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6D44 text39 CODE >349:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6D54 text39 CODE >351:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6D58 text39 CODE >352:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6D5C text39 CODE >355:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6D60 text39 CODE >357:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6D62 text38 CODE >12:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6D62 text38 CODE >14:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6D86 text38 CODE >18:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6DDA text37 CODE >109:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6DDC text37 CODE >113:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6DE0 text37 CODE >115:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6DE2 text37 CODE >117:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6DE2 text37 CODE >120:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6DF0 text37 CODE >122:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6DF4 text37 CODE >124:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6DF8 text37 CODE >126:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6E08 text37 CODE >128:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6E0A text37 CODE >129:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6E0E text37 CODE >130:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6E0E text37 CODE >132:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6E10 text37 CODE >133:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6E10 text37 CODE >135:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6E12 text37 CODE >137:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6E12 text37 CODE >140:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6E20 text37 CODE >142:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6E22 text37 CODE >143:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C58 text36 CODE >66:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C58 text36 CODE >68:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C5C text36 CODE >69:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C5E text36 CODE >71:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C5E text36 CODE >74:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C6C text36 CODE >75:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C6E text35 CODE >55:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C6E text35 CODE >57:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C72 text35 CODE >58:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C74 text35 CODE >60:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C74 text35 CODE >63:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C82 text35 CODE >64:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C84 text34 CODE >77:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C84 text34 CODE >79:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C88 text34 CODE >80:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C8A text34 CODE >82:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C8A text34 CODE >85:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C98 text34 CODE >86:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6CCA text33 CODE >88:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6CCC text33 CODE >90:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6CD0 text33 CODE >92:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6CD4 text33 CODE >94:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6CD4 text33 CODE >97:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6CE2 text33 CODE >99:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6CE4 text33 CODE >106:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6CE6 text33 CODE >107:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6DAE text32 CODE >40:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6DB0 text32 CODE >44:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6DB4 text32 CODE >45:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6DBA text32 CODE >46:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6DC0 text32 CODE >48:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6DC4 text32 CODE >49:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6DCA text32 CODE >51:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6DD2 text32 CODE >53:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6DD6 text32 CODE >55:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6DD8 text32 CODE >56:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6CE8 text31 CODE >27:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6CEA text31 CODE >29:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6CEE text31 CODE >30:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6CF4 text31 CODE >31:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6CFA text31 CODE >32:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6D00 text31 CODE >33:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6D04 text31 CODE >34:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-726C text30 CODE >105:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-726C text30 CODE >113:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-7274 text30 CODE >115:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-7286 text30 CODE >117:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-728C text30 CODE >123:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-7296 text30 CODE >124:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-72AE text30 CODE >129:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-72B8 text30 CODE >130:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-72C2 text30 CODE >131:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-72CC text30 CODE >139:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-72D6 text30 CODE >145:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-72E0 text30 CODE >153:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-72EA text30 CODE >160:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-72F4 text30 CODE >161:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-72FE text30 CODE >166:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-7304 text30 CODE >167:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-730A text30 CODE >169:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-730C text30 CODE >170:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-71DC text29 CODE >68:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-71DE text29 CODE >72:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-71E2 text29 CODE >73:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-71E8 text29 CODE >74:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-71EE text29 CODE >76:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-71F2 text29 CODE >77:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-71F8 text29 CODE >79:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-71FE text29 CODE >81:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-722E text29 CODE >83:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-723E text29 CODE >84:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-7242 text29 CODE >87:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-7252 text29 CODE >89:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-7266 text29 CODE >91:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-726A text29 CODE >92:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-788E text28 CODE >187:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-788E text28 CODE >191:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-789C text28 CODE >193:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-790A text28 CODE >197:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-7978 text28 CODE >205:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-798E text28 CODE >206:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-79A4 text28 CODE >209:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
-6C9A text27 CODE >54:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6C9C text27 CODE >56:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6C9C text27 CODE >59:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6CAA text27 CODE >61:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6CAE text27 CODE >62:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6FC2 text26 CODE >64:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6FC2 text26 CODE >66:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6FC6 text26 CODE >68:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6FEA text26 CODE >69:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6FEE text26 CODE >66:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-701E text26 CODE >71:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6CB0 text25 CODE >73:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6CB0 text25 CODE >75:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6CBC text25 CODE >76:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6CC8 text25 CODE >77:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-70E2 text24 CODE >7:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-70E2 text24 CODE >13:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-70E8 text24 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-70FA text24 CODE >15:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-70FE text24 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-7102 text24 CODE >17:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-7108 text24 CODE >18:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-710A text24 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-7118 text24 CODE >21:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-711E text24 CODE >22:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-7134 text24 CODE >23:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-713C text24 CODE >24:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-713E text24 CODE >26:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-7144 text24 CODE >27:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-714A text24 CODE >28:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-714A text24 CODE >29:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-7152 text24 CODE >30:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
-707E text23 CODE >7:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-707E text23 CODE >12:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-7090 text23 CODE >13:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-7094 text23 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-7098 text23 CODE >15:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-709E text23 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-70A0 text23 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-70AE text23 CODE >19:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-70C4 text23 CODE >20:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-70CC text23 CODE >21:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-70D2 text23 CODE >22:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-70D8 text23 CODE >23:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-70D8 text23 CODE >24:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-70E0 text23 CODE >25:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
-7456 text22 CODE >388:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7456 text22 CODE >391:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7458 text22 CODE >392:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-745A text22 CODE >394:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-746C text22 CODE >396:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7476 text22 CODE >397:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7486 text22 CODE >403:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-74A6 text22 CODE >404:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-74C0 text22 CODE >405:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-74C2 text22 CODE >401:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-74D8 text22 CODE >410:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-74DA text22 CODE >411:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-74EE text22 CODE >412:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-74F0 text22 CODE >408:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7500 text22 CODE >415:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-750A text22 CODE >416:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-730E text21 CODE >7:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-730E text21 CODE >13:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-731E text21 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-7334 text21 CODE >15:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-7338 text21 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-733C text21 CODE >17:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-7346 text21 CODE >18:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-7348 text21 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-7356 text21 CODE >21:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-7360 text21 CODE >22:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-737E text21 CODE >23:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-738E text21 CODE >24:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-7390 text21 CODE >26:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-739A text21 CODE >27:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-73A0 text21 CODE >28:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-73A0 text21 CODE >29:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-73B0 text21 CODE >30:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
-7154 text20 CODE >7:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-7154 text20 CODE >12:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-716A text20 CODE >13:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-716E text20 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-7172 text20 CODE >15:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-717C text20 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-717E text20 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-718C text20 CODE >19:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-71AA text20 CODE >20:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-71BA text20 CODE >21:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-71C4 text20 CODE >22:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-71CA text20 CODE >23:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-71CA text20 CODE >24:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-71DA text20 CODE >25:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
-7696 text19 CODE >418:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7696 text19 CODE >421:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7698 text19 CODE >422:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-769A text19 CODE >424:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-76B0 text19 CODE >426:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-76BA text19 CODE >427:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-76CA text19 CODE >433:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-76FC text19 CODE >434:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7730 text19 CODE >435:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7732 text19 CODE >431:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-774C text19 CODE >440:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-774E text19 CODE >441:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7762 text19 CODE >442:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7764 text19 CODE >438:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7774 text19 CODE >445:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-777E text19 CODE >446:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-73B2 text18 CODE >488:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-73B2 text18 CODE >495:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-73C2 text18 CODE >496:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-73CC text18 CODE >497:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-73D8 text18 CODE >499:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-73E8 text18 CODE >501:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-73F4 text18 CODE >502:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-73F8 text18 CODE >505:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7404 text18 CODE >508:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-741C text18 CODE >509:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7426 text18 CODE >510:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7432 text18 CODE >512:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-744A text18 CODE >513:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7454 text18 CODE >514:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6D88 text17 CODE >481:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6D88 text17 CODE >483:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6D94 text17 CODE >484:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6DA0 text17 CODE >485:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6DAC text17 CODE >486:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C1E text16 CODE >132:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6C20 text16 CODE >134:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6C26 text16 CODE >135:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6D06 text15 CODE >111:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6D08 text15 CODE >113:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6D0C text15 CODE >114:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6D12 text15 CODE >115:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6D18 text15 CODE >116:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6D1E text15 CODE >117:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6D22 text15 CODE >118:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E24 text14 CODE >137:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E26 text14 CODE >139:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E36 text14 CODE >141:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E38 text14 CODE >144:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E48 text14 CODE >146:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E4A text14 CODE >147:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E4A text14 CODE >149:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E4E text14 CODE >150:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E52 text14 CODE >152:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E5A text14 CODE >153:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E62 text14 CODE >154:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E6E text14 CODE >155:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6C46 text13 CODE >120:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6C46 text13 CODE >122:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6C4A text13 CODE >123:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6C50 text13 CODE >124:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6C56 text13 CODE >125:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6C18 text12 CODE >127:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6C18 text12 CODE >129:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6C1C text12 CODE >130:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E70 text11 CODE >157:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E70 text11 CODE >162:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E72 text11 CODE >164:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E7C text11 CODE >166:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E80 text11 CODE >168:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E82 text11 CODE >170:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E88 text11 CODE >171:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E9A text11 CODE >173:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6E9E text11 CODE >174:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6EB0 text11 CODE >176:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6EBA text11 CODE >177:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7780 text10 CODE >202:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7782 text10 CODE >208:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7794 text10 CODE >210:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7796 text10 CODE >212:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77A6 text10 CODE >214:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77A8 text10 CODE >215:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77AC text10 CODE >216:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77AC text10 CODE >218:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77AE text10 CODE >221:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77BC text10 CODE >223:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77BC text10 CODE >225:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77C0 text10 CODE >227:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77E0 text10 CODE >229:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77E4 text10 CODE >232:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77F4 text10 CODE >234:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-77F6 text10 CODE >236:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7806 text10 CODE >238:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7808 text10 CODE >239:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-780C text10 CODE >240:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-780C text10 CODE >242:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-780E text10 CODE >245:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7818 text10 CODE >248:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-783E text10 CODE >250:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7842 text10 CODE >252:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7844 text10 CODE >254:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-786C text10 CODE >255:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-787E text10 CODE >257:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7884 text10 CODE >259:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7888 text10 CODE >261:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-788C text10 CODE >262:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7020 text9 CODE >264:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7020 text9 CODE >266:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7024 text9 CODE >268:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7048 text9 CODE >269:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-704C text9 CODE >266:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-707C text9 CODE >271:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-750C text8 CODE >448:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-750E text8 CODE >454:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7512 text8 CODE >456:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-751C text8 CODE >457:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7528 text8 CODE >459:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7532 text8 CODE >461:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7542 text8 CODE >463:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-754E text8 CODE >464:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7552 text8 CODE >467:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-755E text8 CODE >470:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7568 text8 CODE >471:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7574 text8 CODE >472:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-758C text8 CODE >473:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7596 text8 CODE >475:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-75A0 text8 CODE >476:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-75AC text8 CODE >477:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-75C4 text8 CODE >478:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-75CE text8 CODE >479:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6F66 text7 CODE >20:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6F66 text7 CODE >29:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6F68 text7 CODE >30:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6F6A text7 CODE >32:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6F6C text7 CODE >33:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6F6E text7 CODE >34:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6F70 text7 CODE >41:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6F74 text7 CODE >46:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6F76 text7 CODE >52:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6FC0 text7 CODE >53:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-6C10 text6 CODE >322:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C10 text6 CODE >324:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C12 text6 CODE >325:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C14 text5 CODE >332:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C14 text5 CODE >334:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C16 text5 CODE >335:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C28 text4 CODE >305:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C28 text4 CODE >310:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C2A text4 CODE >311:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C2C text4 CODE >312:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C2E text4 CODE >317:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C30 text4 CODE >318:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C32 text4 CODE >319:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C34 text4 CODE >320:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-75D0 text3 CODE >273:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-75D0 text3 CODE >275:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-75E8 text3 CODE >277:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-75EE text3 CODE >279:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-75F4 text3 CODE >280:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-75FA text3 CODE >282:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7600 text3 CODE >283:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7606 text3 CODE >284:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-760C text3 CODE >285:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7612 text3 CODE >286:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7618 text3 CODE >288:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-761E text3 CODE >289:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7624 text3 CODE >291:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-762A text3 CODE >292:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7630 text3 CODE >294:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7636 text3 CODE >295:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-763C text3 CODE >297:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7642 text3 CODE >299:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7648 text3 CODE >300:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-764E text3 CODE >302:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7654 text3 CODE >303:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-765A text3 CODE >305:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7660 text3 CODE >306:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7666 text3 CODE >308:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-766C text3 CODE >309:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7672 text3 CODE >311:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7678 text3 CODE >312:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-767E text3 CODE >314:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7684 text3 CODE >315:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-768A text3 CODE >317:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7690 text3 CODE >319:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-7694 text3 CODE >320:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
-6D24 text2 CODE >14:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D24 text2 CODE >20:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D26 text2 CODE >21:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D28 text2 CODE >26:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D2A text2 CODE >27:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D2C text2 CODE >28:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D2E text2 CODE >33:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D30 text2 CODE >34:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D32 text2 CODE >35:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D34 text2 CODE >43:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D36 text2 CODE >44:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D3A text2 CODE >49:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D3C text2 CODE >50:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D3E text2 CODE >51:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6D40 text2 CODE >52:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
-6EBC text1 CODE >239:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EBC text1 CODE >244:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EC0 text1 CODE >249:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EC4 text1 CODE >254:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EC8 text1 CODE >255:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6ECA text1 CODE >260:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6ECC text1 CODE >261:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6ECE text1 CODE >262:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6ED0 text1 CODE >263:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6ED2 text1 CODE >264:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6ED4 text1 CODE >270:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6ED6 text1 CODE >271:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6ED8 text1 CODE >272:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EDA text1 CODE >273:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EDC text1 CODE >274:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EDE text1 CODE >279:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EE2 text1 CODE >281:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EE6 text1 CODE >282:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EEA text1 CODE >283:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EEE text1 CODE >290:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6EF2 text1 CODE >296:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6F06 text1 CODE >301:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6F0A text1 CODE >302:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6F0E text1 CODE >303:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79A6 text0 CODE >98:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79A6 text0 CODE >100:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79A6 text0 CODE >102:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79B6 text0 CODE >103:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79C6 text0 CODE >105:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79C6 text0 CODE >106:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79C8 text0 CODE >108:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79CE text0 CODE >109:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79D4 text0 CODE >110:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79DA text0 CODE >112:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79DE text0 CODE >114:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79EA text0 CODE >115:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-79F6 text0 CODE >116:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A02 text0 CODE >117:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A0E text0 CODE >118:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A1A text0 CODE >120:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A20 text0 CODE >122:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A24 text0 CODE >124:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A34 text0 CODE >126:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A38 text0 CODE >127:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A3C text0 CODE >129:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A48 text0 CODE >130:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A54 text0 CODE >132:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A5E text0 CODE >133:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A6A text0 CODE >135:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A74 text0 CODE >136:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A80 text0 CODE >138:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A8A text0 CODE >139:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A96 text0 CODE >143:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7A9C text0 CODE >150:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7AA0 text0 CODE >151:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7AA4 text0 CODE >153:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7AB0 text0 CODE >154:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7ABC text0 CODE >156:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7AC0 text0 CODE >158:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7ACA text0 CODE >159:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7AD6 text0 CODE >161:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7AE0 text0 CODE >162:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7AEC text0 CODE >164:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7AF6 text0 CODE >165:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7B02 text0 CODE >172:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7B0E text0 CODE >177:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7B24 text0 CODE >184:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7B2A text0 CODE >189:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7B4A text0 CODE >191:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7B56 text0 CODE >192:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7B62 text0 CODE >193:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7B66 text0 CODE >196:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7B86 text0 CODE >198:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7B92 text0 CODE >199:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7B9E text0 CODE >200:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7BA2 text0 CODE >206:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7BA6 text0 CODE >208:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7BBC text0 CODE >210:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7BC2 text0 CODE >211:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7BC6 text0 CODE >213:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7BF6 text0 CODE >222:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7BFA text0 CODE >224:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7C10 text0 CODE >226:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7C16 text0 CODE >228:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7C3C text0 CODE >233:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-7C40 text0 CODE >235:C:\2026\Microcontroladores\practica3\practica3.X\main.c
-6C36 cinit CODE >3354:C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_1.s
-6C36 cinit CODE >3356:C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_1.s
-6C36 cinit CODE >3359:C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_1.s
-6C36 cinit CODE >3374:C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_1.s
-6C38 cinit CODE >3375:C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_1.s
-6C3A cinit CODE >3376:C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_1.s
-6C3C cinit CODE >3382:C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_1.s
-6C3C cinit CODE >3385:C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_1.s
-6C3E cinit CODE >3386:C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_1.s
-6C40 cinit CODE >3387:C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_1.s
-6C42 cinit CODE >3388:C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_1.s
+6726 text47 CODE >389:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6726 text47 CODE >396:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6736 text47 CODE >398:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6752 text47 CODE >400:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+675A text47 CODE >409:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6776 text47 CODE >411:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6778 text47 CODE >415:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+677A text47 CODE >416:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6408 text46 CODE >357:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6408 text46 CODE >359:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+640A text46 CODE >360:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+640C text45 CODE >372:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+640C text45 CODE >374:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+640E text45 CODE >375:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6410 text44 CODE >367:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6410 text44 CODE >369:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6412 text44 CODE >370:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6536 text43 CODE >377:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6538 text43 CODE >379:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6548 text43 CODE >381:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+654C text43 CODE >382:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6550 text43 CODE >385:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6554 text43 CODE >387:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6578 text42 CODE >12:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6578 text42 CODE >14:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+659C text42 CODE >18:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+65F0 text41 CODE >109:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+65F2 text41 CODE >113:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+65F6 text41 CODE >115:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+65F8 text41 CODE >117:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+65F8 text41 CODE >120:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6606 text41 CODE >122:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+660A text41 CODE >124:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+660E text41 CODE >126:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+661E text41 CODE >128:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6620 text41 CODE >129:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6624 text41 CODE >130:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6624 text41 CODE >132:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6626 text41 CODE >133:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6626 text41 CODE >135:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6628 text41 CODE >137:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6628 text41 CODE >140:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6636 text41 CODE >142:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6638 text41 CODE >143:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+644C text40 CODE >66:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+644C text40 CODE >68:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6450 text40 CODE >69:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6452 text40 CODE >71:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6452 text40 CODE >74:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6460 text40 CODE >75:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6462 text39 CODE >55:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6462 text39 CODE >57:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6466 text39 CODE >58:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6468 text39 CODE >60:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6468 text39 CODE >63:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6476 text39 CODE >64:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6478 text38 CODE >77:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6478 text38 CODE >79:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+647C text38 CODE >80:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+647E text38 CODE >82:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+647E text38 CODE >85:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+648C text38 CODE >86:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+64BE text37 CODE >88:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+64C0 text37 CODE >90:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+64C4 text37 CODE >92:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+64C8 text37 CODE >94:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+64C8 text37 CODE >97:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+64D6 text37 CODE >99:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+64D8 text37 CODE >106:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+64DA text37 CODE >107:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+65C4 text36 CODE >88:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+65C6 text36 CODE >92:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+65CA text36 CODE >93:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+65D0 text36 CODE >94:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+65D6 text36 CODE >96:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+65DA text36 CODE >97:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+65E0 text36 CODE >99:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+65E8 text36 CODE >101:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+65EC text36 CODE >103:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+65EE text36 CODE >104:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6962 text35 CODE >219:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6962 text35 CODE >221:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6974 text35 CODE >222:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6984 text35 CODE >223:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6994 text35 CODE >224:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+69A4 text35 CODE >226:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+69B4 text35 CODE >227:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+69C4 text35 CODE >229:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+69CA text35 CODE >230:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+69CC text35 CODE >231:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+64DC text34 CODE >79:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+64DE text34 CODE >81:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+64E2 text34 CODE >82:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+64E8 text34 CODE >83:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+64EE text34 CODE >84:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+64F4 text34 CODE >85:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+64F8 text34 CODE >86:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6BFC text33 CODE >132:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6BFC text33 CODE >136:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C04 text33 CODE >138:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C16 text33 CODE >140:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C1C text33 CODE >146:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C26 text33 CODE >147:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C3E text33 CODE >152:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C48 text33 CODE >153:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C52 text33 CODE >154:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C5C text33 CODE >162:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C66 text33 CODE >168:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C70 text33 CODE >176:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C7A text33 CODE >182:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C84 text33 CODE >183:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C8E text33 CODE >188:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C94 text33 CODE >189:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C9A text33 CODE >191:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6C9E text33 CODE >193:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6CA0 text33 CODE >194:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6F08 text32 CODE >7:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F08 text32 CODE >13:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F0A text32 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F18 text32 CODE >15:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F28 text32 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F2C text32 CODE >18:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F3A text32 CODE >19:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F4A text32 CODE >20:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F4E text32 CODE >22:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F5E text32 CODE >23:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F74 text32 CODE >24:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F78 text32 CODE >25:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F7C text32 CODE >26:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F86 text32 CODE >27:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F88 text32 CODE >25:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6F96 text32 CODE >30:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6FA0 text32 CODE >31:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6FBE text32 CODE >32:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6FCE text32 CODE >33:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6FD0 text32 CODE >35:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6FDA text32 CODE >36:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6FE0 text32 CODE >38:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6FF0 text32 CODE >39:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+7000 text32 CODE >40:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+7010 text32 CODE >41:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\aldiv.c
+6B58 text31 CODE >7:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6B58 text31 CODE >13:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6B68 text31 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6B7E text31 CODE >15:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6B82 text31 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6B86 text31 CODE >17:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6B90 text31 CODE >18:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6B92 text31 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6BA0 text31 CODE >21:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6BAA text31 CODE >22:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6BC8 text31 CODE >23:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6BD8 text31 CODE >24:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6BDA text31 CODE >26:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6BE4 text31 CODE >27:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6BEA text31 CODE >28:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6BEA text31 CODE >29:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+6BFA text31 CODE >30:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\__lldiv.c
+68F8 text30 CODE >15:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul32.c
+68F8 text30 CODE >119:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul32.c
+6908 text30 CODE >121:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul32.c
+6916 text30 CODE >122:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul32.c
+6926 text30 CODE >123:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul32.c
+6930 text30 CODE >124:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul32.c
+693A text30 CODE >125:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul32.c
+6950 text30 CODE >128:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul32.c
+6960 text30 CODE >129:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul32.c
+7774 text29 CODE >233:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7774 text29 CODE >243:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7790 text29 CODE >245:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7794 text29 CODE >246:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+779A text29 CODE >249:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+77A8 text29 CODE >251:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+77BE text29 CODE >253:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+77CE text29 CODE >254:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+77DE text29 CODE >255:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+77F2 text29 CODE >263:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7852 text29 CODE >269:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+786C text29 CODE >271:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+787A text29 CODE >273:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+78AC text29 CODE >274:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+78B0 text29 CODE >275:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+78B0 text29 CODE >277:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+78C0 text29 CODE >283:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7922 text29 CODE >285:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+794C text29 CODE >287:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7966 text29 CODE >289:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7976 text29 CODE >295:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7992 text29 CODE >297:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+79A2 text29 CODE >298:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+79B6 text29 CODE >307:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7A28 text29 CODE >311:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7A40 text29 CODE >313:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7A88 text29 CODE >316:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7A9E text29 CODE >318:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7AB6 text29 CODE >320:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7AEA text29 CODE >323:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7B1E text29 CODE >325:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7B52 text29 CODE >328:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7B64 text29 CODE >330:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7B6C text29 CODE >331:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7B70 text29 CODE >337:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7BC6 text29 CODE >342:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7BD6 text29 CODE >344:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7BD8 text29 CODE >350:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7BE8 text29 CODE >354:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7BF8 text29 CODE >355:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7C08 text29 CODE >357:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7C18 text29 CODE >359:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7C26 text29 CODE >360:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7C28 text29 CODE >364:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6AC8 text28 CODE >106:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6ACA text28 CODE >110:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6ACE text28 CODE >111:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6AD4 text28 CODE >112:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6ADA text28 CODE >114:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6ADE text28 CODE >115:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6AE4 text28 CODE >117:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6AEA text28 CODE >119:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6B1A text28 CODE >121:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6B2A text28 CODE >122:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6B2E text28 CODE >125:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6B3E text28 CODE >127:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6B52 text28 CODE >129:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+6B56 text28 CODE >130:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+733E text27 CODE >196:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+733E text27 CODE >200:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+734C text27 CODE >202:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+73BA text27 CODE >206:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7428 text27 CODE >213:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+743E text27 CODE >214:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+7454 text27 CODE >217:C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+648E text26 CODE >54:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6490 text26 CODE >56:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6490 text26 CODE >59:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+649E text26 CODE >61:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+64A2 text26 CODE >62:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+67D8 text25 CODE >64:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+67D8 text25 CODE >66:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+67DC text25 CODE >68:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6800 text25 CODE >69:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6804 text25 CODE >66:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6834 text25 CODE >71:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+64A4 text24 CODE >73:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+64A4 text24 CODE >75:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+64B0 text24 CODE >76:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+64BC text24 CODE >77:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+69CE text23 CODE >7:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+69CE text23 CODE >13:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+69D4 text23 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+69E6 text23 CODE >15:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+69EA text23 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+69EE text23 CODE >17:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+69F4 text23 CODE >18:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+69F6 text23 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+6A04 text23 CODE >21:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+6A0A text23 CODE >22:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+6A20 text23 CODE >23:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+6A28 text23 CODE >24:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+6A2A text23 CODE >26:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+6A30 text23 CODE >27:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+6A36 text23 CODE >28:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+6A36 text23 CODE >29:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+6A3E text23 CODE >30:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwdiv.c
+6894 text22 CODE >7:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+6894 text22 CODE >12:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68A6 text22 CODE >13:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68AA text22 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68AE text22 CODE >15:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68B4 text22 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68B6 text22 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68C4 text22 CODE >19:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68DA text22 CODE >20:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68E2 text22 CODE >21:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68E8 text22 CODE >22:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68EE text22 CODE >23:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68EE text22 CODE >24:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+68F6 text22 CODE >25:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
+6CA2 text21 CODE >418:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6CA2 text21 CODE >421:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6CA4 text21 CODE >422:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6CA6 text21 CODE >424:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6CB8 text21 CODE >426:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6CC2 text21 CODE >427:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6CD2 text21 CODE >433:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6CF2 text21 CODE >434:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6D0C text21 CODE >435:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6D0E text21 CODE >431:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6D24 text21 CODE >440:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6D26 text21 CODE >441:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6D3A text21 CODE >442:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6D3C text21 CODE >438:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6D4C text21 CODE >445:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6D56 text21 CODE >446:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6A40 text20 CODE >7:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6A40 text20 CODE >12:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6A56 text20 CODE >13:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6A5A text20 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6A5E text20 CODE >15:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6A68 text20 CODE >16:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6A6A text20 CODE >14:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6A78 text20 CODE >19:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6A96 text20 CODE >20:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6AA6 text20 CODE >21:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6AB0 text20 CODE >22:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6AB6 text20 CODE >23:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6AB6 text20 CODE >24:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6AC6 text20 CODE >25:C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\llmod.c
+6E1E text19 CODE >448:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6E1E text19 CODE >451:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6E20 text19 CODE >452:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6E22 text19 CODE >454:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6E38 text19 CODE >456:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6E42 text19 CODE >457:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6E52 text19 CODE >463:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6E84 text19 CODE >464:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6EB8 text19 CODE >465:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6EBA text19 CODE >461:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6ED4 text19 CODE >470:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6ED6 text19 CODE >471:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6EEA text19 CODE >472:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6EEC text19 CODE >468:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6EFC text19 CODE >475:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6F06 text19 CODE >476:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7012 text18 CODE >532:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7012 text18 CODE >541:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7022 text18 CODE >542:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+702C text18 CODE >543:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7038 text18 CODE >545:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7048 text18 CODE >547:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7054 text18 CODE >548:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7058 text18 CODE >551:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7064 text18 CODE >554:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7074 text18 CODE >556:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7080 text18 CODE >557:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7084 text18 CODE >560:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7094 text18 CODE >562:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+70A4 text18 CODE >563:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+70AE text18 CODE >564:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+70BA text18 CODE >565:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+70BE text18 CODE >568:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+70CA text18 CODE >572:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+70E2 text18 CODE >573:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+70EC text18 CODE >574:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+70F8 text18 CODE >576:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7110 text18 CODE >577:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+711A text18 CODE >578:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+659E text17 CODE >525:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+659E text17 CODE >527:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+65AA text17 CODE >528:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+65B6 text17 CODE >529:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+65C2 text17 CODE >530:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6422 text16 CODE >132:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6424 text16 CODE >134:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+642A text16 CODE >135:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+64FA text15 CODE >111:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+64FC text15 CODE >113:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6500 text15 CODE >114:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6506 text15 CODE >115:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+650C text15 CODE >116:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6512 text15 CODE >117:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6516 text15 CODE >118:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+663A text14 CODE >137:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+663C text14 CODE >139:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+664C text14 CODE >141:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+664E text14 CODE >144:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+665E text14 CODE >146:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6660 text14 CODE >147:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6660 text14 CODE >149:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6664 text14 CODE >150:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6668 text14 CODE >152:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6670 text14 CODE >153:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6678 text14 CODE >154:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6684 text14 CODE >155:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+643A text13 CODE >120:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+643A text13 CODE >122:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+643E text13 CODE >123:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6444 text13 CODE >124:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+644A text13 CODE >125:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+641C text12 CODE >127:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+641C text12 CODE >129:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6420 text12 CODE >130:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6686 text11 CODE >157:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6686 text11 CODE >162:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6688 text11 CODE >164:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6692 text11 CODE >166:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6696 text11 CODE >168:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6698 text11 CODE >170:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+669E text11 CODE >171:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+66B0 text11 CODE >173:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+66B4 text11 CODE >174:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+66C6 text11 CODE >176:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+66D0 text11 CODE >177:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+711C text10 CODE >202:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+711E text10 CODE >208:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7130 text10 CODE >210:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7132 text10 CODE >212:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7142 text10 CODE >214:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7144 text10 CODE >215:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7148 text10 CODE >216:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7148 text10 CODE >218:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+714A text10 CODE >221:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7158 text10 CODE >223:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7158 text10 CODE >225:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+715C text10 CODE >227:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+717C text10 CODE >229:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7180 text10 CODE >232:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7190 text10 CODE >234:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7192 text10 CODE >236:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+71A2 text10 CODE >238:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+71A4 text10 CODE >239:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+71A8 text10 CODE >240:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+71A8 text10 CODE >242:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+71AA text10 CODE >245:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+71B4 text10 CODE >248:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+71DA text10 CODE >250:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+71DE text10 CODE >252:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+71E0 text10 CODE >254:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7208 text10 CODE >255:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+721A text10 CODE >257:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7220 text10 CODE >259:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7224 text10 CODE >261:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+7228 text10 CODE >262:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6836 text9 CODE >264:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6836 text9 CODE >266:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+683A text9 CODE >268:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+685E text9 CODE >269:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6862 text9 CODE >266:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6892 text9 CODE >271:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+722A text8 CODE >478:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+722C text8 CODE >486:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7230 text8 CODE >488:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+723A text8 CODE >489:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7246 text8 CODE >491:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7250 text8 CODE >493:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7260 text8 CODE >495:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+726C text8 CODE >497:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7276 text8 CODE >498:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7282 text8 CODE >499:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7286 text8 CODE >502:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7296 text8 CODE >504:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+72A2 text8 CODE >505:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+72B2 text8 CODE >506:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+72BC text8 CODE >507:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+72C0 text8 CODE >510:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+72CC text8 CODE >513:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+72D6 text8 CODE >514:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+72E2 text8 CODE >515:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+72FA text8 CODE >516:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7304 text8 CODE >519:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+730E text8 CODE >520:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+731A text8 CODE >521:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7332 text8 CODE >522:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+733C text8 CODE >523:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+677C text7 CODE >20:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+677C text7 CODE >29:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+677E text7 CODE >30:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6780 text7 CODE >32:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6782 text7 CODE >33:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6784 text7 CODE >34:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6786 text7 CODE >41:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+678A text7 CODE >46:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+678C text7 CODE >52:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+67D6 text7 CODE >53:C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
+6414 text6 CODE >352:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6414 text6 CODE >354:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6416 text6 CODE >355:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6418 text5 CODE >362:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6418 text5 CODE >364:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+641A text5 CODE >365:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+642C text4 CODE >335:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+642C text4 CODE >340:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+642E text4 CODE >341:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6430 text4 CODE >342:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6432 text4 CODE >347:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6434 text4 CODE >348:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6436 text4 CODE >349:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6438 text4 CODE >350:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6D58 text3 CODE >273:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6D58 text3 CODE >275:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6D70 text3 CODE >277:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6D76 text3 CODE >279:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6D7C text3 CODE >280:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6D82 text3 CODE >282:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6D88 text3 CODE >283:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6D8E text3 CODE >284:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6D94 text3 CODE >285:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6D9A text3 CODE >286:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DA0 text3 CODE >288:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DA6 text3 CODE >289:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DAC text3 CODE >291:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DB2 text3 CODE >292:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DB8 text3 CODE >294:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DBE text3 CODE >295:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DC4 text3 CODE >297:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DCA text3 CODE >299:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DD0 text3 CODE >300:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DD6 text3 CODE >302:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DDC text3 CODE >303:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DE2 text3 CODE >305:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DE8 text3 CODE >306:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DEE text3 CODE >308:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DF4 text3 CODE >309:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6DFA text3 CODE >311:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6E00 text3 CODE >312:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6E06 text3 CODE >314:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6E0C text3 CODE >315:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6E12 text3 CODE >317:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6E18 text3 CODE >319:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6E1C text3 CODE >320:C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+6518 text2 CODE >14:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6518 text2 CODE >20:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+651A text2 CODE >21:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+651C text2 CODE >26:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+651E text2 CODE >27:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6520 text2 CODE >28:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6522 text2 CODE >33:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6524 text2 CODE >34:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6526 text2 CODE >35:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6528 text2 CODE >43:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+652A text2 CODE >44:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+652E text2 CODE >49:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6530 text2 CODE >50:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6532 text2 CODE >51:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+6534 text2 CODE >52:C:\2026\Microcontroladores\practica3\practica3.X\uart.c
+66D2 text1 CODE >269:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66D2 text1 CODE >274:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66D6 text1 CODE >279:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66DA text1 CODE >284:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66DE text1 CODE >285:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66E0 text1 CODE >290:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66E2 text1 CODE >291:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66E4 text1 CODE >292:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66E6 text1 CODE >293:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66E8 text1 CODE >294:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66EA text1 CODE >300:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66EC text1 CODE >301:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66EE text1 CODE >302:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66F0 text1 CODE >303:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66F2 text1 CODE >304:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66F4 text1 CODE >309:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66F8 text1 CODE >311:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+66FC text1 CODE >312:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6700 text1 CODE >313:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6704 text1 CODE >320:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6708 text1 CODE >326:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+671C text1 CODE >331:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6720 text1 CODE >332:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6724 text1 CODE >333:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7456 text0 CODE >93:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7456 text0 CODE >95:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7456 text0 CODE >97:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7466 text0 CODE >98:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7476 text0 CODE >100:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7476 text0 CODE >101:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7478 text0 CODE >103:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+747E text0 CODE >104:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+747E text0 CODE >106:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7484 text0 CODE >107:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+748A text0 CODE >108:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7490 text0 CODE >110:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7494 text0 CODE >112:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+74A0 text0 CODE >113:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+74AC text0 CODE >114:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+74B8 text0 CODE >115:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+74C4 text0 CODE >117:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+74CA text0 CODE >119:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+74CE text0 CODE >121:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+74DE text0 CODE >123:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+74E2 text0 CODE >124:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+74E6 text0 CODE >126:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+74F2 text0 CODE >127:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+74FE text0 CODE >129:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7508 text0 CODE >130:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7514 text0 CODE >132:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+751E text0 CODE >133:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+752A text0 CODE >135:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7534 text0 CODE >136:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7540 text0 CODE >140:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7546 text0 CODE >147:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+754A text0 CODE >148:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+754E text0 CODE >150:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+755A text0 CODE >151:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7566 text0 CODE >152:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7572 text0 CODE >154:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7576 text0 CODE >156:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7580 text0 CODE >157:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+758C text0 CODE >159:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7596 text0 CODE >160:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+75A2 text0 CODE >162:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+75AC text0 CODE >163:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+75B8 text0 CODE >170:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+75C4 text0 CODE >175:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+75DA text0 CODE >182:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+75E0 text0 CODE >188:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7600 text0 CODE >190:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7604 text0 CODE >192:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+760A text0 CODE >193:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+760A text0 CODE >195:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7616 text0 CODE >196:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7622 text0 CODE >197:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7626 text0 CODE >203:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7646 text0 CODE >205:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+764A text0 CODE >207:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7650 text0 CODE >208:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7650 text0 CODE >210:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+765C text0 CODE >211:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7668 text0 CODE >212:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+766C text0 CODE >218:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+767C text0 CODE >220:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7696 text0 CODE >221:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+769A text0 CODE >224:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+76A0 text0 CODE >225:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+76A2 text0 CODE >226:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+76A6 text0 CODE >232:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+76AA text0 CODE >234:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+76C0 text0 CODE >236:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+76C6 text0 CODE >237:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+76CA text0 CODE >239:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7706 text0 CODE >250:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+770A text0 CODE >252:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7720 text0 CODE >254:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7726 text0 CODE >256:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+7758 text0 CODE >263:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+775C text0 CODE >265:C:\2026\Microcontroladores\practica3\practica3.X\main.c
+6556 cinit CODE >3424:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+6556 cinit CODE >3426:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+6556 cinit CODE >3429:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+6556 cinit CODE >3463:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+655A cinit CODE >3464:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+655C cinit CODE >3465:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+655C cinit CODE >3466:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+655E cinit CODE >3467:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+6560 cinit CODE >3468:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+6562 cinit CODE >3471:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+6566 cinit CODE >3472:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+6568 cinit CODE >3473:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+6568 cinit CODE >3474:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+656A cinit CODE >3475:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+656C cinit CODE >3476:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+656E cinit CODE >3482:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+656E cinit CODE >3485:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+6570 cinit CODE >3486:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+6572 cinit CODE >3487:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
+6574 cinit CODE >3488:C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -634,120 +768,140 @@ $dist/default/production\practica3.X.production.o
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___lwmod@counter 5 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__Lmediumconst 7C58 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
+__Lmediumconst 7C2A 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
 __Hspace_0 8000 0 ABS 0 - dist/default/production\practica3.X.production.o
-__Hspace_1 4C 0 ABS 0 - dist/default/production\practica3.X.production.o
+__Hspace_1 70 0 ABS 0 - dist/default/production\practica3.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\practica3.X.production.o
 __Hspace_4 60000E 0 ABS 0 - dist/default/production\practica3.X.production.o
-__end_of_MAX30102_ReadMulti 726C 0 CODE 0 text29 dist/default/production\practica3.X.production.o
-_LED_Wait_Update 6D42 0 CODE 0 text39 dist/default/production\practica3.X.production.o
+MAX30102_ProcessHeartRate@abs_ac_signal 24 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+_hr_last_beat_sample 51 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
+__end_of_MAX30102_ReadMulti 6B58 0 CODE 0 text28 dist/default/production\practica3.X.production.o
+_LED_Wait_Update 6536 0 CODE 0 text43 dist/default/production\practica3.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\practica3.X.production.o
-__mediumconst 7C58 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
+__mediumconst 7C2A 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\practica3.X.production.o
-_Send_Finger_Status_By_UART 73B2 0 CODE 0 text18 dist/default/production\practica3.X.production.o
 __L__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\practica3.X.production.o
-main@previous_finger_detected 3F 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+main@previous_finger_detected 44 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\practica3.X.production.o
 _LATA F89 0 ABS 0 - dist/default/production\practica3.X.production.o
 _LATB F8A 0 ABS 0 - dist/default/production\practica3.X.production.o
 _LATC F8B 0 ABS 0 - dist/default/production\practica3.X.production.o
 _LATD F8C 0 ABS 0 - dist/default/production\practica3.X.production.o
 _LATE F8D 0 ABS 0 - dist/default/production\practica3.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-_main 79A6 0 CODE 0 text0 dist/default/production\practica3.X.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-___stack_lo 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-start 7FFC 0 CODE 0 init C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-__end_of_LED_Status_On 6C08 0 CODE 0 text42 dist/default/production\practica3.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+_main 7456 0 CODE 0 text0 dist/default/production\practica3.X.production.o
+___stack_hi 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+___stack_lo 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+start 7FFC 0 CODE 0 init C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+__end_of_LED_Status_On 640C 0 CODE 0 text46 dist/default/production\practica3.X.production.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\practica3.X.production.o
-__end_of_Send_Header_By_UART 6DAE 0 CODE 0 text17 dist/default/production\practica3.X.production.o
-_SSD1306_WriteChar 7780 0 CODE 0 text10 dist/default/production\practica3.X.production.o
+__end_of_Send_Header_By_UART 65C4 0 CODE 0 text17 dist/default/production\practica3.X.production.o
+_SSD1306_WriteChar 711C 0 CODE 0 text10 dist/default/production\practica3.X.production.o
+?___lmul 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+MAX30102_ProcessHeartRate@peak_sample 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 UART_WriteLine@text 4 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 I2C_Master_Read@ack 2 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 MAX30102_WriteRegister@value 3 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+__end_of_MAX30102_ResetHeartRateAlgorithm 69CE 0 CODE 0 text35 dist/default/production\practica3.X.production.o
 SSD1306_ClearDisplay@page 7 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 UInt16_ToString@i 12 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 UInt16_ToString@j 11 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_MAX30102_ReadMulti 71DC 0 CODE 0 text29 dist/default/production\practica3.X.production.o
-_LED_Wait_Off 6C08 0 CODE 0 text41 dist/default/production\practica3.X.production.o
-__end_of_MAX30102_ReadRegister 6DDA 0 CODE 0 text32 dist/default/production\practica3.X.production.o
+_MAX30102_ReadMulti 6AC8 0 CODE 0 text28 dist/default/production\practica3.X.production.o
+_LED_Wait_Off 640C 0 CODE 0 text45 dist/default/production\practica3.X.production.o
+__end_of_MAX30102_ReadRegister 65F0 0 CODE 0 text36 dist/default/production\practica3.X.production.o
 __Hpowerup 0 0 CODE 0 powerup dist/default/production\practica3.X.production.o
 LED_Wait_Update@finger_detected 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-Show_Finger_Status_On_OLED@finger_detected 34 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_SSD1306_SetCursor 6E24 0 CODE 0 text14 dist/default/production\practica3.X.production.o
+_hr_abs_average 64 0 BANK0 1 bssBANK0 dist/default/production\practica3.X.production.o
+_SSD1306_SetCursor 663A 0 CODE 0 text14 dist/default/production\practica3.X.production.o
 MAX30102_ReadMulti@reg B 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-intlevel0 0 0 CODE 0 text C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-intlevel1 0 0 CODE 0 text C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-intlevel2 0 0 CODE 0 text C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-intlevel3 0 0 CODE 0 text C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
+__accesstop 60 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+intlevel0 0 0 CODE 0 text C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+intlevel1 0 0 CODE 0 text C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+intlevel2 0 0 CODE 0 text C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+intlevel3 0 0 CODE 0 text C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\practica3.X.production.o
-__end_of_LED_Power_On 6C14 0 CODE 0 text6 dist/default/production\practica3.X.production.o
-__end_of_SSD1306_WriteString 707E 0 CODE 0 text9 dist/default/production\practica3.X.production.o
+__end_of_LED_Power_On 6418 0 CODE 0 text6 dist/default/production\practica3.X.production.o
+_hr_dc_average 6C 0 BANK0 1 bssBANK0 dist/default/production\practica3.X.production.o
+__end_of_SSD1306_WriteString 6894 0 CODE 0 text9 dist/default/production\practica3.X.production.o
+_Show_BPM_On_OLED 722A 0 CODE 0 text8 dist/default/production\practica3.X.production.o
+___aldiv@divisor 11 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\practica3.X.production.o
-_SSD1306_StopData 6C18 0 CODE 0 text12 dist/default/production\practica3.X.production.o
+_SSD1306_StopData 641C 0 CODE 0 text12 dist/default/production\practica3.X.production.o
+MAX30102_ProcessHeartRate@bpm 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ___llmod@divisor 5 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 I2C_Master_Read@data 3 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_MAX30102_ReadFIFO 788E 0 CODE 0 text28 dist/default/production\practica3.X.production.o
-_MAX30102_ReadRegister 6DAE 0 CODE 0 text32 dist/default/production\practica3.X.production.o
+_MAX30102_ReadFIFO 733E 0 CODE 0 text27 dist/default/production\practica3.X.production.o
+_MAX30102_ReadRegister 65C4 0 CODE 0 text36 dist/default/production\practica3.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\practica3.X.production.o
-__end_of_Show_Finger_Status_On_OLED 75D0 0 CODE 0 text8 dist/default/production\practica3.X.production.o
-_MAX30102_WriteRegister 6CE8 0 CODE 0 text31 dist/default/production\practica3.X.production.o
+_MAX30102_WriteRegister 64DC 0 CODE 0 text34 dist/default/production\practica3.X.production.o
+___aldiv@sign 16 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 UInt32_ToString@temp 13 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\practica3.X.production.o
 I2C_Master_Init@clock_hz E 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 MAX30102_ReadMulti@buffer 4 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 _ADCON1 FC1 0 ABS 0 - dist/default/production\practica3.X.production.o
-_oled_page 49 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-Is_Finger_Detected@finger_state 4B 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
+MAX30102_ProcessHeartRate@ac_signal 38 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+_oled_page 5C 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+Is_Finger_Detected@finger_state 5E 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
 _CVRCON FB5 0 ABS 0 - dist/default/production\practica3.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\practica3.X.production.o
+__end_of___lmul 6962 0 CODE 0 text30 dist/default/production\practica3.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\practica3.X.production.o
-__end_of_MAX30102_Init 730E 0 CODE 0 text30 dist/default/production\practica3.X.production.o
+main@bpm 4A 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+__end_of_MAX30102_Init 6CA2 0 CODE 0 text33 dist/default/production\practica3.X.production.o
 _BAUDCONbits FB8 0 ABS 0 - dist/default/production\practica3.X.production.o
 __Hmediumconst 7FFC 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
 __Hintcodelo 18 0 CODE 0 intcodelo dist/default/production\practica3.X.production.o
-_Font5x7 7C59 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
+_Font5x7 7C2B 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
 ___lwmod@divisor 3 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__end_of___lldiv 73B2 0 CODE 0 text21 dist/default/production\practica3.X.production.o
-__end_of___llmod 71DC 0 CODE 0 text20 dist/default/production\practica3.X.production.o
-__end_of___lwdiv 7154 0 CODE 0 text24 dist/default/production\practica3.X.production.o
-__end_of___lwmod 70E2 0 CODE 0 text23 dist/default/production\practica3.X.production.o
-_LED_Status_Off 6C14 0 CODE 0 text5 dist/default/production\practica3.X.production.o
-__end_of_LED_Wait_Off 6C0C 0 CODE 0 text41 dist/default/production\practica3.X.production.o
+__end_of___aldiv 7012 0 CODE 0 text32 dist/default/production\practica3.X.production.o
+__end_of___lldiv 6BFC 0 CODE 0 text31 dist/default/production\practica3.X.production.o
+__end_of___llmod 6AC8 0 CODE 0 text20 dist/default/production\practica3.X.production.o
+__end_of___lwdiv 6A40 0 CODE 0 text23 dist/default/production\practica3.X.production.o
+__end_of___lwmod 68F8 0 CODE 0 text22 dist/default/production\practica3.X.production.o
+_LED_Status_Off 6418 0 CODE 0 text5 dist/default/production\practica3.X.production.o
+__end_of_LED_Wait_Off 6410 0 CODE 0 text45 dist/default/production\practica3.X.production.o
+Show_BPM_On_OLED@text 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 MAX30102_ReadMulti@length 5 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__end_of_LED_Wait_On 6C10 0 CODE 0 text40 dist/default/production\practica3.X.production.o
+Show_BPM_On_OLED@finger_detected 37 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+__end_of_LED_Wait_On 6414 0 CODE 0 text44 dist/default/production\practica3.X.production.o
 UART_WriteChar@data 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 SSD1306_WriteChar@index A 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ___lwdiv@quotient 5 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+_Send_BPM_By_UART 7012 0 CODE 0 text18 dist/default/production\practica3.X.production.o
 ___lwmod@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ___lldiv@counter D 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Lintcodelo 18 0 CODE 0 intcodelo dist/default/production\practica3.X.production.o
-start_initialization 6C36 0 CODE 0 cinit dist/default/production\practica3.X.production.o
-__end_of_SSD1306_StopData 6C1E 0 CODE 0 text12 dist/default/production\practica3.X.production.o
+start_initialization 6556 0 CODE 0 cinit dist/default/production\practica3.X.production.o
+__end_of_Show_BPM_On_OLED 733E 0 CODE 0 text8 dist/default/production\practica3.X.production.o
+__end_of_SSD1306_StopData 6422 0 CODE 0 text12 dist/default/production\practica3.X.production.o
 _OSCCON FD3 0 ABS 0 - dist/default/production\practica3.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\practica3.X.production.o
+MAX30102_ProcessHeartRate@dynamic_threshold 28 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 _TRISBbits F93 0 ABS 0 - dist/default/production\practica3.X.production.o
 _TRISCbits F94 0 ABS 0 - dist/default/production\practica3.X.production.o
 _TRISDbits F95 0 ABS 0 - dist/default/production\practica3.X.production.o
+___aldiv@quotient 17 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ___lldiv@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 SSD1306_SetCursor@column 5 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\practica3.X.production.o
-__end_of_SSD1306_ClearDisplay 6EBC 0 CODE 0 text11 dist/default/production\practica3.X.production.o
+Show_BPM_On_OLED@bpm_valid 20 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+__end_of_SSD1306_ClearDisplay 66D2 0 CODE 0 text11 dist/default/production\practica3.X.production.o
 _SPBRGH FB0 0 ABS 0 - dist/default/production\practica3.X.production.o
+_MAX30102_ProcessHeartRate 7774 0 CODE 0 text29 dist/default/production\practica3.X.production.o
 _SSPADD FC8 0 ABS 0 - dist/default/production\practica3.X.production.o
 _SSPBUF FC9 0 ABS 0 - dist/default/production\practica3.X.production.o
 MAX30102_ReadMulti@i C 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-Send_Finger_Status_By_UART@text 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-Send_Finger_Status_By_UART@red_value 23 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__end_of_LED_Status_Off 6C18 0 CODE 0 text5 dist/default/production\practica3.X.production.o
-_SSD1306_Data 6C1E 0 CODE 0 text16 dist/default/production\practica3.X.production.o
-_SSD1306_Init 75D0 0 CODE 0 text3 dist/default/production\practica3.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
+main@bpm_valid 45 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+__end_of_LED_Status_Off 641C 0 CODE 0 text5 dist/default/production\practica3.X.production.o
+_SSD1306_Data 6422 0 CODE 0 text16 dist/default/production\practica3.X.production.o
+_SSD1306_Init 6D58 0 CODE 0 text3 dist/default/production\practica3.X.production.o
+isa$xinst 0 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+Send_BPM_By_UART@text 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 SSD1306_WriteString@str F 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-main@ir_value 44 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+main@ir_value 4C 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\practica3.X.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\practica3.X.production.o
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\practica3.X.production.o
@@ -758,8 +912,8 @@ __Hbank6 0 0 ABS 0 bank6 dist/default/production\practica3.X.production.o
 __Hbank7 0 0 ABS 0 bank7 dist/default/production\practica3.X.production.o
 __Hcinit 0 0 ABS 0 cinit dist/default/production\practica3.X.production.o
 __Hconst 0 0 CONST 0 const dist/default/production\practica3.X.production.o
-_UART_WriteChar 6C9A 0 CODE 0 text27 dist/default/production\practica3.X.production.o
-_UART_WriteLine 6CB0 0 CODE 0 text25 dist/default/production\practica3.X.production.o
+_UART_WriteChar 648E 0 CODE 0 text26 dist/default/production\practica3.X.production.o
+_UART_WriteLine 64A4 0 CODE 0 text24 dist/default/production\practica3.X.production.o
 __Hidata 0 0 CODE 0 idata dist/default/production\practica3.X.production.o
 __Hidloc 0 0 ABS 0 idloc dist/default/production\practica3.X.production.o
 __Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\practica3.X.production.o
@@ -780,12 +934,14 @@ ___lwdiv@counter 7 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.p
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\practica3.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\practica3.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\practica3.X.production.o
-__smallconst 7C58 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
-_I2C_Master_RepeatedStart 6C58 0 CODE 0 text36 dist/default/production\practica3.X.production.o
+__smallconst 7C2A 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
+_I2C_Master_RepeatedStart 644C 0 CODE 0 text40 dist/default/production\practica3.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\practica3.X.production.o
 __Hconfig 30000E 0 CONFIG 4 config dist/default/production\practica3.X.production.o
-_System_Init 6EBC 0 CODE 0 text1 dist/default/production\practica3.X.production.o
-__end_of_LEDs_Init 6C36 0 CODE 0 text4 dist/default/production\practica3.X.production.o
+_System_Init 66D2 0 CODE 0 text1 dist/default/production\practica3.X.production.o
+__end_of_LEDs_Init 643A 0 CODE 0 text4 dist/default/production\practica3.X.production.o
+_hr_sample_counter 60 0 BANK0 1 bssBANK0 dist/default/production\practica3.X.production.o
+Send_BPM_By_UART@ir_value 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\practica3.X.production.o
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\practica3.X.production.o
 __Lbank2 0 0 ABS 0 bank2 dist/default/production\practica3.X.production.o
@@ -815,7 +971,7 @@ __Ltext8 0 0 ABS 0 text8 dist/default/production\practica3.X.production.o
 __Ltext9 0 0 ABS 0 text9 dist/default/production\practica3.X.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\practica3.X.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\practica3.X.production.o
-__end_of_MAX30102_WriteRegister 6D06 0 CODE 0 text31 dist/default/production\practica3.X.production.o
+__end_of_MAX30102_WriteRegister 64FA 0 CODE 0 text34 dist/default/production\practica3.X.production.o
 __Habs1 0 0 ABS 0 abs1 dist/default/production\practica3.X.production.o
 __Hdata 0 0 ABS 0 data dist/default/production\practica3.X.production.o
 __Hheap 0 0 HEAP 7 heap dist/default/production\practica3.X.production.o
@@ -832,28 +988,31 @@ __Lrbit 0 0 COMRAM 1 rbit dist/default/production\practica3.X.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\practica3.X.production.o
 __Ltemp 0 0 COMRAM 1 temp dist/default/production\practica3.X.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\practica3.X.production.o
+___lmul 68F8 0 CODE 0 text30 dist/default/production\practica3.X.production.o
+__end_of_Send_BPM_By_UART 711C 0 CODE 0 text18 dist/default/production\practica3.X.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\practica3.X.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\practica3.X.production.o
 __S0 8000 0 ABS 0 - dist/default/production\practica3.X.production.o
-__S1 4C 0 ABS 0 - dist/default/production\practica3.X.production.o
+__S1 70 0 ABS 0 - dist/default/production\practica3.X.production.o
 __S4 0 0 ABS 0 - dist/default/production\practica3.X.production.o
 __S5 0 0 ABS 0 - dist/default/production\practica3.X.production.o
 UInt16_ToString@value 8 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_LEDs_Init 6C28 0 CODE 0 text4 dist/default/production\practica3.X.production.o
-__end_of_SSD1306_StartData 6C58 0 CODE 0 text13 dist/default/production\practica3.X.production.o
+_LEDs_Init 642C 0 CODE 0 text4 dist/default/production\practica3.X.production.o
+__end_of_SSD1306_StartData 644C 0 CODE 0 text13 dist/default/production\practica3.X.production.o
+Send_BPM_By_UART@sample 20 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 UInt32_ToString@buffer 12 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__end_of_SSD1306_Command 6D24 0 CODE 0 text15 dist/default/production\practica3.X.production.o
+__end_of_SSD1306_Command 6518 0 CODE 0 text15 dist/default/production\practica3.X.production.o
 MAX30102_WriteRegister@reg 4 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__end_of_UART_WriteChar 6CB0 0 CODE 0 text27 dist/default/production\practica3.X.production.o
-__end_of_UART_WriteLine 6CCA 0 CODE 0 text25 dist/default/production\practica3.X.production.o
-_I2C_Master_Start 6C6E 0 CODE 0 text35 dist/default/production\practica3.X.production.o
-_I2C_Master_Write 6CCA 0 CODE 0 text33 dist/default/production\practica3.X.production.o
+__end_of_UART_WriteChar 64A4 0 CODE 0 text26 dist/default/production\practica3.X.production.o
+__end_of_UART_WriteLine 64BE 0 CODE 0 text24 dist/default/production\practica3.X.production.o
+_I2C_Master_Start 6462 0 CODE 0 text39 dist/default/production\practica3.X.production.o
+_I2C_Master_Write 64BE 0 CODE 0 text37 dist/default/production\practica3.X.production.o
+Send_BPM_By_UART@bpm_valid 23 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\practica3.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\practica3.X.production.o
-_Show_Finger_Status_On_OLED 750C 0 CODE 0 text8 dist/default/production\practica3.X.production.o
-__end_of_SSD1306_Data 6C28 0 CODE 0 text16 dist/default/production\practica3.X.production.o
-__end_of_SSD1306_Init 7696 0 CODE 0 text3 dist/default/production\practica3.X.production.o
+__end_of_SSD1306_Data 642C 0 CODE 0 text16 dist/default/production\practica3.X.production.o
+__end_of_SSD1306_Init 6E1E 0 CODE 0 text3 dist/default/production\practica3.X.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\practica3.X.production.o
 ___lldiv@divisor 5 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 I2C_Master_Write@data 2 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
@@ -862,6 +1021,7 @@ __Hramtop 800 0 RAM 0 ramtop dist/default/production\practica3.X.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\practica3.X.production.o
 __activetblptr 2 0 ABS 0 - dist/default/production\practica3.X.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\practica3.X.production.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\practica3.X.production.o
 __Htext10 0 0 ABS 0 text10 dist/default/production\practica3.X.production.o
 __Htext11 0 0 ABS 0 text11 dist/default/production\practica3.X.production.o
 __Htext12 0 0 ABS 0 text12 dist/default/production\practica3.X.production.o
@@ -896,124 +1056,137 @@ __Htext40 0 0 ABS 0 text40 dist/default/production\practica3.X.production.o
 __Htext41 0 0 ABS 0 text41 dist/default/production\practica3.X.production.o
 __Htext42 0 0 ABS 0 text42 dist/default/production\practica3.X.production.o
 __Htext43 0 0 ABS 0 text43 dist/default/production\practica3.X.production.o
+__Htext44 0 0 ABS 0 text44 dist/default/production\practica3.X.production.o
+__Htext45 0 0 ABS 0 text45 dist/default/production\practica3.X.production.o
+__Htext46 0 0 ABS 0 text46 dist/default/production\practica3.X.production.o
+__Htext47 0 0 ABS 0 text47 dist/default/production\practica3.X.production.o
 SSD1306_WriteChar@c C 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 SSD1306_WriteChar@i D 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+Send_BPM_By_UART@finger_detected 22 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 _RCSTAbits FAB 0 ABS 0 - dist/default/production\practica3.X.production.o
 MAX30102_ReadRegister@reg 4 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__ptext10 7780 0 CODE 0 text10 dist/default/production\practica3.X.production.o
-__ptext11 6E70 0 CODE 0 text11 dist/default/production\practica3.X.production.o
-__ptext12 6C18 0 CODE 0 text12 dist/default/production\practica3.X.production.o
-__ptext13 6C46 0 CODE 0 text13 dist/default/production\practica3.X.production.o
-__ptext14 6E24 0 CODE 0 text14 dist/default/production\practica3.X.production.o
-__ptext15 6D06 0 CODE 0 text15 dist/default/production\practica3.X.production.o
-__ptext16 6C1E 0 CODE 0 text16 dist/default/production\practica3.X.production.o
-__ptext17 6D88 0 CODE 0 text17 dist/default/production\practica3.X.production.o
-__ptext18 73B2 0 CODE 0 text18 dist/default/production\practica3.X.production.o
-__ptext19 7696 0 CODE 0 text19 dist/default/production\practica3.X.production.o
-__ptext20 7154 0 CODE 0 text20 dist/default/production\practica3.X.production.o
-__ptext21 730E 0 CODE 0 text21 dist/default/production\practica3.X.production.o
-__ptext22 7456 0 CODE 0 text22 dist/default/production\practica3.X.production.o
-__ptext23 707E 0 CODE 0 text23 dist/default/production\practica3.X.production.o
-__ptext24 70E2 0 CODE 0 text24 dist/default/production\practica3.X.production.o
-__ptext25 6CB0 0 CODE 0 text25 dist/default/production\practica3.X.production.o
-__ptext26 6FC2 0 CODE 0 text26 dist/default/production\practica3.X.production.o
-__ptext27 6C9A 0 CODE 0 text27 dist/default/production\practica3.X.production.o
-__ptext28 788E 0 CODE 0 text28 dist/default/production\practica3.X.production.o
-__ptext29 71DC 0 CODE 0 text29 dist/default/production\practica3.X.production.o
-__ptext30 726C 0 CODE 0 text30 dist/default/production\practica3.X.production.o
-__ptext31 6CE8 0 CODE 0 text31 dist/default/production\practica3.X.production.o
-__ptext32 6DAE 0 CODE 0 text32 dist/default/production\practica3.X.production.o
-__ptext33 6CCA 0 CODE 0 text33 dist/default/production\practica3.X.production.o
-__ptext34 6C84 0 CODE 0 text34 dist/default/production\practica3.X.production.o
-__ptext35 6C6E 0 CODE 0 text35 dist/default/production\practica3.X.production.o
-__ptext36 6C58 0 CODE 0 text36 dist/default/production\practica3.X.production.o
-__ptext37 6DDA 0 CODE 0 text37 dist/default/production\practica3.X.production.o
-__ptext38 6D62 0 CODE 0 text38 dist/default/production\practica3.X.production.o
-__ptext39 6D42 0 CODE 0 text39 dist/default/production\practica3.X.production.o
-__ptext40 6C0C 0 CODE 0 text40 dist/default/production\practica3.X.production.o
-__ptext41 6C08 0 CODE 0 text41 dist/default/production\practica3.X.production.o
-__ptext42 6C04 0 CODE 0 text42 dist/default/production\practica3.X.production.o
-__ptext43 6F10 0 CODE 0 text43 dist/default/production\practica3.X.production.o
+__ptext10 711C 0 CODE 0 text10 dist/default/production\practica3.X.production.o
+__ptext11 6686 0 CODE 0 text11 dist/default/production\practica3.X.production.o
+__ptext12 641C 0 CODE 0 text12 dist/default/production\practica3.X.production.o
+__ptext13 643A 0 CODE 0 text13 dist/default/production\practica3.X.production.o
+__ptext14 663A 0 CODE 0 text14 dist/default/production\practica3.X.production.o
+__ptext15 64FA 0 CODE 0 text15 dist/default/production\practica3.X.production.o
+__ptext16 6422 0 CODE 0 text16 dist/default/production\practica3.X.production.o
+__ptext17 659E 0 CODE 0 text17 dist/default/production\practica3.X.production.o
+__ptext18 7012 0 CODE 0 text18 dist/default/production\practica3.X.production.o
+__ptext19 6E1E 0 CODE 0 text19 dist/default/production\practica3.X.production.o
+__ptext20 6A40 0 CODE 0 text20 dist/default/production\practica3.X.production.o
+__ptext21 6CA2 0 CODE 0 text21 dist/default/production\practica3.X.production.o
+__ptext22 6894 0 CODE 0 text22 dist/default/production\practica3.X.production.o
+__ptext23 69CE 0 CODE 0 text23 dist/default/production\practica3.X.production.o
+__ptext24 64A4 0 CODE 0 text24 dist/default/production\practica3.X.production.o
+__ptext25 67D8 0 CODE 0 text25 dist/default/production\practica3.X.production.o
+__ptext26 648E 0 CODE 0 text26 dist/default/production\practica3.X.production.o
+__ptext27 733E 0 CODE 0 text27 dist/default/production\practica3.X.production.o
+__ptext28 6AC8 0 CODE 0 text28 dist/default/production\practica3.X.production.o
+__ptext29 7774 0 CODE 0 text29 dist/default/production\practica3.X.production.o
+__ptext30 68F8 0 CODE 0 text30 dist/default/production\practica3.X.production.o
+__ptext31 6B58 0 CODE 0 text31 dist/default/production\practica3.X.production.o
+__ptext32 6F08 0 CODE 0 text32 dist/default/production\practica3.X.production.o
+__ptext33 6BFC 0 CODE 0 text33 dist/default/production\practica3.X.production.o
+__ptext34 64DC 0 CODE 0 text34 dist/default/production\practica3.X.production.o
+__ptext35 6962 0 CODE 0 text35 dist/default/production\practica3.X.production.o
+__ptext36 65C4 0 CODE 0 text36 dist/default/production\practica3.X.production.o
+__ptext37 64BE 0 CODE 0 text37 dist/default/production\practica3.X.production.o
+__ptext38 6478 0 CODE 0 text38 dist/default/production\practica3.X.production.o
+__ptext39 6462 0 CODE 0 text39 dist/default/production\practica3.X.production.o
+__ptext40 644C 0 CODE 0 text40 dist/default/production\practica3.X.production.o
+__ptext41 65F0 0 CODE 0 text41 dist/default/production\practica3.X.production.o
+__ptext42 6578 0 CODE 0 text42 dist/default/production\practica3.X.production.o
+__ptext43 6536 0 CODE 0 text43 dist/default/production\practica3.X.production.o
+__ptext44 6410 0 CODE 0 text44 dist/default/production\practica3.X.production.o
+__ptext45 640C 0 CODE 0 text45 dist/default/production\practica3.X.production.o
+__ptext46 6408 0 CODE 0 text46 dist/default/production\practica3.X.production.o
+__ptext47 6726 0 CODE 0 text47 dist/default/production\practica3.X.production.o
 SSD1306_Data@data 3 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+___aldiv 6F08 0 CODE 0 text32 dist/default/production\practica3.X.production.o
 _BAUDCON FB8 0 ABS 0 - dist/default/production\practica3.X.production.o
-___lldiv 730E 0 CODE 0 text21 dist/default/production\practica3.X.production.o
-___llmod 7154 0 CODE 0 text20 dist/default/production\practica3.X.production.o
-___lwdiv 70E2 0 CODE 0 text24 dist/default/production\practica3.X.production.o
-___lwmod 707E 0 CODE 0 text23 dist/default/production\practica3.X.production.o
+___lldiv 6B58 0 CODE 0 text31 dist/default/production\practica3.X.production.o
+___llmod 6A40 0 CODE 0 text20 dist/default/production\practica3.X.production.o
+___lwdiv 69CE 0 CODE 0 text23 dist/default/production\practica3.X.production.o
+___lwmod 6894 0 CODE 0 text22 dist/default/production\practica3.X.production.o
 UInt16_ToString@temp B 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\practica3.X.production.o
 __Lbigram 0 0 ABS 0 bigram dist/default/production\practica3.X.production.o
 __Lbigsfr 0 0 ABS 0 bigsfr dist/default/production\practica3.X.production.o
+___lmul@multiplier 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 Is_Finger_Detected@ir_value 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_SSD1306_Command 6D06 0 CODE 0 text15 dist/default/production\practica3.X.production.o
+_SSD1306_Command 64FA 0 CODE 0 text15 dist/default/production\practica3.X.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production\practica3.X.production.o
 __Lconfig 0 0 CONFIG 4 config dist/default/production\practica3.X.production.o
-Send_Finger_Status_By_UART@ir_value 27 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+_MAX30102_ResetHeartRateAlgorithm 6962 0 CODE 0 text35 dist/default/production\practica3.X.production.o
 _LATDbits F8C 0 ABS 0 - dist/default/production\practica3.X.production.o
 __Lsivt_hi 0 0 CODE 0 sivt_hi dist/default/production\practica3.X.production.o
 __Lsivt_lo 18 0 CODE 0 sivt_lo dist/default/production\practica3.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\practica3.X.production.o
-___inthi_stack_hi 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-___inthi_stack_lo 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
+___inthi_stack_hi 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+___inthi_stack_lo 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
 ___lwdiv@divisor 3 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\practica3.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-__end_of_Send_Finger_Status_By_UART 7456 0 CODE 0 text18 dist/default/production\practica3.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-stacklo 0 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
+isa$std 1 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+_hr_current_bpm 59 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
+stackhi 0 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+stacklo 0 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\practica3.X.production.o
-_SSD1306_StartData 6C46 0 CODE 0 text13 dist/default/production\practica3.X.production.o
+_SSD1306_StartData 643A 0 CODE 0 text13 dist/default/production\practica3.X.production.o
 MAX30102_Init@part_id 8 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\practica3.X.production.o
-__end_of_I2C_Master_Init 6FC2 0 CODE 0 text7 dist/default/production\practica3.X.production.o
-__end_of_I2C_Master_Read 6E24 0 CODE 0 text37 dist/default/production\practica3.X.production.o
-__end_of_I2C_Master_Stop 6C9A 0 CODE 0 text34 dist/default/production\practica3.X.production.o
-__end_of_I2C_Master_Wait 6D88 0 CODE 0 text38 dist/default/production\practica3.X.production.o
+__end_of_I2C_Master_Init 67D8 0 CODE 0 text7 dist/default/production\practica3.X.production.o
+__end_of_I2C_Master_Read 663A 0 CODE 0 text41 dist/default/production\practica3.X.production.o
+__end_of_I2C_Master_Stop 648E 0 CODE 0 text38 dist/default/production\practica3.X.production.o
+__end_of_I2C_Master_Wait 659E 0 CODE 0 text42 dist/default/production\practica3.X.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\practica3.X.production.o
 UART_WriteString@text 2 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__end_of_I2C_Master_Start 6C84 0 CODE 0 text35 dist/default/production\practica3.X.production.o
+__end_of_I2C_Master_Start 6478 0 CODE 0 text39 dist/default/production\practica3.X.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\practica3.X.production.o
 __Lspace_1 0 0 ABS 0 - dist/default/production\practica3.X.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\practica3.X.production.o
 __Lspace_4 0 0 ABS 0 - dist/default/production\practica3.X.production.o
-__end_of_I2C_Master_Write 6CE8 0 CODE 0 text33 dist/default/production\practica3.X.production.o
-__pbssCOMRAM 49 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
-Show_Finger_Status_On_OLED@ir_value 24 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-Send_Finger_Status_By_UART@finger_detected 22 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+__end_of_I2C_Master_Write 64DC 0 CODE 0 text37 dist/default/production\practica3.X.production.o
+__pbssCOMRAM 51 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
 _PIR1bits F9E 0 ABS 0 - dist/default/production\practica3.X.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\practica3.X.production.o
-end_of_initialization 6C3C 0 CODE 0 cinit dist/default/production\practica3.X.production.o
-Show_Finger_Status_On_OLED@red_value 20 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+end_of_initialization 656E 0 CODE 0 cinit dist/default/production\practica3.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\practica3.X.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\practica3.X.production.o
 MAX30102_ReadRegister@value 5 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__end_of_Is_Finger_Detected 6F66 0 CODE 0 text43 dist/default/production\practica3.X.production.o
+__end_of_Is_Finger_Detected 677C 0 CODE 0 text47 dist/default/production\practica3.X.production.o
+Send_BPM_By_UART@bpm 24 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+?___aldiv D 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ___lwdiv@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ?___lldiv 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ?___llmod 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ?___lwdiv 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ?___lwmod 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\practica3.X.production.o
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\practica3.X.production.o
 __Lramtop 800 0 RAM 0 ramtop dist/default/production\practica3.X.production.o
-__end_of_UART_Init 6D42 0 CODE 0 text2 dist/default/production\practica3.X.production.o
+__end_of_UART_Init 6536 0 CODE 0 text2 dist/default/production\practica3.X.production.o
+Show_BPM_On_OLED@red_value 23 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 SSD1306_WriteChar@character E 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\practica3.X.production.o
-__pcinit 6C36 0 CODE 0 cinit dist/default/production\practica3.X.production.o
-_UART_WriteString 6FC2 0 CODE 0 text26 dist/default/production\practica3.X.production.o
+__pcinit 6556 0 CODE 0 cinit dist/default/production\practica3.X.production.o
+_UART_WriteString 67D8 0 CODE 0 text25 dist/default/production\practica3.X.production.o
 _SSPCON2bits FC5 0 ABS 0 - dist/default/production\practica3.X.production.o
-__ptext0 79A6 0 CODE 0 text0 dist/default/production\practica3.X.production.o
-__ptext1 6EBC 0 CODE 0 text1 dist/default/production\practica3.X.production.o
-__ptext2 6D24 0 CODE 0 text2 dist/default/production\practica3.X.production.o
-__ptext3 75D0 0 CODE 0 text3 dist/default/production\practica3.X.production.o
-__ptext4 6C28 0 CODE 0 text4 dist/default/production\practica3.X.production.o
-__ptext5 6C14 0 CODE 0 text5 dist/default/production\practica3.X.production.o
-__ptext6 6C10 0 CODE 0 text6 dist/default/production\practica3.X.production.o
-__ptext7 6F66 0 CODE 0 text7 dist/default/production\practica3.X.production.o
-__ptext8 750C 0 CODE 0 text8 dist/default/production\practica3.X.production.o
-__ptext9 7020 0 CODE 0 text9 dist/default/production\practica3.X.production.o
-_SSD1306_ClearDisplay 6E70 0 CODE 0 text11 dist/default/production\practica3.X.production.o
+__ptext0 7456 0 CODE 0 text0 dist/default/production\practica3.X.production.o
+__ptext1 66D2 0 CODE 0 text1 dist/default/production\practica3.X.production.o
+__ptext2 6518 0 CODE 0 text2 dist/default/production\practica3.X.production.o
+__ptext3 6D58 0 CODE 0 text3 dist/default/production\practica3.X.production.o
+__ptext4 642C 0 CODE 0 text4 dist/default/production\practica3.X.production.o
+__ptext5 6418 0 CODE 0 text5 dist/default/production\practica3.X.production.o
+__ptext6 6414 0 CODE 0 text6 dist/default/production\practica3.X.production.o
+__ptext7 677C 0 CODE 0 text7 dist/default/production\practica3.X.production.o
+__ptext8 722A 0 CODE 0 text8 dist/default/production\practica3.X.production.o
+__ptext9 6836 0 CODE 0 text9 dist/default/production\practica3.X.production.o
+_SSD1306_ClearDisplay 6686 0 CODE 0 text11 dist/default/production\practica3.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\practica3.X.production.o
 MAX30102_ReadFIFO@red_value D 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+_hr_valid_beats 5B 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
 __Ltext10 0 0 ABS 0 text10 dist/default/production\practica3.X.production.o
 __Ltext11 0 0 ABS 0 text11 dist/default/production\practica3.X.production.o
 __Ltext12 0 0 ABS 0 text12 dist/default/production\practica3.X.production.o
@@ -1048,57 +1221,68 @@ __Ltext40 0 0 ABS 0 text40 dist/default/production\practica3.X.production.o
 __Ltext41 0 0 ABS 0 text41 dist/default/production\practica3.X.production.o
 __Ltext42 0 0 ABS 0 text42 dist/default/production\practica3.X.production.o
 __Ltext43 0 0 ABS 0 text43 dist/default/production\practica3.X.production.o
-_oled_column 4A 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
-__ramtop 800 0 RAM 0 ramtop C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-main@max_ok 3E 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-main@red_value 40 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_LED_Status_On 6C04 0 CODE 0 text42 dist/default/production\practica3.X.production.o
+__Ltext44 0 0 ABS 0 text44 dist/default/production\practica3.X.production.o
+__Ltext45 0 0 ABS 0 text45 dist/default/production\practica3.X.production.o
+__Ltext46 0 0 ABS 0 text46 dist/default/production\practica3.X.production.o
+__Ltext47 0 0 ABS 0 text47 dist/default/production\practica3.X.production.o
+_oled_column 5D 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
+__ramtop 800 0 RAM 0 ramtop C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+___aldiv@dividend D 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+main@max_ok 43 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+main@red_value 46 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+_LED_Status_On 6408 0 CODE 0 text46 dist/default/production\practica3.X.production.o
 __Lpowerup 0 0 CODE 0 powerup dist/default/production\practica3.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\practica3.X.production.o
-_I2C_Master_Init 6F66 0 CODE 0 text7 dist/default/production\practica3.X.production.o
-_I2C_Master_Read 6DDA 0 CODE 0 text37 dist/default/production\practica3.X.production.o
-_I2C_Master_Stop 6C84 0 CODE 0 text34 dist/default/production\practica3.X.production.o
-_I2C_Master_Wait 6D62 0 CODE 0 text38 dist/default/production\practica3.X.production.o
+_I2C_Master_Init 677C 0 CODE 0 text7 dist/default/production\practica3.X.production.o
+_I2C_Master_Read 65F0 0 CODE 0 text41 dist/default/production\practica3.X.production.o
+_I2C_Master_Stop 6478 0 CODE 0 text38 dist/default/production\practica3.X.production.o
+_I2C_Master_Wait 6578 0 CODE 0 text42 dist/default/production\practica3.X.production.o
 __H__absolute__ 0 0 ABS 0 __absolute__ dist/default/production\practica3.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\practica3.X.production.o
-Show_Finger_Status_On_OLED@text 28 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 SSD1306_ClearDisplay@column 6 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_UART_Init 6D24 0 CODE 0 text2 dist/default/production\practica3.X.production.o
-_Is_Finger_Detected 6F10 0 CODE 0 text43 dist/default/production\practica3.X.production.o
-__end_of_UInt32_ToString 7780 0 CODE 0 text19 dist/default/production\practica3.X.production.o
+_UART_Init 6518 0 CODE 0 text2 dist/default/production\practica3.X.production.o
+_Is_Finger_Detected 6726 0 CODE 0 text47 dist/default/production\practica3.X.production.o
+__end_of_UInt32_ToString 6F08 0 CODE 0 text19 dist/default/production\practica3.X.production.o
 MAX30102_ReadFIFO@ir_value E 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-___heap_lo 0 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-__end_of_System_Init 6F10 0 CODE 0 text1 dist/default/production\practica3.X.production.o
+___heap_hi 0 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+___heap_lo 0 0 ABS 0 - C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+__end_of_System_Init 6726 0 CODE 0 text1 dist/default/production\practica3.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\practica3.X.production.o
-___intlo_stack_hi 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-___intlo_stack_lo 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAssi0.0\driver_tmp_9.o
-__end_of_I2C_Master_RepeatedStart 6C6E 0 CODE 0 text36 dist/default/production\practica3.X.production.o
+___intlo_stack_hi 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+___intlo_stack_lo 0 0 STACK 2 stack C:\Users\JOHAN\AppData\Local\Temp\xcAslag.0\driver_tmp_9.o
+__end_of_I2C_Master_RepeatedStart 6462 0 CODE 0 text40 dist/default/production\practica3.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\practica3.X.production.o
-__end_of__initialization 6C3C 0 CODE 0 cinit dist/default/production\practica3.X.production.o
-__end_of_UInt16_ToString 750C 0 CODE 0 text22 dist/default/production\practica3.X.production.o
+MAX30102_ProcessHeartRate@ir_value 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+__end_of__initialization 656E 0 CODE 0 cinit dist/default/production\practica3.X.production.o
+__end_of_UInt16_ToString 6D58 0 CODE 0 text21 dist/default/production\practica3.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\practica3.X.production.o
-main@sample 38 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+main@sample 3D 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\practica3.X.production.o
-main@uart_counter 3C 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+main@uart_counter 41 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+___lmul@product 9 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 SSD1306_SetCursor@page 4 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_Send_Header_By_UART 6D88 0 CODE 0 text17 dist/default/production\practica3.X.production.o
-main@display_counter 3A 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+_Send_Header_By_UART 659E 0 CODE 0 text17 dist/default/production\practica3.X.production.o
+___lmul@multiplicand 5 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+MAX30102_ProcessHeartRate@calculated_bpm 34 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+main@display_counter 3F 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ___lldiv@quotient 9 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_LED_Wait_On 6C0C 0 CODE 0 text40 dist/default/production\practica3.X.production.o
+_LED_Wait_On 6410 0 CODE 0 text44 dist/default/production\practica3.X.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__end_of_Font5x7 7E39 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
+__end_of_Font5x7 7E0B 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
 _TXSTAbits FAC 0 ABS 0 - dist/default/production\practica3.X.production.o
-__pmediumconst 7C58 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
+Show_BPM_On_OLED@bpm 21 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+__pmediumconst 7C2A 0 MEDIUMCONST 0 mediumconst dist/default/production\practica3.X.production.o
 _SSPCON1 FC6 0 ABS 0 - dist/default/production\practica3.X.production.o
 _SSPCON2 FC5 0 ABS 0 - dist/default/production\practica3.X.production.o
 _SSPSTAT FC7 0 ABS 0 - dist/default/production\practica3.X.production.o
-__end_of_SSD1306_WriteChar 788E 0 CODE 0 text10 dist/default/production\practica3.X.production.o
+__end_of_SSD1306_WriteChar 722A 0 CODE 0 text10 dist/default/production\practica3.X.production.o
 ___llmod@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-Send_Finger_Status_By_UART@sample 20 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+___aldiv@counter 15 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 ___llmod@counter 9 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-__end_of_LED_Wait_Update 6D62 0 CODE 0 text39 dist/default/production\practica3.X.production.o
-__end_of_main 7C58 0 CODE 0 text0 dist/default/production\practica3.X.production.o
+_hr_ac_prev1 55 0 COMRAM 1 bssCOMRAM dist/default/production\practica3.X.production.o
+_hr_ac_prev2 68 0 BANK0 1 bssBANK0 dist/default/production\practica3.X.production.o
+__end_of_LED_Wait_Update 6556 0 CODE 0 text43 dist/default/production\practica3.X.production.o
+__end_of_main 7774 0 CODE 0 text0 dist/default/production\practica3.X.production.o
 _CMCON FB4 0 ABS 0 - dist/default/production\practica3.X.production.o
 _RCSTA FAB 0 ABS 0 - dist/default/production\practica3.X.production.o
 _SPBRG FAF 0 ABS 0 - dist/default/production\practica3.X.production.o
@@ -1117,26 +1301,31 @@ __LRAM 1 0 ABS 0 - dist/default/production\practica3.X.production.o
 __Lbss 0 0 RAM 1 bss dist/default/production\practica3.X.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\practica3.X.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\practica3.X.production.o
-main@finger_detected 48 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+main@finger_detected 50 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 _SSPSTATbits FC7 0 ABS 0 - dist/default/production\practica3.X.production.o
 UInt16_ToString@buffer A 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_UInt32_ToString 7696 0 CODE 0 text19 dist/default/production\practica3.X.production.o
-_SSD1306_WriteString 7020 0 CODE 0 text9 dist/default/production\practica3.X.production.o
-__end_of_SSD1306_SetCursor 6E70 0 CODE 0 text14 dist/default/production\practica3.X.production.o
-__end_of_UART_WriteString 7020 0 CODE 0 text26 dist/default/production\practica3.X.production.o
+_UInt32_ToString 6E1E 0 CODE 0 text19 dist/default/production\practica3.X.production.o
+_SSD1306_WriteString 6836 0 CODE 0 text9 dist/default/production\practica3.X.production.o
+__end_of_SSD1306_SetCursor 6686 0 CODE 0 text14 dist/default/production\practica3.X.production.o
+__end_of_UART_WriteString 6836 0 CODE 0 text25 dist/default/production\practica3.X.production.o
+Send_BPM_By_UART@red_value 26 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 __Hsivt_hi 0 0 CODE 0 sivt_hi dist/default/production\practica3.X.production.o
 __Hsivt_lo 18 0 CODE 0 sivt_lo dist/default/production\practica3.X.production.o
-__initialization 6C36 0 CODE 0 cinit dist/default/production\practica3.X.production.o
+__initialization 6556 0 CODE 0 cinit dist/default/production\practica3.X.production.o
 UInt32_ToString@i 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 UInt32_ToString@j 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_UInt16_ToString 7456 0 CODE 0 text22 dist/default/production\practica3.X.production.o
-_MAX30102_Init 726C 0 CODE 0 text30 dist/default/production\practica3.X.production.o
-__end_of_MAX30102_ReadFIFO 79A6 0 CODE 0 text28 dist/default/production\practica3.X.production.o
+__pbssBANK0 60 0 BANK0 1 bssBANK0 dist/default/production\practica3.X.production.o
+_UInt16_ToString 6CA2 0 CODE 0 text21 dist/default/production\practica3.X.production.o
+_MAX30102_Init 6BFC 0 CODE 0 text33 dist/default/production\practica3.X.production.o
+__end_of_MAX30102_ReadFIFO 7456 0 CODE 0 text27 dist/default/production\practica3.X.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\practica3.X.production.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\practica3.X.production.o
+MAX30102_ProcessHeartRate@interval_samples 30 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
 SSD1306_Command@command 3 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
-_LED_Power_On 6C10 0 CODE 0 text6 dist/default/production\practica3.X.production.o
+_LED_Power_On 6414 0 CODE 0 text6 dist/default/production\practica3.X.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\practica3.X.production.o
+Show_BPM_On_OLED@ir_value 27 0 COMRAM 1 cstackCOMRAM dist/default/production\practica3.X.production.o
+__end_of_MAX30102_ProcessHeartRate 7C2A 0 CODE 0 text29 dist/default/production\practica3.X.production.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\practica3.X.production.o
 __Hintcode 8 0 CODE 0 intcode dist/default/production\practica3.X.production.o
 # %SPLITSTAB Section
@@ -1163,55 +1352,60 @@ __Hintcode 8 0 CODE 0 intcode dist/default/production\practica3.X.production.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 6C36 6C36 10 1
-text0 0 79A6 79A6 2B2 1
-text1 0 6EBC 6EBC 54 1
-text2 0 6D24 6D24 1E 1
-text3 0 75D0 75D0 C6 1
-text4 0 6C28 6C28 E 1
-text5 0 6C14 6C14 4 1
-text6 0 6C10 6C10 4 1
-text7 0 6F66 6F66 5C 1
-text8 0 750C 750C C4 1
-text9 0 7020 7020 5E 1
-text10 0 7780 7780 10E 1
-text11 0 6E70 6E70 4C 1
-text12 0 6C18 6C18 6 1
-text13 0 6C46 6C46 12 1
-text14 0 6E24 6E24 4C 1
-text15 0 6D06 6D06 1E 1
-text16 0 6C1E 6C1E A 1
-text17 0 6D88 6D88 26 1
-text18 0 73B2 73B2 A4 1
-text19 0 7696 7696 EA 1
-text20 0 7154 7154 88 1
-text21 0 730E 730E A4 1
-text22 0 7456 7456 B6 1
-text23 0 707E 707E 64 1
-text24 0 70E2 70E2 72 1
-text25 0 6CB0 6CB0 1A 1
-text26 0 6FC2 6FC2 5E 1
-text27 0 6C9A 6C9A 16 1
-text28 0 788E 788E 118 1
-text29 0 71DC 71DC 90 1
-text30 0 726C 726C A2 1
-text31 0 6CE8 6CE8 1E 1
-text32 0 6DAE 6DAE 2C 1
-text33 0 6CCA 6CCA 1E 1
-text34 0 6C84 6C84 16 1
-text35 0 6C6E 6C6E 16 1
-text36 0 6C58 6C58 16 1
-text37 0 6DDA 6DDA 4A 1
-text38 0 6D62 6D62 26 1
-text39 0 6D42 6D42 20 1
-text40 0 6C0C 6C0C 4 1
-text41 0 6C08 6C08 4 1
-text42 0 6C04 6C04 4 1
-text43 0 6F10 6F10 56 1
-cstackCOMRAM 1 1 1 4B 1
+cinit 0 6556 6556 22 1
+text0 0 7456 7456 31E 1
+text1 0 66D2 66D2 54 1
+text2 0 6518 6518 1E 1
+text3 0 6D58 6D58 C6 1
+text4 0 642C 642C E 1
+text5 0 6418 6418 4 1
+text6 0 6414 6414 4 1
+text7 0 677C 677C 5C 1
+text8 0 722A 722A 114 1
+text9 0 6836 6836 5E 1
+text10 0 711C 711C 10E 1
+text11 0 6686 6686 4C 1
+text12 0 641C 641C 6 1
+text13 0 643A 643A 12 1
+text14 0 663A 663A 4C 1
+text15 0 64FA 64FA 1E 1
+text16 0 6422 6422 A 1
+text17 0 659E 659E 26 1
+text18 0 7012 7012 10A 1
+text19 0 6E1E 6E1E EA 1
+text20 0 6A40 6A40 88 1
+text21 0 6CA2 6CA2 B6 1
+text22 0 6894 6894 64 1
+text23 0 69CE 69CE 72 1
+text24 0 64A4 64A4 1A 1
+text25 0 67D8 67D8 5E 1
+text26 0 648E 648E 16 1
+text27 0 733E 733E 118 1
+text28 0 6AC8 6AC8 90 1
+text29 0 7774 7774 4B6 1
+text30 0 68F8 68F8 6A 1
+text31 0 6B58 6B58 A4 1
+text32 0 6F08 6F08 10A 1
+text33 0 6BFC 6BFC A6 1
+text34 0 64DC 64DC 1E 1
+text35 0 6962 6962 6C 1
+text36 0 65C4 65C4 2C 1
+text37 0 64BE 64BE 1E 1
+text38 0 6478 6478 16 1
+text39 0 6462 6462 16 1
+text40 0 644C 644C 16 1
+text41 0 65F0 65F0 4A 1
+text42 0 6578 6578 26 1
+text43 0 6536 6536 20 1
+text44 0 6410 6410 4 1
+text45 0 640C 640C 4 1
+text46 0 6408 6408 4 1
+text47 0 6726 6726 56 1
+cstackCOMRAM 1 1 1 5E 1
 init 0 7FFC 7FFC 4 1
 reset_vec 0 0 0 4 1
-mediumconst 0 7C58 7C58 3A4 1
+bssBANK0 1 60 60 10 1
+mediumconst 0 7C2A 7C2A 3D2 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

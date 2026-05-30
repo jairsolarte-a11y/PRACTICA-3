@@ -4,8 +4,8 @@
  * Microcontrolador: PIC18F4550
  * Compilador: XC8
  *
- * Commit 6:
- * Se agrega deteccion de dedo usando la senal IR del MAX30102.
+ * Commit 7:
+ * Se agrega calculo de frecuencia cardiaca BPM usando MAX30102.
  *
  * Funcionalidades actuales:
  * - OLED SSD1306 por I2C.
@@ -14,9 +14,9 @@
  * - Deteccion inicial del MAX30102.
  * - Lectura de valores RED e IR desde el FIFO del MAX30102.
  * - Deteccion de presencia de dedo usando valor IR.
+ * - Calculo de BPM usando la senal IR.
  *
  * Todavia no se agrega:
- * - Calculo de BPM.
  * - Sensor DS18B20.
  * - Lectura de temperatura.
  */
@@ -38,15 +38,6 @@
 
 /*
  * Deteccion de dedo por IR.
- *
- * Si el valor IR es mayor o igual a FINGER_IR_ON_THRESHOLD,
- * se considera que hay dedo.
- *
- * Si el valor IR baja por debajo de FINGER_IR_OFF_THRESHOLD,
- * se considera que el dedo fue retirado.
- *
- * Se usan dos umbrales para evitar que el estado cambie rapidamente
- * cuando la senal esta cerca del limite.
  */
 #define FINGER_IR_ON_THRESHOLD      30000UL
 #define FINGER_IR_OFF_THRESHOLD     20000UL
@@ -54,7 +45,7 @@
 /*
  * LEDs indicadores:
  * RD0 = LED sistema encendido.
- * RD1 = LED sistema funcional / sensor detectado.
+ * RD1 = LED sistema funcional / MAX30102 detectado.
  * RD2 = LED espera.
  */
 #define LED_POWER_TRIS              TRISDbits.TRISD0
@@ -84,16 +75,20 @@ static uint8_t Is_Finger_Detected(uint32_t ir_value);
 static void UInt16_ToString(uint16_t value, char *buffer);
 static void UInt32_ToString(uint32_t value, char *buffer);
 
-static void Show_Finger_Status_On_OLED(uint8_t finger_detected,
-                                       uint32_t red_value,
-                                       uint32_t ir_value);
+static void Show_BPM_On_OLED(uint8_t finger_detected,
+                             uint8_t bpm_valid,
+                             uint16_t bpm,
+                             uint32_t red_value,
+                             uint32_t ir_value);
 
 static void Send_Header_By_UART(void);
 
-static void Send_Finger_Status_By_UART(uint16_t sample,
-                                       uint8_t finger_detected,
-                                       uint32_t red_value,
-                                       uint32_t ir_value);
+static void Send_BPM_By_UART(uint16_t sample,
+                             uint8_t finger_detected,
+                             uint8_t bpm_valid,
+                             uint16_t bpm,
+                             uint32_t red_value,
+                             uint32_t ir_value);
 
 void main(void)
 {
@@ -105,6 +100,9 @@ void main(void)
     uint8_t finger_detected = 0;
     uint8_t previous_finger_detected = 0;
 
+    uint16_t bpm = 0;
+    uint8_t bpm_valid = 0;
+
     uint16_t sample = 0;
     uint16_t display_counter = 0;
     uint16_t uart_counter = 0;
@@ -113,7 +111,6 @@ void main(void)
 
     UART_WriteLine("Sistema iniciado");
     UART_WriteLine("OLED funcionando");
-    UART_WriteLine("LEDs indicadores activos");
     UART_WriteLine("UART funcionando a 9600 baudios");
     UART_WriteLine("Verificando MAX30102...");
 
@@ -151,7 +148,8 @@ void main(void)
     LED_Wait_On();
 
     UART_WriteLine("MAX30102 detectado correctamente");
-    UART_WriteLine("Deteccion de dedo iniciada");
+    UART_WriteLine("Calculo de BPM iniciado");
+    UART_WriteLine("Esperando dedo...");
 
     Send_Header_By_UART();
 
@@ -162,7 +160,7 @@ void main(void)
     SSD1306_WriteString("Esperando dedo");
 
     SSD1306_SetCursor(10, 4);
-    SSD1306_WriteString("Use MAX30102");
+    SSD1306_WriteString("BPM listo");
 
     while (1)
     {
@@ -184,20 +182,48 @@ void main(void)
         LED_Wait_Update(finger_detected);
 
         /*
-         * Mensaje por UART cuando cambia el estado del dedo.
+         * Cuando el dedo se detecta por primera vez,
+         * se reinicia el algoritmo de BPM para evitar datos anteriores.
          */
         if ((finger_detected == 1) && (previous_finger_detected == 0))
         {
+            MAX30102_ResetHeartRateAlgorithm();
+
+            bpm = 0;
+            bpm_valid = 0;
+
             UART_WriteLine("");
-            UART_WriteLine("Dedo detectado");
+            UART_WriteLine("Dedo detectado - calculando BPM");
             Send_Header_By_UART();
         }
 
+        /*
+         * Si el dedo se retira, se limpian las mediciones.
+         */
         if ((finger_detected == 0) && (previous_finger_detected == 1))
         {
+            MAX30102_ResetHeartRateAlgorithm();
+
+            bpm = 0;
+            bpm_valid = 0;
+
             UART_WriteLine("");
             UART_WriteLine("Dedo retirado");
             Send_Header_By_UART();
+        }
+
+        /*
+         * Calculo de BPM solo cuando hay dedo.
+         */
+        if (finger_detected == 1)
+        {
+            bpm_valid = MAX30102_ProcessHeartRate(ir_value, &bpm);
+        }
+        else
+        {
+            bpm = 0;
+            bpm_valid = 0;
+            MAX30102_ResetHeartRateAlgorithm();
         }
 
         /*
@@ -210,10 +236,12 @@ void main(void)
             uart_counter = 0;
             sample++;
 
-            Send_Finger_Status_By_UART(sample,
-                                       finger_detected,
-                                       red_value,
-                                       ir_value);
+            Send_BPM_By_UART(sample,
+                             finger_detected,
+                             bpm_valid,
+                             bpm,
+                             red_value,
+                             ir_value);
         }
 
         /*
@@ -225,9 +253,11 @@ void main(void)
         {
             display_counter = 0;
 
-            Show_Finger_Status_On_OLED(finger_detected,
-                                       red_value,
-                                       ir_value);
+            Show_BPM_On_OLED(finger_detected,
+                             bpm_valid,
+                             bpm,
+                             red_value,
+                             ir_value);
         }
 
         previous_finger_detected = finger_detected;
@@ -445,9 +475,11 @@ static void UInt32_ToString(uint32_t value, char *buffer)
     buffer[j] = '\0';
 }
 
-static void Show_Finger_Status_On_OLED(uint8_t finger_detected,
-                                       uint32_t red_value,
-                                       uint32_t ir_value)
+static void Show_BPM_On_OLED(uint8_t finger_detected,
+                             uint8_t bpm_valid,
+                             uint16_t bpm,
+                             uint32_t red_value,
+                             uint32_t ir_value)
 {
     char text[12];
 
@@ -458,19 +490,31 @@ static void Show_Finger_Status_On_OLED(uint8_t finger_detected,
 
     SSD1306_SetCursor(10, 2);
 
-    if (finger_detected)
+    if (finger_detected == 0)
     {
-        SSD1306_WriteString("Dedo detectado");
+        SSD1306_WriteString("No detectado");
+
+        SSD1306_SetCursor(10, 4);
+        SSD1306_WriteString("Esperando dedo");
     }
     else
     {
-        SSD1306_WriteString("No detectado");
-    }
+        if (bpm_valid == 1)
+        {
+            SSD1306_WriteString("BPM:");
+            UInt16_ToString(bpm, text);
+            SSD1306_WriteString(text);
+        }
+        else
+        {
+            SSD1306_WriteString("Calculando");
+        }
 
-    SSD1306_SetCursor(10, 4);
-    SSD1306_WriteString("IR:");
-    UInt32_ToString(ir_value, text);
-    SSD1306_WriteString(text);
+        SSD1306_SetCursor(10, 4);
+        SSD1306_WriteString("IR:");
+        UInt32_ToString(ir_value, text);
+        SSD1306_WriteString(text);
+    }
 
     SSD1306_SetCursor(10, 6);
     SSD1306_WriteString("RED:");
@@ -481,14 +525,16 @@ static void Show_Finger_Status_On_OLED(uint8_t finger_detected,
 static void Send_Header_By_UART(void)
 {
     UART_WriteLine("");
-    UART_WriteLine("Muestra\tDedo\tRED\tIR");
-    UART_WriteLine("--------------------------------------");
+    UART_WriteLine("Muestra\tDedo\tBPM\tRED\tIR");
+    UART_WriteLine("------------------------------------------------");
 }
 
-static void Send_Finger_Status_By_UART(uint16_t sample,
-                                       uint8_t finger_detected,
-                                       uint32_t red_value,
-                                       uint32_t ir_value)
+static void Send_BPM_By_UART(uint16_t sample,
+                             uint8_t finger_detected,
+                             uint8_t bpm_valid,
+                             uint16_t bpm,
+                             uint32_t red_value,
+                             uint32_t ir_value)
 {
     char text[12];
 
@@ -503,6 +549,24 @@ static void Send_Finger_Status_By_UART(uint16_t sample,
     else
     {
         UART_WriteString("No detectado\t");
+    }
+
+    if (finger_detected == 0)
+    {
+        UART_WriteString("No detectado\t");
+    }
+    else
+    {
+        if (bpm_valid)
+        {
+            UInt16_ToString(bpm, text);
+            UART_WriteString(text);
+            UART_WriteString("\t");
+        }
+        else
+        {
+            UART_WriteString("Calculando\t");
+        }
     }
 
     UInt32_ToString(red_value, text);

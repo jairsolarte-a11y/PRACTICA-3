@@ -5937,8 +5937,21 @@ uint8_t I2C_Master_Read(uint8_t ack);
 
 uint8_t MAX30102_Init(void);
 uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value);
+uint8_t MAX30102_ProcessHeartRate(uint32_t ir_value, uint16_t *bpm);
+void MAX30102_ResetHeartRateAlgorithm(void);
 # 4 "max30102.c" 2
-# 27 "max30102.c"
+# 68 "max30102.c"
+static int32_t hr_dc_average = 0;
+static int32_t hr_ac_prev2 = 0;
+static int32_t hr_ac_prev1 = 0;
+static uint32_t hr_abs_average = 0;
+
+static uint32_t hr_sample_counter = 0;
+static uint32_t hr_last_beat_sample = 0;
+
+static uint16_t hr_current_bpm = 0;
+static uint8_t hr_valid_beats = 0;
+
 static void MAX30102_WriteRegister(uint8_t reg, uint8_t value)
 {
     I2C_Master_Start();
@@ -5947,10 +5960,6 @@ static void MAX30102_WriteRegister(uint8_t reg, uint8_t value)
     I2C_Master_Write(value);
     I2C_Master_Stop();
 }
-
-
-
-
 
 static uint8_t MAX30102_ReadRegister(uint8_t reg)
 {
@@ -5969,7 +5978,7 @@ static uint8_t MAX30102_ReadRegister(uint8_t reg)
 
     return value;
 }
-# 68 "max30102.c"
+
 static void MAX30102_ReadMulti(uint8_t reg, uint8_t *buffer, uint8_t length)
 {
     uint8_t i;
@@ -5995,14 +6004,10 @@ static void MAX30102_ReadMulti(uint8_t reg, uint8_t *buffer, uint8_t length)
 
     I2C_Master_Stop();
 }
-# 105 "max30102.c"
+
 uint8_t MAX30102_Init(void)
 {
     uint8_t part_id;
-
-
-
-
 
     part_id = MAX30102_ReadRegister(0xFF);
 
@@ -6050,7 +6055,6 @@ uint8_t MAX30102_Init(void)
 
 
 
-
     MAX30102_WriteRegister(0x0C, 0x24);
     MAX30102_WriteRegister(0x0D, 0x24);
 
@@ -6060,9 +6064,11 @@ uint8_t MAX30102_Init(void)
     (void)MAX30102_ReadRegister(0x00);
     (void)MAX30102_ReadRegister(0x01);
 
+    MAX30102_ResetHeartRateAlgorithm();
+
     return 1;
 }
-# 187 "max30102.c"
+
 uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value)
 {
     uint8_t data[6];
@@ -6080,9 +6086,155 @@ uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value)
 
 
 
-
     *red_value &= 0x03FFFF;
     *ir_value &= 0x03FFFF;
 
     return 1;
+}
+
+void MAX30102_ResetHeartRateAlgorithm(void)
+{
+    hr_dc_average = 0;
+    hr_ac_prev2 = 0;
+    hr_ac_prev1 = 0;
+    hr_abs_average = 0;
+
+    hr_sample_counter = 0;
+    hr_last_beat_sample = 0;
+
+    hr_current_bpm = 0;
+    hr_valid_beats = 0;
+}
+
+uint8_t MAX30102_ProcessHeartRate(uint32_t ir_value, uint16_t *bpm)
+{
+    int32_t ac_signal;
+    uint32_t abs_ac_signal;
+    uint32_t dynamic_threshold;
+
+    uint32_t peak_sample;
+    uint32_t interval_samples;
+    uint32_t calculated_bpm;
+
+    if (ir_value < 20000UL)
+    {
+        MAX30102_ResetHeartRateAlgorithm();
+        return 0;
+    }
+
+    hr_sample_counter++;
+
+    if (hr_dc_average == 0)
+    {
+        hr_dc_average = (int32_t)ir_value;
+        hr_ac_prev2 = 0;
+        hr_ac_prev1 = 0;
+        return 0;
+    }
+
+
+
+
+
+    hr_dc_average = ((hr_dc_average * 31L) + (int32_t)ir_value) / 32L;
+
+
+
+
+
+    ac_signal = (int32_t)ir_value - hr_dc_average;
+
+    if (ac_signal < 0)
+    {
+        abs_ac_signal = (uint32_t)(-ac_signal);
+    }
+    else
+    {
+        abs_ac_signal = (uint32_t)ac_signal;
+    }
+
+
+
+
+    hr_abs_average = ((hr_abs_average * 15UL) + abs_ac_signal) / 16UL;
+
+    dynamic_threshold = hr_abs_average / 2UL;
+
+    if (dynamic_threshold < 80UL)
+    {
+        dynamic_threshold = 80UL;
+    }
+
+
+
+
+    if (hr_sample_counter < 50UL)
+    {
+        hr_ac_prev2 = hr_ac_prev1;
+        hr_ac_prev1 = ac_signal;
+        return 0;
+    }
+
+
+
+
+
+
+    if ((hr_ac_prev1 > hr_ac_prev2) &&
+        (hr_ac_prev1 > ac_signal) &&
+        (hr_ac_prev1 > (int32_t)dynamic_threshold))
+    {
+        peak_sample = hr_sample_counter - 1UL;
+
+        if ((hr_last_beat_sample == 0UL) ||
+            ((peak_sample - hr_last_beat_sample) >= 40UL))
+        {
+            if (hr_last_beat_sample != 0UL)
+            {
+                interval_samples = peak_sample - hr_last_beat_sample;
+
+                if ((interval_samples >= ((60UL * 100UL) / 130UL)) &&
+                    (interval_samples <= ((60UL * 100UL) / 45UL)))
+                {
+                    calculated_bpm = (60UL * 100UL) / interval_samples;
+
+                    if ((calculated_bpm >= 45UL) &&
+                        (calculated_bpm <= 130UL))
+                    {
+                        if (hr_current_bpm == 0)
+                        {
+                            hr_current_bpm = (uint16_t)calculated_bpm;
+                        }
+                        else
+                        {
+
+
+
+                            hr_current_bpm =
+                                (uint16_t)((((uint32_t)hr_current_bpm * 3UL) +
+                                            calculated_bpm) / 4UL);
+                        }
+
+                        if (hr_valid_beats < 10)
+                        {
+                            hr_valid_beats++;
+                        }
+                    }
+                }
+            }
+
+            hr_last_beat_sample = peak_sample;
+        }
+    }
+
+    hr_ac_prev2 = hr_ac_prev1;
+    hr_ac_prev1 = ac_signal;
+
+    if (hr_valid_beats >= 1U)
+    {
+        *bpm = hr_current_bpm;
+        return 1;
+    }
+
+    return 0;
 }

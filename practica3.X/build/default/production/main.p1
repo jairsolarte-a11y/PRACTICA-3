@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"72 main.c
-[; ;main.c: 72: static void System_Init(void);
+"63 main.c
+[; ;main.c: 63: static void System_Init(void);
 [v _System_Init `(v ~T0 @X0 0 sf ]
 "10 ./uart.h
 [; ;./uart.h: 10: void UART_WriteLine(const char *text);
@@ -12,11 +12,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17 ./ssd1306.h
 [; ;./ssd1306.h: 17: void SSD1306_ClearDisplay(void);
 [v _SSD1306_ClearDisplay `(v ~T0 @X0 0 ef ]
-"77 main.c
-[; ;main.c: 77: static void LED_Status_Off(void);
+"68 main.c
+[; ;main.c: 68: static void LED_Status_Off(void);
 [v _LED_Status_Off `(v ~T0 @X0 0 sf ]
-"79
-[; ;main.c: 79: static void LED_Wait_Off(void);
+"70
+[; ;main.c: 70: static void LED_Wait_Off(void);
 [v _LED_Wait_Off `(v ~T0 @X0 0 sf ]
 "19 ./ssd1306.h
 [; ;./ssd1306.h: 19: void SSD1306_SetCursor(uint8_t column, uint8_t page);
@@ -27,30 +27,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8 C:\Program Files\Microchip\xc8\v3.10\pic\include/builtins.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
-"76 main.c
-[; ;main.c: 76: static void LED_Status_On(void);
+"67 main.c
+[; ;main.c: 67: static void LED_Status_On(void);
 [v _LED_Status_On `(v ~T0 @X0 0 sf ]
-"78
-[; ;main.c: 78: static void LED_Wait_On(void);
+"69
+[; ;main.c: 69: static void LED_Wait_On(void);
 [v _LED_Wait_On `(v ~T0 @X0 0 sf ]
-"91
-[; ;main.c: 91: static void Send_Header_By_UART(void);
+"84
+[; ;main.c: 84: static void Send_Header_By_UART(void);
 [v _Send_Header_By_UART `(v ~T0 @X0 0 sf ]
 "10 ./max30102.h
 [; ;./max30102.h: 10: uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value);
 [v _MAX30102_ReadFIFO `(uc ~T0 @X0 0 ef2`*ul`*ul ]
-"82 main.c
-[; ;main.c: 82: static uint8_t Is_Finger_Detected(uint32_t ir_value);
+"73 main.c
+[; ;main.c: 73: static uint8_t Is_Finger_Detected(uint32_t ir_value);
 [v _Is_Finger_Detected `(uc ~T0 @X0 0 sf1`ul ]
-"80
-[; ;main.c: 80: static void LED_Wait_Update(uint8_t finger_detected);
+"71
+[; ;main.c: 71: static void LED_Wait_Update(uint8_t finger_detected);
 [v _LED_Wait_Update `(v ~T0 @X0 0 sf1`uc ]
-"93
-[; ;main.c: 93: static void Send_Finger_Status_By_UART(uint16_t sample,
-[v _Send_Finger_Status_By_UART `(v ~T0 @X0 0 sf4`us`uc`ul`ul ]
-"87
-[; ;main.c: 87: static void Show_Finger_Status_On_OLED(uint8_t finger_detected,
-[v _Show_Finger_Status_On_OLED `(v ~T0 @X0 0 sf3`uc`ul`ul ]
+"12 ./max30102.h
+[; ;./max30102.h: 12: void MAX30102_ResetHeartRateAlgorithm(void);
+[v _MAX30102_ResetHeartRateAlgorithm `(v ~T0 @X0 0 ef ]
+"11
+[; ;./max30102.h: 11: uint8_t MAX30102_ProcessHeartRate(uint32_t ir_value, uint16_t *bpm);
+[v _MAX30102_ProcessHeartRate `(uc ~T0 @X0 0 ef2`ul`*us ]
+"86 main.c
+[; ;main.c: 86: static void Send_BPM_By_UART(uint16_t sample,
+[v _Send_BPM_By_UART `(v ~T0 @X0 0 sf6`us`uc`uc`us`ul`ul ]
+"78
+[; ;main.c: 78: static void Show_BPM_On_OLED(uint8_t finger_detected,
+[v _Show_BPM_On_OLED `(v ~T0 @X0 0 sf5`uc`uc`us`ul`ul ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v3.10\pic\include/builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
@@ -97,11 +103,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4221
 [; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4221: extern volatile unsigned char TRISE __attribute__((address(0xF96)));
 [v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
-"74 main.c
-[; ;main.c: 74: static void LEDs_Init(void);
+"65 main.c
+[; ;main.c: 65: static void LEDs_Init(void);
 [v _LEDs_Init `(v ~T0 @X0 0 sf ]
-"75
-[; ;main.c: 75: static void LED_Power_On(void);
+"66
+[; ;main.c: 66: static void LED_Power_On(void);
 [v _LED_Power_On `(v ~T0 @X0 0 sf ]
 "7 ./uart.h
 [; ;./uart.h: 7: void UART_Init(void);
@@ -656,683 +662,642 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"98 main.c
-[; ;main.c: 98: void main(void)
+"93 main.c
+[; ;main.c: 93: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"99
-[; ;main.c: 99: {
+"94
+[; ;main.c: 94: {
 {
 [e :U _main ]
 [f ]
-"100
-[; ;main.c: 100:     uint8_t max_ok = 0;
+"95
+[; ;main.c: 95:     uint8_t max_ok = 0;
 [v _max_ok `uc ~T0 @X0 1 a ]
 [e = _max_ok -> -> 0 `i `uc ]
-"102
-[; ;main.c: 102:     uint32_t red_value = 0;
+"97
+[; ;main.c: 97:     uint32_t red_value = 0;
 [v _red_value `ul ~T0 @X0 1 a ]
 [e = _red_value -> -> -> 0 `i `l `ul ]
-"103
-[; ;main.c: 103:     uint32_t ir_value = 0;
+"98
+[; ;main.c: 98:     uint32_t ir_value = 0;
 [v _ir_value `ul ~T0 @X0 1 a ]
 [e = _ir_value -> -> -> 0 `i `l `ul ]
-"105
-[; ;main.c: 105:     uint8_t finger_detected = 0;
+"100
+[; ;main.c: 100:     uint8_t finger_detected = 0;
 [v _finger_detected `uc ~T0 @X0 1 a ]
 [e = _finger_detected -> -> 0 `i `uc ]
-"106
-[; ;main.c: 106:     uint8_t previous_finger_detected = 0;
+"101
+[; ;main.c: 101:     uint8_t previous_finger_detected = 0;
 [v _previous_finger_detected `uc ~T0 @X0 1 a ]
 [e = _previous_finger_detected -> -> 0 `i `uc ]
-"108
-[; ;main.c: 108:     uint16_t sample = 0;
+"103
+[; ;main.c: 103:     uint16_t bpm = 0;
+[v _bpm `us ~T0 @X0 1 a ]
+[e = _bpm -> -> 0 `i `us ]
+"104
+[; ;main.c: 104:     uint8_t bpm_valid = 0;
+[v _bpm_valid `uc ~T0 @X0 1 a ]
+[e = _bpm_valid -> -> 0 `i `uc ]
+"106
+[; ;main.c: 106:     uint16_t sample = 0;
 [v _sample `us ~T0 @X0 1 a ]
 [e = _sample -> -> 0 `i `us ]
-"109
-[; ;main.c: 109:     uint16_t display_counter = 0;
+"107
+[; ;main.c: 107:     uint16_t display_counter = 0;
 [v _display_counter `us ~T0 @X0 1 a ]
 [e = _display_counter -> -> 0 `i `us ]
-"110
-[; ;main.c: 110:     uint16_t uart_counter = 0;
+"108
+[; ;main.c: 108:     uint16_t uart_counter = 0;
 [v _uart_counter `us ~T0 @X0 1 a ]
 [e = _uart_counter -> -> 0 `i `us ]
-"112
-[; ;main.c: 112:     System_Init();
+"110
+[; ;main.c: 110:     System_Init();
 [e ( _System_Init ..  ]
-"114
-[; ;main.c: 114:     UART_WriteLine("Sistema iniciado");
+"112
+[; ;main.c: 112:     UART_WriteLine("Sistema iniciado");
 [e ( _UART_WriteLine (1 :s 1C ]
-"115
-[; ;main.c: 115:     UART_WriteLine("OLED funcionando");
+"113
+[; ;main.c: 113:     UART_WriteLine("OLED funcionando");
 [e ( _UART_WriteLine (1 :s 2C ]
-"116
-[; ;main.c: 116:     UART_WriteLine("LEDs indicadores activos");
+"114
+[; ;main.c: 114:     UART_WriteLine("UART funcionando a 9600 baudios");
 [e ( _UART_WriteLine (1 :s 3C ]
-"117
-[; ;main.c: 117:     UART_WriteLine("UART funcionando a 9600 baudios");
+"115
+[; ;main.c: 115:     UART_WriteLine("Verificando MAX30102...");
 [e ( _UART_WriteLine (1 :s 4C ]
-"118
-[; ;main.c: 118:     UART_WriteLine("Verificando MAX30102...");
-[e ( _UART_WriteLine (1 :s 5C ]
-"120
-[; ;main.c: 120:     max_ok = MAX30102_Init();
+"117
+[; ;main.c: 117:     max_ok = MAX30102_Init();
 [e = _max_ok ( _MAX30102_Init ..  ]
-"122
-[; ;main.c: 122:     SSD1306_ClearDisplay();
+"119
+[; ;main.c: 119:     SSD1306_ClearDisplay();
 [e ( _SSD1306_ClearDisplay ..  ]
-"124
-[; ;main.c: 124:     if (max_ok == 0)
+"121
+[; ;main.c: 121:     if (max_ok == 0)
 [e $ ! == -> _max_ok `i -> 0 `i 392  ]
-"125
-[; ;main.c: 125:     {
+"122
+[; ;main.c: 122:     {
 {
-"126
-[; ;main.c: 126:         LED_Status_Off();
+"123
+[; ;main.c: 123:         LED_Status_Off();
 [e ( _LED_Status_Off ..  ]
-"127
-[; ;main.c: 127:         LED_Wait_Off();
+"124
+[; ;main.c: 124:         LED_Wait_Off();
 [e ( _LED_Wait_Off ..  ]
-"129
-[; ;main.c: 129:         UART_WriteLine("ERROR: MAX30102 no detectado");
+"126
+[; ;main.c: 126:         UART_WriteLine("ERROR: MAX30102 no detectado");
+[e ( _UART_WriteLine (1 :s 5C ]
+"127
+[; ;main.c: 127:         UART_WriteLine("Revise VCC, GND, SDA y SCL");
 [e ( _UART_WriteLine (1 :s 6C ]
-"130
-[; ;main.c: 130:         UART_WriteLine("Revise VCC, GND, SDA y SCL");
-[e ( _UART_WriteLine (1 :s 7C ]
-"132
-[; ;main.c: 132:         SSD1306_SetCursor(10, 0);
+"129
+[; ;main.c: 129:         SSD1306_SetCursor(10, 0);
 [e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
+"130
+[; ;main.c: 130:         SSD1306_WriteString("MAX30102 ERROR");
+[e ( _SSD1306_WriteString (1 :s 7C ]
+"132
+[; ;main.c: 132:         SSD1306_SetCursor(10, 2);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 2 `i `uc ]
 "133
-[; ;main.c: 133:         SSD1306_WriteString("MAX30102 ERROR");
+[; ;main.c: 133:         SSD1306_WriteString("Revise I2C");
 [e ( _SSD1306_WriteString (1 :s 8C ]
 "135
-[; ;main.c: 135:         SSD1306_SetCursor(10, 2);
-[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 2 `i `uc ]
+[; ;main.c: 135:         SSD1306_SetCursor(10, 4);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 4 `i `uc ]
 "136
-[; ;main.c: 136:         SSD1306_WriteString("Revise I2C");
+[; ;main.c: 136:         SSD1306_WriteString("SDA SCL VCC");
 [e ( _SSD1306_WriteString (1 :s 9C ]
 "138
-[; ;main.c: 138:         SSD1306_SetCursor(10, 4);
-[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 4 `i `uc ]
-"139
-[; ;main.c: 139:         SSD1306_WriteString("SDA SCL VCC");
-[e ( _SSD1306_WriteString (1 :s 10C ]
-"141
-[; ;main.c: 141:         while (1)
+[; ;main.c: 138:         while (1)
 [e :U 394 ]
-"142
-[; ;main.c: 142:         {
+"139
+[; ;main.c: 139:         {
 {
-"143
-[; ;main.c: 143:             __nop();
+"140
+[; ;main.c: 140:             __nop();
 [e ( ___nop ..  ]
-"144
-[; ;main.c: 144:         }
+"141
+[; ;main.c: 141:         }
 }
 [e :U 393 ]
 [e $U 394  ]
 [e :U 395 ]
-"145
-[; ;main.c: 145:     }
+"142
+[; ;main.c: 142:     }
 }
 [e :U 392 ]
-"150
-[; ;main.c: 150:     LED_Status_On();
+"147
+[; ;main.c: 147:     LED_Status_On();
 [e ( _LED_Status_On ..  ]
-"151
-[; ;main.c: 151:     LED_Wait_On();
+"148
+[; ;main.c: 148:     LED_Wait_On();
 [e ( _LED_Wait_On ..  ]
-"153
-[; ;main.c: 153:     UART_WriteLine("MAX30102 detectado correctamente");
+"150
+[; ;main.c: 150:     UART_WriteLine("MAX30102 detectado correctamente");
+[e ( _UART_WriteLine (1 :s 10C ]
+"151
+[; ;main.c: 151:     UART_WriteLine("Calculo de BPM iniciado");
 [e ( _UART_WriteLine (1 :s 11C ]
-"154
-[; ;main.c: 154:     UART_WriteLine("Deteccion de dedo iniciada");
+"152
+[; ;main.c: 152:     UART_WriteLine("Esperando dedo...");
 [e ( _UART_WriteLine (1 :s 12C ]
+"154
+[; ;main.c: 154:     Send_Header_By_UART();
+[e ( _Send_Header_By_UART ..  ]
 "156
-[; ;main.c: 156:     Send_Header_By_UART();
-[e ( _Send_Header_By_UART ..  ]
-"158
-[; ;main.c: 158:     SSD1306_SetCursor(10, 0);
+[; ;main.c: 156:     SSD1306_SetCursor(10, 0);
 [e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
-"159
-[; ;main.c: 159:     SSD1306_WriteString("Signos Vitales");
+"157
+[; ;main.c: 157:     SSD1306_WriteString("Signos Vitales");
 [e ( _SSD1306_WriteString (1 :s 13C ]
-"161
-[; ;main.c: 161:     SSD1306_SetCursor(10, 2);
+"159
+[; ;main.c: 159:     SSD1306_SetCursor(10, 2);
 [e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 2 `i `uc ]
-"162
-[; ;main.c: 162:     SSD1306_WriteString("Esperando dedo");
+"160
+[; ;main.c: 160:     SSD1306_WriteString("Esperando dedo");
 [e ( _SSD1306_WriteString (1 :s 14C ]
-"164
-[; ;main.c: 164:     SSD1306_SetCursor(10, 4);
+"162
+[; ;main.c: 162:     SSD1306_SetCursor(10, 4);
 [e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 4 `i `uc ]
-"165
-[; ;main.c: 165:     SSD1306_WriteString("Use MAX30102");
+"163
+[; ;main.c: 163:     SSD1306_WriteString("BPM listo");
 [e ( _SSD1306_WriteString (1 :s 15C ]
-"167
-[; ;main.c: 167:     while (1)
+"165
+[; ;main.c: 165:     while (1)
 [e :U 397 ]
-"168
-[; ;main.c: 168:     {
+"166
+[; ;main.c: 166:     {
 {
-"172
-[; ;main.c: 172:         MAX30102_ReadFIFO(&red_value, &ir_value);
+"170
+[; ;main.c: 170:         MAX30102_ReadFIFO(&red_value, &ir_value);
 [e ( _MAX30102_ReadFIFO (2 , &U _red_value &U _ir_value ]
-"177
-[; ;main.c: 177:         finger_detected = Is_Finger_Detected(ir_value);
+"175
+[; ;main.c: 175:         finger_detected = Is_Finger_Detected(ir_value);
 [e = _finger_detected ( _Is_Finger_Detected (1 _ir_value ]
-"184
-[; ;main.c: 184:         LED_Wait_Update(finger_detected);
+"182
+[; ;main.c: 182:         LED_Wait_Update(finger_detected);
 [e ( _LED_Wait_Update (1 _finger_detected ]
-"189
-[; ;main.c: 189:         if ((finger_detected == 1) && (previous_finger_detected == 0))
+"188
+[; ;main.c: 188:         if ((finger_detected == 1) && (previous_finger_detected == 0))
 [e $ ! && == -> _finger_detected `i -> 1 `i == -> _previous_finger_detected `i -> 0 `i 399  ]
-"190
-[; ;main.c: 190:         {
+"189
+[; ;main.c: 189:         {
 {
-"191
-[; ;main.c: 191:             UART_WriteLine("");
-[e ( _UART_WriteLine (1 :s 16C ]
+"190
+[; ;main.c: 190:             MAX30102_ResetHeartRateAlgorithm();
+[e ( _MAX30102_ResetHeartRateAlgorithm ..  ]
 "192
-[; ;main.c: 192:             UART_WriteLine("Dedo detectado");
-[e ( _UART_WriteLine (1 :s 17C ]
+[; ;main.c: 192:             bpm = 0;
+[e = _bpm -> -> 0 `i `us ]
 "193
-[; ;main.c: 193:             Send_Header_By_UART();
+[; ;main.c: 193:             bpm_valid = 0;
+[e = _bpm_valid -> -> 0 `i `uc ]
+"195
+[; ;main.c: 195:             UART_WriteLine("");
+[e ( _UART_WriteLine (1 :s 16C ]
+"196
+[; ;main.c: 196:             UART_WriteLine("Dedo detectado - calculando BPM");
+[e ( _UART_WriteLine (1 :s 17C ]
+"197
+[; ;main.c: 197:             Send_Header_By_UART();
 [e ( _Send_Header_By_UART ..  ]
-"194
-[; ;main.c: 194:         }
+"198
+[; ;main.c: 198:         }
 }
 [e :U 399 ]
-"196
-[; ;main.c: 196:         if ((finger_detected == 0) && (previous_finger_detected == 1))
+"203
+[; ;main.c: 203:         if ((finger_detected == 0) && (previous_finger_detected == 1))
 [e $ ! && == -> _finger_detected `i -> 0 `i == -> _previous_finger_detected `i -> 1 `i 400  ]
-"197
-[; ;main.c: 197:         {
+"204
+[; ;main.c: 204:         {
 {
-"198
-[; ;main.c: 198:             UART_WriteLine("");
+"205
+[; ;main.c: 205:             MAX30102_ResetHeartRateAlgorithm();
+[e ( _MAX30102_ResetHeartRateAlgorithm ..  ]
+"207
+[; ;main.c: 207:             bpm = 0;
+[e = _bpm -> -> 0 `i `us ]
+"208
+[; ;main.c: 208:             bpm_valid = 0;
+[e = _bpm_valid -> -> 0 `i `uc ]
+"210
+[; ;main.c: 210:             UART_WriteLine("");
 [e ( _UART_WriteLine (1 :s 18C ]
-"199
-[; ;main.c: 199:             UART_WriteLine("Dedo retirado");
+"211
+[; ;main.c: 211:             UART_WriteLine("Dedo retirado");
 [e ( _UART_WriteLine (1 :s 19C ]
-"200
-[; ;main.c: 200:             Send_Header_By_UART();
+"212
+[; ;main.c: 212:             Send_Header_By_UART();
 [e ( _Send_Header_By_UART ..  ]
-"201
-[; ;main.c: 201:         }
+"213
+[; ;main.c: 213:         }
 }
 [e :U 400 ]
-"206
-[; ;main.c: 206:         uart_counter++;
-[e ++ _uart_counter -> -> 1 `i `us ]
-"208
-[; ;main.c: 208:         if (uart_counter >= 100u)
-[e $ ! >= -> _uart_counter `ui -> 100 `ui 401  ]
-"209
-[; ;main.c: 209:         {
+"218
+[; ;main.c: 218:         if (finger_detected == 1)
+[e $ ! == -> _finger_detected `i -> 1 `i 401  ]
+"219
+[; ;main.c: 219:         {
 {
-"210
-[; ;main.c: 210:             uart_counter = 0;
-[e = _uart_counter -> -> 0 `i `us ]
-"211
-[; ;main.c: 211:             sample++;
-[e ++ _sample -> -> 1 `i `us ]
-"213
-[; ;main.c: 213:             Send_Finger_Status_By_UART(sample,
-[e ( _Send_Finger_Status_By_UART (4 , , , _sample _finger_detected _red_value _ir_value ]
-"217
-[; ;main.c: 217:         }
+"220
+[; ;main.c: 220:             bpm_valid = MAX30102_ProcessHeartRate(ir_value, &bpm);
+[e = _bpm_valid ( _MAX30102_ProcessHeartRate (2 , _ir_value &U _bpm ]
+"221
+[; ;main.c: 221:         }
 }
-[e :U 401 ]
+[e $U 402  ]
 "222
-[; ;main.c: 222:         display_counter++;
-[e ++ _display_counter -> -> 1 `i `us ]
-"224
-[; ;main.c: 224:         if (display_counter >= 100u)
-[e $ ! >= -> _display_counter `ui -> 100 `ui 402  ]
-"225
-[; ;main.c: 225:         {
+[; ;main.c: 222:         else
+[e :U 401 ]
+"223
+[; ;main.c: 223:         {
 {
+"224
+[; ;main.c: 224:             bpm = 0;
+[e = _bpm -> -> 0 `i `us ]
+"225
+[; ;main.c: 225:             bpm_valid = 0;
+[e = _bpm_valid -> -> 0 `i `uc ]
 "226
-[; ;main.c: 226:             display_counter = 0;
-[e = _display_counter -> -> 0 `i `us ]
-"228
-[; ;main.c: 228:             Show_Finger_Status_On_OLED(finger_detected,
-[e ( _Show_Finger_Status_On_OLED (3 , , _finger_detected _red_value _ir_value ]
-"231
-[; ;main.c: 231:         }
+[; ;main.c: 226:             MAX30102_ResetHeartRateAlgorithm();
+[e ( _MAX30102_ResetHeartRateAlgorithm ..  ]
+"227
+[; ;main.c: 227:         }
 }
 [e :U 402 ]
-"233
-[; ;main.c: 233:         previous_finger_detected = finger_detected;
-[e = _previous_finger_detected _finger_detected ]
+"232
+[; ;main.c: 232:         uart_counter++;
+[e ++ _uart_counter -> -> 1 `i `us ]
+"234
+[; ;main.c: 234:         if (uart_counter >= 100u)
+[e $ ! >= -> _uart_counter `ui -> 100 `ui 403  ]
 "235
-[; ;main.c: 235:         _delay((unsigned long)((10u)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `ui `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+[; ;main.c: 235:         {
+{
 "236
-[; ;main.c: 236:     }
+[; ;main.c: 236:             uart_counter = 0;
+[e = _uart_counter -> -> 0 `i `us ]
+"237
+[; ;main.c: 237:             sample++;
+[e ++ _sample -> -> 1 `i `us ]
+"239
+[; ;main.c: 239:             Send_BPM_By_UART(sample,
+[e ( _Send_BPM_By_UART (4 , , , , , _sample _finger_detected _bpm_valid _bpm _red_value _ir_value ]
+"245
+[; ;main.c: 245:         }
+}
+[e :U 403 ]
+"250
+[; ;main.c: 250:         display_counter++;
+[e ++ _display_counter -> -> 1 `i `us ]
+"252
+[; ;main.c: 252:         if (display_counter >= 100u)
+[e $ ! >= -> _display_counter `ui -> 100 `ui 404  ]
+"253
+[; ;main.c: 253:         {
+{
+"254
+[; ;main.c: 254:             display_counter = 0;
+[e = _display_counter -> -> 0 `i `us ]
+"256
+[; ;main.c: 256:             Show_BPM_On_OLED(finger_detected,
+[e ( _Show_BPM_On_OLED (4 , , , , _finger_detected _bpm_valid _bpm _red_value _ir_value ]
+"261
+[; ;main.c: 261:         }
+}
+[e :U 404 ]
+"263
+[; ;main.c: 263:         previous_finger_detected = finger_detected;
+[e = _previous_finger_detected _finger_detected ]
+"265
+[; ;main.c: 265:         _delay((unsigned long)((10u)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `ui `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"266
+[; ;main.c: 266:     }
 }
 [e :U 396 ]
 [e $U 397  ]
 [e :U 398 ]
-"237
-[; ;main.c: 237: }
+"267
+[; ;main.c: 267: }
 [e :UE 391 ]
 }
-"239
-[; ;main.c: 239: static void System_Init(void)
+"269
+[; ;main.c: 269: static void System_Init(void)
 [v _System_Init `(v ~T0 @X0 1 sf ]
-"240
-[; ;main.c: 240: {
+"270
+[; ;main.c: 270: {
 {
 [e :U _System_Init ]
 [f ]
-"244
-[; ;main.c: 244:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
-"249
-[; ;main.c: 249:     ADCON1 = 0x0F;
-[e = _ADCON1 -> -> 15 `i `uc ]
-"254
-[; ;main.c: 254:     CMCON = 0x07;
-[e = _CMCON -> -> 7 `i `uc ]
-"255
-[; ;main.c: 255:     CVRCON = 0x00;
-[e = _CVRCON -> -> 0 `i `uc ]
-"260
-[; ;main.c: 260:     LATA = 0x00;
-[e = _LATA -> -> 0 `i `uc ]
-"261
-[; ;main.c: 261:     LATB = 0x00;
-[e = _LATB -> -> 0 `i `uc ]
-"262
-[; ;main.c: 262:     LATC = 0x00;
-[e = _LATC -> -> 0 `i `uc ]
-"263
-[; ;main.c: 263:     LATD = 0x00;
-[e = _LATD -> -> 0 `i `uc ]
-"264
-[; ;main.c: 264:     LATE = 0x00;
-[e = _LATE -> -> 0 `i `uc ]
-"270
-[; ;main.c: 270:     TRISA = 0xFF;
-[e = _TRISA -> -> 255 `i `uc ]
-"271
-[; ;main.c: 271:     TRISB = 0xFF;
-[e = _TRISB -> -> 255 `i `uc ]
-"272
-[; ;main.c: 272:     TRISC = 0xFF;
-[e = _TRISC -> -> 255 `i `uc ]
-"273
-[; ;main.c: 273:     TRISD = 0xFF;
-[e = _TRISD -> -> 255 `i `uc ]
 "274
-[; ;main.c: 274:     TRISE = 0xFF;
-[e = _TRISE -> -> 255 `i `uc ]
+[; ;main.c: 274:     OSCCON = 0x72;
+[e = _OSCCON -> -> 114 `i `uc ]
 "279
-[; ;main.c: 279:     LEDs_Init();
-[e ( _LEDs_Init ..  ]
-"281
-[; ;main.c: 281:     LED_Power_On();
-[e ( _LED_Power_On ..  ]
-"282
-[; ;main.c: 282:     LED_Status_Off();
-[e ( _LED_Status_Off ..  ]
-"283
-[; ;main.c: 283:     LED_Wait_On();
-[e ( _LED_Wait_On ..  ]
+[; ;main.c: 279:     ADCON1 = 0x0F;
+[e = _ADCON1 -> -> 15 `i `uc ]
+"284
+[; ;main.c: 284:     CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
+"285
+[; ;main.c: 285:     CVRCON = 0x00;
+[e = _CVRCON -> -> 0 `i `uc ]
 "290
-[; ;main.c: 290:     UART_Init();
-[e ( _UART_Init ..  ]
-"296
-[; ;main.c: 296:     I2C_Master_Init(100000UL);
-[e ( _I2C_Master_Init (1 -> 100000 `ul ]
+[; ;main.c: 290:     LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
+"291
+[; ;main.c: 291:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
+"292
+[; ;main.c: 292:     LATC = 0x00;
+[e = _LATC -> -> 0 `i `uc ]
+"293
+[; ;main.c: 293:     LATD = 0x00;
+[e = _LATD -> -> 0 `i `uc ]
+"294
+[; ;main.c: 294:     LATE = 0x00;
+[e = _LATE -> -> 0 `i `uc ]
+"300
+[; ;main.c: 300:     TRISA = 0xFF;
+[e = _TRISA -> -> 255 `i `uc ]
 "301
-[; ;main.c: 301:     SSD1306_Init();
-[e ( _SSD1306_Init ..  ]
+[; ;main.c: 301:     TRISB = 0xFF;
+[e = _TRISB -> -> 255 `i `uc ]
 "302
-[; ;main.c: 302:     SSD1306_ClearDisplay();
-[e ( _SSD1306_ClearDisplay ..  ]
+[; ;main.c: 302:     TRISC = 0xFF;
+[e = _TRISC -> -> 255 `i `uc ]
 "303
-[; ;main.c: 303: }
-[e :UE 403 ]
+[; ;main.c: 303:     TRISD = 0xFF;
+[e = _TRISD -> -> 255 `i `uc ]
+"304
+[; ;main.c: 304:     TRISE = 0xFF;
+[e = _TRISE -> -> 255 `i `uc ]
+"309
+[; ;main.c: 309:     LEDs_Init();
+[e ( _LEDs_Init ..  ]
+"311
+[; ;main.c: 311:     LED_Power_On();
+[e ( _LED_Power_On ..  ]
+"312
+[; ;main.c: 312:     LED_Status_Off();
+[e ( _LED_Status_Off ..  ]
+"313
+[; ;main.c: 313:     LED_Wait_On();
+[e ( _LED_Wait_On ..  ]
+"320
+[; ;main.c: 320:     UART_Init();
+[e ( _UART_Init ..  ]
+"326
+[; ;main.c: 326:     I2C_Master_Init(100000UL);
+[e ( _I2C_Master_Init (1 -> 100000 `ul ]
+"331
+[; ;main.c: 331:     SSD1306_Init();
+[e ( _SSD1306_Init ..  ]
+"332
+[; ;main.c: 332:     SSD1306_ClearDisplay();
+[e ( _SSD1306_ClearDisplay ..  ]
+"333
+[; ;main.c: 333: }
+[e :UE 405 ]
 }
-"305
-[; ;main.c: 305: static void LEDs_Init(void)
+"335
+[; ;main.c: 335: static void LEDs_Init(void)
 [v _LEDs_Init `(v ~T0 @X0 1 sf ]
-"306
-[; ;main.c: 306: {
+"336
+[; ;main.c: 336: {
 {
 [e :U _LEDs_Init ]
 [f ]
-"310
-[; ;main.c: 310:     TRISDbits.TRISD0 = 0;
+"340
+[; ;main.c: 340:     TRISDbits.TRISD0 = 0;
 [e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
-"311
-[; ;main.c: 311:     TRISDbits.TRISD1 = 0;
+"341
+[; ;main.c: 341:     TRISDbits.TRISD1 = 0;
 [e = . . _TRISDbits 0 1 -> -> 0 `i `uc ]
-"312
-[; ;main.c: 312:     TRISDbits.TRISD2 = 0;
+"342
+[; ;main.c: 342:     TRISDbits.TRISD2 = 0;
 [e = . . _TRISDbits 0 2 -> -> 0 `i `uc ]
-"317
-[; ;main.c: 317:     LATDbits.LATD0 = 0;
+"347
+[; ;main.c: 347:     LATDbits.LATD0 = 0;
 [e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
-"318
-[; ;main.c: 318:     LATDbits.LATD1 = 0;
+"348
+[; ;main.c: 348:     LATDbits.LATD1 = 0;
 [e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-"319
-[; ;main.c: 319:     LATDbits.LATD2 = 0;
+"349
+[; ;main.c: 349:     LATDbits.LATD2 = 0;
 [e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-"320
-[; ;main.c: 320: }
-[e :UE 404 ]
+"350
+[; ;main.c: 350: }
+[e :UE 406 ]
 }
-"322
-[; ;main.c: 322: static void LED_Power_On(void)
+"352
+[; ;main.c: 352: static void LED_Power_On(void)
 [v _LED_Power_On `(v ~T0 @X0 1 sf ]
-"323
-[; ;main.c: 323: {
+"353
+[; ;main.c: 353: {
 {
 [e :U _LED_Power_On ]
 [f ]
-"324
-[; ;main.c: 324:     LATDbits.LATD0 = 1;
+"354
+[; ;main.c: 354:     LATDbits.LATD0 = 1;
 [e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
-"325
-[; ;main.c: 325: }
-[e :UE 405 ]
+"355
+[; ;main.c: 355: }
+[e :UE 407 ]
 }
-"327
-[; ;main.c: 327: static void LED_Status_On(void)
+"357
+[; ;main.c: 357: static void LED_Status_On(void)
 [v _LED_Status_On `(v ~T0 @X0 1 sf ]
-"328
-[; ;main.c: 328: {
+"358
+[; ;main.c: 358: {
 {
 [e :U _LED_Status_On ]
 [f ]
-"329
-[; ;main.c: 329:     LATDbits.LATD1 = 1;
+"359
+[; ;main.c: 359:     LATDbits.LATD1 = 1;
 [e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-"330
-[; ;main.c: 330: }
-[e :UE 406 ]
+"360
+[; ;main.c: 360: }
+[e :UE 408 ]
 }
-"332
-[; ;main.c: 332: static void LED_Status_Off(void)
+"362
+[; ;main.c: 362: static void LED_Status_Off(void)
 [v _LED_Status_Off `(v ~T0 @X0 1 sf ]
-"333
-[; ;main.c: 333: {
+"363
+[; ;main.c: 363: {
 {
 [e :U _LED_Status_Off ]
 [f ]
-"334
-[; ;main.c: 334:     LATDbits.LATD1 = 0;
+"364
+[; ;main.c: 364:     LATDbits.LATD1 = 0;
 [e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-"335
-[; ;main.c: 335: }
-[e :UE 407 ]
+"365
+[; ;main.c: 365: }
+[e :UE 409 ]
 }
-"337
-[; ;main.c: 337: static void LED_Wait_On(void)
+"367
+[; ;main.c: 367: static void LED_Wait_On(void)
 [v _LED_Wait_On `(v ~T0 @X0 1 sf ]
-"338
-[; ;main.c: 338: {
+"368
+[; ;main.c: 368: {
 {
 [e :U _LED_Wait_On ]
 [f ]
-"339
-[; ;main.c: 339:     LATDbits.LATD2 = 1;
+"369
+[; ;main.c: 369:     LATDbits.LATD2 = 1;
 [e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-"340
-[; ;main.c: 340: }
-[e :UE 408 ]
+"370
+[; ;main.c: 370: }
+[e :UE 410 ]
 }
-"342
-[; ;main.c: 342: static void LED_Wait_Off(void)
+"372
+[; ;main.c: 372: static void LED_Wait_Off(void)
 [v _LED_Wait_Off `(v ~T0 @X0 1 sf ]
-"343
-[; ;main.c: 343: {
+"373
+[; ;main.c: 373: {
 {
 [e :U _LED_Wait_Off ]
 [f ]
-"344
-[; ;main.c: 344:     LATDbits.LATD2 = 0;
+"374
+[; ;main.c: 374:     LATDbits.LATD2 = 0;
 [e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-"345
-[; ;main.c: 345: }
-[e :UE 409 ]
+"375
+[; ;main.c: 375: }
+[e :UE 411 ]
 }
-"347
-[; ;main.c: 347: static void LED_Wait_Update(uint8_t finger_detected)
+"377
+[; ;main.c: 377: static void LED_Wait_Update(uint8_t finger_detected)
 [v _LED_Wait_Update `(v ~T0 @X0 1 sf1`uc ]
-"348
-[; ;main.c: 348: {
+"378
+[; ;main.c: 378: {
 {
 [e :U _LED_Wait_Update ]
-"347
-[; ;main.c: 347: static void LED_Wait_Update(uint8_t finger_detected)
-[v _finger_detected `uc ~T0 @X0 1 r1 ]
-"348
-[; ;main.c: 348: {
-[f ]
-"349
-[; ;main.c: 349:     if (finger_detected == 0)
-[e $ ! == -> _finger_detected `i -> 0 `i 411  ]
-"350
-[; ;main.c: 350:     {
-{
-"351
-[; ;main.c: 351:         LED_Wait_On();
-[e ( _LED_Wait_On ..  ]
-"352
-[; ;main.c: 352:     }
-}
-[e $U 412  ]
-"353
-[; ;main.c: 353:     else
-[e :U 411 ]
-"354
-[; ;main.c: 354:     {
-{
-"355
-[; ;main.c: 355:         LED_Wait_Off();
-[e ( _LED_Wait_Off ..  ]
-"356
-[; ;main.c: 356:     }
-}
-[e :U 412 ]
-"357
-[; ;main.c: 357: }
-[e :UE 410 ]
-}
-"359
-[; ;main.c: 359: static uint8_t Is_Finger_Detected(uint32_t ir_value)
-[v _Is_Finger_Detected `(uc ~T0 @X0 1 sf1`ul ]
-"360
-[; ;main.c: 360: {
-{
-[e :U _Is_Finger_Detected ]
-"359
-[; ;main.c: 359: static uint8_t Is_Finger_Detected(uint32_t ir_value)
-[v _ir_value `ul ~T0 @X0 1 r1 ]
-"360
-[; ;main.c: 360: {
-[f ]
-"361
-[; ;main.c: 361:     static uint8_t finger_state = 0;
-[v F3423 `uc ~T0 @X0 1 s finger_state ]
-[i F3423
--> -> 0 `i `uc
-]
-"366
-[; ;main.c: 366:     if (finger_state == 0)
-[e $ ! == -> F3423 `i -> 0 `i 414  ]
-"367
-[; ;main.c: 367:     {
-{
-"368
-[; ;main.c: 368:         if (ir_value >= 30000UL)
-[e $ ! >= _ir_value -> 30000 `ul 415  ]
-"369
-[; ;main.c: 369:         {
-{
-"370
-[; ;main.c: 370:             finger_state = 1;
-[e = F3423 -> -> 1 `i `uc ]
-"371
-[; ;main.c: 371:         }
-}
-[e :U 415 ]
-"372
-[; ;main.c: 372:     }
-}
-[e $U 416  ]
 "377
-[; ;main.c: 377:     else
-[e :U 414 ]
+[; ;main.c: 377: static void LED_Wait_Update(uint8_t finger_detected)
+[v _finger_detected `uc ~T0 @X0 1 r1 ]
 "378
-[; ;main.c: 378:     {
-{
+[; ;main.c: 378: {
+[f ]
 "379
-[; ;main.c: 379:         if (ir_value < 20000UL)
-[e $ ! < _ir_value -> 20000 `ul 417  ]
+[; ;main.c: 379:     if (finger_detected == 0)
+[e $ ! == -> _finger_detected `i -> 0 `i 413  ]
 "380
-[; ;main.c: 380:         {
+[; ;main.c: 380:     {
 {
 "381
-[; ;main.c: 381:             finger_state = 0;
-[e = F3423 -> -> 0 `i `uc ]
+[; ;main.c: 381:         LED_Wait_On();
+[e ( _LED_Wait_On ..  ]
 "382
-[; ;main.c: 382:         }
+[; ;main.c: 382:     }
+}
+[e $U 414  ]
+"383
+[; ;main.c: 383:     else
+[e :U 413 ]
+"384
+[; ;main.c: 384:     {
+{
+"385
+[; ;main.c: 385:         LED_Wait_Off();
+[e ( _LED_Wait_Off ..  ]
+"386
+[; ;main.c: 386:     }
+}
+[e :U 414 ]
+"387
+[; ;main.c: 387: }
+[e :UE 412 ]
+}
+"389
+[; ;main.c: 389: static uint8_t Is_Finger_Detected(uint32_t ir_value)
+[v _Is_Finger_Detected `(uc ~T0 @X0 1 sf1`ul ]
+"390
+[; ;main.c: 390: {
+{
+[e :U _Is_Finger_Detected ]
+"389
+[; ;main.c: 389: static uint8_t Is_Finger_Detected(uint32_t ir_value)
+[v _ir_value `ul ~T0 @X0 1 r1 ]
+"390
+[; ;main.c: 390: {
+[f ]
+"391
+[; ;main.c: 391:     static uint8_t finger_state = 0;
+[v F3433 `uc ~T0 @X0 1 s finger_state ]
+[i F3433
+-> -> 0 `i `uc
+]
+"396
+[; ;main.c: 396:     if (finger_state == 0)
+[e $ ! == -> F3433 `i -> 0 `i 416  ]
+"397
+[; ;main.c: 397:     {
+{
+"398
+[; ;main.c: 398:         if (ir_value >= 30000UL)
+[e $ ! >= _ir_value -> 30000 `ul 417  ]
+"399
+[; ;main.c: 399:         {
+{
+"400
+[; ;main.c: 400:             finger_state = 1;
+[e = F3433 -> -> 1 `i `uc ]
+"401
+[; ;main.c: 401:         }
 }
 [e :U 417 ]
-"383
-[; ;main.c: 383:     }
+"402
+[; ;main.c: 402:     }
 }
+[e $U 418  ]
+"407
+[; ;main.c: 407:     else
 [e :U 416 ]
-"385
-[; ;main.c: 385:     return finger_state;
-[e ) F3423 ]
-[e $UE 413  ]
-"386
-[; ;main.c: 386: }
-[e :UE 413 ]
-}
-"388
-[; ;main.c: 388: static void UInt16_ToString(uint16_t value, char *buffer)
-[v _UInt16_ToString `(v ~T0 @X0 1 sf2`us`*uc ]
-"389
-[; ;main.c: 389: {
+"408
+[; ;main.c: 408:     {
 {
-[e :U _UInt16_ToString ]
-"388
-[; ;main.c: 388: static void UInt16_ToString(uint16_t value, char *buffer)
-[v _value `us ~T0 @X0 1 r1 ]
-[v _buffer `*uc ~T0 @X0 1 r2 ]
-"389
-[; ;main.c: 389: {
-[f ]
-"390
-[; ;main.c: 390:     char temp[6];
-[v _temp `uc ~T0 @X0 -> 6 `i a ]
-"391
-[; ;main.c: 391:     uint8_t i = 0;
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-"392
-[; ;main.c: 392:     uint8_t j = 0;
-[v _j `uc ~T0 @X0 1 a ]
-[e = _j -> -> 0 `i `uc ]
-"394
-[; ;main.c: 394:     if (value == 0)
-[e $ ! == -> _value `ui -> -> 0 `i `ui 419  ]
-"395
-[; ;main.c: 395:     {
+"409
+[; ;main.c: 409:         if (ir_value < 20000UL)
+[e $ ! < _ir_value -> 20000 `ul 419  ]
+"410
+[; ;main.c: 410:         {
 {
-"396
-[; ;main.c: 396:         buffer[0] = '0';
-[e = *U + _buffer * -> -> 0 `i `x -> -> # *U _buffer `i `x -> -> 48 `ui `uc ]
-"397
-[; ;main.c: 397:         buffer[1] = '\0';
-[e = *U + _buffer * -> -> 1 `i `x -> -> # *U _buffer `i `x -> -> 0 `ui `uc ]
-"398
-[; ;main.c: 398:         return;
-[e $UE 418  ]
-"399
-[; ;main.c: 399:     }
+"411
+[; ;main.c: 411:             finger_state = 0;
+[e = F3433 -> -> 0 `i `uc ]
+"412
+[; ;main.c: 412:         }
 }
 [e :U 419 ]
-"401
-[; ;main.c: 401:     while (value > 0)
-[e $U 420  ]
-[e :U 421 ]
-"402
-[; ;main.c: 402:     {
-{
-"403
-[; ;main.c: 403:         temp[i] = (char)('0' + (value % 10));
-[e = *U + &U _temp * -> _i `ux -> -> # *U &U _temp `ui `ux -> + -> 48 `ui % -> _value `ui -> -> 10 `i `ui `uc ]
-"404
-[; ;main.c: 404:         value /= 10;
-[e =/ _value -> -> 10 `i `ui ]
-"405
-[; ;main.c: 405:         i++;
-[e ++ _i -> -> 1 `i `uc ]
-"406
-[; ;main.c: 406:     }
-}
-[e :U 420 ]
-"401
-[; ;main.c: 401:     while (value > 0)
-[e $ > -> _value `ui -> -> 0 `i `ui 421  ]
-[e :U 422 ]
-"408
-[; ;main.c: 408:     while (i > 0)
-[e $U 423  ]
-[e :U 424 ]
-"409
-[; ;main.c: 409:     {
-{
-"410
-[; ;main.c: 410:         i--;
-[e -- _i -> -> 1 `i `uc ]
-"411
-[; ;main.c: 411:         buffer[j] = temp[i];
-[e = *U + _buffer * -> _j `ux -> -> # *U _buffer `ui `ux *U + &U _temp * -> _i `ux -> -> # *U &U _temp `ui `ux ]
-"412
-[; ;main.c: 412:         j++;
-[e ++ _j -> -> 1 `i `uc ]
 "413
 [; ;main.c: 413:     }
 }
-[e :U 423 ]
-"408
-[; ;main.c: 408:     while (i > 0)
-[e $ > -> _i `i -> 0 `i 424  ]
-[e :U 425 ]
+[e :U 418 ]
 "415
-[; ;main.c: 415:     buffer[j] = '\0';
-[e = *U + _buffer * -> _j `ux -> -> # *U _buffer `ui `ux -> -> 0 `ui `uc ]
+[; ;main.c: 415:     return finger_state;
+[e ) F3433 ]
+[e $UE 415  ]
 "416
 [; ;main.c: 416: }
-[e :UE 418 ]
+[e :UE 415 ]
 }
 "418
-[; ;main.c: 418: static void UInt32_ToString(uint32_t value, char *buffer)
-[v _UInt32_ToString `(v ~T0 @X0 1 sf2`ul`*uc ]
+[; ;main.c: 418: static void UInt16_ToString(uint16_t value, char *buffer)
+[v _UInt16_ToString `(v ~T0 @X0 1 sf2`us`*uc ]
 "419
 [; ;main.c: 419: {
 {
-[e :U _UInt32_ToString ]
+[e :U _UInt16_ToString ]
 "418
-[; ;main.c: 418: static void UInt32_ToString(uint32_t value, char *buffer)
-[v _value `ul ~T0 @X0 1 r1 ]
+[; ;main.c: 418: static void UInt16_ToString(uint16_t value, char *buffer)
+[v _value `us ~T0 @X0 1 r1 ]
 [v _buffer `*uc ~T0 @X0 1 r2 ]
 "419
 [; ;main.c: 419: {
 [f ]
 "420
-[; ;main.c: 420:     char temp[11];
-[v _temp `uc ~T0 @X0 -> 11 `i a ]
+[; ;main.c: 420:     char temp[6];
+[v _temp `uc ~T0 @X0 -> 6 `i a ]
 "421
 [; ;main.c: 421:     uint8_t i = 0;
 [v _i `uc ~T0 @X0 1 a ]
@@ -1343,7 +1308,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _j -> -> 0 `i `uc ]
 "424
 [; ;main.c: 424:     if (value == 0)
-[e $ ! == _value -> -> -> 0 `i `l `ul 427  ]
+[e $ ! == -> _value `ui -> -> 0 `i `ui 421  ]
 "425
 [; ;main.c: 425:     {
 {
@@ -1355,39 +1320,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + _buffer * -> -> 1 `i `x -> -> # *U _buffer `i `x -> -> 0 `ui `uc ]
 "428
 [; ;main.c: 428:         return;
-[e $UE 426  ]
+[e $UE 420  ]
 "429
 [; ;main.c: 429:     }
 }
-[e :U 427 ]
+[e :U 421 ]
 "431
 [; ;main.c: 431:     while (value > 0)
-[e $U 428  ]
-[e :U 429 ]
+[e $U 422  ]
+[e :U 423 ]
 "432
 [; ;main.c: 432:     {
 {
 "433
-[; ;main.c: 433:         temp[i] = (char)('0' + (value % 10UL));
-[e = *U + &U _temp * -> _i `ux -> -> # *U &U _temp `ui `ux -> + -> -> 48 `ui `ul % _value -> 10 `ul `uc ]
+[; ;main.c: 433:         temp[i] = (char)('0' + (value % 10));
+[e = *U + &U _temp * -> _i `ux -> -> # *U &U _temp `ui `ux -> + -> 48 `ui % -> _value `ui -> -> 10 `i `ui `uc ]
 "434
-[; ;main.c: 434:         value /= 10UL;
-[e =/ _value -> 10 `ul ]
+[; ;main.c: 434:         value /= 10;
+[e =/ _value -> -> 10 `i `ui ]
 "435
 [; ;main.c: 435:         i++;
 [e ++ _i -> -> 1 `i `uc ]
 "436
 [; ;main.c: 436:     }
 }
-[e :U 428 ]
+[e :U 422 ]
 "431
 [; ;main.c: 431:     while (value > 0)
-[e $ > _value -> -> -> 0 `i `l `ul 429  ]
-[e :U 430 ]
+[e $ > -> _value `ui -> -> 0 `i `ui 423  ]
+[e :U 424 ]
 "438
 [; ;main.c: 438:     while (i > 0)
-[e $U 431  ]
-[e :U 432 ]
+[e $U 425  ]
+[e :U 426 ]
 "439
 [; ;main.c: 439:     {
 {
@@ -1403,234 +1368,440 @@ Version 4.0 HI-TECH Software Intermediate Code
 "443
 [; ;main.c: 443:     }
 }
-[e :U 431 ]
+[e :U 425 ]
 "438
 [; ;main.c: 438:     while (i > 0)
-[e $ > -> _i `i -> 0 `i 432  ]
-[e :U 433 ]
+[e $ > -> _i `i -> 0 `i 426  ]
+[e :U 427 ]
 "445
 [; ;main.c: 445:     buffer[j] = '\0';
 [e = *U + _buffer * -> _j `ux -> -> # *U _buffer `ui `ux -> -> 0 `ui `uc ]
 "446
 [; ;main.c: 446: }
-[e :UE 426 ]
+[e :UE 420 ]
 }
 "448
-[; ;main.c: 448: static void Show_Finger_Status_On_OLED(uint8_t finger_detected,
-[v _Show_Finger_Status_On_OLED `(v ~T0 @X0 1 sf3`uc`ul`ul ]
-"451
-[; ;main.c: 451: {
-{
-[e :U _Show_Finger_Status_On_OLED ]
-"448
-[; ;main.c: 448: static void Show_Finger_Status_On_OLED(uint8_t finger_detected,
-[v _finger_detected `uc ~T0 @X0 1 r1 ]
+[; ;main.c: 448: static void UInt32_ToString(uint32_t value, char *buffer)
+[v _UInt32_ToString `(v ~T0 @X0 1 sf2`ul`*uc ]
 "449
-[; ;main.c: 449:                                        uint32_t red_value,
-[v _red_value `ul ~T0 @X0 1 r2 ]
-"450
-[; ;main.c: 450:                                        uint32_t ir_value)
-[v _ir_value `ul ~T0 @X0 1 r3 ]
-"451
-[; ;main.c: 451: {
+[; ;main.c: 449: {
+{
+[e :U _UInt32_ToString ]
+"448
+[; ;main.c: 448: static void UInt32_ToString(uint32_t value, char *buffer)
+[v _value `ul ~T0 @X0 1 r1 ]
+[v _buffer `*uc ~T0 @X0 1 r2 ]
+"449
+[; ;main.c: 449: {
 [f ]
+"450
+[; ;main.c: 450:     char temp[11];
+[v _temp `uc ~T0 @X0 -> 11 `i a ]
+"451
+[; ;main.c: 451:     uint8_t i = 0;
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
 "452
-[; ;main.c: 452:     char text[12];
-[v _text `uc ~T0 @X0 -> 12 `i a ]
+[; ;main.c: 452:     uint8_t j = 0;
+[v _j `uc ~T0 @X0 1 a ]
+[e = _j -> -> 0 `i `uc ]
 "454
-[; ;main.c: 454:     SSD1306_ClearDisplay();
-[e ( _SSD1306_ClearDisplay ..  ]
+[; ;main.c: 454:     if (value == 0)
+[e $ ! == _value -> -> -> 0 `i `l `ul 429  ]
+"455
+[; ;main.c: 455:     {
+{
 "456
-[; ;main.c: 456:     SSD1306_SetCursor(10, 0);
-[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 456:         buffer[0] = '0';
+[e = *U + _buffer * -> -> 0 `i `x -> -> # *U _buffer `i `x -> -> 48 `ui `uc ]
 "457
-[; ;main.c: 457:     SSD1306_WriteString("Signos Vitales");
-[e ( _SSD1306_WriteString (1 :s 20C ]
+[; ;main.c: 457:         buffer[1] = '\0';
+[e = *U + _buffer * -> -> 1 `i `x -> -> # *U _buffer `i `x -> -> 0 `ui `uc ]
+"458
+[; ;main.c: 458:         return;
+[e $UE 428  ]
 "459
-[; ;main.c: 459:     SSD1306_SetCursor(10, 2);
-[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 2 `i `uc ]
+[; ;main.c: 459:     }
+}
+[e :U 429 ]
 "461
-[; ;main.c: 461:     if (finger_detected)
-[e $ ! != -> _finger_detected `i -> 0 `i 435  ]
+[; ;main.c: 461:     while (value > 0)
+[e $U 430  ]
+[e :U 431 ]
 "462
 [; ;main.c: 462:     {
 {
 "463
-[; ;main.c: 463:         SSD1306_WriteString("Dedo detectado");
-[e ( _SSD1306_WriteString (1 :s 21C ]
+[; ;main.c: 463:         temp[i] = (char)('0' + (value % 10UL));
+[e = *U + &U _temp * -> _i `ux -> -> # *U &U _temp `ui `ux -> + -> -> 48 `ui `ul % _value -> 10 `ul `uc ]
 "464
-[; ;main.c: 464:     }
-}
-[e $U 436  ]
+[; ;main.c: 464:         value /= 10UL;
+[e =/ _value -> 10 `ul ]
 "465
-[; ;main.c: 465:     else
-[e :U 435 ]
+[; ;main.c: 465:         i++;
+[e ++ _i -> -> 1 `i `uc ]
 "466
-[; ;main.c: 466:     {
-{
-"467
-[; ;main.c: 467:         SSD1306_WriteString("No detectado");
-[e ( _SSD1306_WriteString (1 :s 22C ]
+[; ;main.c: 466:     }
+}
+[e :U 430 ]
+"461
+[; ;main.c: 461:     while (value > 0)
+[e $ > _value -> -> -> 0 `i `l `ul 431  ]
+[e :U 432 ]
 "468
-[; ;main.c: 468:     }
-}
-[e :U 436 ]
+[; ;main.c: 468:     while (i > 0)
+[e $U 433  ]
+[e :U 434 ]
+"469
+[; ;main.c: 469:     {
+{
 "470
-[; ;main.c: 470:     SSD1306_SetCursor(10, 4);
-[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 4 `i `uc ]
+[; ;main.c: 470:         i--;
+[e -- _i -> -> 1 `i `uc ]
 "471
-[; ;main.c: 471:     SSD1306_WriteString("IR:");
-[e ( _SSD1306_WriteString (1 :s 23C ]
+[; ;main.c: 471:         buffer[j] = temp[i];
+[e = *U + _buffer * -> _j `ux -> -> # *U _buffer `ui `ux *U + &U _temp * -> _i `ux -> -> # *U &U _temp `ui `ux ]
 "472
-[; ;main.c: 472:     UInt32_ToString(ir_value, text);
-[e ( _UInt32_ToString (2 , _ir_value &U _text ]
+[; ;main.c: 472:         j++;
+[e ++ _j -> -> 1 `i `uc ]
 "473
-[; ;main.c: 473:     SSD1306_WriteString(text);
-[e ( _SSD1306_WriteString (1 -> &U _text `*Cuc ]
-"475
-[; ;main.c: 475:     SSD1306_SetCursor(10, 6);
-[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 6 `i `uc ]
-"476
-[; ;main.c: 476:     SSD1306_WriteString("RED:");
-[e ( _SSD1306_WriteString (1 :s 24C ]
-"477
-[; ;main.c: 477:     UInt32_ToString(red_value, text);
-[e ( _UInt32_ToString (2 , _red_value &U _text ]
-"478
-[; ;main.c: 478:     SSD1306_WriteString(text);
-[e ( _SSD1306_WriteString (1 -> &U _text `*Cuc ]
-"479
-[; ;main.c: 479: }
-[e :UE 434 ]
+[; ;main.c: 473:     }
 }
+[e :U 433 ]
+"468
+[; ;main.c: 468:     while (i > 0)
+[e $ > -> _i `i -> 0 `i 434  ]
+[e :U 435 ]
+"475
+[; ;main.c: 475:     buffer[j] = '\0';
+[e = *U + _buffer * -> _j `ux -> -> # *U _buffer `ui `ux -> -> 0 `ui `uc ]
+"476
+[; ;main.c: 476: }
+[e :UE 428 ]
+}
+"478
+[; ;main.c: 478: static void Show_BPM_On_OLED(uint8_t finger_detected,
+[v _Show_BPM_On_OLED `(v ~T0 @X0 1 sf5`uc`uc`us`ul`ul ]
+"483
+[; ;main.c: 483: {
+{
+[e :U _Show_BPM_On_OLED ]
+"478
+[; ;main.c: 478: static void Show_BPM_On_OLED(uint8_t finger_detected,
+[v _finger_detected `uc ~T0 @X0 1 r1 ]
+"479
+[; ;main.c: 479:                              uint8_t bpm_valid,
+[v _bpm_valid `uc ~T0 @X0 1 r2 ]
+"480
+[; ;main.c: 480:                              uint16_t bpm,
+[v _bpm `us ~T0 @X0 1 r3 ]
 "481
-[; ;main.c: 481: static void Send_Header_By_UART(void)
-[v _Send_Header_By_UART `(v ~T0 @X0 1 sf ]
+[; ;main.c: 481:                              uint32_t red_value,
+[v _red_value `ul ~T0 @X0 1 r4 ]
 "482
-[; ;main.c: 482: {
+[; ;main.c: 482:                              uint32_t ir_value)
+[v _ir_value `ul ~T0 @X0 1 r5 ]
+"483
+[; ;main.c: 483: {
+[f ]
+"484
+[; ;main.c: 484:     char text[12];
+[v _text `uc ~T0 @X0 -> 12 `i a ]
+"486
+[; ;main.c: 486:     SSD1306_ClearDisplay();
+[e ( _SSD1306_ClearDisplay ..  ]
+"488
+[; ;main.c: 488:     SSD1306_SetCursor(10, 0);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
+"489
+[; ;main.c: 489:     SSD1306_WriteString("Signos Vitales");
+[e ( _SSD1306_WriteString (1 :s 20C ]
+"491
+[; ;main.c: 491:     SSD1306_SetCursor(10, 2);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 2 `i `uc ]
+"493
+[; ;main.c: 493:     if (finger_detected == 0)
+[e $ ! == -> _finger_detected `i -> 0 `i 437  ]
+"494
+[; ;main.c: 494:     {
+{
+"495
+[; ;main.c: 495:         SSD1306_WriteString("No detectado");
+[e ( _SSD1306_WriteString (1 :s 21C ]
+"497
+[; ;main.c: 497:         SSD1306_SetCursor(10, 4);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 4 `i `uc ]
+"498
+[; ;main.c: 498:         SSD1306_WriteString("Esperando dedo");
+[e ( _SSD1306_WriteString (1 :s 22C ]
+"499
+[; ;main.c: 499:     }
+}
+[e $U 438  ]
+"500
+[; ;main.c: 500:     else
+[e :U 437 ]
+"501
+[; ;main.c: 501:     {
+{
+"502
+[; ;main.c: 502:         if (bpm_valid == 1)
+[e $ ! == -> _bpm_valid `i -> 1 `i 439  ]
+"503
+[; ;main.c: 503:         {
+{
+"504
+[; ;main.c: 504:             SSD1306_WriteString("BPM:");
+[e ( _SSD1306_WriteString (1 :s 23C ]
+"505
+[; ;main.c: 505:             UInt16_ToString(bpm, text);
+[e ( _UInt16_ToString (2 , _bpm &U _text ]
+"506
+[; ;main.c: 506:             SSD1306_WriteString(text);
+[e ( _SSD1306_WriteString (1 -> &U _text `*Cuc ]
+"507
+[; ;main.c: 507:         }
+}
+[e $U 440  ]
+"508
+[; ;main.c: 508:         else
+[e :U 439 ]
+"509
+[; ;main.c: 509:         {
+{
+"510
+[; ;main.c: 510:             SSD1306_WriteString("Calculando");
+[e ( _SSD1306_WriteString (1 :s 24C ]
+"511
+[; ;main.c: 511:         }
+}
+[e :U 440 ]
+"513
+[; ;main.c: 513:         SSD1306_SetCursor(10, 4);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 4 `i `uc ]
+"514
+[; ;main.c: 514:         SSD1306_WriteString("IR:");
+[e ( _SSD1306_WriteString (1 :s 25C ]
+"515
+[; ;main.c: 515:         UInt32_ToString(ir_value, text);
+[e ( _UInt32_ToString (2 , _ir_value &U _text ]
+"516
+[; ;main.c: 516:         SSD1306_WriteString(text);
+[e ( _SSD1306_WriteString (1 -> &U _text `*Cuc ]
+"517
+[; ;main.c: 517:     }
+}
+[e :U 438 ]
+"519
+[; ;main.c: 519:     SSD1306_SetCursor(10, 6);
+[e ( _SSD1306_SetCursor (2 , -> -> 10 `i `uc -> -> 6 `i `uc ]
+"520
+[; ;main.c: 520:     SSD1306_WriteString("RED:");
+[e ( _SSD1306_WriteString (1 :s 26C ]
+"521
+[; ;main.c: 521:     UInt32_ToString(red_value, text);
+[e ( _UInt32_ToString (2 , _red_value &U _text ]
+"522
+[; ;main.c: 522:     SSD1306_WriteString(text);
+[e ( _SSD1306_WriteString (1 -> &U _text `*Cuc ]
+"523
+[; ;main.c: 523: }
+[e :UE 436 ]
+}
+"525
+[; ;main.c: 525: static void Send_Header_By_UART(void)
+[v _Send_Header_By_UART `(v ~T0 @X0 1 sf ]
+"526
+[; ;main.c: 526: {
 {
 [e :U _Send_Header_By_UART ]
 [f ]
-"483
-[; ;main.c: 483:     UART_WriteLine("");
-[e ( _UART_WriteLine (1 :s 25C ]
-"484
-[; ;main.c: 484:     UART_WriteLine("Muestra\tDedo\tRED\tIR");
-[e ( _UART_WriteLine (1 :s 26C ]
-"485
-[; ;main.c: 485:     UART_WriteLine("--------------------------------------");
+"527
+[; ;main.c: 527:     UART_WriteLine("");
 [e ( _UART_WriteLine (1 :s 27C ]
-"486
-[; ;main.c: 486: }
-[e :UE 437 ]
+"528
+[; ;main.c: 528:     UART_WriteLine("Muestra\tDedo\tBPM\tRED\tIR");
+[e ( _UART_WriteLine (1 :s 28C ]
+"529
+[; ;main.c: 529:     UART_WriteLine("------------------------------------------------");
+[e ( _UART_WriteLine (1 :s 29C ]
+"530
+[; ;main.c: 530: }
+[e :UE 441 ]
 }
-"488
-[; ;main.c: 488: static void Send_Finger_Status_By_UART(uint16_t sample,
-[v _Send_Finger_Status_By_UART `(v ~T0 @X0 1 sf4`us`uc`ul`ul ]
-"492
-[; ;main.c: 492: {
+"532
+[; ;main.c: 532: static void Send_BPM_By_UART(uint16_t sample,
+[v _Send_BPM_By_UART `(v ~T0 @X0 1 sf6`us`uc`uc`us`ul`ul ]
+"538
+[; ;main.c: 538: {
 {
-[e :U _Send_Finger_Status_By_UART ]
-"488
-[; ;main.c: 488: static void Send_Finger_Status_By_UART(uint16_t sample,
+[e :U _Send_BPM_By_UART ]
+"532
+[; ;main.c: 532: static void Send_BPM_By_UART(uint16_t sample,
 [v _sample `us ~T0 @X0 1 r1 ]
-"489
-[; ;main.c: 489:                                        uint8_t finger_detected,
+"533
+[; ;main.c: 533:                              uint8_t finger_detected,
 [v _finger_detected `uc ~T0 @X0 1 r2 ]
-"490
-[; ;main.c: 490:                                        uint32_t red_value,
-[v _red_value `ul ~T0 @X0 1 r3 ]
-"491
-[; ;main.c: 491:                                        uint32_t ir_value)
-[v _ir_value `ul ~T0 @X0 1 r4 ]
-"492
-[; ;main.c: 492: {
+"534
+[; ;main.c: 534:                              uint8_t bpm_valid,
+[v _bpm_valid `uc ~T0 @X0 1 r3 ]
+"535
+[; ;main.c: 535:                              uint16_t bpm,
+[v _bpm `us ~T0 @X0 1 r4 ]
+"536
+[; ;main.c: 536:                              uint32_t red_value,
+[v _red_value `ul ~T0 @X0 1 r5 ]
+"537
+[; ;main.c: 537:                              uint32_t ir_value)
+[v _ir_value `ul ~T0 @X0 1 r6 ]
+"538
+[; ;main.c: 538: {
 [f ]
-"493
-[; ;main.c: 493:     char text[12];
+"539
+[; ;main.c: 539:     char text[12];
 [v _text `uc ~T0 @X0 -> 12 `i a ]
-"495
-[; ;main.c: 495:     UInt16_ToString(sample, text);
+"541
+[; ;main.c: 541:     UInt16_ToString(sample, text);
 [e ( _UInt16_ToString (2 , _sample &U _text ]
-"496
-[; ;main.c: 496:     UART_WriteString(text);
+"542
+[; ;main.c: 542:     UART_WriteString(text);
 [e ( _UART_WriteString (1 -> &U _text `*Cuc ]
-"497
-[; ;main.c: 497:     UART_WriteString("\t");
-[e ( _UART_WriteString (1 :s 28C ]
-"499
-[; ;main.c: 499:     if (finger_detected)
-[e $ ! != -> _finger_detected `i -> 0 `i 439  ]
-"500
-[; ;main.c: 500:     {
-{
-"501
-[; ;main.c: 501:         UART_WriteString("Detectado\t");
-[e ( _UART_WriteString (1 :s 29C ]
-"502
-[; ;main.c: 502:     }
-}
-[e $U 440  ]
-"503
-[; ;main.c: 503:     else
-[e :U 439 ]
-"504
-[; ;main.c: 504:     {
-{
-"505
-[; ;main.c: 505:         UART_WriteString("No detectado\t");
+"543
+[; ;main.c: 543:     UART_WriteString("\t");
 [e ( _UART_WriteString (1 :s 30C ]
-"506
-[; ;main.c: 506:     }
-}
-[e :U 440 ]
-"508
-[; ;main.c: 508:     UInt32_ToString(red_value, text);
-[e ( _UInt32_ToString (2 , _red_value &U _text ]
-"509
-[; ;main.c: 509:     UART_WriteString(text);
-[e ( _UART_WriteString (1 -> &U _text `*Cuc ]
-"510
-[; ;main.c: 510:     UART_WriteString("\t");
+"545
+[; ;main.c: 545:     if (finger_detected)
+[e $ ! != -> _finger_detected `i -> 0 `i 443  ]
+"546
+[; ;main.c: 546:     {
+{
+"547
+[; ;main.c: 547:         UART_WriteString("Detectado\t");
 [e ( _UART_WriteString (1 :s 31C ]
-"512
-[; ;main.c: 512:     UInt32_ToString(ir_value, text);
-[e ( _UInt32_ToString (2 , _ir_value &U _text ]
-"513
-[; ;main.c: 513:     UART_WriteLine(text);
-[e ( _UART_WriteLine (1 -> &U _text `*Cuc ]
-"514
-[; ;main.c: 514: }
-[e :UE 438 ]
+"548
+[; ;main.c: 548:     }
 }
-[a 3C 76 69 68 115 32 105 110 100 105 99 97 100 111 114 101 115 32 97 99 116 105 118 111 115 0 ]
-[a 4C 85 65 82 84 32 102 117 110 99 105 111 110 97 110 100 111 32 97 32 57 54 48 48 32 98 97 117 100 105 111 115 0 ]
+[e $U 444  ]
+"549
+[; ;main.c: 549:     else
+[e :U 443 ]
+"550
+[; ;main.c: 550:     {
+{
+"551
+[; ;main.c: 551:         UART_WriteString("No detectado\t");
+[e ( _UART_WriteString (1 :s 32C ]
+"552
+[; ;main.c: 552:     }
+}
+[e :U 444 ]
+"554
+[; ;main.c: 554:     if (finger_detected == 0)
+[e $ ! == -> _finger_detected `i -> 0 `i 445  ]
+"555
+[; ;main.c: 555:     {
+{
+"556
+[; ;main.c: 556:         UART_WriteString("No detectado\t");
+[e ( _UART_WriteString (1 :s 33C ]
+"557
+[; ;main.c: 557:     }
+}
+[e $U 446  ]
+"558
+[; ;main.c: 558:     else
+[e :U 445 ]
+"559
+[; ;main.c: 559:     {
+{
+"560
+[; ;main.c: 560:         if (bpm_valid)
+[e $ ! != -> _bpm_valid `i -> 0 `i 447  ]
+"561
+[; ;main.c: 561:         {
+{
+"562
+[; ;main.c: 562:             UInt16_ToString(bpm, text);
+[e ( _UInt16_ToString (2 , _bpm &U _text ]
+"563
+[; ;main.c: 563:             UART_WriteString(text);
+[e ( _UART_WriteString (1 -> &U _text `*Cuc ]
+"564
+[; ;main.c: 564:             UART_WriteString("\t");
+[e ( _UART_WriteString (1 :s 34C ]
+"565
+[; ;main.c: 565:         }
+}
+[e $U 448  ]
+"566
+[; ;main.c: 566:         else
+[e :U 447 ]
+"567
+[; ;main.c: 567:         {
+{
+"568
+[; ;main.c: 568:             UART_WriteString("Calculando\t");
+[e ( _UART_WriteString (1 :s 35C ]
+"569
+[; ;main.c: 569:         }
+}
+[e :U 448 ]
+"570
+[; ;main.c: 570:     }
+}
+[e :U 446 ]
+"572
+[; ;main.c: 572:     UInt32_ToString(red_value, text);
+[e ( _UInt32_ToString (2 , _red_value &U _text ]
+"573
+[; ;main.c: 573:     UART_WriteString(text);
+[e ( _UART_WriteString (1 -> &U _text `*Cuc ]
+"574
+[; ;main.c: 574:     UART_WriteString("\t");
+[e ( _UART_WriteString (1 :s 36C ]
+"576
+[; ;main.c: 576:     UInt32_ToString(ir_value, text);
+[e ( _UInt32_ToString (2 , _ir_value &U _text ]
+"577
+[; ;main.c: 577:     UART_WriteLine(text);
+[e ( _UART_WriteLine (1 -> &U _text `*Cuc ]
+"578
+[; ;main.c: 578: }
+[e :UE 442 ]
+}
+[a 3C 85 65 82 84 32 102 117 110 99 105 111 110 97 110 100 111 32 97 32 57 54 48 48 32 98 97 117 100 105 111 115 0 ]
 [a 13C 83 105 103 110 111 115 32 86 105 116 97 108 101 115 0 ]
 [a 20C 83 105 103 110 111 115 32 86 105 116 97 108 101 115 0 ]
+[a 15C 66 80 77 32 108 105 115 116 111 0 ]
 [a 2C 79 76 69 68 32 102 117 110 99 105 111 110 97 110 100 111 0 ]
+[a 24C 67 97 108 99 117 108 97 110 100 111 0 ]
 [a 14C 69 115 112 101 114 97 110 100 111 32 100 101 100 111 0 ]
-[a 6C 69 82 82 79 82 58 32 77 65 88 51 48 49 48 50 32 110 111 32 100 101 116 101 99 116 97 100 111 0 ]
-[a 17C 68 101 100 111 32 100 101 116 101 99 116 97 100 111 0 ]
-[a 21C 68 101 100 111 32 100 101 116 101 99 116 97 100 111 0 ]
-[a 22C 78 111 32 100 101 116 101 99 116 97 100 111 0 ]
+[a 22C 69 115 112 101 114 97 110 100 111 32 100 101 100 111 0 ]
+[a 5C 69 82 82 79 82 58 32 77 65 88 51 48 49 48 50 32 110 111 32 100 101 116 101 99 116 97 100 111 0 ]
+[a 21C 78 111 32 100 101 116 101 99 116 97 100 111 0 ]
 [a 19C 68 101 100 111 32 114 101 116 105 114 97 100 111 0 ]
 [a 1C 83 105 115 116 101 109 97 32 105 110 105 99 105 97 100 111 0 ]
-[a 11C 77 65 88 51 48 49 48 50 32 100 101 116 101 99 116 97 100 111 32 99 111 114 114 101 99 116 97 109 101 110 116 101 0 ]
-[a 12C 68 101 116 101 99 99 105 111 110 32 100 101 32 100 101 100 111 32 105 110 105 99 105 97 100 97 0 ]
-[a 8C 77 65 88 51 48 49 48 50 32 69 82 82 79 82 0 ]
-[a 26C 77 117 101 115 116 114 97 9 68 101 100 111 9 82 69 68 9 73 82 0 ]
-[a 7C 82 101 118 105 115 101 32 86 67 67 44 32 71 78 68 44 32 83 68 65 32 121 32 83 67 76 0 ]
-[a 10C 83 68 65 32 83 67 76 32 86 67 67 0 ]
-[a 9C 82 101 118 105 115 101 32 73 50 67 0 ]
-[a 23C 73 82 58 0 ]
-[a 24C 82 69 68 58 0 ]
-[a 15C 85 115 101 32 77 65 88 51 48 49 48 50 0 ]
-[a 5C 86 101 114 105 102 105 99 97 110 100 111 32 77 65 88 51 48 49 48 50 46 46 46 0 ]
-[a 27C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 0 ]
-[a 30C 78 111 32 100 101 116 101 99 116 97 100 111 9 0 ]
-[a 29C 68 101 116 101 99 116 97 100 111 9 0 ]
-[a 28C 9 0 ]
-[a 31C 9 0 ]
+[a 11C 67 97 108 99 117 108 111 32 100 101 32 66 80 77 32 105 110 105 99 105 97 100 111 0 ]
+[a 10C 77 65 88 51 48 49 48 50 32 100 101 116 101 99 116 97 100 111 32 99 111 114 114 101 99 116 97 109 101 110 116 101 0 ]
+[a 7C 77 65 88 51 48 49 48 50 32 69 82 82 79 82 0 ]
+[a 28C 77 117 101 115 116 114 97 9 68 101 100 111 9 66 80 77 9 82 69 68 9 73 82 0 ]
+[a 17C 68 101 100 111 32 100 101 116 101 99 116 97 100 111 32 45 32 99 97 108 99 117 108 97 110 100 111 32 66 80 77 0 ]
+[a 6C 82 101 118 105 115 101 32 86 67 67 44 32 71 78 68 44 32 83 68 65 32 121 32 83 67 76 0 ]
+[a 9C 83 68 65 32 83 67 76 32 86 67 67 0 ]
+[a 8C 82 101 118 105 115 101 32 73 50 67 0 ]
+[a 25C 73 82 58 0 ]
+[a 23C 66 80 77 58 0 ]
+[a 26C 82 69 68 58 0 ]
+[a 12C 69 115 112 101 114 97 110 100 111 32 100 101 100 111 46 46 46 0 ]
+[a 4C 86 101 114 105 102 105 99 97 110 100 111 32 77 65 88 51 48 49 48 50 46 46 46 0 ]
+[a 29C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 0 ]
+[a 35C 67 97 108 99 117 108 97 110 100 111 9 0 ]
+[a 32C 78 111 32 100 101 116 101 99 116 97 100 111 9 0 ]
+[a 33C 78 111 32 100 101 116 101 99 116 97 100 111 9 0 ]
+[a 31C 68 101 116 101 99 116 97 100 111 9 0 ]
+[a 30C 9 0 ]
+[a 34C 9 0 ]
+[a 36C 9 0 ]
 [a 16C 0 ]
 [a 18C 0 ]
-[a 25C 0 ]
+[a 27C 0 ]
