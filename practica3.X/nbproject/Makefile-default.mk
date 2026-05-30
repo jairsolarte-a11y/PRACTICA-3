@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c config_bits.c i2c_master.c ssd1306.c uart.c max30102.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c config_bits.c i2c_master.c ssd1306.c uart.c max30102.c ds18b20.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/config_bits.p1 ${OBJECTDIR}/i2c_master.p1 ${OBJECTDIR}/ssd1306.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/max30102.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/config_bits.p1.d ${OBJECTDIR}/i2c_master.p1.d ${OBJECTDIR}/ssd1306.p1.d ${OBJECTDIR}/uart.p1.d ${OBJECTDIR}/max30102.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/config_bits.p1 ${OBJECTDIR}/i2c_master.p1 ${OBJECTDIR}/ssd1306.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/max30102.p1 ${OBJECTDIR}/ds18b20.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/config_bits.p1.d ${OBJECTDIR}/i2c_master.p1.d ${OBJECTDIR}/ssd1306.p1.d ${OBJECTDIR}/uart.p1.d ${OBJECTDIR}/max30102.p1.d ${OBJECTDIR}/ds18b20.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/config_bits.p1 ${OBJECTDIR}/i2c_master.p1 ${OBJECTDIR}/ssd1306.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/max30102.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/config_bits.p1 ${OBJECTDIR}/i2c_master.p1 ${OBJECTDIR}/ssd1306.p1 ${OBJECTDIR}/uart.p1 ${OBJECTDIR}/max30102.p1 ${OBJECTDIR}/ds18b20.p1
 
 # Source Files
-SOURCEFILES=main.c config_bits.c i2c_master.c ssd1306.c uart.c max30102.c
+SOURCEFILES=main.c config_bits.c i2c_master.c ssd1306.c uart.c max30102.c ds18b20.c
 
 
 
@@ -136,6 +136,14 @@ ${OBJECTDIR}/max30102.p1: max30102.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/max30102.d ${OBJECTDIR}/max30102.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/max30102.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/ds18b20.p1: ds18b20.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ds18b20.p1.d 
+	@${RM} ${OBJECTDIR}/ds18b20.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ds18b20.p1 ds18b20.c 
+	@-${MV} ${OBJECTDIR}/ds18b20.d ${OBJECTDIR}/ds18b20.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ds18b20.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -184,6 +192,14 @@ ${OBJECTDIR}/max30102.p1: max30102.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/max30102.p1 max30102.c 
 	@-${MV} ${OBJECTDIR}/max30102.d ${OBJECTDIR}/max30102.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/max30102.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/ds18b20.p1: ds18b20.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ds18b20.p1.d 
+	@${RM} ${OBJECTDIR}/ds18b20.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ds18b20.p1 ds18b20.c 
+	@-${MV} ${OBJECTDIR}/ds18b20.d ${OBJECTDIR}/ds18b20.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ds18b20.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

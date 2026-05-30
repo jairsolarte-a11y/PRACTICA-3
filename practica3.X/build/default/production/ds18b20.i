@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "ds18b20.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 295 "<built-in>" 3
@@ -6,8 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 29 "main.c"
+# 1 "ds18b20.c" 2
 # 1 "./system.h" 1
 
 
@@ -5912,747 +5911,153 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 30 "main.c" 2
-# 1 "./i2c_master.h" 1
-
-
-
-
-
-
-void I2C_Master_Init(uint32_t clock_hz);
-void I2C_Master_Start(void);
-void I2C_Master_RepeatedStart(void);
-void I2C_Master_Stop(void);
-uint8_t I2C_Master_Write(uint8_t data);
-uint8_t I2C_Master_Read(uint8_t ack);
-# 31 "main.c" 2
-# 1 "./ssd1306.h" 1
-# 16 "./ssd1306.h"
-void SSD1306_Init(void);
-void SSD1306_ClearDisplay(void);
-void SSD1306_ClearLine(uint8_t page);
-void SSD1306_SetCursor(uint8_t column, uint8_t page);
-void SSD1306_WriteChar(char c);
-void SSD1306_WriteString(const char *str);
-# 32 "main.c" 2
-# 1 "./uart.h" 1
-
-
-
-
-
-
-void UART_Init(void);
-void UART_WriteChar(char data);
-void UART_WriteString(const char *text);
-void UART_WriteLine(const char *text);
-void UART_WriteUInt16(uint16_t value);
-# 33 "main.c" 2
+# 2 "ds18b20.c" 2
 # 1 "./ds18b20.h" 1
 # 11 "./ds18b20.h"
 void DS18B20_Init(void);
 uint8_t DS18B20_StartConversion(void);
 uint8_t DS18B20_ReadTemperatureX100(int16_t *temperature_x100);
-# 34 "main.c" 2
-# 1 "./max30102.h" 1
+# 3 "ds18b20.c" 2
 
 
 
 
 
-
-
-
-uint8_t MAX30102_Init(void);
-uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value);
-uint8_t MAX30102_ProcessHeartRate(uint32_t ir_value, uint16_t *bpm);
-void MAX30102_ResetHeartRateAlgorithm(void);
-# 35 "main.c" 2
-# 84 "main.c"
-static void System_Init(void);
-
-static void LEDs_Init(void);
-static void LED_Power_On(void);
-static void LED_Status_On(void);
-static void LED_Status_Off(void);
-static void LED_Status_Update(uint8_t max_ok, uint8_t ds18b20_ok);
-
-static void LED_Wait_On(void);
-static void LED_Wait_Off(void);
-static void LED_Wait_Update(uint8_t finger_detected);
-
-static uint8_t Is_Finger_Detected(uint32_t ir_value);
-static uint8_t Is_Skin_Detected(uint8_t temp_valid, int16_t temp_x100);
-
-static void UInt16_ToString(uint16_t value, char *buffer);
-static void UInt32_ToString(uint32_t value, char *buffer);
-static void Temp_ToString(int16_t temp_x100, char *buffer);
-
-static void Show_Data_On_OLED(uint8_t finger_detected,
-                              uint8_t temp_valid,
-                              uint8_t skin_detected,
-                              int16_t temp_x100,
-                              uint8_t bpm_valid,
-                              uint16_t bpm,
-                              uint8_t system_functional);
-
-static void Send_Header_By_UART(void);
-
-static void Send_Data_By_UART(uint16_t sample,
-                              uint8_t finger_detected,
-                              uint8_t temp_valid,
-                              uint8_t skin_detected,
-                              int16_t temp_x100,
-                              uint8_t bpm_valid,
-                              uint16_t bpm,
-                              uint32_t red_value,
-                              uint32_t ir_value,
-                              uint8_t system_functional);
-
-void main(void)
+static void OneWire_Low(void)
 {
-    uint8_t max_ok = 0;
+    LATAbits.LATA1 = 0;
+    TRISAbits.TRISA1 = 0;
+}
 
-    uint32_t red_value = 0;
-    uint32_t ir_value = 0;
+static void OneWire_Release(void)
+{
+    TRISAbits.TRISA1 = 1;
+}
 
-    uint8_t finger_detected = 0;
-    uint8_t previous_finger_detected = 0;
+static uint8_t OneWire_ReadPin(void)
+{
+    return PORTAbits.RA1;
+}
 
-    uint16_t bpm = 0;
-    uint8_t bpm_valid = 0;
+static uint8_t OneWire_Reset(void)
+{
+    uint8_t presence;
 
-    int16_t temp_x100 = 0;
-    uint8_t temp_valid = 0;
-    uint8_t skin_detected = 0;
+    OneWire_Low();
+    _delay((unsigned long)((480)*(8000000UL/4000000.0)));
 
-    uint8_t ds18b20_ok = 0;
-    uint8_t ds_conversion_active = 0;
-    uint16_t ds_counter = 0;
+    OneWire_Release();
+    _delay((unsigned long)((70)*(8000000UL/4000000.0)));
 
-    uint8_t system_functional = 0;
+    presence = (OneWire_ReadPin() == 0);
 
-    uint16_t sample = 0;
-    uint16_t display_counter = 0;
-    uint16_t uart_counter = 0;
+    _delay((unsigned long)((410)*(8000000UL/4000000.0)));
 
-    System_Init();
+    return presence;
+}
 
-    max_ok = MAX30102_Init();
-
-    if (max_ok == 0)
+static void OneWire_WriteBit(uint8_t bit_value)
+{
+    if (bit_value)
     {
-        LED_Status_Off();
-        LED_Wait_Off();
-
-        SSD1306_ClearDisplay();
-        SSD1306_SetCursor(10, 0);
-        SSD1306_WriteString("MAX30102 ERROR");
-
-        SSD1306_SetCursor(10, 2);
-        SSD1306_WriteString("Revise I2C");
-
-        SSD1306_SetCursor(10, 4);
-        SSD1306_WriteString("SDA SCL VCC");
-
-        UART_WriteLine("ERROR: MAX30102 no detectado");
-        UART_WriteLine("Revise VCC, GND, SDA y SCL");
-
-        while (1)
-        {
-            ;
-        }
-    }
-
-    UART_WriteLine("Sistema iniciado");
-    UART_WriteLine("MAX30102 detectado correctamente");
-    UART_WriteLine("Esperando dedo para activar mediciones");
-
-    Send_Header_By_UART();
-
-    SSD1306_ClearDisplay();
-
-    SSD1306_SetCursor(10, 0);
-    SSD1306_WriteString("Signos Vitales");
-
-    SSD1306_SetCursor(10, 2);
-    SSD1306_WriteString("Esperando dedo");
-
-    LED_Wait_On();
-
-    while (1)
-    {
-
-
-
-        MAX30102_ReadFIFO(&red_value, &ir_value);
-
-
-
-
-        finger_detected = Is_Finger_Detected(ir_value);
-
-
-
-
-
-
-        LED_Wait_Update(finger_detected);
-
-
-
-
-        if ((finger_detected == 1) && (previous_finger_detected == 0))
-        {
-            MAX30102_ResetHeartRateAlgorithm();
-
-            bpm = 0;
-            bpm_valid = 0;
-
-            temp_x100 = 0;
-            temp_valid = 0;
-            skin_detected = 0;
-
-            ds_counter = 0;
-            ds_conversion_active = DS18B20_StartConversion();
-
-            if (ds_conversion_active)
-            {
-                ds18b20_ok = 1;
-            }
-            else
-            {
-                ds18b20_ok = 0;
-            }
-
-            UART_WriteLine("");
-            UART_WriteLine("Dedo detectado - medicion activada");
-            Send_Header_By_UART();
-        }
-
-
-
-
-        if (finger_detected == 0)
-        {
-            bpm = 0;
-            bpm_valid = 0;
-
-            temp_x100 = 0;
-            temp_valid = 0;
-            skin_detected = 0;
-
-            ds_conversion_active = 0;
-            ds_counter = 0;
-            ds18b20_ok = 0;
-
-            MAX30102_ResetHeartRateAlgorithm();
-        }
-        else
-        {
-
-
-
-            bpm_valid = MAX30102_ProcessHeartRate(ir_value, &bpm);
-
-
-
-
-            if (ds_conversion_active)
-            {
-                ds_counter++;
-
-                if (ds_counter >= 80u)
-                {
-                    temp_valid = DS18B20_ReadTemperatureX100(&temp_x100);
-
-                    if (temp_valid)
-                    {
-                        ds18b20_ok = 1;
-                    }
-                    else
-                    {
-                        ds18b20_ok = 0;
-                    }
-
-                    ds_conversion_active = 0;
-                    ds_counter = 0;
-                }
-            }
-            else
-            {
-                ds_conversion_active = DS18B20_StartConversion();
-
-                if (ds_conversion_active)
-                {
-                    ds18b20_ok = 1;
-                }
-                else
-                {
-                    ds18b20_ok = 0;
-                }
-
-                ds_counter = 0;
-            }
-
-            skin_detected = Is_Skin_Detected(temp_valid, temp_x100);
-        }
-
-
-
-
-
-
-        if ((max_ok == 1) && (ds18b20_ok == 1))
-        {
-            system_functional = 1;
-        }
-        else
-        {
-            system_functional = 0;
-        }
-
-        LED_Status_Update(max_ok, ds18b20_ok);
-
-
-
-
-        uart_counter++;
-
-        if (uart_counter >= 100u)
-        {
-            uart_counter = 0;
-            sample++;
-
-            Send_Data_By_UART(sample,
-                              finger_detected,
-                              temp_valid,
-                              skin_detected,
-                              temp_x100,
-                              bpm_valid,
-                              bpm,
-                              red_value,
-                              ir_value,
-                              system_functional);
-        }
-
-
-
-
-        display_counter++;
-
-        if (display_counter >= 100u)
-        {
-            display_counter = 0;
-
-            Show_Data_On_OLED(finger_detected,
-                              temp_valid,
-                              skin_detected,
-                              temp_x100,
-                              bpm_valid,
-                              bpm,
-                              system_functional);
-        }
-
-        previous_finger_detected = finger_detected;
-
-        _delay((unsigned long)((10u)*(8000000UL/4000.0)));
-    }
-}
-
-static void System_Init(void)
-{
-    OSCCON = 0x72;
-
-
-
-
-
-    ADCON1 = 0x0F;
-
-    CMCON = 0x07;
-    CVRCON = 0x00;
-
-    LEDs_Init();
-
-    LED_Power_On();
-    LED_Status_Off();
-    LED_Wait_On();
-
-    UART_Init();
-
-    I2C_Master_Init(100000UL);
-
-    SSD1306_Init();
-    SSD1306_ClearDisplay();
-
-    DS18B20_Init();
-}
-
-static void LEDs_Init(void)
-{
-    TRISDbits.TRISD0 = 0;
-    TRISDbits.TRISD1 = 0;
-    TRISDbits.TRISD2 = 0;
-
-    LATDbits.LATD0 = 0;
-    LATDbits.LATD1 = 0;
-    LATDbits.LATD2 = 0;
-}
-
-static void LED_Power_On(void)
-{
-    LATDbits.LATD0 = 1;
-}
-
-static void LED_Status_On(void)
-{
-    LATDbits.LATD1 = 1;
-}
-
-static void LED_Status_Off(void)
-{
-    LATDbits.LATD1 = 0;
-}
-
-static void LED_Status_Update(uint8_t max_ok, uint8_t ds18b20_ok)
-{
-    if ((max_ok == 1) && (ds18b20_ok == 1))
-    {
-        LED_Status_On();
+        OneWire_Low();
+        _delay((unsigned long)((6)*(8000000UL/4000000.0)));
+
+        OneWire_Release();
+        _delay((unsigned long)((64)*(8000000UL/4000000.0)));
     }
     else
     {
-        LED_Status_Off();
+        OneWire_Low();
+        _delay((unsigned long)((60)*(8000000UL/4000000.0)));
+
+        OneWire_Release();
+        _delay((unsigned long)((10)*(8000000UL/4000000.0)));
     }
 }
 
-static void LED_Wait_On(void)
+static uint8_t OneWire_ReadBit(void)
 {
-    LATDbits.LATD2 = 1;
+    uint8_t bit_value;
+
+    OneWire_Low();
+    _delay((unsigned long)((6)*(8000000UL/4000000.0)));
+
+    OneWire_Release();
+    _delay((unsigned long)((9)*(8000000UL/4000000.0)));
+
+    bit_value = OneWire_ReadPin();
+
+    _delay((unsigned long)((55)*(8000000UL/4000000.0)));
+
+    return bit_value;
 }
 
-static void LED_Wait_Off(void)
+static void OneWire_WriteByte(uint8_t data)
 {
-    LATDbits.LATD2 = 0;
-}
+    uint8_t i;
 
-static void LED_Wait_Update(uint8_t finger_detected)
-{
-    if (finger_detected == 0)
+    for (i = 0; i < 8; i++)
     {
-        LED_Wait_On();
+        OneWire_WriteBit(data & 0x01);
+        data >>= 1;
     }
-    else
-    {
-        LED_Wait_Off();
-    }
 }
 
-static uint8_t Is_Finger_Detected(uint32_t ir_value)
+static uint8_t OneWire_ReadByte(void)
 {
-    static uint8_t finger_state = 0;
+    uint8_t i;
+    uint8_t data = 0;
 
-    if (finger_state == 0)
+    for (i = 0; i < 8; i++)
     {
-        if (ir_value >= 30000UL)
+        if (OneWire_ReadBit())
         {
-            finger_state = 1;
+            data |= (1 << i);
         }
     }
-    else
-    {
-        if (ir_value < 20000UL)
-        {
-            finger_state = 0;
-        }
-    }
 
-    return finger_state;
+    return data;
 }
 
-static uint8_t Is_Skin_Detected(uint8_t temp_valid, int16_t temp_x100)
+void DS18B20_Init(void)
 {
-    if ((temp_valid == 1) &&
-        (temp_x100 >= 2800) &&
-        (temp_x100 <= 4500))
-    {
-        return 1;
-    }
-
-    return 0;
+    OneWire_Release();
 }
 
-static void UInt16_ToString(uint16_t value, char *buffer)
+uint8_t DS18B20_StartConversion(void)
 {
-    char temp[6];
-    uint8_t i = 0;
-    uint8_t j = 0;
-
-    if (value == 0)
+    if (!OneWire_Reset())
     {
-        buffer[0] = '0';
-        buffer[1] = '\0';
-        return;
+        return 0;
     }
 
-    while (value > 0)
-    {
-        temp[i] = (char)('0' + (value % 10));
-        value /= 10;
-        i++;
-    }
+    OneWire_WriteByte(0xCC);
+    OneWire_WriteByte(0x44);
 
-    while (i > 0)
-    {
-        i--;
-        buffer[j] = temp[i];
-        j++;
-    }
-
-    buffer[j] = '\0';
+    return 1;
 }
 
-static void UInt32_ToString(uint32_t value, char *buffer)
+uint8_t DS18B20_ReadTemperatureX100(int16_t *temperature_x100)
 {
-    char temp[11];
-    uint8_t i = 0;
-    uint8_t j = 0;
+    uint8_t temp_lsb;
+    uint8_t temp_msb;
+    int16_t raw_temperature;
 
-    if (value == 0)
+    if (!OneWire_Reset())
     {
-        buffer[0] = '0';
-        buffer[1] = '\0';
-        return;
+        return 0;
     }
 
-    while (value > 0)
-    {
-        temp[i] = (char)('0' + (value % 10UL));
-        value /= 10UL;
-        i++;
-    }
+    OneWire_WriteByte(0xCC);
+    OneWire_WriteByte(0xBE);
 
-    while (i > 0)
-    {
-        i--;
-        buffer[j] = temp[i];
-        j++;
-    }
+    temp_lsb = OneWire_ReadByte();
+    temp_msb = OneWire_ReadByte();
 
-    buffer[j] = '\0';
-}
+    raw_temperature = (int16_t)(((uint16_t)temp_msb << 8) | temp_lsb);
 
-static void Temp_ToString(int16_t temp_x100, char *buffer)
-{
-    char int_text[6];
-    uint16_t abs_value;
-    uint16_t int_part;
-    uint8_t decimal_part;
-    uint8_t i = 0;
-    uint8_t j = 0;
+    *temperature_x100 = (int16_t)(((int32_t)raw_temperature * 625L) / 100L);
 
-    if (temp_x100 < 0)
-    {
-        buffer[j] = '-';
-        j++;
-        abs_value = (uint16_t)(-temp_x100);
-    }
-    else
-    {
-        abs_value = (uint16_t)temp_x100;
-    }
-
-    int_part = abs_value / 100;
-    decimal_part = abs_value % 100;
-
-    UInt16_ToString(int_part, int_text);
-
-    while (int_text[i] != '\0')
-    {
-        buffer[j] = int_text[i];
-        i++;
-        j++;
-    }
-
-    buffer[j] = '.';
-    j++;
-
-    buffer[j] = (char)('0' + (decimal_part / 10));
-    j++;
-
-    buffer[j] = (char)('0' + (decimal_part % 10));
-    j++;
-
-    buffer[j] = '\0';
-}
-
-static void Show_Data_On_OLED(uint8_t finger_detected,
-                              uint8_t temp_valid,
-                              uint8_t skin_detected,
-                              int16_t temp_x100,
-                              uint8_t bpm_valid,
-                              uint16_t bpm,
-                              uint8_t system_functional)
-{
-    char text[12];
-
-    SSD1306_ClearDisplay();
-
-    SSD1306_SetCursor(10, 0);
-    SSD1306_WriteString("Signos Vitales");
-
-
-
-
-    SSD1306_SetCursor(10, 2);
-
-    if (finger_detected == 0)
-    {
-        SSD1306_WriteString("FC: No detect");
-    }
-    else if (bpm_valid == 0)
-    {
-        SSD1306_WriteString("FC: Calculando");
-    }
-    else
-    {
-        SSD1306_WriteString("FC:");
-        UInt16_ToString(bpm, text);
-        SSD1306_WriteString(text);
-        SSD1306_WriteString(" BPM");
-    }
-
-
-
-
-    SSD1306_SetCursor(10, 4);
-
-    if (finger_detected == 0)
-    {
-        SSD1306_WriteString("Temp: No detect");
-    }
-    else if (temp_valid == 0)
-    {
-        SSD1306_WriteString("Temp: Leyendo");
-    }
-    else if (skin_detected == 0)
-    {
-        SSD1306_WriteString("Temp: No detect");
-    }
-    else
-    {
-        SSD1306_WriteString("Temp:");
-        Temp_ToString(temp_x100, text);
-        SSD1306_WriteString(text);
-        SSD1306_WriteString(" C");
-    }
-
-
-
-
-    SSD1306_SetCursor(10, 6);
-
-    if (system_functional)
-    {
-        SSD1306_WriteString("Sistema: OK");
-    }
-    else
-    {
-        SSD1306_WriteString("Sistema: ESP");
-    }
-}
-
-static void Send_Header_By_UART(void)
-{
-    UART_WriteLine("");
-    UART_WriteLine("Muestra\tFC_Estado\tFC_Valor\tTemp_Estado\tTemp_Valor\tRED\tIR\tSistema");
-    UART_WriteLine("--------------------------------------------------------------------------------");
-}
-
-static void Send_Data_By_UART(uint16_t sample,
-                              uint8_t finger_detected,
-                              uint8_t temp_valid,
-                              uint8_t skin_detected,
-                              int16_t temp_x100,
-                              uint8_t bpm_valid,
-                              uint16_t bpm,
-                              uint32_t red_value,
-                              uint32_t ir_value,
-                              uint8_t system_functional)
-{
-    char text[12];
-
-    UART_WriteUInt16(sample);
-    UART_WriteString("\t");
-
-
-
-
-    if (finger_detected == 0)
-    {
-        UART_WriteString("No detectado\t");
-        UART_WriteString("-- BPM\t");
-    }
-    else if (bpm_valid == 0)
-    {
-        UART_WriteString("Detectado\t");
-        UART_WriteString("Calculando\t");
-    }
-    else
-    {
-        UART_WriteString("Detectado\t");
-        UART_WriteUInt16(bpm);
-        UART_WriteString(" BPM\t");
-    }
-
-
-
-
-    if (finger_detected == 0)
-    {
-        UART_WriteString("No detectado\t");
-        UART_WriteString("-- C\t");
-    }
-    else if (temp_valid == 0)
-    {
-        UART_WriteString("Detectado\t");
-        UART_WriteString("Leyendo\t");
-    }
-    else if (skin_detected == 0)
-    {
-        UART_WriteString("No detectado\t");
-        UART_WriteString("-- C\t");
-    }
-    else
-    {
-        UART_WriteString("Detectado\t");
-        Temp_ToString(temp_x100, text);
-        UART_WriteString(text);
-        UART_WriteString(" C\t");
-    }
-
-
-
-
-    UInt32_ToString(red_value, text);
-    UART_WriteString(text);
-    UART_WriteString("\t");
-
-    UInt32_ToString(ir_value, text);
-    UART_WriteString(text);
-    UART_WriteString("\t");
-
-
-
-
-    if (system_functional)
-    {
-        UART_WriteLine("OK");
-    }
-    else
-    {
-        UART_WriteLine("ESPERA");
-    }
+    return 1;
 }

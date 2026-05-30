@@ -9,6 +9,7 @@
       <itemPath>ssd1306.h</itemPath>
       <itemPath>uart.h</itemPath>
       <itemPath>max30102.h</itemPath>
+      <itemPath>ds18b20.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -28,6 +29,7 @@
       <itemPath>ssd1306.c</itemPath>
       <itemPath>uart.c</itemPath>
       <itemPath>max30102.c</itemPath>
+      <itemPath>ds18b20.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -167,6 +169,9 @@
         <property key="program-the-device-with-default-config-words" value="false"/>
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
+      <Simulator>
+        <property key="periphADC1.minTacq" value="5"/>
+      </Simulator>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
         <property key="stack-guidance" value="false"/>
