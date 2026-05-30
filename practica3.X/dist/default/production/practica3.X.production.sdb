@@ -69,22 +69,36 @@
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
 "55
 [v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+"66
+[v _I2C_Master_RepeatedStart I2C_Master_RepeatedStart `(v  1 e 1 0 ]
 "77
 [v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
 "88
 [v _I2C_Master_Write I2C_Master_Write `(uc  1 e 1 0 ]
-"54 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+"109
+[v _I2C_Master_Read I2C_Master_Read `(uc  1 e 1 0 ]
+"56 C:\2026\Microcontroladores\practica3\practica3.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"104
+"139
 [v _System_Init System_Init `(v  1 s 1 System_Init ]
-"165
+"208
 [v _LEDs_Init LEDs_Init `(v  1 s 1 LEDs_Init ]
-"182
+"225
 [v _LED_Power_On LED_Power_On `(v  1 s 1 LED_Power_On ]
-"192
+"230
+[v _LED_Status_On LED_Status_On `(v  1 s 1 LED_Status_On ]
+"235
 [v _LED_Status_Off LED_Status_Off `(v  1 s 1 LED_Status_Off ]
-"197
+"240
 [v _LED_Wait_On LED_Wait_On `(v  1 s 1 LED_Wait_On ]
+"245
+[v _LED_Wait_Off LED_Wait_Off `(v  1 s 1 LED_Wait_Off ]
+"29 C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+[v _MAX30102_WriteRegister MAX30102_WriteRegister `(v  1 s 1 MAX30102_WriteRegister ]
+"42
+[v _MAX30102_ReadRegister MAX30102_ReadRegister `(uc  1 s 1 MAX30102_ReadRegister ]
+"71
+[v _MAX30102_Init MAX30102_Init `(uc  1 e 1 0 ]
 "111 C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
 [v _SSD1306_Command SSD1306_Command `(v  1 s 1 SSD1306_Command ]
 "120
@@ -119,7 +133,7 @@
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "3261
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
-[s S135 . 1 `uc 1 LATD0 1 0 :1:0 
+[s S147 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -129,7 +143,7 @@
 `uc 1 LATD7 1 0 :1:7 
 ]
 "3288
-[s S144 . 1 `uc 1 LD0 1 0 :1:0 
+[s S156 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -138,15 +152,15 @@
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S153 . 1 `S135 1 . 1 0 `S144 1 . 1 0 ]
-[v _LATDbits LATDbits `VES153  1 e 1 @3980 ]
+[u S165 . 1 `S147 1 . 1 0 `S156 1 . 1 0 ]
+[v _LATDbits LATDbits `VES165  1 e 1 @3980 ]
 "3373
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
 "3425
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "3623
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-[s S214 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S234 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -156,7 +170,7 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "3655
-[s S223 . 1 `uc 1 RB0 1 0 :1:0 
+[s S243 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -165,11 +179,11 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S232 . 1 `S214 1 . 1 0 `S223 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES232  1 e 1 @3987 ]
+[u S252 . 1 `S234 1 . 1 0 `S243 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES252  1 e 1 @3987 ]
 "3845
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-[s S540 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S560 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -177,18 +191,18 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "3873
-[s S547 . 1 `uc 1 RC0 1 0 :1:0 
+[s S567 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S554 . 1 `S540 1 . 1 0 `S547 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES554  1 e 1 @3988 ]
+[u S574 . 1 `S560 1 . 1 0 `S567 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES574  1 e 1 @3988 ]
 "3999
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S95 . 1 `uc 1 TRISD0 1 0 :1:0 
+[s S107 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -198,7 +212,7 @@
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "4031
-[s S104 . 1 `uc 1 RD0 1 0 :1:0 
+[s S116 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -207,11 +221,11 @@
 `uc 1 RD6 1 0 :1:6 
 `uc 1 RD7 1 0 :1:7 
 ]
-[u S113 . 1 `S95 1 . 1 0 `S104 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES113  1 e 1 @3989 ]
+[u S125 . 1 `S107 1 . 1 0 `S116 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES125  1 e 1 @3989 ]
 "4221
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
-[s S419 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S439 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -221,17 +235,17 @@
 `uc 1 SPPIF 1 0 :1:7 
 ]
 "4490
-[s S428 . 1 `uc 1 . 1 0 :4:0 
+[s S448 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 PSPIF 1 0 :1:7 
 ]
-[u S434 . 1 `S419 1 . 1 0 `S428 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES434  1 e 1 @3998 ]
+[u S454 . 1 `S439 1 . 1 0 `S448 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES454  1 e 1 @3998 ]
 "4934
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
-[s S675 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S695 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -241,25 +255,25 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4975
-[s S684 . 1 `uc 1 . 1 0 :3:0 
+[s S704 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S687 . 1 `uc 1 . 1 0 :5:0 
+[s S707 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S690 . 1 `uc 1 . 1 0 :6:0 
+[s S710 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S693 . 1 `uc 1 . 1 0 :6:0 
+[s S713 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S696 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S716 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S698 . 1 `S675 1 . 1 0 `S684 1 . 1 0 `S687 1 . 1 0 `S690 1 . 1 0 `S693 1 . 1 0 `S696 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES698  1 e 1 @4011 ]
+[u S718 . 1 `S695 1 . 1 0 `S704 1 . 1 0 `S707 1 . 1 0 `S710 1 . 1 0 `S713 1 . 1 0 `S716 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES718  1 e 1 @4011 ]
 "5144
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
-[s S575 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S595 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -269,7 +283,7 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "5183
-[s S584 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S604 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -278,13 +292,13 @@
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S593 . 1 `uc 1 . 1 0 :6:0 
+[s S613 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S596 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S616 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S598 . 1 `S575 1 . 1 0 `S584 1 . 1 0 `S593 1 . 1 0 `S596 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES598  1 e 1 @4012 ]
+[u S618 . 1 `S595 1 . 1 0 `S604 1 . 1 0 `S613 1 . 1 0 `S616 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES618  1 e 1 @4012 ]
 "5400
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "5424
@@ -297,7 +311,7 @@
 [v _CVRCON CVRCON `VEuc  1 e 1 @4021 ]
 "6060
 [v _BAUDCON BAUDCON `VEuc  1 e 1 @4024 ]
-[s S627 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S647 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -307,24 +321,24 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "6096
-[s S636 . 1 `uc 1 . 1 0 :4:0 
+[s S656 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 . 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S641 . 1 `uc 1 . 1 0 :5:0 
+[s S661 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXCKP 1 0 :1:5 
 ]
-[s S644 . 1 `uc 1 . 1 0 :1:0 
+[s S664 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S647 . 1 `S627 1 . 1 0 `S636 1 . 1 0 `S641 1 . 1 0 `S644 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES647  1 e 1 @4024 ]
+[u S667 . 1 `S647 1 . 1 0 `S656 1 . 1 0 `S661 1 . 1 0 `S664 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES667  1 e 1 @4024 ]
 "6579
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "6804
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @4037 ]
-[s S397 . 1 `uc 1 SEN 1 0 :1:0 
+[s S417 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -334,20 +348,20 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "6821
-[u S406 . 1 `S397 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES406  1 e 1 @4037 ]
+[u S426 . 1 `S417 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES426  1 e 1 @4037 ]
 "6866
 [v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
 "6936
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
-[s S255 . 1 `uc 1 . 1 0 :2:0 
+[s S275 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "7019
-[s S258 . 1 `uc 1 . 1 0 :5:0 
+[s S278 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S261 . 1 `uc 1 BF 1 0 :1:0 
+[s S281 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -356,56 +370,56 @@
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S270 . 1 `uc 1 . 1 0 :2:0 
+[s S290 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S275 . 1 `uc 1 . 1 0 :2:0 
+[s S295 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S281 . 1 `uc 1 . 1 0 :2:0 
+[s S301 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S286 . 1 `uc 1 . 1 0 :2:0 
+[s S306 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S289 . 1 `uc 1 . 1 0 :5:0 
+[s S309 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S292 . 1 `uc 1 . 1 0 :2:0 
+[s S312 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S297 . 1 `uc 1 . 1 0 :2:0 
+[s S317 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S302 . 1 `uc 1 . 1 0 :2:0 
+[s S322 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S307 . 1 `uc 1 . 1 0 :2:0 
+[s S327 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
 `uc 1 STOP 1 0 :1:4 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S313 . 1 `uc 1 . 1 0 :2:0 
+[s S333 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 NOT_A 1 0 :1:5 
 ]
-[u S318 . 1 `S255 1 . 1 0 `S258 1 . 1 0 `S261 1 . 1 0 `S270 1 . 1 0 `S275 1 . 1 0 `S281 1 . 1 0 `S286 1 . 1 0 `S289 1 . 1 0 `S292 1 . 1 0 `S297 1 . 1 0 `S302 1 . 1 0 `S307 1 . 1 0 `S313 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES318  1 e 1 @4039 ]
+[u S338 . 1 `S275 1 . 1 0 `S278 1 . 1 0 `S281 1 . 1 0 `S290 1 . 1 0 `S295 1 . 1 0 `S301 1 . 1 0 `S306 1 . 1 0 `S309 1 . 1 0 `S312 1 . 1 0 `S317 1 . 1 0 `S322 1 . 1 0 `S327 1 . 1 0 `S333 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES338  1 e 1 @4039 ]
 "7184
 [v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
 "7191
@@ -418,10 +432,12 @@
 [v _oled_page oled_page `uc  1 s 1 oled_page ]
 "7
 [v _Font5x7 Font5x7 `C[480]uc  1 s 480 Font5x7 ]
-"54 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+"56 C:\2026\Microcontroladores\practica3\practica3.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"102
+"58
+[v main@max_ok max_ok `uc  1 a 1 21 ]
+"137
 } 0
 "73 C:\2026\Microcontroladores\practica3\practica3.X\uart.c
 [v _UART_WriteLine UART_WriteLine `(v  1 e 1 0 ]
@@ -443,10 +459,10 @@
 [v UART_WriteChar@data data `uc  1 p 1 0 ]
 "62
 } 1
-"104 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+"139 C:\2026\Microcontroladores\practica3\practica3.X\main.c
 [v _System_Init System_Init `(v  1 s 1 System_Init ]
 {
-"163
+"206
 } 0
 "14 C:\2026\Microcontroladores\practica3\practica3.X\uart.c
 [v _UART_Init UART_Init `(v  1 e 1 0 ]
@@ -467,10 +483,25 @@
 [v SSD1306_ClearDisplay@column column `uc  1 a 1 5 ]
 "177
 } 0
-"165 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+"208 C:\2026\Microcontroladores\practica3\practica3.X\main.c
 [v _LEDs_Init LEDs_Init `(v  1 s 1 LEDs_Init ]
 {
-"180
+"223
+} 0
+"240
+[v _LED_Wait_On LED_Wait_On `(v  1 s 1 LED_Wait_On ]
+{
+"243
+} 0
+"235
+[v _LED_Status_Off LED_Status_Off `(v  1 s 1 LED_Status_Off ]
+{
+"238
+} 0
+"225
+[v _LED_Power_On LED_Power_On `(v  1 s 1 LED_Power_On ]
+{
+"228
 } 0
 "20 C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
@@ -541,17 +572,7 @@
 [v SSD1306_Command@command command `uc  1 p 1 2 ]
 "118
 } 1
-"77 C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
-[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
-{
-"86
-} 0
-"55
-[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
-{
-"64
-} 0
-"132 C:\2026\Microcontroladores\practica3\practica3.X\ssd1306.c
+"132
 [v _SSD1306_Data SSD1306_Data `(v  1 s 1 SSD1306_Data ]
 {
 [v SSD1306_Data@data data `uc  1 p 1 wreg ]
@@ -559,6 +580,35 @@
 "134
 [v SSD1306_Data@data data `uc  1 p 1 2 ]
 "135
+} 1
+"71 C:\2026\Microcontroladores\practica3\practica3.X\max30102.c
+[v _MAX30102_Init MAX30102_Init `(uc  1 e 1 0 ]
+{
+"73
+[v MAX30102_Init@part_id part_id `uc  1 a 1 7 ]
+"138
+} 0
+"29
+[v _MAX30102_WriteRegister MAX30102_WriteRegister `(v  1 s 1 MAX30102_WriteRegister ]
+{
+[v MAX30102_WriteRegister@reg reg `uc  1 p 1 wreg ]
+[v MAX30102_WriteRegister@reg reg `uc  1 p 1 wreg ]
+[v MAX30102_WriteRegister@value value `uc  1 p 1 2 ]
+"31
+[v MAX30102_WriteRegister@reg reg `uc  1 p 1 3 ]
+"36
+} 1
+"42
+[v _MAX30102_ReadRegister MAX30102_ReadRegister `(uc  1 s 1 MAX30102_ReadRegister ]
+{
+[v MAX30102_ReadRegister@reg reg `uc  1 p 1 wreg ]
+"44
+[v MAX30102_ReadRegister@value value `uc  1 a 1 4 ]
+"42
+[v MAX30102_ReadRegister@reg reg `uc  1 p 1 wreg ]
+"46
+[v MAX30102_ReadRegister@reg reg `uc  1 p 1 3 ]
+"58
 } 1
 "88 C:\2026\Microcontroladores\practica3\practica3.X\i2c_master.c
 [v _I2C_Master_Write I2C_Master_Write `(uc  1 e 1 0 ]
@@ -569,23 +619,45 @@
 [v I2C_Master_Write@data data `uc  1 p 1 1 ]
 "107
 } 1
+"77
+[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
+{
+"86
+} 0
+"55
+[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+{
+"64
+} 0
+"66
+[v _I2C_Master_RepeatedStart I2C_Master_RepeatedStart `(v  1 e 1 0 ]
+{
+"75
+} 0
+"109
+[v _I2C_Master_Read I2C_Master_Read `(uc  1 e 1 0 ]
+{
+[v I2C_Master_Read@ack ack `uc  1 p 1 wreg ]
+"111
+[v I2C_Master_Read@data data `uc  1 a 1 2 ]
+"109
+[v I2C_Master_Read@ack ack `uc  1 p 1 wreg ]
+"113
+[v I2C_Master_Read@ack ack `uc  1 p 1 1 ]
+"143
+} 1
 "12
 [v _I2C_Master_Wait I2C_Master_Wait `(v  1 s 1 I2C_Master_Wait ]
 {
 "18
 } 0
-"197 C:\2026\Microcontroladores\practica3\practica3.X\main.c
-[v _LED_Wait_On LED_Wait_On `(v  1 s 1 LED_Wait_On ]
+"245 C:\2026\Microcontroladores\practica3\practica3.X\main.c
+[v _LED_Wait_Off LED_Wait_Off `(v  1 s 1 LED_Wait_Off ]
 {
-"200
+"248
 } 0
-"192
-[v _LED_Status_Off LED_Status_Off `(v  1 s 1 LED_Status_Off ]
+"230
+[v _LED_Status_On LED_Status_On `(v  1 s 1 LED_Status_On ]
 {
-"195
-} 0
-"182
-[v _LED_Power_On LED_Power_On `(v  1 s 1 LED_Power_On ]
-{
-"185
+"233
 } 0

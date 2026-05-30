@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "max30102.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 295 "<built-in>" 3
@@ -6,8 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 23 "main.c"
+# 1 "max30102.c" 2
 # 1 "./system.h" 1
 
 
@@ -5912,7 +5911,7 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 24 "main.c" 2
+# 2 "max30102.c" 2
 # 1 "./i2c_master.h" 1
 
 
@@ -5926,233 +5925,94 @@ void I2C_Master_RepeatedStart(void);
 void I2C_Master_Stop(void);
 uint8_t I2C_Master_Write(uint8_t data);
 uint8_t I2C_Master_Read(uint8_t ack);
-# 25 "main.c" 2
-# 1 "./ssd1306.h" 1
-# 16 "./ssd1306.h"
-void SSD1306_Init(void);
-void SSD1306_ClearDisplay(void);
-void SSD1306_ClearLine(uint8_t page);
-void SSD1306_SetCursor(uint8_t column, uint8_t page);
-void SSD1306_WriteChar(char c);
-void SSD1306_WriteString(const char *str);
-# 26 "main.c" 2
-# 1 "./uart.h" 1
-
-
-
-
-
-
-void UART_Init(void);
-void UART_WriteChar(char data);
-void UART_WriteString(const char *text);
-void UART_WriteLine(const char *text);
-void UART_WriteUInt16(uint16_t value);
-# 27 "main.c" 2
+# 3 "max30102.c" 2
 # 1 "./max30102.h" 1
 # 13 "./max30102.h"
 uint8_t MAX30102_Init(void);
-# 28 "main.c" 2
-# 47 "main.c"
-static void System_Init(void);
-
-static void LEDs_Init(void);
-static void LED_Power_On(void);
-static void LED_Status_On(void);
-static void LED_Status_Off(void);
-static void LED_Wait_On(void);
-static void LED_Wait_Off(void);
-
-void main(void)
+# 4 "max30102.c" 2
+# 29 "max30102.c"
+static void MAX30102_WriteRegister(uint8_t reg, uint8_t value)
 {
-    uint8_t max_ok = 0;
-
-    System_Init();
-
-
-
-
-    UART_WriteLine("Sistema iniciado");
-    UART_WriteLine("OLED funcionando");
-    UART_WriteLine("LEDs indicadores activos");
-    UART_WriteLine("UART funcionando a 9600 baudios");
-    UART_WriteLine("Verificando MAX30102...");
+    I2C_Master_Start();
+    I2C_Master_Write((0x57 << 1) | 0);
+    I2C_Master_Write(reg);
+    I2C_Master_Write(value);
+    I2C_Master_Stop();
+}
 
 
 
 
 
+static uint8_t MAX30102_ReadRegister(uint8_t reg)
+{
+    uint8_t value;
 
-    max_ok = MAX30102_Init();
+    I2C_Master_Start();
+    I2C_Master_Write((0x57 << 1) | 0);
+    I2C_Master_Write(reg);
 
-    SSD1306_ClearDisplay();
+    I2C_Master_RepeatedStart();
+    I2C_Master_Write((0x57 << 1) | 1);
 
-    if (max_ok == 1)
+    value = I2C_Master_Read(0);
+
+    I2C_Master_Stop();
+
+    return value;
+}
+# 71 "max30102.c"
+uint8_t MAX30102_Init(void)
+{
+    uint8_t part_id;
+
+
+
+
+
+    part_id = MAX30102_ReadRegister(0xFF);
+
+    if (part_id != 0x15)
     {
-
-
-
-
-
-        LED_Status_On();
-        LED_Wait_On();
-
-        UART_WriteLine("MAX30102 detectado correctamente");
-        UART_WriteLine("Sistema en espera");
-
-        SSD1306_SetCursor(10, 0);
-        SSD1306_WriteString("Signos Vitales");
-
-        SSD1306_SetCursor(10, 2);
-        SSD1306_WriteString("MAX30102 OK");
-
-        SSD1306_SetCursor(10, 4);
-        SSD1306_WriteString("UART OK");
-
-        SSD1306_SetCursor(10, 6);
-        SSD1306_WriteString("En espera");
-    }
-    else
-    {
-
-
-
-
-
-        LED_Status_Off();
-        LED_Wait_Off();
-
-        UART_WriteLine("ERROR: MAX30102 no detectado");
-        UART_WriteLine("Revise VCC, GND, SDA y SCL");
-
-        SSD1306_SetCursor(10, 0);
-        SSD1306_WriteString("MAX30102 ERROR");
-
-        SSD1306_SetCursor(10, 2);
-        SSD1306_WriteString("Revise I2C");
-
-        SSD1306_SetCursor(10, 4);
-        SSD1306_WriteString("SDA SCL VCC");
+        return 0;
     }
 
-    while (1)
-    {
+
+
+
+    MAX30102_WriteRegister(0x09, 0x40);
+    _delay((unsigned long)((100)*(8000000UL/4000.0)));
+
+
+
+
+    MAX30102_WriteRegister(0x04, 0x00);
+    MAX30102_WriteRegister(0x05, 0x00);
+    MAX30102_WriteRegister(0x06, 0x00);
+# 106 "max30102.c"
+    MAX30102_WriteRegister(0x08, 0x1F);
 
 
 
 
 
-        __nop();
-    }
-}
-
-static void System_Init(void)
-{
-
-
-
-    OSCCON = 0x72;
-
-
-
-
-    ADCON1 = 0x0F;
-
-
-
-
-    CMCON = 0x07;
-    CVRCON = 0x00;
-
-
-
-
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
-    LATD = 0x00;
-    LATE = 0x00;
-
-
-
-
-
-    TRISA = 0xFF;
-    TRISB = 0xFF;
-    TRISC = 0xFF;
-    TRISD = 0xFF;
-    TRISE = 0xFF;
-
-
-
-
-    LEDs_Init();
-
-
-
-
-    LED_Power_On();
-    LED_Status_Off();
-    LED_Wait_On();
+    MAX30102_WriteRegister(0x09, 0x03);
+# 121 "max30102.c"
+    MAX30102_WriteRegister(0x0A, 0x27);
 
 
 
 
 
 
-    UART_Init();
+    MAX30102_WriteRegister(0x0C, 0x24);
+    MAX30102_WriteRegister(0x0D, 0x24);
 
 
 
 
+    (void)MAX30102_ReadRegister(0x00);
+    (void)MAX30102_ReadRegister(0x01);
 
-    I2C_Master_Init(100000UL);
-
-
-
-
-    SSD1306_Init();
-    SSD1306_ClearDisplay();
-}
-
-static void LEDs_Init(void)
-{
-
-
-
-    TRISDbits.TRISD0 = 0;
-    TRISDbits.TRISD1 = 0;
-    TRISDbits.TRISD2 = 0;
-
-
-
-
-    LATDbits.LATD0 = 0;
-    LATDbits.LATD1 = 0;
-    LATDbits.LATD2 = 0;
-}
-
-static void LED_Power_On(void)
-{
-    LATDbits.LATD0 = 1;
-}
-
-static void LED_Status_On(void)
-{
-    LATDbits.LATD1 = 1;
-}
-
-static void LED_Status_Off(void)
-{
-    LATDbits.LATD1 = 0;
-}
-
-static void LED_Wait_On(void)
-{
-    LATDbits.LATD2 = 1;
-}
-
-static void LED_Wait_Off(void)
-{
-    LATDbits.LATD2 = 0;
+    return 1;
 }

@@ -3,4 +3,5 @@ main.c  \
 system.h  \
 i2c_master.h  \
 ssd1306.h  \
-uart.h 
+uart.h  \
+max30102.h 
