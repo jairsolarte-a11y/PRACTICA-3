@@ -11,14 +11,23 @@
  */
 #define UART_SPBRG_VALUE ((_XTAL_FREQ / (4UL * UART_BAUD)) - 1UL)
 
+/*
+ * Definicion de pines UART
+ */
+#define UART_TX_PIN     TRISCbits.TRISC6
+#define UART_RX_PIN     TRISCbits.TRISC7
+
+#define UART_TX_OUTPUT  0
+#define UART_RX_INPUT   1
+
 void UART_Init(void)
 {
     /*
-     * RC6 es TX del PIC18F4550.
-     * RC7 es RX del PIC18F4550.
+     * RC6 = TX
+     * RC7 = RX
      */
-    TRISCbits.TRISC6 = 0;   // TX como salida
-    TRISCbits.TRISC7 = 1;   // RX como entrada
+    UART_TX_PIN = UART_TX_OUTPUT;
+    UART_RX_PIN = UART_RX_INPUT;
 
     /*
      * Limpia configuracion previa.
@@ -30,25 +39,22 @@ void UART_Init(void)
     /*
      * Configuracion UART asincrona.
      */
-    TXSTAbits.SYNC = 0;     // Modo asincrono
-    TXSTAbits.BRGH = 1;     // Alta velocidad
-    BAUDCONbits.BRG16 = 1;  // Generador de baudios de 16 bits
+    TXSTAbits.SYNC = 0;
+    TXSTAbits.BRGH = 1;
+    BAUDCONbits.BRG16 = 1;
 
     /*
-     * Carga valor para 9600 baudios.
-     *
-     * Si _XTAL_FREQ = 8000000:
-     * UART_SPBRG_VALUE = 207
+     * Configuracion de velocidad.
      */
     SPBRGH = (unsigned char)((UART_SPBRG_VALUE >> 8) & 0xFF);
     SPBRG  = (unsigned char)(UART_SPBRG_VALUE & 0xFF);
 
     /*
-     * Habilita modulo serial.
+     * Habilita modulo UART.
      */
-    RCSTAbits.SPEN = 1;     // Habilita UART en RC6/RC7
-    TXSTAbits.TXEN = 1;     // Habilita transmision
-    RCSTAbits.CREN = 1;     // Habilita recepcion
+    RCSTAbits.SPEN = 1;
+    TXSTAbits.TXEN = 1;
+    RCSTAbits.CREN = 1;
 }
 
 void UART_WriteChar(char data)
@@ -76,9 +82,13 @@ void UART_WriteLine(const char *text)
     UART_WriteString("\r\n");
 }
 
+/*
+ * Convierte un entero de 16 bits a texto
+ * y lo transmite por UART.
+ */
 void UART_WriteUInt16(uint16_t value)
 {
-    char temp[6];
+    char temp[6];   /* 65535 + terminador */
     uint8_t i = 0;
 
     if (value == 0)
@@ -99,4 +109,4 @@ void UART_WriteUInt16(uint16_t value)
         i--;
         UART_WriteChar(temp[i]);
     }
-}
+} 
