@@ -1,7 +1,6 @@
 #include "system.h"
 #include "i2c_master.h"
 #include "max30102.h"
-
 /*
  * Registros del MAX30102.
  */
@@ -17,8 +16,19 @@
 #define MAX30102_REG_LED1_PA           0x0C
 #define MAX30102_REG_LED2_PA           0x0D
 #define MAX30102_REG_PART_ID           0xFF
-
 #define MAX30102_PART_ID_VALUE         0x15
+/*
+ * Configuración por defecto del MAX30102
+ */
+#define MAX30102_MODE_RESET            0x40
+#define MAX30102_MODE_SPO2             0x03
+
+#define MAX30102_FIFO_CONFIG_DEFAULT   0x1F
+#define MAX30102_SPO2_CONFIG_DEFAULT   0x27
+
+#define MAX30102_LED_CURRENT_DEFAULT   0x24
+
+#define MAX30102_FIFO_DATA_MASK        0x03FFFFUL
 
 /*
  * Valor minimo de IR para intentar calcular BPM.
@@ -143,7 +153,8 @@ uint8_t MAX30102_Init(void)
     /*
      * Reset del sensor.
      */
-    MAX30102_WriteRegister(MAX30102_REG_MODE_CONFIG, 0x40);
+    MAX30102_WriteRegister(MAX30102_REG_MODE_CONFIG,
+                       MAX30102_MODE_RESET);
     __delay_ms(100);
 
     /*
@@ -159,13 +170,15 @@ uint8_t MAX30102_Init(void)
      * FIFO rollover habilitado.
      * FIFO almost full = 15.
      */
-    MAX30102_WriteRegister(MAX30102_REG_FIFO_CONFIG, 0x1F);
+   MAX30102_WriteRegister(MAX30102_REG_FIFO_CONFIG,
+                       MAX30102_FIFO_CONFIG_DEFAULT);
 
     /*
      * MODE_CONFIG = 0x03:
      * Modo SpO2, activa RED + IR.
      */
-    MAX30102_WriteRegister(MAX30102_REG_MODE_CONFIG, 0x03);
+    MAX30102_WriteRegister(MAX30102_REG_MODE_CONFIG,
+                       MAX30102_MODE_SPO2);
 
     /*
      * SPO2_CONFIG = 0x27:
@@ -173,14 +186,18 @@ uint8_t MAX30102_Init(void)
      * Sample rate = 100 Hz.
      * Pulse width = 411 us.
      */
-    MAX30102_WriteRegister(MAX30102_REG_SPO2_CONFIG, 0x27);
+    MAX30102_WriteRegister(MAX30102_REG_SPO2_CONFIG,
+                       MAX30102_SPO2_CONFIG_DEFAULT);
 
     /*
      * Corriente de LEDs.
      * 0x24 da mejor deteccion rapida que 0x1F.
      */
-    MAX30102_WriteRegister(MAX30102_REG_LED1_PA, 0x24);
-    MAX30102_WriteRegister(MAX30102_REG_LED2_PA, 0x24);
+    MAX30102_WriteRegister(MAX30102_REG_LED1_PA,
+                       MAX30102_LED_CURRENT_DEFAULT);
+
+    MAX30102_WriteRegister(MAX30102_REG_LED2_PA,
+                       MAX30102_LED_CURRENT_DEFAULT);
 
     /*
      * Limpia interrupciones.
@@ -199,14 +216,8 @@ uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value)
 
     MAX30102_ReadMulti(MAX30102_REG_FIFO_DATA, data, 6);
 
-    *red_value = (((uint32_t)data[0] << 16) |
-                  ((uint32_t)data[1] << 8)  |
-                  ((uint32_t)data[2]));
-
-    *ir_value = (((uint32_t)data[3] << 16) |
-                 ((uint32_t)data[4] << 8)  |
-                 ((uint32_t)data[5]));
-
+    *red_value &= MAX30102_FIFO_DATA_MASK;
+    *ir_value  &= MAX30102_FIFO_DATA_MASK; 
     /*
      * Datos de 18 bits.
      */
@@ -350,7 +361,6 @@ uint8_t MAX30102_ProcessHeartRate(uint32_t ir_value, uint16_t *bpm)
             hr_last_beat_sample = peak_sample;
         }
     }
-
     hr_ac_prev2 = hr_ac_prev1;
     hr_ac_prev1 = ac_signal;
 
@@ -359,6 +369,5 @@ uint8_t MAX30102_ProcessHeartRate(uint32_t ir_value, uint16_t *bpm)
         *bpm = hr_current_bpm;
         return 1;
     }
-
     return 0;
 }
