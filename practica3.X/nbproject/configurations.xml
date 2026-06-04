@@ -10,6 +10,8 @@
       <itemPath>uart.h</itemPath>
       <itemPath>max30102.h</itemPath>
       <itemPath>ds18b20.h</itemPath>
+      <itemPath>freeze_switch.h</itemPath>
+      <itemPath>buzzer.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -30,6 +32,8 @@
       <itemPath>uart.c</itemPath>
       <itemPath>max30102.c</itemPath>
       <itemPath>ds18b20.c</itemPath>
+      <itemPath>freeze_switch.c</itemPath>
+      <itemPath>buzzer.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -172,6 +176,9 @@
       <Simulator>
         <property key="periphADC1.minTacq" value="5"/>
       </Simulator>
+      <Tool>
+        <property key="periphADC1.minTacq" value="5"/>
+      </Tool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
         <property key="stack-guidance" value="false"/>
