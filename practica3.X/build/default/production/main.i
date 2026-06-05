@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 28 "main.c"
+# 39 "main.c"
 # 1 "./system.h" 1
 
 
@@ -5912,7 +5912,7 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/xc.h" 2 3
 # 5 "./system.h" 2
-# 29 "main.c" 2
+# 40 "main.c" 2
 # 1 "./i2c_master.h" 1
 
 
@@ -5926,7 +5926,7 @@ void I2C_Master_RepeatedStart(void);
 void I2C_Master_Stop(void);
 uint8_t I2C_Master_Write(uint8_t data);
 uint8_t I2C_Master_Read(uint8_t ack);
-# 30 "main.c" 2
+# 41 "main.c" 2
 # 1 "./ssd1306.h" 1
 # 16 "./ssd1306.h"
 void SSD1306_Init(void);
@@ -5935,7 +5935,7 @@ void SSD1306_ClearLine(uint8_t page);
 void SSD1306_SetCursor(uint8_t column, uint8_t page);
 void SSD1306_WriteChar(char c);
 void SSD1306_WriteString(const char *str);
-# 31 "main.c" 2
+# 42 "main.c" 2
 # 1 "./uart.h" 1
 
 
@@ -5948,140 +5948,390 @@ void UART_WriteChar(char data);
 void UART_WriteString(const char *text);
 void UART_WriteLine(const char *text);
 void UART_WriteUInt16(uint16_t value);
-# 32 "main.c" 2
-# 89 "main.c"
+# 43 "main.c" 2
+# 1 "./ds18b20.h" 1
+# 11 "./ds18b20.h"
+void DS18B20_Init(void);
+uint8_t DS18B20_StartConversion(void);
+uint8_t DS18B20_ReadTemperatureX100(int16_t *temperature_x100);
+# 44 "main.c" 2
+# 1 "./max30102.h" 1
+
+
+
+
+
+
+
+
+uint8_t MAX30102_Init(void);
+uint8_t MAX30102_ReadFIFO(uint32_t *red_value, uint32_t *ir_value);
+uint8_t MAX30102_ProcessHeartRate(uint32_t ir_value, uint16_t *bpm);
+void MAX30102_ResetHeartRateAlgorithm(void);
+# 45 "main.c" 2
+# 1 "./freeze_switch.h" 1
+# 22 "./freeze_switch.h"
+void Freeze_Switch_Init(void);
+uint8_t Freeze_Switch_Update(void);
+# 46 "main.c" 2
+# 1 "./buzzer.h" 1
+# 13 "./buzzer.h"
+void Buzzer_Init(void);
+void Buzzer_On(void);
+void Buzzer_Off(void);
+# 26 "./buzzer.h"
+uint8_t Buzzer_Update(uint8_t finger_detected,
+                      uint8_t bpm_valid,
+                      uint16_t bpm);
+# 47 "main.c" 2
+# 100 "main.c"
 static void System_Init(void);
 
-static uint8_t MAX30102_Test_ReadRegister(uint8_t reg, uint8_t *value);
-static uint8_t MAX30102_Test_WriteRegister(uint8_t reg, uint8_t value);
-static uint8_t MAX30102_Test_ReadFIFO(uint32_t *red_value, uint32_t *ir_value);
-static uint8_t MAX30102_Test_Config(void);
-static uint8_t MAX30102_Test_CheckID(uint8_t *rev_id, uint8_t *part_id);
+static void LEDs_Init(void);
+static void LED_Power_On(void);
+static void LED_Status_On(void);
+static void LED_Status_Off(void);
+static void LED_Status_Update(uint8_t max_ok, uint8_t ds18b20_ok);
+
+static void LED_Wait_On(void);
+static void LED_Wait_Off(void);
+static void LED_Wait_Update(uint8_t finger_detected);
 
 static uint8_t Is_Finger_Detected(uint32_t ir_value);
+static uint8_t Is_Skin_Detected(uint8_t temp_valid, int16_t temp_x100);
 
-static void UInt8_ToHexString(uint8_t value, char *buffer);
 static void UInt16_ToString(uint16_t value, char *buffer);
 static void UInt32_ToString(uint32_t value, char *buffer);
+static void Temp_ToString(int16_t temp_x100, char *buffer);
 
-static void Show_Start_On_OLED(void);
-static void Show_Error_On_OLED(uint8_t part_id);
-static void Show_Data_On_OLED(uint8_t sensor_ok,
-                              uint8_t part_id,
-                              uint8_t rev_id,
+static void Show_Data_On_OLED(uint8_t finger_detected,
+                              uint8_t temp_valid,
+                              uint8_t skin_detected,
+                              int16_t temp_x100,
+                              uint8_t bpm_valid,
+                              uint16_t bpm,
+                              uint8_t system_functional,
+                              uint8_t freeze_mode,
+                              uint8_t buzzer_alarm);
+
+static void Send_Header_By_UART(void);
+
+static void Send_Data_By_UART(uint16_t sample,
+                              uint8_t finger_detected,
+                              uint8_t temp_valid,
+                              uint8_t skin_detected,
+                              int16_t temp_x100,
+                              uint8_t bpm_valid,
+                              uint16_t bpm,
                               uint32_t red_value,
                               uint32_t ir_value,
-                              uint8_t finger_detected);
-
-static void Send_Test_By_UART(uint8_t sensor_ok,
-                              uint8_t part_id,
-                              uint8_t rev_id,
-                              uint32_t red_value,
-                              uint32_t ir_value,
-                              uint8_t finger_detected);
+                              uint8_t system_functional,
+                              uint8_t freeze_mode,
+                              uint8_t buzzer_alarm);
 
 void main(void)
 {
-    uint8_t sensor_ok = 0;
-    uint8_t sensor_configured = 0;
-
-    uint8_t part_id = 0;
-    uint8_t rev_id = 0;
+    uint8_t max_ok = 0;
 
     uint32_t red_value = 0;
     uint32_t ir_value = 0;
 
     uint8_t finger_detected = 0;
+    uint8_t previous_finger_detected = 0;
 
+    uint16_t bpm = 0;
+    uint8_t bpm_valid = 0;
+
+    int16_t temp_x100 = 0;
+    uint8_t temp_valid = 0;
+    uint8_t skin_detected = 0;
+
+    uint8_t ds18b20_ok = 0;
+    uint8_t ds_conversion_active = 0;
+    uint16_t ds_counter = 0;
+
+    uint8_t system_functional = 0;
+
+
+
+
+
+
+    uint8_t buzzer_alarm = 0;
+
+
+
+
+    uint8_t freeze_mode = 0;
+    uint8_t previous_freeze_mode = 0;
+
+    uint16_t frozen_sample = 0;
+    uint32_t frozen_red_value = 0;
+    uint32_t frozen_ir_value = 0;
+
+    uint8_t frozen_finger_detected = 0;
+    uint8_t frozen_temp_valid = 0;
+    uint8_t frozen_skin_detected = 0;
+
+    int16_t frozen_temp_x100 = 0;
+
+    uint8_t frozen_bpm_valid = 0;
+    uint16_t frozen_bpm = 0;
+
+    uint8_t frozen_system_functional = 0;
+
+    uint16_t sample = 0;
     uint16_t display_counter = 0;
     uint16_t uart_counter = 0;
 
     System_Init();
 
-    Show_Start_On_OLED();
+    max_ok = MAX30102_Init();
 
-    UART_WriteLine("");
-    UART_WriteLine("=======================================");
-    UART_WriteLine(" PRUEBA MAX30102 POR I2C");
-    UART_WriteLine(" OLED SSD1306 + UART");
-    UART_WriteLine("=======================================");
-    UART_WriteLine("");
-    UART_WriteLine("Conexiones:");
-    UART_WriteLine(" MAX30102 VIN -> 3.3V");
-    UART_WriteLine(" MAX30102 GND -> GND");
-    UART_WriteLine(" MAX30102 SDA -> RB0");
-    UART_WriteLine(" MAX30102 SCL -> RB1");
-    UART_WriteLine("");
+    if (max_ok == 0)
+    {
+        LED_Status_Off();
+        LED_Wait_Off();
+        Buzzer_Off();
+
+        SSD1306_ClearDisplay();
+        SSD1306_SetCursor(10, 0);
+        SSD1306_WriteString("MAX30102 ERROR");
+
+        SSD1306_SetCursor(10, 2);
+        SSD1306_WriteString("Revise I2C");
+
+        SSD1306_SetCursor(10, 4);
+        SSD1306_WriteString("SDA SCL VCC");
+
+        UART_WriteLine("ERROR: MAX30102 no detectado");
+        UART_WriteLine("Revise VCC, GND, SDA y SCL");
+
+        while (1)
+        {
+            ;
+        }
+    }
+
+    UART_WriteLine("Sistema iniciado");
+    UART_WriteLine("MAX30102 detectado correctamente");
+    UART_WriteLine("Esperando dedo para activar mediciones");
+
+    Send_Header_By_UART();
+
+    SSD1306_ClearDisplay();
+
+    SSD1306_SetCursor(10, 0);
+    SSD1306_WriteString("Signos Vitales");
+
+    SSD1306_SetCursor(10, 2);
+    SSD1306_WriteString("Esperando dedo");
+
+    LED_Wait_On();
+    Buzzer_Off();
 
     while (1)
     {
 
 
 
+        MAX30102_ReadFIFO(&red_value, &ir_value);
 
-        if (sensor_configured == 0)
+
+
+
+        finger_detected = Is_Finger_Detected(ir_value);
+
+
+
+
+
+
+        LED_Wait_Update(finger_detected);
+
+
+
+
+        if ((finger_detected == 1) && (previous_finger_detected == 0))
         {
-            sensor_ok = MAX30102_Test_CheckID(&rev_id, &part_id);
+            MAX30102_ResetHeartRateAlgorithm();
 
-            if (sensor_ok == 1)
+            bpm = 0;
+            bpm_valid = 0;
+
+            temp_x100 = 0;
+            temp_valid = 0;
+            skin_detected = 0;
+
+            ds_counter = 0;
+            ds_conversion_active = DS18B20_StartConversion();
+
+            if (ds_conversion_active)
             {
-                sensor_configured = MAX30102_Test_Config();
-
-                if (sensor_configured == 1)
-                {
-                    UART_WriteLine("MAX30102 detectado y configurado correctamente");
-                }
-                else
-                {
-                    UART_WriteLine("MAX30102 detectado, pero fallo la configuracion");
-                }
+                ds18b20_ok = 1;
             }
             else
             {
-                Show_Error_On_OLED(part_id);
+                ds18b20_ok = 0;
             }
+
+            UART_WriteLine("");
+            UART_WriteLine("Dedo detectado - medicion activada");
+            Send_Header_By_UART();
+        }
+
+
+
+
+        if (finger_detected == 0)
+        {
+            bpm = 0;
+            bpm_valid = 0;
+
+            temp_x100 = 0;
+            temp_valid = 0;
+            skin_detected = 0;
+
+            ds_conversion_active = 0;
+            ds_counter = 0;
+            ds18b20_ok = 0;
+
+            MAX30102_ResetHeartRateAlgorithm();
         }
         else
         {
 
 
 
-            sensor_ok = MAX30102_Test_ReadFIFO(&red_value, &ir_value);
+            bpm_valid = MAX30102_ProcessHeartRate(ir_value, &bpm);
 
-            if (sensor_ok == 1)
+
+
+
+            if (ds_conversion_active)
             {
-                finger_detected = Is_Finger_Detected(ir_value);
+                ds_counter++;
+
+                if (ds_counter >= 80u)
+                {
+                    temp_valid = DS18B20_ReadTemperatureX100(&temp_x100);
+
+                    if (temp_valid)
+                    {
+                        ds18b20_ok = 1;
+                    }
+                    else
+                    {
+                        ds18b20_ok = 0;
+                    }
+
+                    ds_conversion_active = 0;
+                    ds_counter = 0;
+                }
             }
             else
             {
-                sensor_configured = 0;
-                finger_detected = 0;
+                ds_conversion_active = DS18B20_StartConversion();
+
+                if (ds_conversion_active)
+                {
+                    ds18b20_ok = 1;
+                }
+                else
+                {
+                    ds18b20_ok = 0;
+                }
+
+                ds_counter = 0;
             }
+
+            skin_detected = Is_Skin_Detected(temp_valid, temp_x100);
         }
 
 
 
 
-        display_counter++;
 
-        if (display_counter >= 50u)
+
+        if ((max_ok == 1) && (ds18b20_ok == 1))
         {
-            display_counter = 0;
-
-            if (sensor_configured == 1)
-            {
-                Show_Data_On_OLED(sensor_ok,
-                                  part_id,
-                                  rev_id,
-                                  red_value,
-                                  ir_value,
-                                  finger_detected);
-            }
-            else
-            {
-                Show_Error_On_OLED(part_id);
-            }
+            system_functional = 1;
         }
+        else
+        {
+            system_functional = 0;
+        }
+
+        LED_Status_Update(max_ok, ds18b20_ok);
+
+
+
+
+
+
+
+        previous_freeze_mode = freeze_mode;
+        freeze_mode = Freeze_Switch_Update();
+
+        if ((freeze_mode == 1) && (previous_freeze_mode == 0))
+        {
+            frozen_sample = sample;
+            frozen_red_value = red_value;
+            frozen_ir_value = ir_value;
+
+            frozen_finger_detected = finger_detected;
+            frozen_temp_valid = temp_valid;
+            frozen_skin_detected = skin_detected;
+
+            frozen_temp_x100 = temp_x100;
+
+            frozen_bpm_valid = bpm_valid;
+            frozen_bpm = bpm;
+
+            frozen_system_functional = system_functional;
+
+            UART_WriteLine("");
+            UART_WriteLine("MODO CONGELADO ACTIVADO");
+            UART_WriteLine("Los valores de OLED, UART, buzzer y LED quedan fijos");
+
+
+
+
+            buzzer_alarm = Buzzer_Update(frozen_finger_detected,
+                                         frozen_bpm_valid,
+                                         frozen_bpm);
+
+            Show_Data_On_OLED(frozen_finger_detected,
+                              frozen_temp_valid,
+                              frozen_skin_detected,
+                              frozen_temp_x100,
+                              frozen_bpm_valid,
+                              frozen_bpm,
+                              frozen_system_functional,
+                              freeze_mode,
+                              buzzer_alarm);
+        }
+
+        if ((freeze_mode == 0) && (previous_freeze_mode == 1))
+        {
+            UART_WriteLine("");
+            UART_WriteLine("MODO NORMAL ACTIVADO");
+            Send_Header_By_UART();
+        }
+# 443 "main.c"
+        if (freeze_mode == 0)
+        {
+            buzzer_alarm = Buzzer_Update(finger_detected,
+                                         bpm_valid,
+                                         bpm);
+        }
+        else
+        {
+            buzzer_alarm = Buzzer_Update(frozen_finger_detected,
+                                         frozen_bpm_valid,
+                                         frozen_bpm);
+        }
+
 
 
 
@@ -6092,13 +6342,77 @@ void main(void)
         {
             uart_counter = 0;
 
-            Send_Test_By_UART(sensor_configured,
-                              part_id,
-                              rev_id,
-                              red_value,
-                              ir_value,
-                              finger_detected);
+            if (freeze_mode == 0)
+            {
+                sample++;
+
+                Send_Data_By_UART(sample,
+                                  finger_detected,
+                                  temp_valid,
+                                  skin_detected,
+                                  temp_x100,
+                                  bpm_valid,
+                                  bpm,
+                                  red_value,
+                                  ir_value,
+                                  system_functional,
+                                  freeze_mode,
+                                  buzzer_alarm);
+            }
+            else
+            {
+                Send_Data_By_UART(frozen_sample,
+                                  frozen_finger_detected,
+                                  frozen_temp_valid,
+                                  frozen_skin_detected,
+                                  frozen_temp_x100,
+                                  frozen_bpm_valid,
+                                  frozen_bpm,
+                                  frozen_red_value,
+                                  frozen_ir_value,
+                                  frozen_system_functional,
+                                  freeze_mode,
+                                  buzzer_alarm);
+            }
         }
+
+
+
+
+
+        display_counter++;
+
+        if (display_counter >= 100u)
+        {
+            display_counter = 0;
+
+            if (freeze_mode == 0)
+            {
+                Show_Data_On_OLED(finger_detected,
+                                  temp_valid,
+                                  skin_detected,
+                                  temp_x100,
+                                  bpm_valid,
+                                  bpm,
+                                  system_functional,
+                                  freeze_mode,
+                                  buzzer_alarm);
+            }
+            else
+            {
+                Show_Data_On_OLED(frozen_finger_detected,
+                                  frozen_temp_valid,
+                                  frozen_skin_detected,
+                                  frozen_temp_x100,
+                                  frozen_bpm_valid,
+                                  frozen_bpm,
+                                  frozen_system_functional,
+                                  freeze_mode,
+                                  buzzer_alarm);
+            }
+        }
+
+        previous_finger_detected = finger_detected;
 
         _delay((unsigned long)((10u)*(8000000UL/4000.0)));
     }
@@ -6106,282 +6420,95 @@ void main(void)
 
 static void System_Init(void)
 {
-
-
-
     OSCCON = 0x72;
+
 
 
 
 
     ADCON1 = 0x0F;
 
-
-
-
     CMCON = 0x07;
     CVRCON = 0x00;
 
+    LEDs_Init();
+    Freeze_Switch_Init();
+    Buzzer_Init();
+
+    LED_Power_On();
+    LED_Status_Off();
+    LED_Wait_On();
+    Buzzer_Off();
+
     UART_Init();
-
-
-
 
     I2C_Master_Init(100000UL);
 
     SSD1306_Init();
     SSD1306_ClearDisplay();
+
+    DS18B20_Init();
 }
-# 279 "main.c"
-static uint8_t MAX30102_Test_ReadRegister(uint8_t reg, uint8_t *value)
+
+static void LEDs_Init(void)
 {
-    uint8_t nack;
+    TRISDbits.TRISD0 = 0;
+    TRISDbits.TRISD1 = 0;
+    TRISDbits.TRISD2 = 0;
 
-    I2C_Master_Start();
-
-    nack = I2C_Master_Write(((0x57u << 1) | 0u));
-
-    if (nack)
-    {
-        I2C_Master_Stop();
-        return 0;
-    }
-
-    nack = I2C_Master_Write(reg);
-
-    if (nack)
-    {
-        I2C_Master_Stop();
-        return 0;
-    }
-
-    I2C_Master_RepeatedStart();
-
-    nack = I2C_Master_Write(((0x57u << 1) | 1u));
-
-    if (nack)
-    {
-        I2C_Master_Stop();
-        return 0;
-    }
-
-
-
-
-    *value = I2C_Master_Read(0);
-
-    I2C_Master_Stop();
-
-    return 1;
+    LATDbits.LATD0 = 0;
+    LATDbits.LATD1 = 0;
+    LATDbits.LATD2 = 0;
 }
-# 328 "main.c"
-static uint8_t MAX30102_Test_WriteRegister(uint8_t reg, uint8_t value)
+
+static void LED_Power_On(void)
 {
-    uint8_t nack;
-
-    I2C_Master_Start();
-
-    nack = I2C_Master_Write(((0x57u << 1) | 0u));
-
-    if (nack)
-    {
-        I2C_Master_Stop();
-        return 0;
-    }
-
-    nack = I2C_Master_Write(reg);
-
-    if (nack)
-    {
-        I2C_Master_Stop();
-        return 0;
-    }
-
-    nack = I2C_Master_Write(value);
-
-    if (nack)
-    {
-        I2C_Master_Stop();
-        return 0;
-    }
-
-    I2C_Master_Stop();
-
-    return 1;
+    LATDbits.LATD0 = 1;
 }
-# 371 "main.c"
-static uint8_t MAX30102_Test_ReadFIFO(uint32_t *red_value, uint32_t *ir_value)
+
+static void LED_Status_On(void)
 {
-    uint8_t data[6];
-    uint8_t i;
-    uint8_t nack;
-
-    I2C_Master_Start();
-
-    nack = I2C_Master_Write(((0x57u << 1) | 0u));
-
-    if (nack)
-    {
-        I2C_Master_Stop();
-        return 0;
-    }
-
-    nack = I2C_Master_Write(0x07u);
-
-    if (nack)
-    {
-        I2C_Master_Stop();
-        return 0;
-    }
-
-    I2C_Master_RepeatedStart();
-
-    nack = I2C_Master_Write(((0x57u << 1) | 1u));
-
-    if (nack)
-    {
-        I2C_Master_Stop();
-        return 0;
-    }
-
-    for (i = 0; i < 6; i++)
-    {
-        if (i < 5)
-        {
-            data[i] = I2C_Master_Read(1);
-        }
-        else
-        {
-            data[i] = I2C_Master_Read(0);
-        }
-    }
-
-    I2C_Master_Stop();
-
-    *red_value = (((uint32_t)data[0] << 16) |
-                  ((uint32_t)data[1] << 8) |
-                  ((uint32_t)data[2]));
-
-    *ir_value = (((uint32_t)data[3] << 16) |
-                 ((uint32_t)data[4] << 8) |
-                 ((uint32_t)data[5]));
-
-
-
-
-    *red_value &= 0x03FFFF;
-    *ir_value &= 0x03FFFF;
-
-    return 1;
+    LATDbits.LATD1 = 1;
 }
-# 443 "main.c"
-static uint8_t MAX30102_Test_Config(void)
+
+static void LED_Status_Off(void)
 {
-    uint8_t dummy;
-
-
-
-
-    if (MAX30102_Test_WriteRegister(0x09u, 0x40) == 0)
-    {
-        return 0;
-    }
-
-    _delay((unsigned long)((100)*(8000000UL/4000.0)));
-
-
-
-
-    if (MAX30102_Test_WriteRegister(0x04u, 0x00) == 0)
-    {
-        return 0;
-    }
-
-    if (MAX30102_Test_WriteRegister(0x05u, 0x00) == 0)
-    {
-        return 0;
-    }
-
-    if (MAX30102_Test_WriteRegister(0x06u, 0x00) == 0)
-    {
-        return 0;
-    }
-
-
-
-
-
-
-    if (MAX30102_Test_WriteRegister(0x08u, 0x1F) == 0)
-    {
-        return 0;
-    }
-
-
-
-
-
-    if (MAX30102_Test_WriteRegister(0x09u, 0x03) == 0)
-    {
-        return 0;
-    }
-
-
-
-
-
-
-
-    if (MAX30102_Test_WriteRegister(0x0Au, 0x27) == 0)
-    {
-        return 0;
-    }
-
-
-
-
-    if (MAX30102_Test_WriteRegister(0x0Cu, 0x24) == 0)
-    {
-        return 0;
-    }
-
-    if (MAX30102_Test_WriteRegister(0x0Du, 0x24) == 0)
-    {
-        return 0;
-    }
-
-
-
-
-    (void)MAX30102_Test_ReadRegister(0x00u, &dummy);
-    (void)MAX30102_Test_ReadRegister(0x01u, &dummy);
-
-    return 1;
+    LATDbits.LATD1 = 0;
 }
-# 534 "main.c"
-static uint8_t MAX30102_Test_CheckID(uint8_t *rev_id, uint8_t *part_id)
+
+static void LED_Status_Update(uint8_t max_ok, uint8_t ds18b20_ok)
 {
-    uint8_t ok_part;
-    uint8_t ok_rev;
-
-    *part_id = 0;
-    *rev_id = 0;
-
-    ok_part = MAX30102_Test_ReadRegister(0xFFu, part_id);
-    ok_rev = MAX30102_Test_ReadRegister(0xFEu, rev_id);
-
-    if ((ok_part == 1) &&
-        (ok_rev == 1) &&
-        (*part_id == 0x15u))
+    if ((max_ok == 1) && (ds18b20_ok == 1))
     {
-        return 1;
+        LED_Status_On();
     }
-
-    return 0;
+    else
+    {
+        LED_Status_Off();
+    }
 }
 
+static void LED_Wait_On(void)
+{
+    LATDbits.LATD2 = 1;
+}
 
+static void LED_Wait_Off(void)
+{
+    LATDbits.LATD2 = 0;
+}
 
+static void LED_Wait_Update(uint8_t finger_detected)
+{
+    if (finger_detected == 0)
+    {
+        LED_Wait_On();
+    }
+    else
+    {
+        LED_Wait_Off();
+    }
+}
 
 static uint8_t Is_Finger_Detected(uint32_t ir_value)
 {
@@ -6405,36 +6532,16 @@ static uint8_t Is_Finger_Detected(uint32_t ir_value)
     return finger_state;
 }
 
-static void UInt8_ToHexString(uint8_t value, char *buffer)
+static uint8_t Is_Skin_Detected(uint8_t temp_valid, int16_t temp_x100)
 {
-    uint8_t high_nibble;
-    uint8_t low_nibble;
-
-    high_nibble = (value >> 4) & 0x0F;
-    low_nibble = value & 0x0F;
-
-    buffer[0] = '0';
-    buffer[1] = 'x';
-
-    if (high_nibble < 10)
+    if ((temp_valid == 1) &&
+        (temp_x100 >= 2800) &&
+        (temp_x100 <= 4500))
     {
-        buffer[2] = (char)('0' + high_nibble);
-    }
-    else
-    {
-        buffer[2] = (char)('A' + high_nibble - 10);
+        return 1;
     }
 
-    if (low_nibble < 10)
-    {
-        buffer[3] = (char)('0' + low_nibble);
-    }
-    else
-    {
-        buffer[3] = (char)('A' + low_nibble - 10);
-    }
-
-    buffer[4] = '\0';
+    return 0;
 }
 
 static void UInt16_ToString(uint16_t value, char *buffer)
@@ -6497,147 +6604,251 @@ static void UInt32_ToString(uint32_t value, char *buffer)
     buffer[j] = '\0';
 }
 
-static void Show_Start_On_OLED(void)
+static void Temp_ToString(int16_t temp_x100, char *buffer)
 {
-    SSD1306_ClearDisplay();
+    char int_text[6];
+    uint16_t abs_value;
+    uint16_t int_part;
+    uint8_t decimal_part;
+    uint8_t i = 0;
+    uint8_t j = 0;
 
-    SSD1306_SetCursor(10, 0);
-    SSD1306_WriteString("MAX30102 TEST");
+    if (temp_x100 < 0)
+    {
+        buffer[j] = '-';
+        j++;
+        abs_value = (uint16_t)(-temp_x100);
+    }
+    else
+    {
+        abs_value = (uint16_t)temp_x100;
+    }
 
-    SSD1306_SetCursor(10, 2);
-    SSD1306_WriteString("Iniciando...");
+    int_part = abs_value / 100;
+    decimal_part = abs_value % 100;
 
-    SSD1306_SetCursor(10, 4);
-    SSD1306_WriteString("I2C RB0/RB1");
+    UInt16_ToString(int_part, int_text);
 
-    SSD1306_SetCursor(10, 6);
-    SSD1306_WriteString("OLED activa");
+    while (int_text[i] != '\0')
+    {
+        buffer[j] = int_text[i];
+        i++;
+        j++;
+    }
+
+    buffer[j] = '.';
+    j++;
+
+    buffer[j] = (char)('0' + (decimal_part / 10));
+    j++;
+
+    buffer[j] = (char)('0' + (decimal_part % 10));
+    j++;
+
+    buffer[j] = '\0';
 }
 
-static void Show_Error_On_OLED(uint8_t part_id)
-{
-    char text[8];
-
-    SSD1306_ClearDisplay();
-
-    SSD1306_SetCursor(10, 0);
-    SSD1306_WriteString("MAX30102 ERROR");
-
-    SSD1306_SetCursor(10, 2);
-    SSD1306_WriteString("I2C: NO RESP");
-
-    SSD1306_SetCursor(10, 4);
-    SSD1306_WriteString("PART:");
-    UInt8_ToHexString(part_id, text);
-    SSD1306_WriteString(text);
-
-    SSD1306_SetCursor(10, 6);
-    SSD1306_WriteString("Revise SDA/SCL");
-}
-
-static void Show_Data_On_OLED(uint8_t sensor_ok,
-                              uint8_t part_id,
-                              uint8_t rev_id,
-                              uint32_t red_value,
-                              uint32_t ir_value,
-                              uint8_t finger_detected)
+static void Show_Data_On_OLED(uint8_t finger_detected,
+                              uint8_t temp_valid,
+                              uint8_t skin_detected,
+                              int16_t temp_x100,
+                              uint8_t bpm_valid,
+                              uint16_t bpm,
+                              uint8_t system_functional,
+                              uint8_t freeze_mode,
+                              uint8_t buzzer_alarm)
 {
     char text[12];
 
     SSD1306_ClearDisplay();
 
-
-
-
     SSD1306_SetCursor(10, 0);
-
-    if (sensor_ok)
-    {
-        SSD1306_WriteString("MAX30102 OK");
-    }
-    else
-    {
-        SSD1306_WriteString("MAX30102 ERR");
-    }
+    SSD1306_WriteString("Signos Vitales");
 
 
 
 
     SSD1306_SetCursor(10, 2);
-    SSD1306_WriteString("RED:");
-    UInt32_ToString(red_value, text);
-    SSD1306_WriteString(text);
+
+    if (finger_detected == 0)
+    {
+        SSD1306_WriteString("FC: No detect");
+    }
+    else if (bpm_valid == 0)
+    {
+        SSD1306_WriteString("FC: Calculando");
+    }
+    else
+    {
+        SSD1306_WriteString("FC:");
+        UInt16_ToString(bpm, text);
+        SSD1306_WriteString(text);
+        SSD1306_WriteString(" BPM");
+    }
 
 
 
 
     SSD1306_SetCursor(10, 4);
-    SSD1306_WriteString("IR:");
-    UInt32_ToString(ir_value, text);
-    SSD1306_WriteString(text);
+
+    if (finger_detected == 0)
+    {
+        SSD1306_WriteString("Temp: No detect");
+    }
+    else if (temp_valid == 0)
+    {
+        SSD1306_WriteString("Temp: Leyendo");
+    }
+    else if (skin_detected == 0)
+    {
+        SSD1306_WriteString("Temp: No detect");
+    }
+    else
+    {
+        SSD1306_WriteString("Temp:");
+        Temp_ToString(temp_x100, text);
+        SSD1306_WriteString(text);
+        SSD1306_WriteString(" C");
+    }
 
 
 
 
     SSD1306_SetCursor(10, 6);
 
-    if (finger_detected)
+    if (buzzer_alarm)
     {
-        SSD1306_WriteString("Dedo: SI ");
+        SSD1306_WriteString("ALERTA: BPM");
+    }
+    else if (freeze_mode)
+    {
+        SSD1306_WriteString("Modo: CONGELADO");
+    }
+    else if (system_functional)
+    {
+        SSD1306_WriteString("Sistema: OK");
     }
     else
     {
-        SSD1306_WriteString("Dedo: NO ");
+        SSD1306_WriteString("Sistema: ESP");
     }
-
-    SSD1306_WriteString("P:");
-    UInt8_ToHexString(part_id, text);
-    SSD1306_WriteString(text);
 }
 
-static void Send_Test_By_UART(uint8_t sensor_ok,
-                              uint8_t part_id,
-                              uint8_t rev_id,
-                              uint32_t red_value,
-                              uint32_t ir_value,
-                              uint8_t finger_detected)
+static void Send_Header_By_UART(void)
 {
-    char text[12];
-
     UART_WriteLine("");
-    UART_WriteLine("----- PRUEBA MAX30102 -----");
+    UART_WriteLine("Muestra\tFC_Estado\tFC_Valor\tTemp_Estado\tTemp_Valor\tRED\tIR\tSistema\tModo\tAlarma_BPM");
+    UART_WriteLine("------------------------------------------------------------------------------------------------------");
+}
 
-    if (sensor_ok)
+static void Send_Data_By_UART(uint16_t sample,
+                              uint8_t finger_detected,
+                              uint8_t temp_valid,
+                              uint8_t skin_detected,
+                              int16_t temp_x100,
+                              uint8_t bpm_valid,
+                              uint16_t bpm,
+                              uint32_t red_value,
+                              uint32_t ir_value,
+                              uint8_t system_functional,
+                              uint8_t freeze_mode,
+                              uint8_t buzzer_alarm)
+{
+    char text[12];
+
+    UART_WriteUInt16(sample);
+    UART_WriteString("\t");
+
+
+
+
+    if (finger_detected == 0)
     {
-        UART_WriteLine("Estado I2C: MAX30102 detectado");
+        UART_WriteString("No detectado\t");
+        UART_WriteString("-- BPM\t");
+    }
+    else if (bpm_valid == 0)
+    {
+        UART_WriteString("Detectado\t");
+        UART_WriteString("Calculando\t");
     }
     else
     {
-        UART_WriteLine("Estado I2C: sensor no detectado");
+        UART_WriteString("Detectado\t");
+        UART_WriteUInt16(bpm);
+        UART_WriteString(" BPM\t");
     }
 
-    UART_WriteString("PART_ID: ");
-    UInt8_ToHexString(part_id, text);
-    UART_WriteLine(text);
 
-    UART_WriteString("REV_ID: ");
-    UInt8_ToHexString(rev_id, text);
-    UART_WriteLine(text);
 
-    UART_WriteString("RED: ");
+
+    if (finger_detected == 0)
+    {
+        UART_WriteString("No detectado\t");
+        UART_WriteString("-- C\t");
+    }
+    else if (temp_valid == 0)
+    {
+        UART_WriteString("Detectado\t");
+        UART_WriteString("Leyendo\t");
+    }
+    else if (skin_detected == 0)
+    {
+        UART_WriteString("No detectado\t");
+        UART_WriteString("-- C\t");
+    }
+    else
+    {
+        UART_WriteString("Detectado\t");
+        Temp_ToString(temp_x100, text);
+        UART_WriteString(text);
+        UART_WriteString(" C\t");
+    }
+
+
+
+
     UInt32_ToString(red_value, text);
-    UART_WriteLine(text);
+    UART_WriteString(text);
+    UART_WriteString("\t");
 
-    UART_WriteString("IR: ");
     UInt32_ToString(ir_value, text);
-    UART_WriteLine(text);
+    UART_WriteString(text);
+    UART_WriteString("\t");
 
-    if (finger_detected)
+
+
+
+    if (system_functional)
     {
-        UART_WriteLine("Dedo: SI");
+        UART_WriteString("OK\t");
     }
     else
     {
-        UART_WriteLine("Dedo: NO");
+        UART_WriteString("ESPERA\t");
+    }
+
+
+
+
+    if (freeze_mode)
+    {
+        UART_WriteString("CONGELADO\t");
+    }
+    else
+    {
+        UART_WriteString("NORMAL\t");
+    }
+
+
+
+
+    if (buzzer_alarm)
+    {
+        UART_WriteLine("ACTIVA");
+    }
+    else
+    {
+        UART_WriteLine("INACTIVA");
     }
 }
